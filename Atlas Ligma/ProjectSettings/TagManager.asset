@@ -9,6 +9,7 @@ TagManager:
   - TrapSlow
   - Grid
   - Bullet
+  - Waypoint
   layers:
   - Default
   - TransparentFX
