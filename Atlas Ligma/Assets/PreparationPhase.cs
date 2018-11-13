@@ -15,9 +15,6 @@ public class PreparationPhase : MonoBehaviour {
 		{
 			prepPhaseActive = true;
 		}
-
-		print(Mathf.Round(prepTimer));
-
 		if (prepPhaseActive && !prepPhaseCountingDown)
 		{
 			StartCoroutine(PrepPhase());
