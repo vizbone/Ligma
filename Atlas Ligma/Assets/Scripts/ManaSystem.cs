@@ -2,23 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameStates {preStart, started, pause, win, lose};
+
 public class ManaSystem : MonoBehaviour
 {
-	public int maxMana; //Amt of mana players will have to reach to win the game. MAY differ for each level
-	public int currentMana;
+	//Game State
+	public GameStates gameState = GameStates.preStart; //Stores the state of the game
 
-	[SerializeField] private int startingMana; //Amt of mana players will start with. Will differ for each level
+	//Mana System
+	[SerializeField] private int startingMana = 1000; //Amt of mana players will start with. Will differ for each level
+	public int maxMana; //Amt of mana players will have to reach to win the game. MAY differ for each level
+	public int currentMana; //Amt of mana player has. Updated throughout the game
+
+	//Wave System
+	public int totalWaves = 10; //Total number of waves the level will have
+	public int currentWave; //Stores the current wave the player is in
 
 	private void Start()
 	{
+		gameState = GameStates.preStart;
 		currentMana = startingMana;
 	}
 
 	void Update()
 	{
+		UpdateGameState();
+
 		//Players win the game once their Current Mana is >= Max Mana
-		if (currentMana > maxMana) print("Victory");
-		else if (currentMana <= 0) print("Defeated");
+		if (currentMana > maxMana) gameState = GameStates.win;
+		else if (currentMana <= 0) gameState = GameStates.lose;
+	}
+
+	void UpdateGameState()
+	{
+		if (gameState == GameStates.pause) Time.timeScale = 0; //Time scale does not work with animation but mehhh
+		else Time.timeScale = 1;
 	}
 
 	//Subtracts mana from bank
