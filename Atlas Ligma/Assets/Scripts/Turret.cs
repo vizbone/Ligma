@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-
 	public float fireRate;
 	public float bulletSpeed;
 	public GameObject bullet;
@@ -24,7 +23,7 @@ public class Turret : MonoBehaviour
 
 	void Update () 
 	{
-		if (!cLock) { StartCoroutine ("shoot"); }
+		if (!cLock) StartCoroutine ("shoot");
 	}
 
 	void OnTriggerStay (Collider other) 
