@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 65845588055797006}
   - component: {fileID: 114969150304422178}
   - component: {fileID: 54931733638398382}
+  - component: {fileID: 136097374164544516}
+  - component: {fileID: 114248686598005138}
   m_Layer: 0
   m_Name: Turret B
   m_TagString: Untagged
@@ -155,7 +157,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 10, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114969150304422178
+--- !u!114 &114248686598005138
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,9 +165,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1050737448341168}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6798fd45a6ebaab4eac57a5a5ec64603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0
+  coolDown: 0
+  bulletSpeed: 0
+  range: 0
+  collider: {fileID: 0}
+  bullet: {fileID: 1902089975787962, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}
+  enemies: []
+--- !u!114 &114969150304422178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050737448341168}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2762a202e14e9044ab397f3dcc4e6d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 2
   bulletSpeed: 2
   bullet: {fileID: 1902089975787962, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}
+--- !u!136 &136097374164544516
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050737448341168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.49999997
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

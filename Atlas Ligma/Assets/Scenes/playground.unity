@@ -534,7 +534,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddc767f9870255a49846ae22d7c17716, type: 2}
   - {fileID: 11400000, guid: 749867a3ccdac3f4487af0f1504122ec, type: 2}
   - {fileID: 11400000, guid: a7a00e11d23c7a74eb293e6a8781d6b5, type: 2}
-  gridSize: 2
+  gridSize: 1
   buildMode: 0
 --- !u!114 &534669907
 MonoBehaviour:
@@ -582,9 +582,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e56017bef497be469408770eaba3e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
+  startingMana: 0
   maxMana: 1000
   currentMana: 0
-  startingMana: 0
+  totalWaves: 10
+  currentWave: 0
 --- !u!114 &534669910
 MonoBehaviour:
   m_ObjectHideFlags: 0

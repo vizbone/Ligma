@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+	public Transform townhall;
 	public float maxHealth = 5.0f;
 	public float currentHealth;
 	public bool frozen;
@@ -14,7 +15,8 @@ public class Enemy : MonoBehaviour
 	void Start ()
 	{
 		agent = GetComponent<NavMeshAgent>();
-		agent.SetDestination (FindObjectOfType<EnemySpawn> ().townHallPos.position + new Vector3 (0, 0.5f, 0));
+		townhall = FindObjectOfType<EnemySpawn>().townHallPos;
+		agent.SetDestination (townhall.position + new Vector3 (0, 0.5f, 0));
 		frozen = false;
 		currentHealth = maxHealth;
 	}
@@ -26,6 +28,12 @@ public class Enemy : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	public float CheckDistance()
+	{
+		//checks how far it is away from the townhall
+		return (transform.position - townhall.position).magnitude;
 	}
 
 	//Speed Decrease when in contact with the net traps
