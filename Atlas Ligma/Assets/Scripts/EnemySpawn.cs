@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
 	public float spawnRate;
+	public int count;
 	public bool active;
 	public GameObject[] enemies;
 	public Transform townHallPos;
@@ -23,6 +24,7 @@ public class EnemySpawn : MonoBehaviour
 	void Update ()
 	{
 		if (active && !cLock) { StartCoroutine ("spawnClock"); }
+		if (count == 10) active = false;
 	}
 
 	Vector3 GenerateRandomPos () 
@@ -38,6 +40,7 @@ public class EnemySpawn : MonoBehaviour
 	{
 		Instantiate (enemies[Random.Range (0, enemies.Length)], GenerateRandomPos (), Quaternion.identity);
 		cLock = true;
+		count++;
 		yield return new WaitForSeconds (time);
 		cLock = false;
 	}

@@ -12,13 +12,13 @@ public class TurretTemplate : MonoBehaviour {
 	[SerializeField] private CapsuleCollider collider;
 	[SerializeField] private GameObject bullet; //To be set in Inspector
 
-	[SerializeField] List<Enemy> enemies;
+	[SerializeField] List<AI> enemies;
 
 	protected virtual void Start()
 	{
 		collider = GetComponent<CapsuleCollider>();
 		collider.isTrigger = true;
-		enemies = new List<Enemy>();
+		enemies = new List<AI>();
 		SetValues();
 
 		//Set range of turret depending on type
@@ -36,14 +36,14 @@ public class TurretTemplate : MonoBehaviour {
 	protected virtual void SetValues()
 	{
 		fireRate = 1;
-		bulletSpeed = 5;
-		range = 50;
+		bulletSpeed = 100;
+		range = 150;
 	}
 
 	protected virtual void Shoot()
 	{
 		//Remove any "Enemy" from list if the Enemy Reference is not present
-		if (enemies.Contains(null)) enemies.RemoveAll(Enemy => Enemy == null);
+		if (enemies.Contains(null)) enemies.RemoveAll(AI => AI == null);
 
 		if (enemies.Count > 0)
 		{
@@ -75,14 +75,14 @@ public class TurretTemplate : MonoBehaviour {
 		else return;
 	}
 
-	void OnTriggerStay(Collider other)
+	void OnTriggerStay (Collider other)
 	{
-		if (other.tag == "Enemy" && !enemies.Contains(other.GetComponent<Enemy>())) enemies.Add(other.GetComponent<Enemy>());
-		print("Working");
+		if (other.tag == "AI" && !enemies.Contains(other.GetComponent<AI>())) enemies.Add(other.GetComponent<AI>());
+		//print("Working");
 	}
 
 	void OnTriggerExit(Collider other)
 	{
-		if (other.tag == "Enemy") { enemies.Remove(other.GetComponent<Enemy>()); }
+		if (other.tag == "AI") { enemies.Remove(other.GetComponent<AI>()); }
 	}
 }

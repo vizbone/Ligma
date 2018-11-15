@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0
   coolDown: 0
-  bulletSpeed: 0
+  bulletSpeed: 20.62
   range: 0
   collider: {fileID: 0}
   bullet: {fileID: 1902089975787962, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}

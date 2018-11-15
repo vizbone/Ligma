@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour {
 
+	public AIMovement.Paths path;
 	public int currentDestination;
 	NavMeshAgent agent;
 	AIMovement ai;
@@ -14,11 +15,39 @@ public class AI : MonoBehaviour {
 		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
 		currentDestination = 0;
-		agent.SetDestination (ai.points[0].transform.position);
+		ai.NextPoint (agent, this, true);
 	}
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Waypoint") ai.NextPoint (agent, this);
+		if (other.tag == "Waypoint") ai.NextPoint (agent, this, false);
+	}
+
+	public float CheckDistance () 
+	{
+		float fractional = 
+		path == AIMovement.Paths.path1 ? (ai.path1[currentDestination].transform.position - transform.position).magnitude :
+		path == AIMovement.Paths.path2 ? (ai.path2[currentDestination].transform.position - transform.position).magnitude :
+		path == AIMovement.Paths.path3 ? (ai.path3[currentDestination].transform.position - transform.position).magnitude :
+		(ai.path4[currentDestination].transform.position - transform.position).magnitude;
+
+		int arrayLength = 
+		path == AIMovement.Paths.path1 ? ai.path1DV.Length :
+		path == AIMovement.Paths.path2 ? ai.path2DV.Length :
+		path == AIMovement.Paths.path3 ? ai.path3DV.Length :
+		ai.path1DV.Length;
+
+		float remainingDist = 0;
+
+		for (int i = currentDestination;i < arrayLength; i++) 
+		{ 
+			remainingDist += 
+			path == AIMovement.Paths.path1 ? ai.path1DV[currentDestination] :
+			path == AIMovement.Paths.path2 ? ai.path2DV[currentDestination] :
+			path == AIMovement.Paths.path3 ? ai.path3DV[currentDestination] :
+			ai.path1DV[currentDestination];
+		}
+		print (fractional + remainingDist);
+		return fractional + remainingDist;
 	}
 }

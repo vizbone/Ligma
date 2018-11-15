@@ -219,7 +219,6 @@ GameObject:
   - component: {fileID: 173557681}
   - component: {fileID: 173557682}
   - component: {fileID: 173557683}
-  - component: {fileID: 173557684}
   m_Layer: 0
   m_Name: 0
   m_TagString: Waypoint
@@ -267,23 +266,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &173557684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 173557680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b051c8ecb45c7944fbc48151cb2d8cf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 173557681}
-  - {fileID: 1893521288}
-  - {fileID: 359059145}
-  - {fileID: 406725838}
-  - {fileID: 56106914}
 --- !u!1 &359059144
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452722766}
+  - component: {fileID: 452722765}
   m_Layer: 0
   m_Name: Waypoints
   m_TagString: Waypoint
@@ -413,6 +396,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &452722765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 452722764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b051c8ecb45c7944fbc48151cb2d8cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path1:
+  - {fileID: 173557681}
+  - {fileID: 1893521288}
+  - {fileID: 359059145}
+  - {fileID: 406725838}
+  - {fileID: 56106914}
+  path2:
+  - {fileID: 1893521288}
+  - {fileID: 173557681}
+  - {fileID: 359059145}
+  - {fileID: 406725838}
+  - {fileID: 56106914}
+  path3:
+  - {fileID: 1893521288}
+  - {fileID: 359059145}
+  - {fileID: 173557681}
+  - {fileID: 406725838}
+  - {fileID: 56106914}
+  path4:
+  - {fileID: 1893521288}
+  - {fileID: 359059145}
+  - {fileID: 406725838}
+  - {fileID: 173557681}
+  - {fileID: 56106914}
+  path1DV: []
+  path2DV: []
+  path3DV: []
+  path4DV: []
 --- !u!4 &452722766
 Transform:
   m_ObjectHideFlags: 0
@@ -507,7 +529,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 1670.14, y: 24.79, z: 1453.43}
+  m_LocalPosition: {x: 1674.84, y: 24.79, z: 1448.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -547,7 +569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e33e4f2f6180724986881914350d1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 1000
+  count: 0
   active: 1
   enemies:
   - {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490, type: 2}
@@ -583,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
-  startingMana: 0
+  startingMana: 500
   maxMana: 1000
   currentMana: 0
   totalWaves: 10
