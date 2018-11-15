@@ -6,6 +6,8 @@ public enum GameStates {preStart, started, pause, win, lose};
 
 public class ManaSystem : MonoBehaviour
 {
+<<<<<<< HEAD
+=======
 	//Game State
 	public GameStates gameState = GameStates.preStart; //Stores the state of the game
 
@@ -38,32 +40,22 @@ public class ManaSystem : MonoBehaviour
 		if (gameState == GameStates.pause) Time.timeScale = 0; //Time scale does not work with animation but mehhh
 		else Time.timeScale = 1;
 	}
+>>>>>>> c39434590d8fedafe283bbae31b9903dd879a195
 
-	//Subtracts mana from bank
-	public void ManaMinus (int amount) 
-	{
-		currentMana -= amount;
-	}
+	public int maxMana;
+	public int currentMana;
+	public int manaRegenPerTick;
+	public int manaRegenRate;
 
-	//Adds mana from bank
-	public void ManaAdd (int amount)
-	{
-		currentMana += amount;
-	}
+	bool cLock;
+	float time;
 
-	//public int manaRegenPerTick;
-	//public int manaRegenRate;
-
-	//bool cLock;
-	//float time;
-
-	//Old Mana System
-	/*void Start ()
+	void Start ()
 	{
 		if (manaRegenRate <= 0) { manaRegenRate = 1; }
 		time = 1 / manaRegenRate;
 		cLock = false;
-		currentMana = maxMana;
+		currentMana = maxMana; 
 	}
 
 	void Update ()
@@ -78,5 +70,18 @@ public class ManaSystem : MonoBehaviour
 		if (currentMana > maxMana) { currentMana = maxMana; }
 		yield return new WaitForSeconds (time);
 		cLock = false;
-	}*/
+	}
+
+	//minuses mana from bank
+	public void ManaMinus (int amount) 
+	{
+		currentMana -= amount;
+	}
+
+	//adds mana from bank
+	public void ManaAdd (int amount)
+	{
+		currentMana += amount;
+		if (currentMana > maxMana) { currentMana = maxMana; }
+	}
 }
