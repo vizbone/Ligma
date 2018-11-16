@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AttackType {ground, air, both};
+public enum AttackType {lowGround, air, both};
 
 [RequireComponent(typeof(CapsuleCollider))]
 public abstract class TurretTemplate : MonoBehaviour {
 
 	//Values to be set
-	public float fireRate; //To be set
-	public float bulletSpeed; //To be set
-	public float range; //To be set
-	public AttackType attackType; //To be set
+	public float fireRate;
+	public float bulletSpeed;
+	public float range;
+	public AttackType attackType;
 
 	public float coolDown;
 	
@@ -80,10 +80,20 @@ public abstract class TurretTemplate : MonoBehaviour {
 		else return;
 	}
 
-	void OnTriggerStay (Collider other)
+	/*void OnTriggerStay (Collider other)
 	{
 		if (other.tag == "AI" && !enemies.Contains(other.GetComponent<AI>())) enemies.Add(other.GetComponent<AI>());
 		//print("Working");
+	}*/
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "AI")
+		{
+			AI enemyComp = other.GetComponent<AI>();
+			if (attackType == AttackType.both) enemies.Add(enemyComp); // || attackType = enemyComp.attackType
+			print("Working");
+		}
 	}
 
 	void OnTriggerExit(Collider other)

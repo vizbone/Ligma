@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
+	//Deprecated. Use Turret Template Instead
 	public float fireRate;
 	public float bulletSpeed;
 	public GameObject bullet;

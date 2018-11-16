@@ -8,7 +8,7 @@ public class Catapult : TurretTemplate {
 	{
 		range = 10;
 		fireRate = 2f;
-		attackType = AttackType.ground;
-		bulletSpeed = 50;
+		attackType = AttackType.lowGround;
+		bulletSpeed = 10;
 	}
 }
