@@ -48,7 +48,7 @@ public class AIMovement : MonoBehaviour {
 
 	public void NextPointSea (NavMeshAgent ai, AISea script)
 	{
-		script.currentDestination++;
+		script.currentDestination = script.currentDestination == 0 ? 1 : 0;
 		if (script.path == Paths.seaPath1) ai.SetDestination (seaPath1[script.currentDestination].position);
 		if (script.path == Paths.seaPath2) ai.SetDestination (seaPath2[script.currentDestination].position);
 	}

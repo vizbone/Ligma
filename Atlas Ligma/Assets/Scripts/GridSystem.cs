@@ -13,7 +13,6 @@ public class GridSystem : MonoBehaviour {
 	GameObject currentBuild;
 	Camera cam;
 	ManaSystem manaSys;
-	CastSpell spellCaster;
 	int buildIndex;
 	public bool buildMode;
 
@@ -21,7 +20,6 @@ public class GridSystem : MonoBehaviour {
 	{
 		cam = GetComponent<Camera> ();
 		manaSys = GetComponent<ManaSystem> ();
-		spellCaster = GetComponent<CastSpell>();
 		buildMode = false;
 		buildIndex = 0;
 	}
@@ -33,11 +31,8 @@ public class GridSystem : MonoBehaviour {
 
 	void BuildFunction()
 	{
-		if (!spellCaster.isCasting)
-		{
-			BuildSwitchAndPreview();
-			Cast();
-		}
+		BuildSwitchAndPreview();
+		Cast();
 	}
 
 	//handles the building previews and switching the mode on and off

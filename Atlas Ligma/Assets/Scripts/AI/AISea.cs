@@ -18,6 +18,7 @@ public class AISea : MonoBehaviour
 	bool unloading;
 	float time;
 	bool cLock;
+	bool firstTime;
 
 	int currentEnemySpawnCount;
 
@@ -28,6 +29,8 @@ public class AISea : MonoBehaviour
 
 		cLock = false;
 		currentDestination = 0;
+		firstTime = true;
+		unloading = false;
 		
 		Instance ();
 
@@ -37,7 +40,8 @@ public class AISea : MonoBehaviour
 
 	void Update () 
 	{
-		if (unloading && !cLock) StartCoroutine (spawn ());
+		if (unloading && !cLock)
+			StartCoroutine (spawn ());
 	}
 
 	IEnumerator spawn () 
@@ -45,7 +49,11 @@ public class AISea : MonoBehaviour
 		cLock = true;
 		Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
 		currentEnemySpawnCount++;
-		if (currentEnemySpawnCount >= enemyBatchSpawnCount) { }
+		if (currentEnemySpawnCount >= enemyBatchSpawnCount)
+		{
+			ai.NextPointSea (agent, this);
+			unloading = false;
+		}
 		yield return new WaitForSeconds (time);
 		cLock = false;
 	}
@@ -54,11 +62,24 @@ public class AISea : MonoBehaviour
 	{
 		instanceCount++;
 		ai.NextPointSea (agent, this);
-		
 	}
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "WaypointSea") unloading = unloading ? false : true;
+		if (other.tag == "WaypointSea")
+		{
+			if (currentDestination == 1)
+				if (firstTime)
+					firstTime = false;
+				else
+					unloading = true;
+			else if (instanceCount >= maxInstances)
+				Destroy (gameObject);
+			else
+			{
+				Instance ();
+				currentEnemySpawnCount = 0;
+			}
+		}
 	}
 }
