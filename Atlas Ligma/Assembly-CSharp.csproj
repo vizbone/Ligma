@@ -65,9 +65,7 @@
     <Compile Include="Assets\Scripts\AIMovement.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
-    <Compile Include="Assets\Scripts\Cannon.cs" />
     <Compile Include="Assets\Scripts\CastSpell.cs" />
-    <Compile Include="Assets\Scripts\Crossbow.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\GridSystem.cs" />
@@ -75,6 +73,10 @@
     <Compile Include="Assets\Scripts\PreparationPhase.cs" />
     <Compile Include="Assets\Scripts\SpellCircle.cs" />
     <Compile Include="Assets\Scripts\Tower.cs" />
+    <Compile Include="Assets\Scripts\Towers\Cannon.cs" />
+    <Compile Include="Assets\Scripts\Towers\Catapult.cs" />
+    <Compile Include="Assets\Scripts\Towers\Crossbow.cs" />
+    <Compile Include="Assets\Scripts\Towers\Rockets.cs" />
     <Compile Include="Assets\Scripts\TownHall.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
     <Compile Include="Assets\Scripts\TrapSlow.cs" />

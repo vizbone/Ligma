@@ -84,7 +84,7 @@ public class GridSystem : MonoBehaviour {
 			{
 				buildPos = new Vector3 (hit.point.x - Mathf.Repeat (hit.point.x, gridSize) + gridSize * 0.5f, 0.5f, hit.point.z - Mathf.Repeat (hit.point.z, gridSize) + gridSize * 0.5f);
 				currentBuild.transform.position = buildPos;
-				bool canPlace = isObjectHere (buildPos) && towers[buildIndex].cost <= manaSys.currentMana ? true : false;
+				bool canPlace = /*isObjectHere (buildPos) &&*/ towers[buildIndex].cost <= manaSys.currentMana ? true : false;
 				Material (canPlace);
 				if (Input.GetMouseButtonDown (0) && canPlace)
 				{

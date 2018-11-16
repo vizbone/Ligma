@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc73c06373ea81479d563b4e44b9010, type: 3}
   m_Name: Cannon
   m_EditorClassIdentifier: 
-  buildModel: {fileID: 1302263127540834, guid: 5dd1c71e5b1f3f844b2252897e514e53, type: 2}
+  buildModel: {fileID: 1366766805092298, guid: 808afee80399ab442b2ed842076d7a78, type: 2}
   actualTower: {fileID: 1366766805092298, guid: 808afee80399ab442b2ed842076d7a78,
     type: 2}
   cost: 20

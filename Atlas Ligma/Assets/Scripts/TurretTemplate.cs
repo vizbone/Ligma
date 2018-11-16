@@ -74,6 +74,7 @@ public abstract class TurretTemplate : MonoBehaviour {
 			Vector3 direction = -(transform.position - enemies[index].transform.position).normalized;
 			GameObject currentBullet = Instantiate(bullet, transform.position + direction * 0.5f, Quaternion.identity);
 			currentBullet.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
+			coolDown = fireRate;
 			//print ("Shortest: " + shortestDist);
 		}
 		else return;

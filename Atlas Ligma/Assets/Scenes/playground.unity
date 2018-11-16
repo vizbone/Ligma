@@ -529,7 +529,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 1674.84, y: 24.79, z: 1448.73}
+  m_LocalPosition: {x: 1670.8, y: 24.79, z: 1454.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -555,6 +555,8 @@ MonoBehaviour:
   towers:
   - {fileID: 11400000, guid: 9236a80f71e99a2409ee1e7a16188c47, type: 2}
   - {fileID: 11400000, guid: a7a00e11d23c7a74eb293e6a8781d6b5, type: 2}
+  - {fileID: 11400000, guid: 6c4065307d976b840b3b7f61aec625f0, type: 2}
+  - {fileID: 11400000, guid: e23b350f1ba25384985a4401246b2ea2, type: 2}
   gridSize: 1
   buildMode: 0
 --- !u!114 &534669907

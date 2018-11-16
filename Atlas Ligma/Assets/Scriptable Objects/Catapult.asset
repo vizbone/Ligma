@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc73c06373ea81479d563b4e44b9010, type: 3}
+  m_Name: Catapult
+  m_EditorClassIdentifier: 
+  buildModel: {fileID: 1302263127540834, guid: 5dd1c71e5b1f3f844b2252897e514e53, type: 2}
+  actualTower: {fileID: 1236525239498642, guid: 6df7383fd7fdcc34b81fd58ee169ebcb,
+    type: 2}
+  cost: 20
