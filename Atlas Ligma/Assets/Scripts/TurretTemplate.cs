@@ -49,15 +49,17 @@ public class TurretTemplate : MonoBehaviour {
 		{
 			float shortestDist = Mathf.Infinity;
 			int index = 0;
-
+			//print ("==========================================================================");
 			for (int i = 0; i < enemies.Count; i++)
 			{
 				//For attacking enemies closest to Townhall
 				float enemyDistance = enemies[i].CheckDistance();
+				//print ("Index " + i + ": " + enemyDistance);
 				if (enemyDistance < shortestDist)
 				{
 					shortestDist = enemyDistance;
 					index = i;
+					//print ("i updated");
 				}
 
 				//For attacking enemies closest to Turret
@@ -71,6 +73,7 @@ public class TurretTemplate : MonoBehaviour {
 			Vector3 direction = -(transform.position - enemies[index].transform.position).normalized;
 			GameObject currentBullet = Instantiate(bullet, transform.position + direction * 0.5f, Quaternion.identity);
 			currentBullet.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
+			//print ("Shortest: " + shortestDist);
 		}
 		else return;
 	}

@@ -569,12 +569,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e33e4f2f6180724986881914350d1b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1000
+  spawnRate: 1
   count: 0
   active: 1
+  dev: 0
+  maxCount: 10
   enemies:
   - {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490, type: 2}
   townHallPos: {fileID: 56106914}
+  devPos: {fileID: 982053635}
   distance: 10
 --- !u!114 &534669908
 MonoBehaviour:
@@ -735,6 +738,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 56106914}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &982053634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 982053635}
+  m_Layer: 0
+  m_Name: devpos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982053635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982053634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1694.5, y: 0.5, z: 1450.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1660142844
 GameObject:

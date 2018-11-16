@@ -7,8 +7,11 @@ public class EnemySpawn : MonoBehaviour
 	public float spawnRate;
 	public int count;
 	public bool active;
+	public bool dev;
+	public int maxCount;
 	public GameObject[] enemies;
 	public Transform townHallPos;
+	public Transform devPos;
 	public float distance;
 
 	float time;
@@ -24,7 +27,7 @@ public class EnemySpawn : MonoBehaviour
 	void Update ()
 	{
 		if (active && !cLock) { StartCoroutine ("spawnClock"); }
-		if (count == 10) active = false;
+		if (count == maxCount) active = false;
 	}
 
 	Vector3 GenerateRandomPos () 
@@ -38,7 +41,7 @@ public class EnemySpawn : MonoBehaviour
 
 	IEnumerator spawnClock () 
 	{
-		Instantiate (enemies[Random.Range (0, enemies.Length)], GenerateRandomPos (), Quaternion.identity);
+		Instantiate (enemies[Random.Range (0, enemies.Length)], dev ? GenerateRandomPos () : devPos.position, Quaternion.identity);
 		cLock = true;
 		count++;
 		yield return new WaitForSeconds (time);

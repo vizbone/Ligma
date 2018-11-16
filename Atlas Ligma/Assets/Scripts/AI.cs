@@ -35,19 +35,18 @@ public class AI : MonoBehaviour {
 		path == AIMovement.Paths.path1 ? ai.path1DV.Length :
 		path == AIMovement.Paths.path2 ? ai.path2DV.Length :
 		path == AIMovement.Paths.path3 ? ai.path3DV.Length :
-		ai.path1DV.Length;
+		ai.path4DV.Length;
 
 		float remainingDist = 0;
 
-		for (int i = currentDestination;i < arrayLength; i++) 
+		for (int i = currentDestination; i < arrayLength; i++) 
 		{ 
 			remainingDist += 
-			path == AIMovement.Paths.path1 ? ai.path1DV[currentDestination] :
-			path == AIMovement.Paths.path2 ? ai.path2DV[currentDestination] :
-			path == AIMovement.Paths.path3 ? ai.path3DV[currentDestination] :
-			ai.path1DV[currentDestination];
+			path == AIMovement.Paths.path1 ? ai.path1DV[i] :
+			path == AIMovement.Paths.path2 ? ai.path2DV[i] :
+			path == AIMovement.Paths.path3 ? ai.path3DV[i] :
+			ai.path4DV[i];
 		}
-		print (fractional + remainingDist);
 		return fractional + remainingDist;
 	}
 }
