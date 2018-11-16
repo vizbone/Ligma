@@ -7,6 +7,7 @@ public class GridSystem : MonoBehaviour {
 	public LayerMask gridLayer;
 	public Material[] buildingMaterials;
 	public Tower[] towers;
+	public LayerMask[] ignoreLayersForBuilding;
 	public float gridSize;
 
 	GameObject currentBuild;
@@ -84,7 +85,7 @@ public class GridSystem : MonoBehaviour {
 			{
 				buildPos = new Vector3 (hit.point.x - Mathf.Repeat (hit.point.x, gridSize) + gridSize * 0.5f, 0.5f, hit.point.z - Mathf.Repeat (hit.point.z, gridSize) + gridSize * 0.5f);
 				currentBuild.transform.position = buildPos;
-				bool canPlace = /*isObjectHere (buildPos) &&*/ towers[buildIndex].cost <= manaSys.currentMana ? true : false;
+				bool canPlace = !isObjectHere (buildPos) && towers[buildIndex].cost <= manaSys.currentMana ? true : false;
 				Material (canPlace);
 				if (Input.GetMouseButtonDown (0) && canPlace)
 				{
@@ -97,8 +98,24 @@ public class GridSystem : MonoBehaviour {
 	//check if object is present
 	bool isObjectHere (Vector3 position)
 	{
+		bool isIt = false;
 		Collider[] intersecting = Physics.OverlapSphere (position, 0.01f);
-		return intersecting.Length == 0 ? true : false;
+		if (intersecting.Length == 0)
+		{
+			return false;
+		} else {
+			for (int i = 0; i < intersecting.Length; i++)
+			{
+				for (int index = 0; index < ignoreLayersForBuilding.Length; index++)
+				{
+					if (intersecting[i].gameObject.layer == ignoreLayersForBuilding[index])
+					{
+						isIt = true;
+					}
+				}
+			}
+			return isIt;
+		}
 	}
 
 	//handles changing of material (if it can place or not)

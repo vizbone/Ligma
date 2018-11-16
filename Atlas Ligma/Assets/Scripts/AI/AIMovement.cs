@@ -5,11 +5,17 @@ using UnityEngine.AI;
 
 public class AIMovement : MonoBehaviour {
 	
-	public enum Paths {path1, path2, path3, path4};
+	public enum Paths {path1, path2, path3, path4, seaPath1, seaPath2};
 	public Transform[] path1;
 	public Transform[] path2;
 	public Transform[] path3;
 	public Transform[] path4;
+
+	public Transform[] seaPath1;
+	public Transform[] seaPath2;
+
+	public Transform seaPath1Spawn;
+	public Transform seaPath2Spawn;
 
 	public float[] path1DV;
 	public float[] path2DV;
@@ -35,6 +41,15 @@ public class AIMovement : MonoBehaviour {
 		if (script.path == Paths.path1) ai.SetDestination (path1[script.currentDestination].position);
 		if (script.path == Paths.path2) ai.SetDestination (path2[script.currentDestination].position);
 		if (script.path == Paths.path3) ai.SetDestination (path3[script.currentDestination].position); 
-		if (script.path == Paths.path4) ai.SetDestination (path4[script.currentDestination].position); 
+		if (script.path == Paths.path4) ai.SetDestination (path4[script.currentDestination].position);
+		if (script.path == Paths.seaPath1) ai.SetDestination (seaPath1[script.currentDestination].position);
+		if (script.path == Paths.seaPath2) ai.SetDestination (seaPath2[script.currentDestination].position);
+	}
+
+	public void NextPointSea (NavMeshAgent ai, AISea script)
+	{
+		script.currentDestination++;
+		if (script.path == Paths.seaPath1) ai.SetDestination (seaPath1[script.currentDestination].position);
+		if (script.path == Paths.seaPath2) ai.SetDestination (seaPath2[script.currentDestination].position);
 	}
 }

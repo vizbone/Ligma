@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4983859820591880}
   - component: {fileID: 65219728055935078}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 54738013852882626}
   - component: {fileID: 136619823122011516}
   - component: {fileID: 114402511806141360}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

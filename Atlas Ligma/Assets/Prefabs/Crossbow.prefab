@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54931733638398382}
   - component: {fileID: 136097374164544516}
   - component: {fileID: 114248686598005138}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crossbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4926378455881220}
   - component: {fileID: 65847312858513646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}

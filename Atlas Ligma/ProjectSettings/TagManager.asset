@@ -10,6 +10,7 @@ TagManager:
   - Grid
   - Bullet
   - Waypoint
+  - AI
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - 
   - PostProcessing
   - Grid
-  - 
+  - Tower
   - 
   - 
   - 
