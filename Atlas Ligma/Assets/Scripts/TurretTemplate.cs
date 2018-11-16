@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CapsuleCollider))]
-public class TurretTemplate : MonoBehaviour {
+public enum AttackType {ground, air, both};
 
-	public float fireRate;
+[RequireComponent(typeof(CapsuleCollider))]
+public abstract class TurretTemplate : MonoBehaviour {
+
+	//Values to be set
+	public float fireRate; //To be set
+	public float bulletSpeed; //To be set
+	public float range; //To be set
+	public AttackType attackType; //To be set
+
 	public float coolDown;
-	public float bulletSpeed;
-	public float range;
+	
 	[SerializeField] private CapsuleCollider collider;
 	[SerializeField] private GameObject bullet; //To be set in Inspector
 
@@ -33,12 +39,7 @@ public class TurretTemplate : MonoBehaviour {
 		if (coolDown <= 0) Shoot();
 	}
 
-	protected virtual void SetValues()
-	{
-		fireRate = 1;
-		bulletSpeed = 100;
-		range = 150;
-	}
+	protected abstract void SetValues();
 
 	protected virtual void Shoot()
 	{

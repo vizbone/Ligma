@@ -553,8 +553,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
   - {fileID: 2100000, guid: d78a98576923c0147a1491c616e821f7, type: 2}
   towers:
-  - {fileID: 11400000, guid: ddc767f9870255a49846ae22d7c17716, type: 2}
-  - {fileID: 11400000, guid: 749867a3ccdac3f4487af0f1504122ec, type: 2}
+  - {fileID: 11400000, guid: 9236a80f71e99a2409ee1e7a16188c47, type: 2}
   - {fileID: 11400000, guid: a7a00e11d23c7a74eb293e6a8781d6b5, type: 2}
   gridSize: 1
   buildMode: 0

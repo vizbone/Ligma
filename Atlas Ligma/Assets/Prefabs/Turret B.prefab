@@ -165,13 +165,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1050737448341168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6798fd45a6ebaab4eac57a5a5ec64603, type: 3}
+  m_Script: {fileID: 11500000, guid: dcf3bb90769059749a4a3df6a83506c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0
-  coolDown: 0
   bulletSpeed: 20.62
   range: 0
+  attackType: 0
+  coolDown: 0
   collider: {fileID: 0}
   bullet: {fileID: 1902089975787962, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}
   enemies: []
