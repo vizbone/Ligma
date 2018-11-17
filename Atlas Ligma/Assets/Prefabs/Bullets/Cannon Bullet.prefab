@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54152956531562462}
   - component: {fileID: 114438226372465102}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Cannon Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 638fca9f786a2c2429b59a7413f0a784, type: 2}
+  - {fileID: 2100000, guid: d78a98576923c0147a1491c616e821f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5372c46b3e6cb4438cf92df763ccc28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 2
+  bulletType: 3
+  dmg: 0
+  lifetime: 0
 --- !u!135 &135796010074594438
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -8,7 +8,7 @@ public class Cannon :  TurretTemplate
 	{
 		range = 5;
 		fireRate = 1;
-		attackType = AttackType.ground;
-		bulletSpeed = 50;
+		attackType = AttackType.lowGround;
+		bulletSpeed = 10;
 	}
 }

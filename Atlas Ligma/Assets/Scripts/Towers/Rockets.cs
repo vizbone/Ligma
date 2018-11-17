@@ -9,6 +9,6 @@ public class Rockets : TurretTemplate {
 		range = 5;
 		fireRate = 0.5f;
 		attackType = AttackType.air;
-		bulletSpeed = 50;
+		bulletSpeed = 10;
 	}
 }

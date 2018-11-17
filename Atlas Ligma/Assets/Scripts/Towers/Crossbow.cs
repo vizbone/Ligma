@@ -9,6 +9,6 @@ public class Crossbow : TurretTemplate {
 		range = 5;
 		fireRate = 0.5f;
 		attackType = AttackType.both;
-		bulletSpeed = 50;
+		bulletSpeed = 10;
 	}
 }
