@@ -174,6 +174,6 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	void OnTriggerExit(Collider other)
 	{
-		if (other.tag == "AI") enemies.Remove(other.GetComponent<AI>());
+		if (other.tag == "AI") enemies.Remove(other.GetComponent<AITemplate>());
 	}
 }
