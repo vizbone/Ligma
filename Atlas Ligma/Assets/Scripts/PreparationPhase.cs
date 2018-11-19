@@ -4,36 +4,27 @@ using UnityEngine;
 
 public class PreparationPhase : MonoBehaviour {
 
-	public float prepTimer = 10.0f;
+	public bool prepPhaseActive;
+	public int currentWave;
+	EnemySpawn enemySpawn;
 
-	public bool prepPhaseActive = false;
-	public bool prepPhaseCountingDown = false;
+	private void Awake()
+	{
+		prepPhaseActive = false;
+		currentWave = 0;
+		enemySpawn = FindObjectOfType<EnemySpawn>();
+	}
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.A))
+		if (Input.GetKeyDown(KeyCode.A)) prepPhaseActive = true;
+	
+		if (Input.GetKeyDown(KeyCode.S))
 		{
-			prepPhaseActive = true;
+			prepPhaseActive = false;
+			currentWave++;
+			enemySpawn.indexOfEnemy = -1;
 		}
-		if (prepPhaseActive && !prepPhaseCountingDown)
-		{
-			StartCoroutine(PrepPhase());
-		}
-		
-		if (prepPhaseCountingDown)
-		{
-			prepTimer -= Time.deltaTime;
-		}
-
-		prepPhaseActive = false;
 	}
 
-	private IEnumerator PrepPhase()
-	{
-		prepTimer = 10.0f;
-		prepPhaseCountingDown = true;
-		print("In Preparation Phase");
-		yield return new WaitForSeconds(10.0f);
-		prepPhaseCountingDown = false;
-	}
 }

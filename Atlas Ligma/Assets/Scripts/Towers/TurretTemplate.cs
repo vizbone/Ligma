@@ -169,6 +169,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		{
 			AITemplate enemy = other.GetComponent<AITemplate>();
 			if (turretValues.attackType == AttackType.both || turretValues.attackType == enemy.enemyType) enemies.Add(enemy);
+			else return;
 		}
 	}
 

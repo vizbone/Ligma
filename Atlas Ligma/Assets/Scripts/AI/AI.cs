@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AI : MonoBehaviour {
+public class AI : AITemplate {
 
 	public AIMovement.Paths path;
 	public int currentDestination;
 	NavMeshAgent agent;
 	AIMovement ai;
 
-	void Start () 
+	protected override void Start () 
 	{
+		base.Start();
 		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
 		currentDestination = 0;
@@ -23,7 +24,7 @@ public class AI : MonoBehaviour {
 		if (other.tag == "Waypoint") ai.NextPoint (agent, this, false);
 	}
 
-	public float CheckDistance () 
+	public override float CheckDistance () 
 	{
 		float fractional = 
 		path == AIMovement.Paths.path1 ? (ai.path1[currentDestination].transform.position - transform.position).magnitude :

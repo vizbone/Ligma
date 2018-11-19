@@ -9,25 +9,37 @@ public class EnemySpawn : MonoBehaviour
 	public bool active;
 	public bool dev;
 	public int maxCount;
+	public int indexOfEnemy;
 	public GameObject[] enemies;
 	public Transform townHallPos;
 	public Transform devPos;
+	public Transform[] spawnPos;
 	public float distance;
 
 	float time;
 	bool cLock;
+
+	WaveSystem waveSys;
+	PreparationPhase prepPhase;
 
 	void Start ()
 	{ 
 		if (spawnRate <= 0) { spawnRate = 1; }
 		time = 1 / spawnRate;
 		cLock = false;
+		waveSys = FindObjectOfType<WaveSystem>();
+		prepPhase = FindObjectOfType<PreparationPhase>();
+		indexOfEnemy = -1;
 	}
 
 	void Update ()
 	{
-		if (active && !cLock) { StartCoroutine ("spawnClock"); }
+		if (prepPhase.prepPhaseActive && !cLock) {
+			indexOfEnemy++;
+			StartCoroutine ("SpawnClock");
+		}
 		if (count == maxCount) active = false;
+		if (indexOfEnemy == waveSys.wave[prepPhase.currentWave].enemy.Length - 1) prepPhase.prepPhaseActive = false;
 	}
 
 	Vector3 GenerateRandomPos () 
@@ -39,12 +51,12 @@ public class EnemySpawn : MonoBehaviour
 		return townHallPos.position + new Vector3 (x, 0.5f, z);
 	}
 
-	IEnumerator spawnClock () 
+	IEnumerator SpawnClock () 
 	{
-		Instantiate (enemies[Random.Range (0, enemies.Length)], dev ? GenerateRandomPos () : devPos.position, Quaternion.identity);
+		Instantiate (waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].typeOfEnemy, spawnPos[Random.Range(0,2)].position, Quaternion.identity);
 		cLock = true;
 		count++;
-		yield return new WaitForSeconds (time);
+		yield return new WaitForSeconds (waveSys.wave[0].enemy[0].interval);
 		cLock = false;
 	}
 }

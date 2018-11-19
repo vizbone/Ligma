@@ -3493,6 +3493,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 510733881}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &515478763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515478764}
+  m_Layer: 0
+  m_Name: Spawn Point Land 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &515478764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 515478763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1694.22, y: 1.9270513, z: 1486.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &525034353
 GameObject:
   m_ObjectHideFlags: 0
@@ -3650,6 +3678,7 @@ GameObject:
   - component: {fileID: 534669908}
   - component: {fileID: 534669909}
   - component: {fileID: 534669911}
+  - component: {fileID: 534669910}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3760,10 +3789,16 @@ MonoBehaviour:
   active: 1
   dev: 0
   maxCount: 1
+  indexOfEnemy: 0
   enemies:
   - {fileID: 1289301520888550, guid: 6cfb11e5c7f700644884e5adc7d1b55b, type: 2}
   townHallPos: {fileID: 56106914}
   devPos: {fileID: 525034354}
+  spawnPos:
+  - {fileID: 1233455559}
+  - {fileID: 515478764}
+  - {fileID: 774584210}
+  - {fileID: 144277891}
   distance: 10
 --- !u!114 &534669908
 MonoBehaviour:
@@ -3800,6 +3835,32 @@ MonoBehaviour:
   currentMana: 0
   totalWaves: 10
   currentWave: 0
+--- !u!114 &534669910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875b45707544b9c4b89d74b8b747b561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wave:
+  - enemy:
+    - {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313, type: 2}
+    - {fileID: 11400000, guid: ca7d1cfd97b702d44b9cb67ae7cd20e8, type: 2}
+    - {fileID: 11400000, guid: ca7d1cfd97b702d44b9cb67ae7cd20e8, type: 2}
+    - {fileID: 11400000, guid: ca7d1cfd97b702d44b9cb67ae7cd20e8, type: 2}
+    - {fileID: 11400000, guid: ca7d1cfd97b702d44b9cb67ae7cd20e8, type: 2}
+  - enemy:
+    - {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313, type: 2}
+    - {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313, type: 2}
+    - {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313, type: 2}
+  - enemy:
+    - {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313, type: 2}
+  - enemy:
+    - {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313, type: 2}
 --- !u!114 &534669911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3811,9 +3872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be654dd87f50beb41a172537cf290e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prepTimer: 10
   prepPhaseActive: 0
-  prepPhaseCountingDown: 0
+  currentWave: 0
 --- !u!1 &559228002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,6 +5467,21 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402511806141360, guid: 808afee80399ab442b2ed842076d7a78,
+        type: 2}
+      propertyPath: turretValues.fireRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402511806141360, guid: 808afee80399ab442b2ed842076d7a78,
+        type: 2}
+      propertyPath: turretValues.bulletSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114402511806141360, guid: 808afee80399ab442b2ed842076d7a78,
+        type: 2}
+      propertyPath: turretValues.range
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808afee80399ab442b2ed842076d7a78, type: 2}
@@ -7560,6 +7635,214 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1047334676}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1052256047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052256049}
+  - component: {fileID: 1052256048}
+  m_Layer: 0
+  m_Name: Set Me Values
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1052256048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052256047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60dc17828fa13ec40a39d3c4d6bf13dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossbow1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  crossbow2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  crossbow3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCrossbow0:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCrossbow1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCrossbow2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCrossbow3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  catapult1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  catapult2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  catapult3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCatapult0:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCatapult1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCatapult2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCatapult3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  cannon1:
+    dmg: 1
+    fireRate: 2
+    bulletSpeed: 25
+    range: 10
+    attackType: 0
+  cannon2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  cannon3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCannon0:
+    dmg: 1
+    fireRate: 2
+    bulletSpeed: 25
+    range: 10
+    attackType: 0
+  prebuiltCannon1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCannon2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltCannon3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  rocket1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  rocket2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  rocket3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltRocket0:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltRocket1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltRocket2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+  prebuiltRocket3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    attackType: 0
+--- !u!4 &1052256049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052256047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1687.5039, y: 0.4659428, z: 1472.3265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1081202021
 GameObject:
   m_ObjectHideFlags: 0
@@ -8687,6 +8970,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1225204170}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1233455558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233455559}
+  m_Layer: 0
+  m_Name: Spawn Point Land 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233455559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1233455558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1694.22, y: 1.9270513, z: 1461.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1254739891
 GameObject:
   m_ObjectHideFlags: 0

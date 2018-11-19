@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23894677575099700}
   - component: {fileID: 135514764174064938}
   - component: {fileID: 54773964039670158}
-  - component: {fileID: 114609426447134552}
   - component: {fileID: 114223184396069200}
   m_Layer: 0
   m_Name: Catapult Bullet
@@ -114,20 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 0}
-  lifetime: 0
---- !u!114 &114609426447134552
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1017571087022230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5372c46b3e6cb4438cf92df763ccc28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletType: 2
-  dmg: 0
   lifetime: 0
 --- !u!135 &135514764174064938
 SphereCollider:
