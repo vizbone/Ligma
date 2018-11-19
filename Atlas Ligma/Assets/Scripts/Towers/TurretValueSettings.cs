@@ -121,7 +121,7 @@ public class TurretValueSettings : MonoBehaviour
 	public TurretValues prebuiltRocket3;
 	public static TurretValues prebuiltRocket3s;
 
-	private void Start()
+	private void Awake()
 	{
 		//Set Values For Crossbows
 		crossbow1s = crossbow1;
