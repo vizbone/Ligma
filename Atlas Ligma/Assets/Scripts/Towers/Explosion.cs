@@ -25,6 +25,7 @@ public class Explosion : MonoBehaviour {
 	private void OnTriggerEnter(Collider other)
 	{
 		//Turret should be a catapult
-		if (other.tag == "AI") if (turret != null) turret.Hit(other.GetComponent<AITemplate>(), turret.isPrebuilt, gameObject, true);
+		//0 refers to the hitCount. Not needed for explosion
+		if (other.tag == "AI") if (turret != null) turret.Hit(other.GetComponent<AITemplate>(), turret.isPrebuilt, gameObject, 0, true);
 	}
 }

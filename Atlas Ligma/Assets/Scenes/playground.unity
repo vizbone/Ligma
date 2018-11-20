@@ -7672,43 +7672,43 @@ MonoBehaviour:
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 2
   crossbow2:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 2
   crossbow3:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 2
   prebuiltCrossbow0:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 2
   prebuiltCrossbow1:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 2
   prebuiltCrossbow2:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 2
   prebuiltCrossbow3:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 2
   catapult1:
     dmg: 0
     fireRate: 0
@@ -7816,25 +7816,25 @@ MonoBehaviour:
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 1
   prebuiltRocket1:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 1
   prebuiltRocket2:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 1
   prebuiltRocket3:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    attackType: 0
+    attackType: 1
 --- !u!4 &1052256049
 Transform:
   m_ObjectHideFlags: 0

@@ -142,7 +142,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	//Only requires overriding for Cannon and Catapult
 	//Function for Bullet to utilise on hit
 	//Exploded is specially for Catapults
-	public virtual void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, bool exploded = false)
+	public virtual void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
 		if (enemy.hp > 0)
 		{

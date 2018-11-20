@@ -20,7 +20,7 @@ public class Catapult : TurretTemplate {
 		else turretValues = TurretValueSettings.prebuiltCatapult0s;
 	}
 
-	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, bool exploded = false)
+	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
 		if (!exploded)
 		{

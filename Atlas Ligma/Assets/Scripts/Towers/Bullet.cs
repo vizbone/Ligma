@@ -8,10 +8,12 @@ public class Bullet : MonoBehaviour
 {
 	public TurretTemplate turret;
 	public float lifetime;
+	public int hitCount; //Only used by Cannon
 
 	private void Start()
 	{
 		//SetValues(bulletType);
+		hitCount = 0;
 		lifetime = 5;
 		Destroy(gameObject, lifetime);
 	}
@@ -20,7 +22,7 @@ public class Bullet : MonoBehaviour
 	{
 		if (other.tag == "AI")
 		{
-			if (turret != null) turret.Hit(other.GetComponent<AITemplate>(), turret.isPrebuilt, gameObject);
+			if (turret != null) turret.Hit(other.GetComponent<AITemplate>(), turret.isPrebuilt, gameObject, hitCount);
 		}
 	}
 }

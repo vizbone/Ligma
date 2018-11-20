@@ -10,10 +10,11 @@ public class Cannon :  TurretTemplate
 		else turretValues = TurretValueSettings.prebuiltCannon0s;
 	}
 
-	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, bool exploded = false)
+	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
 		if (enemy.hp > 0)
 		{
+			hitCount++;
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
@@ -22,6 +23,8 @@ public class Cannon :  TurretTemplate
 				Destroy(enemy.gameObject);
 			}
 		}
+
+		if (hitCount >= 5) Destroy(gameObject);
 	}
 
 	protected override void UpgradeStats(bool isPrebuilt)
