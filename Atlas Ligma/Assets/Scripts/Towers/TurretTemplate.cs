@@ -8,7 +8,7 @@ public enum AttackType {lowGround, air, both};
 public struct TurretValues
 {
 	public int dmg; //Damage of each bullets
-	public float fireRate; //Time at which a bullet is fired
+	public float fireRate; //Fire rate
 	public float bulletSpeed; //Speed of the bullet
 	public float range; //Diameter of where the Turret can detect enemies
 	public AttackType attackType; //Check which enemy it can attack
@@ -26,7 +26,11 @@ public abstract class TurretTemplate : MonoBehaviour
 	public int level; //Stores the turret level
 	public bool isPrebuilt = false; //Check if the Turret is a prebuilt turret
 	public float manaReturnPercentageB; //Stores BASE percentage(in decimal) of mana gained for each kill
+	public float manaReturnPercentageS; //Stores STurrets percentage(in decimal) of mana gained for each kill
 	public float manaReturnPercentageF; //Stores FINAL percentage(in decimal) of mana gained for each kill
+
+	public float totalFireRate;
+	public float fireRateBuff;
 
 	[Header ("Collider and Enemy List")]
 	[SerializeField] protected CapsuleCollider collider; //Stores the collider for enemy detection
@@ -40,6 +44,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	{
 		level = isPrebuilt ? 0 : 1; //If is prebuilt, Set Turret Level to 0, else it is a level 1
 		manaReturnPercentageB = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
+		manaReturnPercentageS = 0;
 		manaReturnPercentageF = manaReturnPercentageB;
 		manaSys = FindObjectOfType<ManaSystem>();
 
@@ -53,7 +58,8 @@ public abstract class TurretTemplate : MonoBehaviour
 		//Set range of turret depending on type
 		collider.radius = turretValues.range/2;
 		//Set cooldown
-		coolDown = turretValues.fireRate;
+		totalFireRate = turretValues.fireRate;
+		coolDown = 1 / totalFireRate;
 	}
 
 	protected virtual void Update()
@@ -68,35 +74,61 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	protected abstract void UpgradeStats(bool isPrebuilt);
 
+	//To be added when turrets are first placed
+	public void BoostStats (TurretValues turretValues, STurretValues sTurretValues, float oldInvestmentValue, float oldFireRate, bool boostStats)
+	{
+		if (boostStats)
+		{
+			fireRateBuff = MathFunctions.ReturnNewIncrement (fireRateBuff, oldFireRate, sTurretValues.buff);
+			RecalculateFireRate ();
+		}
+		if (isPrebuilt)
+		{
+			manaReturnPercentageS = MathFunctions.ReturnNewIncrement (manaReturnPercentageS, oldInvestmentValue, sTurretValues.investmentValue);
+			RecalculateInvestmentValue ();
+		}
+	}
+
+	public void RecalculateInvestmentValue ()
+	{
+		if (isPrebuilt) manaReturnPercentageF = manaReturnPercentageB + manaReturnPercentageS;
+	}
+
+	public void RecalculateFireRate ()
+	{
+		totalFireRate = turretValues.fireRate + fireRateBuff;
+	}
+
 	void Upgrade()
 	{
 		level = Mathf.Min(++level, 3);
 
 		//Add Changes to Stats as well
 		UpgradeStats(isPrebuilt);
+		RecalculateFireRate ();
 
 		//Only if it is prebuilt, manaReturnPercentageB will change
 		if (isPrebuilt)
 		{
+			float newPerc;
+
 			switch (level)
 			{
 				case 1:
-					manaReturnPercentageB = 0.1f;
+					newPerc = 0.1f;
 					break;
 				case 2:
-					manaReturnPercentageF -= manaReturnPercentageB;
-					manaReturnPercentageB = 0.25f;
-					manaReturnPercentageF += manaReturnPercentageB;
+					newPerc = 0.25f;
 					break;
 				case 3:
-					manaReturnPercentageF -= manaReturnPercentageB;
-					manaReturnPercentageB = 0.5f;
-					manaReturnPercentageF += manaReturnPercentageB;
+					newPerc = 0.5f;
 					break;
 				default:
-					manaReturnPercentageB = 0;
+					newPerc = 0;
 					break;
 			}
+			manaReturnPercentageB = newPerc;
+			RecalculateInvestmentValue ();
 		}
 	}
 
@@ -133,7 +165,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			Vector3 direction = enemies[index].enemyType == AttackType.lowGround ? -(transform.position - enemies[index].transform.position).normalized : -(transform.position - enemies[index].transform.GetChild(0).position).normalized;
 			GameObject currentBullet = Instantiate(bullet, transform.position + direction * 0.5f, Quaternion.identity);
 			currentBullet.GetComponent<Rigidbody>().velocity = direction * turretValues.bulletSpeed;
-			coolDown = turretValues.fireRate;
+			coolDown = 1 / totalFireRate;
 			//print ("Shortest: " + shortestDist);
 		}
 		else return;
