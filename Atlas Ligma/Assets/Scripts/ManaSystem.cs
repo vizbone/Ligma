@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameStates {preStart, started, pause, win, lose};
 
@@ -18,6 +19,8 @@ public class ManaSystem : MonoBehaviour
 	public int totalWaves = 10; //Total number of waves the level will have
 	public int currentWave; //Stores the current wave the player is in
 
+	public Text currentManaDisplay;
+
 	private void Start()
 	{
 		gameState = GameStates.preStart;
@@ -31,6 +34,9 @@ public class ManaSystem : MonoBehaviour
 		//Players win the game once their Current Mana is >= Max Mana
 		if (currentMana > maxMana) gameState = GameStates.win;
 		else if (currentMana <= 0) gameState = GameStates.lose;
+
+		//Display Current Mana
+		currentManaDisplay.text = currentMana.ToString() + "/" + "2000";
 	}
 
 	void UpdateGameState()
