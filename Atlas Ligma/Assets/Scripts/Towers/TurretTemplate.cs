@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AttackType {lowGround, air, both};
+public enum AttackType {ground, air, sea};
 
 [System.Serializable]
 public struct TurretValues
@@ -11,7 +11,7 @@ public struct TurretValues
 	public float fireRate; //Fire rate
 	public float bulletSpeed; //Speed of the bullet
 	public float range; //Diameter of where the Turret can detect enemies
-	public AttackType attackType; //Check which enemy it can attack
+	public AttackType[] attackType; //Check which enemy it can attack
 }
 
 [RequireComponent(typeof(CapsuleCollider))]
@@ -162,7 +162,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				}*/
 			}
 
-			Vector3 direction = enemies[index].enemyType == AttackType.lowGround ? -(transform.position - enemies[index].transform.position).normalized : -(transform.position - enemies[index].transform.GetChild(0).position).normalized;
+			Vector3 direction = enemies[index].enemyType == AttackType.air ? -(transform.position - enemies[index].transform.GetChild(0).position).normalized : -(transform.position - enemies[index].transform.position).normalized;
 			GameObject currentBullet = Instantiate(bullet, transform.position + direction * 0.5f, Quaternion.identity);
 			currentBullet.GetComponent<Rigidbody>().velocity = direction * turretValues.bulletSpeed;
 			coolDown = 1 / totalFireRate;
@@ -200,8 +200,14 @@ public abstract class TurretTemplate : MonoBehaviour
 		if (other.tag == "AI")
 		{
 			AITemplate enemy = other.GetComponent<AITemplate>();
-			if (turretValues.attackType == AttackType.both || turretValues.attackType == enemy.enemyType) enemies.Add(enemy);
-			else return;
+			foreach (AttackType attackType in turretValues.attackType)
+			{
+				if (attackType == enemy.enemyType)
+				{
+					enemies.Add(enemy);
+					break; //Get out of loop once enemy is added
+				}
+			}
 		}
 	}
 

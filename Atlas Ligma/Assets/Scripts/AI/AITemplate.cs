@@ -11,7 +11,7 @@ public abstract class AITemplate : MonoBehaviour {
 	// Use this for initialization
 	protected virtual void Start ()
 	{
-		if (enemyType == AttackType.lowGround)
+		if (enemyType == AttackType.ground)
 		{
 			hp = 3;
 			manaDrop = 5;
@@ -21,6 +21,7 @@ public abstract class AITemplate : MonoBehaviour {
 			hp = 10;
 			manaDrop = 20;
 		}
+		//Sea Enemies will be overriding the Start Function
 	}
 
 	public abstract float CheckDistance();

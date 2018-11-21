@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AISea : MonoBehaviour
+public class AISea : AITemplate
 {
+	public enum SeaEnemy { ship, boat };
+	[SerializeField] SeaEnemy whichType;
+
 	public AIMovement.Paths path;
 	public int currentDestination;
 	public GameObject enemies;
@@ -22,8 +25,20 @@ public class AISea : MonoBehaviour
 
 	int currentEnemySpawnCount;
 
-	void Start () 
+	protected override void Start () 
 	{
+		//Setting Values
+		if (whichType == SeaEnemy.boat)
+		{
+			hp = 5;
+			manaDrop = 10;
+		}
+		else
+		{
+			hp = 10;
+			manaDrop = 50;
+		}
+
 		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
 
@@ -42,6 +57,12 @@ public class AISea : MonoBehaviour
 	{
 		if (unloading && !cLock)
 			StartCoroutine (spawn ());
+	}
+
+	//Do we need this???
+	public override float CheckDistance()
+	{
+		return 0.1f;
 	}
 
 	IEnumerator spawn () 
