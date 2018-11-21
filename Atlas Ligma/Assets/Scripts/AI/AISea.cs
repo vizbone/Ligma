@@ -16,12 +16,13 @@ public class AISea : AITemplate
 	public int maxInstances;
 	public int instanceCount;
 
-	NavMeshAgent agent;
+	NavMeshAgent agent;	
 	AIMovement ai;
 	bool unloading;
 	float time;
 	bool cLock;
 	bool firstTime;
+	Transform townHall;
 
 	int currentEnemySpawnCount;
 
@@ -41,6 +42,7 @@ public class AISea : AITemplate
 
 		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
+		townHall = GameObject.Find ("Town Hall").transform;
 
 		cLock = false;
 		currentDestination = 0;
@@ -62,7 +64,7 @@ public class AISea : AITemplate
 	//Do we need this???
 	public override float CheckDistance()
 	{
-		return 0.1f;
+		return (transform.position - townHall.position).magnitude;
 	}
 
 	IEnumerator spawn () 
