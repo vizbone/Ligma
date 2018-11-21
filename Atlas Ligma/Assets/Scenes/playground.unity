@@ -1267,6 +1267,8 @@ GameObject:
   - component: {fileID: 173557681}
   - component: {fileID: 173557682}
   - component: {fileID: 173557683}
+  - component: {fileID: 173557685}
+  - component: {fileID: 173557684}
   m_Layer: 0
   m_Name: 0
   m_TagString: Waypoint
@@ -1281,7 +1283,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 173557680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1700.5, y: 0.5, z: 1473.5}
+  m_LocalPosition: {x: 1699.48, y: 0.5, z: 1467.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 452722766}
@@ -1314,6 +1316,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!23 &173557684
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 173557680}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &173557685
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 173557680}
+  m_Mesh: {fileID: 4300000, guid: b1d76b05add46f44292ade654065b4c7, type: 3}
 --- !u!1 &178711039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,6 +2418,8 @@ GameObject:
   - component: {fileID: 359059145}
   - component: {fileID: 359059146}
   - component: {fileID: 359059147}
+  - component: {fileID: 359059149}
+  - component: {fileID: 359059148}
   m_Layer: 0
   m_Name: 2
   m_TagString: Waypoint
@@ -2388,7 +2434,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359059144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1705.5, y: 0.5, z: 1483.5}
+  m_LocalPosition: {x: 1694.6, y: 0.5, z: 1475.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 452722766}
@@ -2421,6 +2467,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!23 &359059148
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359059144}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &359059149
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359059144}
+  m_Mesh: {fileID: 4300000, guid: b1d76b05add46f44292ade654065b4c7, type: 3}
 --- !u!1 &369452289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,6 +3029,8 @@ GameObject:
   - component: {fileID: 406725838}
   - component: {fileID: 406725839}
   - component: {fileID: 406725840}
+  - component: {fileID: 406725842}
+  - component: {fileID: 406725841}
   m_Layer: 0
   m_Name: 3
   m_TagString: Waypoint
@@ -2955,7 +3045,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406725837}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1695.5, y: 0.5, z: 1483.5}
+  m_LocalPosition: {x: 1688.78, y: 0.5, z: 1475.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 452722766}
@@ -2988,6 +3078,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!23 &406725841
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406725837}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &406725842
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406725837}
+  m_Mesh: {fileID: 4300000, guid: b1d76b05add46f44292ade654065b4c7, type: 3}
 --- !u!1 &432964969
 GameObject:
   m_ObjectHideFlags: 0
@@ -7668,23 +7800,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossbow1:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    attackType: 2
+    dmg: 1
+    fireRate: 2
+    bulletSpeed: 50
+    range: 20
+    attackType: 0
   crossbow2:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    attackType: 2
+    dmg: 2
+    fireRate: 3
+    bulletSpeed: 50
+    range: 20
+    attackType: 0
   crossbow3:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    attackType: 2
+    dmg: 3
+    fireRate: 4
+    bulletSpeed: 50
+    range: 20
+    attackType: 0
   prebuiltCrossbow0:
     dmg: 0
     fireRate: 0
@@ -7710,20 +7842,20 @@ MonoBehaviour:
     range: 0
     attackType: 2
   catapult1:
-    dmg: 0
-    fireRate: 0
+    dmg: 1
+    fireRate: 0.5
     bulletSpeed: 0
     range: 0
     attackType: 0
   catapult2:
-    dmg: 0
-    fireRate: 0
+    dmg: 3
+    fireRate: 0.75
     bulletSpeed: 0
     range: 0
     attackType: 0
   catapult3:
-    dmg: 0
-    fireRate: 0
+    dmg: 5
+    fireRate: 1
     bulletSpeed: 0
     range: 0
     attackType: 0
@@ -7753,21 +7885,21 @@ MonoBehaviour:
     attackType: 0
   cannon1:
     dmg: 1
-    fireRate: 2
+    fireRate: 1
     bulletSpeed: 25
     range: 10
     attackType: 0
   cannon2:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
+    dmg: 2
+    fireRate: 1.5
+    bulletSpeed: 25
+    range: 10
     attackType: 0
   cannon3:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
+    dmg: 4
+    fireRate: 2
+    bulletSpeed: 25
+    range: 10
     attackType: 0
   prebuiltCannon0:
     dmg: 1
@@ -7794,23 +7926,23 @@ MonoBehaviour:
     range: 0
     attackType: 0
   rocket1:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    attackType: 0
+    dmg: 2
+    fireRate: 2
+    bulletSpeed: 25
+    range: 10
+    attackType: 1
   rocket2:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    attackType: 0
+    dmg: 3
+    fireRate: 3
+    bulletSpeed: 25
+    range: 10
+    attackType: 1
   rocket3:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    attackType: 0
+    dmg: 5
+    fireRate: 4
+    bulletSpeed: 25
+    range: 10
+    attackType: 1
   prebuiltRocket0:
     dmg: 0
     fireRate: 0
@@ -12047,6 +12179,8 @@ GameObject:
   - component: {fileID: 1893521288}
   - component: {fileID: 1893521289}
   - component: {fileID: 1893521290}
+  - component: {fileID: 1893521292}
+  - component: {fileID: 1893521291}
   m_Layer: 0
   m_Name: 1
   m_TagString: Waypoint
@@ -12061,7 +12195,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893521287}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1705.5, y: 0.5, z: 1473.5}
+  m_LocalPosition: {x: 1694.57, y: 0.5, z: 1467.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 452722766}
@@ -12094,6 +12228,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!23 &1893521291
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1893521287}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1893521292
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1893521287}
+  m_Mesh: {fileID: 4300000, guid: b1d76b05add46f44292ade654065b4c7, type: 3}
 --- !u!1 &1896556735
 GameObject:
   m_ObjectHideFlags: 0
