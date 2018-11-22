@@ -12,14 +12,19 @@ public class Interactable : MonoBehaviour {
 
 	public Action[] options;
 	public GameObject currentTower;
+	BoxCollider[] sensor;
 
 	private void Start()
 	{
 		currentTower = gameObject;
+		sensor = GetComponents<BoxCollider>();
 	}
 
 	void OnMouseDown()
 	{
-		RadialMenuSpawner.ins.SpawnMenu(this);
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		
+		if (sensor[0].Raycast(ray, out hit, 100.0f)) RadialMenuSpawner.ins.SpawnMenu(this);
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawn : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class EnemySpawn : MonoBehaviour
 	public Transform devPos;
 	public Transform[] spawnPos;
 	public float distance;
+	public Text waveNumber;
 
 	float time;
 	bool cLock;
@@ -34,12 +36,13 @@ public class EnemySpawn : MonoBehaviour
 
 	void Update ()
 	{
-		if (prepPhase.prepPhaseActive && !cLock) {
+		if (!prepPhase.prepPhaseActive && !cLock) {
 			indexOfEnemy++;
 			StartCoroutine ("SpawnClock");
 		}
 		if (count == maxCount) active = false;
-		if (indexOfEnemy == waveSys.wave[prepPhase.currentWave].enemy.Length - 1) prepPhase.prepPhaseActive = false;
+		if (indexOfEnemy == waveSys.wave[prepPhase.currentWave].enemy.Length - 1) prepPhase.WaveEnded();
+		waveNumber.text = "Wave " + (prepPhase.currentWave + 1).ToString();
 	}
 
 	Vector3 GenerateRandomPos () 

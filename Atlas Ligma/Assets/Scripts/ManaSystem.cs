@@ -19,7 +19,9 @@ public class ManaSystem : MonoBehaviour
 	public int totalWaves = 10; //Total number of waves the level will have
 	public int currentWave; //Stores the current wave the player is in
 
+	//Mana UI
 	public Text currentManaDisplay;
+	public Slider manaSlider;
 
 	private void Start()
 	{
@@ -37,6 +39,7 @@ public class ManaSystem : MonoBehaviour
 
 		//Display Current Mana
 		currentManaDisplay.text = currentMana.ToString() + "/" + "2000";
+		manaSlider.value = currentMana;
 	}
 
 	void UpdateGameState()
