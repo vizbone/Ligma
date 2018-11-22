@@ -26,6 +26,10 @@ public class SupportTurret : MonoBehaviour
 		affectedTurrets = new List<TurretTemplate>();
 
 		SetValues (sTurretValues.boostsStats);
+
+		//Set Colliders
+		collider.height = 5;
+		collider.center = new Vector3(0, -0.5f, 0);
 		collider.radius = sTurretValues.range / 2;
     }
 

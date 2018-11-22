@@ -56,6 +56,9 @@ public abstract class TurretTemplate : MonoBehaviour
 		SetValues(isPrebuilt);
 
 		//Set range of turret depending on type
+		//Can Set in Inspector if wanted
+		collider.height = 5;
+		collider.center = new Vector3(0, -0.5f, 0);
 		collider.radius = turretValues.range/2;
 		//Set cooldown
 		totalFireRate = turretValues.fireRate;
