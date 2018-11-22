@@ -13,7 +13,7 @@ public class RadialMenuSpawner : MonoBehaviour {
 	public void SpawnMenu(Interactable obj) {
 		RadialMenu newMenu = Instantiate(menuPrefab) as RadialMenu;
 		newMenu.transform.SetParent(transform, false);
-		newMenu.transform.position = Camera.main.WorldToScreenPoint(FindObjectOfType<Interactable>().currentTower.transform.position);
+		newMenu.transform.position = Camera.main.WorldToScreenPoint(obj.currentTower.transform.position);
 		newMenu.SpawnButtons(obj);
 	}
 }
