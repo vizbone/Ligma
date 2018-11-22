@@ -59,7 +59,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		//Can Set in Inspector if wanted
 		collider.height = 5;
 		collider.center = new Vector3(0, -0.5f, 0);
-		collider.radius = turretValues.range/2;
+		collider.radius = (turretValues.range/2) * gameObject.transform.localScale.x;
 		//Set cooldown
 		totalFireRate = turretValues.fireRate;
 		coolDown = 1 / totalFireRate;
@@ -108,6 +108,7 @@ public abstract class TurretTemplate : MonoBehaviour
 
 		//Add Changes to Stats as well
 		UpgradeStats(isPrebuilt);
+		collider.radius = (turretValues.range / 2) * gameObject.transform.localScale.x;
 		RecalculateFireRate ();
 
 		//Only if it is prebuilt, manaReturnPercentageB will change

@@ -30,7 +30,7 @@ public class SupportTurret : MonoBehaviour
 		//Set Colliders
 		collider.height = 5;
 		collider.center = new Vector3(0, -0.5f, 0);
-		collider.radius = sTurretValues.range / 2;
+		collider.radius = (sTurretValues.range / 2) * gameObject.transform.localScale.x ;
     }
 
 	public void SetValues (bool boostsStats)
