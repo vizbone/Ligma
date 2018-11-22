@@ -12,6 +12,7 @@ public class OwnProjector : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		transform.rotation = Quaternion.Euler(90, 0, 0);
 		projector = GetComponent<Projector>();
 		radiusAspectRatio = 0.9304f;
 		projector.orthographic = true; //Use orthographic view
