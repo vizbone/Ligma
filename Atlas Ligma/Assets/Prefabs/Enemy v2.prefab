@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 136428765613021856}
   - component: {fileID: 195257377912052114}
   - component: {fileID: 114083610288873962}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy v2
   m_TagString: AI
   m_Icon: {fileID: 0}
@@ -97,8 +97,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e1feb5d08c95844ac54014622fbcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+  hp: 3
+  manaDrop: 10
   path: 0
   currentDestination: 0
+  fireRate: 0
+  dmg: 10
+  bomb: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!136 &136428765613021856
 CapsuleCollider:
   m_ObjectHideFlags: 1

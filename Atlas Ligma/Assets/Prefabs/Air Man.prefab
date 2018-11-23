@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 195364208667717848}
   - component: {fileID: 114392178206742792}
   - component: {fileID: 54478533134847996}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Air Man
   m_TagString: AI
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 33235313668429444}
   - component: {fileID: 23321966451980466}
   - component: {fileID: 64273574394320170}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Air Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +170,10 @@ MonoBehaviour:
   manaDrop: 10
   path: 0
   currentDestination: 0
+  fireRate: 1
+  dmg: 10
+  bomb: {fileID: 1142325348969568, guid: 699ce691c27c9244b9310929d4b3f885, type: 2}
+  offset: {x: 0, y: 2, z: 0}
 --- !u!136 &136579815940824004
 CapsuleCollider:
   m_ObjectHideFlags: 1

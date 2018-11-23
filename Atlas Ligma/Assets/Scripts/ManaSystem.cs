@@ -40,6 +40,8 @@ public class ManaSystem : MonoBehaviour
 		//Display Current Mana
 		currentManaDisplay.text = currentMana.ToString() + "/" + "2000";
 		manaSlider.value = currentMana;
+
+		currentMana = Mathf.Max (0, currentMana);
 	}
 
 	void UpdateGameState()

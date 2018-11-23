@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 136195598515678534}
   - component: {fileID: 195925221055589998}
   - component: {fileID: 114657358097841982}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sea Man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
