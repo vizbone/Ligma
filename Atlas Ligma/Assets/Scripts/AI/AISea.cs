@@ -71,7 +71,6 @@ public class AISea : AITemplate
 	{
 		cLock = true;
 		GameObject temp = Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
-		temp.GetComponent<AI>().autoFind = true;
 		currentEnemySpawnCount++;
 		if (currentEnemySpawnCount >= enemyBatchSpawnCount)
 		{
