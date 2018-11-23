@@ -56,7 +56,7 @@ public class EnemySpawn : MonoBehaviour
 
 	IEnumerator SpawnClock () 
 	{
-		Instantiate (waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].typeOfEnemy, spawnPos[Random.Range(0,2)].position, Quaternion.identity);
+		Instantiate (waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].typeOfEnemy, spawnPos[0].position, Quaternion.identity);
 		cLock = true;
 		count++;
 		yield return new WaitForSeconds (waveSys.wave[0].enemy[0].interval);

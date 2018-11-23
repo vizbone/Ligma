@@ -5,7 +5,13 @@ using UnityEngine;
 public class RadialMenu : MonoBehaviour {
 	public RadialButton buttonPrefab;
 	public RadialButton selected;
+	public TurretTemplate turretTemp;
 	public int radius;
+
+	private void Start()
+	{
+		turretTemp = FindObjectOfType<TurretTemplate>();
+	}
 
 	public void SpawnButtons(Interactable obj) {
 		for(int i = 0; i < obj.options.Length; i++) {
@@ -24,8 +30,8 @@ public class RadialMenu : MonoBehaviour {
 
 	void Update() {
 		if(Input.GetMouseButtonUp(0)) {
-			if(selected)
-				Debug.Log(selected.title + " was chosen");
+			if (selected)
+				turretTemp.level++;
 			Destroy(gameObject);
 		}
 	}

@@ -71,6 +71,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		if (coolDown <= 0) Shoot();
 
 		if (Input.GetKeyDown(KeyCode.P)) Upgrade();
+		if (level > 3) level = 3;
 	}
 
 	protected abstract void SetValues(bool isPrebuilt);

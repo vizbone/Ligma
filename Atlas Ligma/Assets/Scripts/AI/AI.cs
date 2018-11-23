@@ -15,12 +15,32 @@ public class AI : AITemplate {
 	public int dmg;
 	public GameObject bomb;
 	public Vector3 offset;
+	public bool autoFind;
 
 	float time;
 	bool cLock;
 
 	protected override void Start () 
 	{
+		if (autoFind)
+		{
+			if (Find() == 0)
+			{
+				path = AIMovement.Paths.path1;
+			}
+			else if (Find() == 1)
+			{
+				path = AIMovement.Paths.path2;
+			}
+			else if (Find() == 2)
+			{
+				path = AIMovement.Paths.path3;
+			}
+			else if (Find() == 3)
+			{
+				path = AIMovement.Paths.path4;
+			}
+		}
 		base.Start();
 		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
@@ -33,6 +53,28 @@ public class AI : AITemplate {
 			if (fireRate == 0) fireRate = 1;
 			time = 1 / fireRate;
 		}
+	}
+
+	int Find()
+	{
+		float[] temp = new float[4];
+		int returnee = 0;
+		float temptemp = 1000;
+
+		temp[0] = (ai.path1[0].position - transform.position).magnitude;
+		temp[1] = (ai.path2[0].position - transform.position).magnitude;
+		temp[2] = (ai.path3[0].position - transform.position).magnitude;
+		temp[3] = (ai.path4[0].position - transform.position).magnitude;
+
+		for (int i = 0; i < temp.Length; i++)
+		{
+			if (temp[i] < temptemp)
+			{
+				returnee = i;
+			}
+		}
+
+		return returnee;
 	}
 
 	void OnTriggerEnter (Collider other)
