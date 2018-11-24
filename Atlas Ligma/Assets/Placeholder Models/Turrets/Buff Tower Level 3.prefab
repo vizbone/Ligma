@@ -27,9 +27,9 @@ GameObject:
   - component: {fileID: 54174009227645080}
   - component: {fileID: 114764789095154230}
   - component: {fileID: 114911037840398832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Buff Tower Level 3
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +155,10 @@ MonoBehaviour:
     investmentValue: 0
   collider: {fileID: 0}
   affectedTurrets: []
+  model: {fileID: 0}
+  lvl1Model: {fileID: 4300000, guid: d66baebba5594734faea8afdfe671a93, type: 3}
+  lvl2Model: {fileID: 4300000, guid: 32ac52c758605d84f9ef4c349ea0a437, type: 3}
+  lvl3Model: {fileID: 4300000, guid: 46f6db774ba18d143aab9c3a56d54df1, type: 3}
 --- !u!114 &114911037840398832
 MonoBehaviour:
   m_ObjectHideFlags: 1

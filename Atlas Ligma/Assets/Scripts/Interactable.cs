@@ -12,19 +12,27 @@ public class Interactable : MonoBehaviour {
 
 	public Action[] options;
 	public GameObject currentTower;
-	BoxCollider[] sensor;
+	public TurretTemplate turret;
+	public SupportTurret sTurret;
+	MeshCollider sensor;
 
 	private void Start()
 	{
 		currentTower = gameObject;
-		sensor = GetComponents<BoxCollider>();
+		sensor = GetComponent<MeshCollider>();
+		turret = gameObject.GetComponent<TurretTemplate>() ? gameObject.GetComponent<TurretTemplate>() : null;
+		sTurret = gameObject.GetComponent<SupportTurret>() ? gameObject.GetComponent<SupportTurret>() : null;
 	}
 
 	void OnMouseDown()
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		
-		if (sensor[0].Raycast(ray, out hit, 100.0f)) RadialMenuSpawner.ins.SpawnMenu(this);
+
+		if (sensor.Raycast(ray, out hit, 100.0f))
+		{
+			if (turret != null) RadialMenuSpawner.ins.SpawnMenu(this, turret);
+			else RadialMenuSpawner.ins.SpawnMenu(this, sTurret);
+		}
 	}
 }

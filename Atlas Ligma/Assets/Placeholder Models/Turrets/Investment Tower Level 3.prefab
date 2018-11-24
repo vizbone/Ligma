@@ -27,9 +27,9 @@ GameObject:
   - component: {fileID: 54523588975197304}
   - component: {fileID: 114936368952268964}
   - component: {fileID: 114148960208075586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Investment Tower Level 3
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +171,10 @@ MonoBehaviour:
     investmentValue: 0
   collider: {fileID: 0}
   affectedTurrets: []
+  model: {fileID: 0}
+  lvl1Model: {fileID: 4300000, guid: 524648700e0962b4a9b119854d65fa81, type: 3}
+  lvl2Model: {fileID: 4300000, guid: 3761268bf526dce4fbd185ebafb214d6, type: 3}
+  lvl3Model: {fileID: 4300000, guid: 986256f40fdf224498c261c8fbfad494, type: 3}
 --- !u!136 &136859852822470788
 CapsuleCollider:
   m_ObjectHideFlags: 1

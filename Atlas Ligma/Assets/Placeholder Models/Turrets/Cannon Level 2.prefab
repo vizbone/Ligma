@@ -27,9 +27,9 @@ GameObject:
   - component: {fileID: 54145971138133360}
   - component: {fileID: 114059046045671686}
   - component: {fileID: 114999036042025754}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cannon Level 2
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,9 +162,13 @@ MonoBehaviour:
   manaReturnPercentageF: 0
   totalFireRate: 0
   fireRateBuff: 0
+  model: {fileID: 0}
+  lvl1Model: {fileID: 4300000, guid: b20724012ece54c409c9b1cfe3847fe4, type: 3}
+  lvl2Model: {fileID: 4300000, guid: 7d3f1bb9e8195e24db2b5918d5b3dc8d, type: 3}
+  lvl3Model: {fileID: 4300000, guid: e4aa86b6bb26d6c43bda31cc1518864e, type: 3}
   collider: {fileID: 0}
   enemies: []
-  bullet: {fileID: 0}
+  bullet: {fileID: 1902089975787962, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}
   bulletScript: {fileID: 0}
 --- !u!114 &114999036042025754
 MonoBehaviour:

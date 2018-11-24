@@ -41,6 +41,9 @@ MonoBehaviour:
   buttonPrefab: {fileID: 114579014705196368, guid: e2af04aac75bf6a4b8ec7880cb038d0c,
     type: 2}
   selected: {fileID: 0}
+  isSupport: 0
+  turret: {fileID: 0}
+  sTurret: {fileID: 0}
   radius: 50
 --- !u!224 &224258142077895656
 RectTransform:

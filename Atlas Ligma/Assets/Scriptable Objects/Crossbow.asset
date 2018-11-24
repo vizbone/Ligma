@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc73c06373ea81479d563b4e44b9010, type: 3}
   m_Name: Crossbow
   m_EditorClassIdentifier: 
-  buildModel: {fileID: 1302263127540834, guid: 5dd1c71e5b1f3f844b2252897e514e53, type: 2}
-  actualTower: {fileID: 1050737448341168, guid: 7431ebea265f5c04bbf05433e1f39bb7,
+  buildModel: {fileID: 100000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
+  actualTower: {fileID: 1614154539434564, guid: 514be0f0886cf0f4c9b89019052dcf04,
     type: 2}
   cost: 50

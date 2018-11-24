@@ -43,7 +43,7 @@ public class GridSystem : MonoBehaviour {
 			buildMode = buildMode ? false : true;
 			if (buildMode) 
 			{
-				GameObject build = Instantiate (towers[buildIndex].buildModel, Vector3.zero, Quaternion.identity);
+				GameObject build = Instantiate (towers[buildIndex].buildModel, Vector3.zero, towers[buildIndex].buildModel.transform.rotation);
 				currentBuild = build;
 			} else {
 				Destroy (currentBuild);
@@ -55,14 +55,14 @@ public class GridSystem : MonoBehaviour {
 			{
 				buildIndex++;
 				Destroy (currentBuild);
-				GameObject build = Instantiate (towers[buildIndex].buildModel, Vector3.zero, Quaternion.identity);
+				GameObject build = Instantiate (towers[buildIndex].buildModel, Vector3.zero, towers[buildIndex].buildModel.transform.rotation);
 				currentBuild = build;
 			}
 			if (Input.GetKeyDown (key: KeyCode.Q) && buildIndex > 0)
 			{
 				buildIndex--;
 				Destroy (currentBuild);
-				GameObject build = Instantiate (towers[buildIndex].buildModel, Vector3.zero, Quaternion.identity);
+				GameObject build = Instantiate (towers[buildIndex].buildModel, Vector3.zero, towers[buildIndex].buildModel.transform.rotation);
 				currentBuild = build;
 			}
 		}
@@ -122,7 +122,7 @@ public class GridSystem : MonoBehaviour {
 	//handles placing of building
 	void Build (Vector3 buildPos)
 	{
-		Instantiate (towers[buildIndex].actualTower, buildPos, Quaternion.identity);
+		Instantiate (towers[buildIndex].actualTower, buildPos, towers[buildIndex].actualTower.transform.rotation);
 		manaSys.ManaMinus (towers[buildIndex].cost);
 	}
 }

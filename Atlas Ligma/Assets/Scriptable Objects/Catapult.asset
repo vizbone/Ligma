@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc73c06373ea81479d563b4e44b9010, type: 3}
   m_Name: Catapult
   m_EditorClassIdentifier: 
-  buildModel: {fileID: 1302263127540834, guid: 5dd1c71e5b1f3f844b2252897e514e53, type: 2}
-  actualTower: {fileID: 1236525239498642, guid: 6df7383fd7fdcc34b81fd58ee169ebcb,
+  buildModel: {fileID: 100000, guid: a7a621a122e58af468a18ed0de4a6b9f, type: 3}
+  actualTower: {fileID: 1396634072807330, guid: 04952f9e8a4c3d84693a2067dfdecabb,
     type: 2}
   cost: 20

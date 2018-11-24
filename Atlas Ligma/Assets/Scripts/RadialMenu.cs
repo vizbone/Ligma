@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadialMenu : MonoBehaviour {
+public class RadialMenu : MonoBehaviour
+{
 	public RadialButton buttonPrefab;
 	public RadialButton selected;
-	public TurretTemplate turretTemp;
+	public bool isSupport;
+	public TurretTemplate turret;
+	public SupportTurret sTurret;
 	public int radius;
 
-	private void Start()
+	public void SpawnButtons(Interactable obj)
 	{
-		turretTemp = FindObjectOfType<TurretTemplate>();
-	}
-
-	public void SpawnButtons(Interactable obj) {
-		for(int i = 0; i < obj.options.Length; i++) {
+		for (int i = 0; i < obj.options.Length; i++) {
 			RadialButton newButton = Instantiate(buttonPrefab) as RadialButton;
 			newButton.transform.SetParent(transform, false);
 			float theta = (2 * Mathf.PI / obj.options.Length) * i;
@@ -28,10 +27,15 @@ public class RadialMenu : MonoBehaviour {
 		}
 	}
 
-	void Update() {
-		if(Input.GetMouseButtonUp(0)) {
+	void Update()
+	{
+		if (Input.GetMouseButtonUp(0))
+		{
 			if (selected)
-				turretTemp.level++;
+			{
+				if (isSupport) sTurret.Upgrade(sTurret.sTurretValues.boostsStats);
+				else turret.Upgrade();
+			}
 			Destroy(gameObject);
 		}
 	}

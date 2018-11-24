@@ -26,9 +26,9 @@ GameObject:
   - component: {fileID: 136412717440095024}
   - component: {fileID: 114775442114470260}
   - component: {fileID: 114685334013731344}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,9 +162,13 @@ MonoBehaviour:
   manaReturnPercentageF: 0
   totalFireRate: 0
   fireRateBuff: 0
+  model: {fileID: 0}
+  lvl1Model: {fileID: 4300000, guid: 3ea9ef62e5a8fc24f9a0e6f6597840a8, type: 3}
+  lvl2Model: {fileID: 4300000, guid: 3ea9ef62e5a8fc24f9a0e6f6597840a8, type: 3}
+  lvl3Model: {fileID: 4300000, guid: 3ea9ef62e5a8fc24f9a0e6f6597840a8, type: 3}
   collider: {fileID: 0}
   enemies: []
-  bullet: {fileID: 0}
+  bullet: {fileID: 1591733212204748, guid: 4582cb63bb08fef40b13aee5269be7a1, type: 2}
   bulletScript: {fileID: 0}
 --- !u!136 &136412717440095024
 CapsuleCollider:

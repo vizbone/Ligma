@@ -29,8 +29,17 @@ public abstract class TurretTemplate : MonoBehaviour
 	public float manaReturnPercentageS; //Stores STurrets percentage(in decimal) of mana gained for each kill
 	public float manaReturnPercentageF; //Stores FINAL percentage(in decimal) of mana gained for each kill
 
+	[Header("For Buffs")]
 	public float totalFireRate;
 	public float fireRateBuff;
+
+	[Header("For Model Change")]
+	[SerializeField] MeshFilter model;
+	//Chose not to put in array since it should be set in the inspector
+	//Three different Meshfilters to completely prevent errors
+	public Mesh lvl1Model;
+	public Mesh lvl2Model;
+	public Mesh lvl3Model;
 
 	[Header ("Collider and Enemy List")]
 	[SerializeField] protected CapsuleCollider collider; //Stores the collider for enemy detection
@@ -47,6 +56,8 @@ public abstract class TurretTemplate : MonoBehaviour
 		manaReturnPercentageS = 0;
 		manaReturnPercentageF = manaReturnPercentageB;
 		manaSys = FindObjectOfType<ManaSystem>();
+
+		model = GetComponent<MeshFilter>();
 
 		collider = GetComponent<CapsuleCollider>();
 		collider.isTrigger = true;
@@ -85,8 +96,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		coolDown = Mathf.Max(coolDown -= Time.deltaTime, 0);
 		if (coolDown <= 0) Shoot();
 
-		if (Input.GetKeyDown(KeyCode.P)) Upgrade();
-		if (level > 3) level = 3;
+		if (Input.GetKeyDown(KeyCode.P) && level < 3) Upgrade();
 	}
 
 	protected abstract void SetValues(bool isPrebuilt);
@@ -118,13 +128,43 @@ public abstract class TurretTemplate : MonoBehaviour
 		totalFireRate = turretValues.fireRate + fireRateBuff;
 	}
 
-	void Upgrade()
+	public void Upgrade()
 	{
+		switch (level)
+		{
+			case 0: //For Prebuilt Turret First Upgrade
+				manaSys.ManaMinus(50);
+				break;
+			case 1:
+				manaSys.ManaMinus(100);
+				break;
+			case 2:
+				manaSys.ManaMinus(150);
+				break;
+			default:
+				break;
+		}
+
 		level = Mathf.Min(++level, 3);
 
+		//Change Model According to new level
+		switch (level)
+		{
+			case 1:
+				model.mesh = lvl1Model;
+				break;
+			case 2:
+				model.mesh = lvl2Model;
+				break;
+			case 3:
+				model.mesh = lvl3Model;
+				break;
+			default:
+				model.mesh = lvl1Model;
+				break;
+		}
 		//Add Changes to Stats as well
 		UpgradeStats(isPrebuilt);
-		collider.center = new Vector3(0, -transform.position.y * transform.localScale.x, 0);
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
 		RecalculateFireRate ();
 
