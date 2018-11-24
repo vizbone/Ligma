@@ -8549,6 +8549,7 @@ MonoBehaviour:
   enemies: []
   bullet: {fileID: 1902089975787962, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}
   bulletScript: {fileID: 0}
+  rsm: {fileID: 0}
 --- !u!136 &971386741
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9958,7 +9959,7 @@ MonoBehaviour:
     fireRate: 2
     bulletSpeed: 25
     range: 10
-    attackType: 
+    attackType: 00000000
   prebuiltCannon1:
     dmg: 4
     fireRate: 2
@@ -12365,6 +12366,49 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1364770487}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1364938353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1364938355}
+  - component: {fileID: 1364938354}
+  m_Layer: 0
+  m_Name: ResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1364938354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364938353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e628147a91b2842ab3c430e23fe560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  townhall: {fileID: 1639342724}
+  manaAnimatedprefab: {fileID: 1477758987162070, guid: 0ad5eda69f02f624cbe0badb71217c8b,
+    type: 2}
+--- !u!4 &1364938355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364938353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 49.395954, y: 5.231494, z: 49.56431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372114710
 GameObject:
   m_ObjectHideFlags: 0

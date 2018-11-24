@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cannon :  TurretTemplate
 {
+    
 	protected override void SetValues(bool isPrebuilt)
 	{
 		if (!isPrebuilt) turretValues = TurretValueSettings.cannon1s;
@@ -20,8 +21,19 @@ public class Cannon :  TurretTemplate
 			{
 				manaSys.ManaAdd((int)(enemy.manaDrop * manaReturnPercentageF));
 				print(manaSys.currentMana.ToString());
-				Destroy(enemy.gameObject);
-			}
+
+                if (isPrebuilt)
+                {
+                    rsm.CollectResource(ResourceManager.ResourceType.prebuildMana, enemy.gameObject);       //if the tower is prebuilt calls manaAnimation
+                    Destroy(enemy.gameObject);
+                }
+                else if (!isPrebuilt)
+                {
+
+                    rsm.CollectResource(ResourceManager.ResourceType.mana, enemy.gameObject);   //if the tower is prebuilt calls prebuiltAnimationMana
+                    Destroy(enemy.gameObject);
+                }
+            }
 		}
 
 		if (hitCount >= 5) Destroy(gameObject);

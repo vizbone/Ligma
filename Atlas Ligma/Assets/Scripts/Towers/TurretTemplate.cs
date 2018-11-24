@@ -49,6 +49,9 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] private GameObject bullet; //To be set in Inspector
 	[SerializeField] Bullet bulletScript;
 
+    [Header("For Mana Gain")]
+    public ResourceManager rsm;
+
 	protected virtual void Start()
 	{
 		level = isPrebuilt ? 0 : 1; //If is prebuilt, Set Turret Level to 0, else it is a level 1
@@ -56,6 +59,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		manaReturnPercentageS = 0;
 		manaReturnPercentageF = manaReturnPercentageB;
 		manaSys = FindObjectOfType<ManaSystem>();
+        rsm = FindObjectOfType<ResourceManager>();
 
 		model = GetComponent<MeshFilter>();
 
@@ -252,8 +256,19 @@ public abstract class TurretTemplate : MonoBehaviour
 			{
 				manaSys.ManaAdd((int)(enemy.manaDrop * manaReturnPercentageF));
 				print(manaSys.currentMana.ToString());
-				Destroy(enemy.gameObject);
-			}
+
+                if (isPrebuilt)
+                {
+                    rsm.CollectResource(ResourceManager.ResourceType.prebuildMana, enemy.gameObject);       //if the tower is prebuilt calls manaAnimation
+                    Destroy(enemy.gameObject);
+                }
+                else if (!isPrebuilt)
+                {
+
+                    rsm.CollectResource(ResourceManager.ResourceType.mana, enemy.gameObject);   //if the tower is prebuilt calls prebuiltAnimationMana
+                    Destroy(enemy.gameObject);
+                }
+            }
 		}
 		Destroy(bullet);
 	}
