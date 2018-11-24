@@ -45,18 +45,19 @@ public class EnemySpawn : MonoBehaviour
 		waveNumber.text = "Wave " + (prepPhase.currentWave + 1).ToString();
 	}
 
-	Vector3 GenerateRandomPos () 
-	{
-		float x = Random.Range (0, distance);
-		float z = Mathf.Sqrt (Mathf.Pow (distance, 2) - Mathf.Pow (x, 2));
-		x = Random.Range (0, 2) == 1 ? -x : x;
-		z = Random.Range (0, 2) == 1 ? -z : z;
-		return townHallPos.position + new Vector3 (x, 0.5f, z);
-	}
-
 	IEnumerator SpawnClock () 
 	{
-		Instantiate (waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].typeOfEnemy, spawnPos[Random.Range(0,2)].position, Quaternion.identity);
+		if (waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].type == AttackType.ground || waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].type == AttackType.air)
+		{
+			Instantiate(waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].typeOfEnemy, spawnPos[Random.Range(0, 2)].position, Quaternion.identity);
+		}
+		if (waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].type == AttackType.sea)
+		{
+			int result = Random.Range(2, 4);
+			GameObject seaEnemy = Instantiate(waveSys.wave[prepPhase.currentWave].enemy[indexOfEnemy].typeOfEnemy, spawnPos[result].position, Quaternion.identity);
+			if (result == 2) seaEnemy.GetComponent<AISea>().path = AIMovement.Paths.seaPath1;
+			else seaEnemy.GetComponent<AISea>().path = AIMovement.Paths.seaPath2;
+		}
 		cLock = true;
 		count++;
 		yield return new WaitForSeconds (waveSys.wave[0].enemy[0].interval);

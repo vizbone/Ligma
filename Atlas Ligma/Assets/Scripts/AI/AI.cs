@@ -21,8 +21,27 @@ public class AI : AITemplate {
 
 	protected override void Start () 
 	{
+		ai = FindObjectOfType<AIMovement>();
+
+		int temp = Find();
+			if (temp == 0)
+			{
+				path = AIMovement.Paths.path1;
+			}
+			else if (temp == 1)
+			{
+				path = AIMovement.Paths.path2;
+			}
+			else if (temp == 2)
+			{
+				path = AIMovement.Paths.path3;
+			}
+			else if (temp == 3)
+			{
+				path = AIMovement.Paths.path4;
+			}
+
 		base.Start();
-		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
 		currentDestination = 0;
 		ai.NextPoint (agent, this, true);
@@ -33,6 +52,30 @@ public class AI : AITemplate {
 			if (fireRate == 0) fireRate = 1;
 			time = 1 / fireRate;
 		}
+	}
+
+	int Find()
+	{
+		float[] temp = new float[4];
+		int returnee = 0;
+
+		temp[0] = (ai.path1[0].position - transform.position).magnitude;
+		temp[1] = (ai.path2[0].position - transform.position).magnitude;
+		temp[2] = (ai.path3[0].position - transform.position).magnitude;
+		temp[3] = (ai.path4[0].position - transform.position).magnitude;
+
+		float tempTwo = temp[0];
+
+		for (int i = 1; i < temp.Length; i++)
+		{
+			if (temp[i] < tempTwo)
+			{
+				tempTwo = temp[i];
+				returnee = i;
+			}
+		}
+
+		return returnee;
 	}
 
 	void OnTriggerEnter (Collider other)
