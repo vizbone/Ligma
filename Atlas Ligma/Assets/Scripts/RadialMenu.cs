@@ -13,7 +13,8 @@ public class RadialMenu : MonoBehaviour
 
 	public void SpawnButtons(Interactable obj)
 	{
-		for (int i = 0; i < obj.options.Length; i++) {
+		for (int i = 0; i < obj.options.Length; i++)
+		{
 			RadialButton newButton = Instantiate(buttonPrefab) as RadialButton;
 			newButton.transform.SetParent(transform, false);
 			float theta = (2 * Mathf.PI / obj.options.Length) * i;

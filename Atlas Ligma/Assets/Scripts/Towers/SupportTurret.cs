@@ -68,16 +68,23 @@ public class SupportTurret : MonoBehaviour
 
 	public void Upgrade (bool boostsStats)
 	{
+		int cost = 0;
 		switch (level)
 		{
 			case 1:
-				manaSys.ManaMinus(100);
+				cost = 100;
 				break;
 			case 2:
-				manaSys.ManaMinus(150);
+				cost = 150;
 				break;
 			default:
 				break;
+		}
+		if (manaSys.currentMana > cost) manaSys.ManaMinus(cost);
+		else
+		{
+			print("Not Enough Mana");
+			return;
 		}
 
 		level = Mathf.Min (++level, 3);

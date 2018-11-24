@@ -12,6 +12,7 @@ public class RadialMenuSpawner : MonoBehaviour {
 	
 	public void SpawnMenu(Interactable obj, TurretTemplate turret)
 	{
+		print("Spawning");
 		RadialMenu newMenu = Instantiate(menuPrefab) as RadialMenu;
 		newMenu.turret = turret;
 		newMenu.sTurret = null;
@@ -23,6 +24,7 @@ public class RadialMenuSpawner : MonoBehaviour {
 
 	public void SpawnMenu(Interactable obj, SupportTurret sTurret)
 	{
+		print("Spawning");
 		RadialMenu newMenu = Instantiate(menuPrefab) as RadialMenu;
 		newMenu.sTurret = sTurret;
 		newMenu.turret = null;
