@@ -28,14 +28,28 @@ public class SupportTurret : MonoBehaviour
 		SetValues (sTurretValues.boostsStats);
 
 		//Set Colliders
-		collider.height = 5;
-		collider.center = new Vector3(0, -0.5f, 0);
-		collider.radius = (sTurretValues.range / 2) * gameObject.transform.localScale.x ;
+		collider.height = 10 / transform.localScale.x;
+		switch (collider.direction)
+		{
+			case 0:
+				collider.center = new Vector3(-transform.position.y / transform.localScale.x, 0, 0);
+				break;
+			case 1:
+				collider.center = new Vector3(0, -transform.position.y / transform.localScale.x, 0);
+				break;
+			case 2:
+				collider.center = new Vector3(0, 0, -transform.position.y / transform.localScale.x);
+				break;
+			default:
+				collider.center = new Vector3(0, -transform.position.y / transform.localScale.x, 0);
+				break;
+		}
+		collider.radius = (sTurretValues.range / 2) / gameObject.transform.localScale.x ;
     }
 
 	public void SetValues (bool boostsStats)
 	{
-		sTurretValues.range = 5;
+		sTurretValues.range = 10;
 		sTurretValues.buff = 0.1f; //Set any values
 		sTurretValues.investmentValue = boostsStats ? 0.05f : 0.1f;
 	}

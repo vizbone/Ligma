@@ -57,9 +57,24 @@ public abstract class TurretTemplate : MonoBehaviour
 
 		//Set range of turret depending on type
 		//Can Set in Inspector if wanted
-		collider.height = 5;
-		collider.center = new Vector3(0, -0.5f, 0);
-		collider.radius = (turretValues.range/2) * gameObject.transform.localScale.x;
+		collider.height = 10 / transform.localScale.x;
+		//Set Center of Collider Based on the capsule collider's direction
+		switch (collider.direction)
+		{
+			case 0:
+				collider.center = new Vector3(-transform.position.y / transform.localScale.x, 0, 0);
+				break;
+			case 1:
+				collider.center = new Vector3(0, -transform.position.y / transform.localScale.x, 0);
+				break;
+			case 2:
+				collider.center = new Vector3(0, 0, -transform.position.y / transform.localScale.x);
+				break;
+			default:
+				collider.center = new Vector3(0, -transform.position.y / transform.localScale.x, 0);
+				break;
+		}
+		collider.radius = (turretValues.range/2) / gameObject.transform.localScale.x;
 		//Set cooldown
 		totalFireRate = turretValues.fireRate;
 		coolDown = 1 / totalFireRate;
@@ -108,7 +123,8 @@ public abstract class TurretTemplate : MonoBehaviour
 
 		//Add Changes to Stats as well
 		UpgradeStats(isPrebuilt);
-		collider.radius = (turretValues.range / 2) * gameObject.transform.localScale.x;
+		collider.center = new Vector3(0, -transform.position.y * transform.localScale.x, 0);
+		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
 		RecalculateFireRate ();
 
 		//Only if it is prebuilt, manaReturnPercentageB will change
