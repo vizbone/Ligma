@@ -11,7 +11,7 @@ public class Cannon :  TurretTemplate
 		else turretValues = TurretValueSettings.prebuiltCannon0s;
 	}
 
-	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
+	public override void Hit (AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
 		if (enemy.hp > 0)
 		{
@@ -19,24 +19,15 @@ public class Cannon :  TurretTemplate
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
-				manaSys.ManaAdd((int)(enemy.manaDrop * manaReturnPercentageF));
-				print(manaSys.currentMana.ToString());
-
-                if (isPrebuilt)
-                {
-                    rsm.CollectResource(ResourceManager.ResourceType.prebuildMana, enemy.gameObject);       //if the tower is prebuilt calls manaAnimation
-                    Destroy(enemy.gameObject);
-                }
-                else if (!isPrebuilt)
-                {
-
-                    rsm.CollectResource(ResourceManager.ResourceType.mana, enemy.gameObject);   //if the tower is prebuilt calls prebuiltAnimationMana
-                    Destroy(enemy.gameObject);
-                }
-            }
+				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
+				manaSys.ManaAdd (addedMana);
+				rsm.DisplayText (enemy.transform, addedMana);
+				if (isPrebuilt) rsm.CollectResource (enemy.transform);
+				Destroy (enemy.gameObject);
+			}
 		}
 
-		if (hitCount >= 5) Destroy(gameObject);
+		if (hitCount >= 5) Destroy (gameObject);
 	}
 
 	protected override void UpgradeStats(bool isPrebuilt)
