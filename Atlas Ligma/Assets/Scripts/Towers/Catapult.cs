@@ -32,11 +32,9 @@ public class Catapult : TurretTemplate {
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
-				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
-				manaSys.ManaAdd (addedMana);
-				rsm.DisplayText (enemy.transform, addedMana);
-				if (isPrebuilt) rsm.CollectResource (enemy.transform);
-				Destroy (enemy.gameObject);
+				manaSys.ManaAdd((int)(enemy.manaDrop * manaReturnPercentageF));
+				print(manaSys.currentMana.ToString());
+				Destroy(enemy.gameObject);
 			}
 		}
 	}

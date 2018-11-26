@@ -103,6 +103,7 @@ public class AISea : AITemplate
 				Instance ();
 				currentEnemySpawnCount = 0;
 			}
+			print("hi");
 		}
 	}
 }

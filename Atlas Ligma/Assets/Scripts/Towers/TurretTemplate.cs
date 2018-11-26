@@ -254,13 +254,21 @@ public abstract class TurretTemplate : MonoBehaviour
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
-				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
-				manaSys.ManaAdd(addedMana);
-				//print(manaSys.currentMana.ToString());
-				rsm.DisplayText (enemy.transform, addedMana);
-				if (isPrebuilt) rsm.CollectResource(enemy.transform);
-				Destroy (enemy.gameObject);
-			}
+				manaSys.ManaAdd((int)(enemy.manaDrop * manaReturnPercentageF));
+				print(manaSys.currentMana.ToString());
+
+                if (isPrebuilt)
+                {
+                    rsm.CollectResource(ResourceManager.ResourceType.prebuildMana, enemy.gameObject);       //if the tower is prebuilt calls manaAnimation
+                    Destroy(enemy.gameObject);
+                }
+                else if (!isPrebuilt)
+                {
+
+                    rsm.CollectResource(ResourceManager.ResourceType.mana, enemy.gameObject);   //if the tower is prebuilt calls prebuiltAnimationMana
+                    Destroy(enemy.gameObject);
+                }
+            }
 		}
 		Destroy(bullet);
 	}
