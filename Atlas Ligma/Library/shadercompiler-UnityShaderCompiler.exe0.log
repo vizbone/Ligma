@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Base path: D:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
 Cmd: initializeCompiler
@@ -23,28 +22,6 @@ Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
-=======
-Base path: F:/Unity/Editor/Data
-Cmd: initializeCompiler
-Cmd: preprocess
-  insize=1459 outsize=461 ok=1
-Cmd: preprocess
-  insize=452 outsize=452 ok=1
-Cmd: preprocess
-  insize=1683 outsize=1876 ok=1
-Cmd: preprocess
-  insize=1518 outsize=1820 ok=1
-Cmd: preprocess
-  insize=1097 outsize=957 ok=1
-Cmd: preprocess
-  insize=2776 outsize=1173 ok=1
-Cmd: preprocess
-  insize=1637 outsize=638 ok=1
-Cmd: preprocess
-  insize=1521 outsize=496 ok=1
-Cmd: preprocess
-  insize=1371 outsize=372 ok=1
->>>>>>> parent of b3456ca... UI Update
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
