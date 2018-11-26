@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class GridSystem : MonoBehaviour {
 
@@ -11,12 +10,11 @@ public class GridSystem : MonoBehaviour {
 	public LayerMask[] ignoreLayersForBuilding;
 	public float gridSize;
 
-	public GameObject currentBuild;
+	GameObject currentBuild;
 	Camera cam;
 	ManaSystem manaSys;
-	public int buildIndex;
+	int buildIndex;
 	public bool buildMode;
-	public bool canBuild;
 
 	void Start () 
 	{
@@ -33,12 +31,12 @@ public class GridSystem : MonoBehaviour {
 
 	void BuildFunction()
 	{
-		//BuildSwitchAndPreview();
+		BuildSwitchAndPreview();
 		Cast();
 	}
 
 	//handles the building previews and switching the mode on and off
-	/*void BuildSwitchAndPreview ()
+	void BuildSwitchAndPreview ()
 	{
 		if (Input.GetKeyDown (key: KeyCode.R)) 
 		{
@@ -68,7 +66,7 @@ public class GridSystem : MonoBehaviour {
 				currentBuild = build;
 			}
 		}
-	}*/
+	}
 
 	//casts a ray that teleports the attached obj onto the grid
 	void Cast ()
@@ -84,7 +82,7 @@ public class GridSystem : MonoBehaviour {
 				currentBuild.transform.position = buildPos;
 				bool canPlace = !isObjectHere (buildPos) && towers[buildIndex].cost <= manaSys.currentMana ? true : false;
 				Material (canPlace);
-				if (Input.GetMouseButtonDown (0) && canPlace && canBuild) //&& !EventSystem.current.IsPointerOverGameObject())
+				if (Input.GetMouseButtonDown (0) && canPlace)
 				{
 					Build (buildPos);
 				}
@@ -126,11 +124,5 @@ public class GridSystem : MonoBehaviour {
 	{
 		Instantiate (towers[buildIndex].actualTower, buildPos, towers[buildIndex].actualTower.transform.rotation);
 		manaSys.ManaMinus (towers[buildIndex].cost);
-	}
-
-	public void Uninteractable()
-	{
-		canBuild = false;
-		print("Life sucks take drugs");
 	}
 }
