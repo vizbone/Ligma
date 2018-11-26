@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cannon :  TurretTemplate
+public class Cannon : TurretTemplate
 {
-    
-	protected override void SetValues(bool isPrebuilt)
+
+	protected override void SetValues (bool isPrebuilt)
 	{
-		if (!isPrebuilt) turretValues = TurretValueSettings.cannon1s;
-		else turretValues = TurretValueSettings.prebuiltCannon0s;
+		if (!isPrebuilt)
+			turretValues = TurretValueSettings.cannon1s;
+		else
+			turretValues = TurretValueSettings.prebuiltCannon0s;
 	}
 
-	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
+	public override void Hit (AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
 		if (enemy.hp > 0)
 		{
@@ -19,27 +21,23 @@ public class Cannon :  TurretTemplate
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
-				manaSys.ManaAdd((int)(enemy.manaDrop * manaReturnPercentageF));
-				print(manaSys.currentMana.ToString());
-
-                if (isPrebuilt)
-                {
-                    rsm.CollectResource(ResourceManager.ResourceType.prebuildMana, enemy.gameObject);       //if the tower is prebuilt calls manaAnimation
-                    Destroy(enemy.gameObject);
-                }
-                else if (!isPrebuilt)
-                {
-
-                    rsm.CollectResource(ResourceManager.ResourceType.mana, enemy.gameObject);   //if the tower is prebuilt calls prebuiltAnimationMana
-                    Destroy(enemy.gameObject);
-                }
-            }
+				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
+				manaSys.ManaAdd (addedMana);
+				rsm.DisplayText (addedMana, enemy.transform.position);
+				//print (manaSys.currentMana.ToString ());
+				if (isPrebuilt)
+				{
+					rsm.CollectResource (enemy.transform.position);       //if the tower is prebuilt calls manaAnimation
+				}
+				Destroy (enemy.gameObject);
+			}
 		}
 
-		if (hitCount >= 5) Destroy(gameObject);
+		if (hitCount >= 5)
+			Destroy (gameObject);
 	}
 
-	protected override void UpgradeStats(bool isPrebuilt)
+	protected override void UpgradeStats (bool isPrebuilt)
 	{
 		if (!isPrebuilt)
 		{
@@ -58,8 +56,7 @@ public class Cannon :  TurretTemplate
 					turretValues = TurretValueSettings.cannon1s;
 					break;
 			}
-		}
-		else
+		} else
 		{
 			switch (level)
 			{

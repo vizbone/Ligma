@@ -5,9 +5,10 @@ using UnityEngine;
 public class GRENADA : MonoBehaviour
 {
 	public int FORTHEMOTHERLAND;
+	public ManaSystem YEETUSFEETUS;
 	void OnCollisionEnter (Collision other)
 	{
-		FindObjectOfType<ManaSystem> ().currentMana -= FORTHEMOTHERLAND;
+		YEETUSFEETUS.ManaMinus (FORTHEMOTHERLAND);
 		Destroy (gameObject);
 	}
 }

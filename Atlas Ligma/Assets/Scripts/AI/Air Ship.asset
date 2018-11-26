@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eaa6cb802fe28241a163e0dce59e411, type: 3}
-  m_Name: SeaEnemy
+  m_Name: Air Ship
   m_EditorClassIdentifier: 
-  type: 2
-  typeOfEnemy: {fileID: 1289301520888550, guid: 6cfb11e5c7f700644884e5adc7d1b55b,
+  type: 1
+  typeOfEnemy: {fileID: 1127442785417440, guid: d43ca5b6396a82e40bcd7c2776ae040e,
     type: 2}
   interval: 1

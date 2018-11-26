@@ -14,14 +14,15 @@ public struct TurretValues
 	public AttackType[] attackType; //Check which enemy it can attack
 }
 
-[RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent (typeof (CapsuleCollider))]
 public abstract class TurretTemplate : MonoBehaviour
 {
-	[Header("Values To Be Set")]
+	[Header ("Values To Be Set")]
 	public TurretValues turretValues;
 
-	[Header("Turret Status")]
-	[SerializeField] protected ManaSystem manaSys;
+	[Header ("Turret Status")]
+	[SerializeField]
+	protected ManaSystem manaSys;
 	public float coolDown; //Turret cooldown time
 	public int level; //Stores the turret level
 	public bool isPrebuilt = false; //Check if the Turret is a prebuilt turret
@@ -29,12 +30,13 @@ public abstract class TurretTemplate : MonoBehaviour
 	public float manaReturnPercentageS; //Stores STurrets percentage(in decimal) of mana gained for each kill
 	public float manaReturnPercentageF; //Stores FINAL percentage(in decimal) of mana gained for each kill
 
-	[Header("For Buffs")]
+	[Header ("For Buffs")]
 	public float totalFireRate;
 	public float fireRateBuff;
 
-	[Header("For Model Change")]
-	[SerializeField] MeshFilter model;
+	[Header ("For Model Change")]
+	[SerializeField]
+	MeshFilter model;
 	//Chose not to put in array since it should be set in the inspector
 	//Three different Meshfilters to completely prevent errors
 	public Mesh lvl1Model;
@@ -42,33 +44,37 @@ public abstract class TurretTemplate : MonoBehaviour
 	public Mesh lvl3Model;
 
 	[Header ("Collider and Enemy List")]
-	[SerializeField] protected CapsuleCollider collider; //Stores the collider for enemy detection
-	[SerializeField] List<AITemplate> enemies; //Stores all valid enemies detected
+	[SerializeField]
+	protected CapsuleCollider collider; //Stores the collider for enemy detection
+	[SerializeField]
+	List<AITemplate> enemies; //Stores all valid enemies detected
 
 	[Header ("For Bullets")]
-	[SerializeField] private GameObject bullet; //To be set in Inspector
-	[SerializeField] Bullet bulletScript;
+	[SerializeField]
+	private GameObject bullet; //To be set in Inspector
+	[SerializeField]
+	Bullet bulletScript;
 
-    [Header("For Mana Gain")]
-    public ResourceManager rsm;
+	[Header ("For Mana Gain")]
+	public ResourceManager rsm;
 
-	protected virtual void Start()
+	protected virtual void Start ()
 	{
 		level = isPrebuilt ? 0 : 1; //If is prebuilt, Set Turret Level to 0, else it is a level 1
 		manaReturnPercentageB = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
 		manaReturnPercentageS = 0;
 		manaReturnPercentageF = manaReturnPercentageB;
-		manaSys = FindObjectOfType<ManaSystem>();
-        rsm = FindObjectOfType<ResourceManager>();
+		manaSys = FindObjectOfType<ManaSystem> ();
+		rsm = FindObjectOfType<ResourceManager> ();
 
-		model = GetComponent<MeshFilter>();
+		model = GetComponent<MeshFilter> ();
 
-		collider = GetComponent<CapsuleCollider>();
+		collider = GetComponent<CapsuleCollider> ();
 		collider.isTrigger = true;
-		enemies = new List<AITemplate>();
-		bulletScript = (bool)bullet.GetComponent<Bullet>() ? bullet.GetComponent<Bullet>() : bullet.AddComponent<Bullet>(); //Get Bullet Component to Alter Values
+		enemies = new List<AITemplate> ();
+		bulletScript = (bool) bullet.GetComponent<Bullet> () ? bullet.GetComponent<Bullet> () : bullet.AddComponent<Bullet> (); //Get Bullet Component to Alter Values
 		bulletScript.turret = this;
-		SetValues(isPrebuilt);
+		SetValues (isPrebuilt);
 
 		//Set range of turret depending on type
 		//Can Set in Inspector if wanted
@@ -77,35 +83,37 @@ public abstract class TurretTemplate : MonoBehaviour
 		switch (collider.direction)
 		{
 			case 0:
-				collider.center = new Vector3(-transform.position.y / transform.localScale.x, 0, 0);
+				collider.center = new Vector3 (-transform.position.y / transform.localScale.x, 0, 0);
 				break;
 			case 1:
-				collider.center = new Vector3(0, -transform.position.y / transform.localScale.x, 0);
+				collider.center = new Vector3 (0, -transform.position.y / transform.localScale.x, 0);
 				break;
 			case 2:
-				collider.center = new Vector3(0, 0, -transform.position.y / transform.localScale.x);
+				collider.center = new Vector3 (0, 0, -transform.position.y / transform.localScale.x);
 				break;
 			default:
-				collider.center = new Vector3(0, -transform.position.y / transform.localScale.x, 0);
+				collider.center = new Vector3 (0, -transform.position.y / transform.localScale.x, 0);
 				break;
 		}
-		collider.radius = (turretValues.range/2) / gameObject.transform.localScale.x;
+		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
 		//Set cooldown
 		totalFireRate = turretValues.fireRate;
 		coolDown = 1 / totalFireRate;
 	}
 
-	protected virtual void Update()
+	protected virtual void Update ()
 	{
-		coolDown = Mathf.Max(coolDown -= Time.deltaTime, 0);
-		if (coolDown <= 0) Shoot();
+		coolDown = Mathf.Max (coolDown -= Time.deltaTime, 0);
+		if (coolDown <= 0)
+			Shoot ();
 
-		if (Input.GetKeyDown(KeyCode.P) && level < 3) Upgrade();
+		if (Input.GetKeyDown (KeyCode.P) && level < 3)
+			Upgrade ();
 	}
 
-	protected abstract void SetValues(bool isPrebuilt);
+	protected abstract void SetValues (bool isPrebuilt);
 
-	protected abstract void UpgradeStats(bool isPrebuilt);
+	protected abstract void UpgradeStats (bool isPrebuilt);
 
 	//To be added when turrets are first placed
 	public void BoostStats (TurretValues turretValues, STurretValues sTurretValues, float oldInvestmentValue, float oldFireRate, bool boostStats)
@@ -124,7 +132,8 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	public void RecalculateInvestmentValue ()
 	{
-		if (isPrebuilt) manaReturnPercentageF = manaReturnPercentageB + manaReturnPercentageS;
+		if (isPrebuilt)
+			manaReturnPercentageF = manaReturnPercentageB + manaReturnPercentageS;
 	}
 
 	public void RecalculateFireRate ()
@@ -132,7 +141,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		totalFireRate = turretValues.fireRate + fireRateBuff;
 	}
 
-	public void Upgrade()
+	public void Upgrade ()
 	{
 		int cost = 0;
 		switch (level)
@@ -150,14 +159,15 @@ public abstract class TurretTemplate : MonoBehaviour
 				break;
 		}
 
-		if (manaSys.currentMana > cost) manaSys.ManaMinus(cost);
+		if (manaSys.currentMana > cost)
+			manaSys.ManaMinus (cost);
 		else
 		{
-			print("Not Enough Mana");
+			print ("Not Enough Mana");
 			return;
 		}
 
-		level = Mathf.Min(++level, 3);
+		level = Mathf.Min (++level, 3);
 
 		//Change Model According to new level
 		switch (level)
@@ -176,7 +186,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				break;
 		}
 		//Add Changes to Stats as well
-		UpgradeStats(isPrebuilt);
+		UpgradeStats (isPrebuilt);
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
 		RecalculateFireRate ();
 
@@ -205,10 +215,10 @@ public abstract class TurretTemplate : MonoBehaviour
 		}
 	}
 
-	protected virtual void Shoot()
+	protected virtual void Shoot ()
 	{
 		//Remove any "Enemy" from list if the Enemy Reference is not present
-		if (enemies.Contains(null)) enemies.RemoveAll(AI => AI == null);
+		if (enemies.Contains (null)) enemies.RemoveAll (AI => AI == null);
 
 		if (enemies.Count > 0)
 		{
@@ -218,7 +228,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			for (int i = 0; i < enemies.Count; i++)
 			{
 				//For attacking enemies closest to Townhall
-				float enemyDistance = enemies[i].CheckDistance();
+				float enemyDistance = enemies[i].CheckDistance ();
 				//print ("Index " + i + ": " + enemyDistance);
 				if (enemyDistance < shortestDist)
 				{
@@ -235,42 +245,37 @@ public abstract class TurretTemplate : MonoBehaviour
 				}*/
 			}
 
-			Vector3 direction = enemies[index].enemyType == AttackType.air ? -(transform.position - enemies[index].transform.GetChild(0).position).normalized : -(transform.position - enemies[index].transform.position).normalized;
-			GameObject currentBullet = Instantiate(bullet, transform.position + direction * 0.5f, Quaternion.identity);
-			currentBullet.GetComponent<Rigidbody>().velocity = direction * turretValues.bulletSpeed;
+			Vector3 direction = enemies[index].enemyType == AttackType.air ? -(transform.position - enemies[index].transform.GetChild (0).position).normalized : -(transform.position - enemies[index].transform.position).normalized;
+			GameObject currentBullet = Instantiate (bullet, transform.position + direction * 0.5f, Quaternion.identity);
+			currentBullet.GetComponent<Rigidbody> ().velocity = direction * turretValues.bulletSpeed;
 			coolDown = 1 / totalFireRate;
 			//print ("Shortest: " + shortestDist);
-		}
-		else return;
+		} else
+			return;
 	}
 
 	//Only requires overriding for Cannon and Catapult
 	//Function for Bullet to utilise on hit
 	//Exploded is specially for Catapults
-	public virtual void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
+	public virtual void Hit (AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
 		if (enemy.hp > 0)
 		{
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
-				manaSys.ManaAdd((int)(enemy.manaDrop * manaReturnPercentageF));
-				print(manaSys.currentMana.ToString());
-
-                if (isPrebuilt)
-                {
-                    rsm.CollectResource(ResourceManager.ResourceType.prebuildMana, enemy.gameObject);       //if the tower is prebuilt calls manaAnimation
-                    Destroy(enemy.gameObject);
-                }
-                else if (!isPrebuilt)
-                {
-
-                    rsm.CollectResource(ResourceManager.ResourceType.mana, enemy.gameObject);   //if the tower is prebuilt calls prebuiltAnimationMana
-                    Destroy(enemy.gameObject);
-                }
-            }
+				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
+				manaSys.ManaAdd (addedMana);
+				rsm.DisplayText (addedMana, enemy.transform.position);
+				//print (manaSys.currentMana.ToString ());
+				if (isPrebuilt)
+				{
+					rsm.CollectResource (enemy.transform.position);       //if the tower is prebuilt calls manaAnimation
+				}
+				Destroy (enemy.gameObject);
+			}
 		}
-		Destroy(bullet);
+		Destroy (bullet);
 	}
 
 	/*void OnTriggerStay (Collider other)
@@ -279,24 +284,24 @@ public abstract class TurretTemplate : MonoBehaviour
 		//print("Working");
 	}*/
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter (Collider other)
 	{
 		if (other.tag == "AI")
 		{
-			AITemplate enemy = other.GetComponent<AITemplate>();
+			AITemplate enemy = other.GetComponent<AITemplate> ();
 			foreach (AttackType attackType in turretValues.attackType)
 			{
 				if (attackType == enemy.enemyType)
 				{
-					enemies.Add(enemy);
+					enemies.Add (enemy);
 					break; //Get out of loop once enemy is added
 				}
 			}
 		}
 	}
 
-	void OnTriggerExit(Collider other)
+	void OnTriggerExit (Collider other)
 	{
-		if (other.tag == "AI") enemies.Remove(other.GetComponent<AITemplate>());
+		if (other.tag == "AI") enemies.Remove (other.GetComponent<AITemplate> ());
 	}
 }

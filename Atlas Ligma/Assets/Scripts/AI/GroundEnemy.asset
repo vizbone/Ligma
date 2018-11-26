@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eaa6cb802fe28241a163e0dce59e411, type: 3}
   m_Name: GroundEnemy
   m_EditorClassIdentifier: 
+  type: 0
   typeOfEnemy: {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490,
     type: 2}
   interval: 1

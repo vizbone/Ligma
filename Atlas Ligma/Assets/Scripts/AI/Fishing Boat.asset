@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eaa6cb802fe28241a163e0dce59e411, type: 3}
-  m_Name: AirEnemy
+  m_Name: Fishing Boat
   m_EditorClassIdentifier: 
-  type: 1
-  typeOfEnemy: {fileID: 1030876710857592, guid: 7f9fc68bd3129e24989345abe504b24e,
+  type: 2
+  typeOfEnemy: {fileID: 1220789444131046, guid: b2832e1bce273db49ab1ca3070d065e1,
     type: 2}
   interval: 1

@@ -13,15 +13,18 @@ public class AI : AITemplate {
 
 	public float fireRate;
 	public int dmg;
-	public GameObject bomb;
+	public GRENADA YYYEEEEEEETTTT;
 	public Vector3 offset;
 
 	float time;
 	bool cLock;
 
+	ManaSystem manaSys;
+
 	protected override void Start () 
 	{
 		ai = FindObjectOfType<AIMovement>();
+		manaSys = FindObjectOfType<ManaSystem> ();
 
 		int temp = Find();
 			if (temp == 0)
@@ -92,7 +95,7 @@ public class AI : AITemplate {
 	{
 		if (other.gameObject.tag == "Town Hall" && enemyType == AttackType.ground)
 		{
-			FindObjectOfType<ManaSystem> ().currentMana -= dmg;
+			manaSys.ManaMinus (dmg);
 			Destroy (gameObject);
 		}
 	}
@@ -100,8 +103,9 @@ public class AI : AITemplate {
 	IEnumerator ALLAHUAKBAAR ()
 	{
 		cLock = true;
-		GameObject GRENADA = Instantiate (bomb, transform.GetChild (0).position + offset, Quaternion.identity);
-		GRENADA.GetComponent<GRENADA> ().FORTHEMOTHERLAND = dmg;
+		GRENADA GRENADA = Instantiate (YYYEEEEEEETTTT, transform.GetChild (0).position + offset, Quaternion.identity);
+		GRENADA.FORTHEMOTHERLAND = dmg;
+		GRENADA.YEETUSFEETUS = manaSys;
 		yield return new WaitForSeconds (time);
 		cLock = false;
 	}

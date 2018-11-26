@@ -31,17 +31,22 @@ public class ManaSystem : MonoBehaviour
 
 	void Update()
 	{
-		UpdateGameState();
+		Functions ();
+	}
+
+	void Functions ()
+	{
+		UpdateGameState ();
 
 		//Players win the game once their Current Mana is >= Max Mana
-		if (currentMana > maxMana) gameState = GameStates.win;
-		else if (currentMana <= 0) gameState = GameStates.lose;
+		if (currentMana > maxMana)
+			gameState = GameStates.win;
+		else if (currentMana <= 0)
+			gameState = GameStates.lose;
 
 		//Display Current Mana
-		currentManaDisplay.text = currentMana.ToString() + "/" + "2000";
+		currentManaDisplay.text = currentMana.ToString () + "/" + "2000";
 		manaSlider.value = currentMana;
-
-		currentMana = Mathf.Max (0, currentMana);
 	}
 
 	void UpdateGameState()
@@ -53,7 +58,7 @@ public class ManaSystem : MonoBehaviour
 	//minuses mana from bank
 	public void ManaMinus(int amount)
 	{
-		currentMana -= amount;
+		currentMana = Mathf.Max (0, currentMana - amount);
 	}
 
 	//adds mana from bank
