@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GridSystem : MonoBehaviour {
 
 	public LayerMask gridLayer;
 	public Material[] buildingMaterials;
 	public Tower[] towers;
-	public LayerMask[] ignoreLayersForBuilding;
+	public LayerMask ignoreLayersForBuilding;
 	public float gridSize;
 
 	public GameObject currentBuild;
@@ -18,10 +19,13 @@ public class GridSystem : MonoBehaviour {
 	public bool buildMode;
 	public bool canBuild;
 
+	public GraphicRaycaster myRay;
+
 	void Start () 
 	{
 		cam = GetComponent<Camera> ();
 		manaSys = GetComponent<ManaSystem> ();
+		//myRay = FindObjectOfType<GraphicRaycaster>(); Manually Assign in Inspector
 		buildMode = false;
 		buildIndex = 0;
 	}
@@ -82,9 +86,21 @@ public class GridSystem : MonoBehaviour {
 			{
 				buildPos = new Vector3 (hit.point.x - Mathf.Repeat (hit.point.x, gridSize) + gridSize * 0.5f, 0.5f, hit.point.z - Mathf.Repeat (hit.point.z, gridSize) + gridSize * 0.5f);
 				currentBuild.transform.position = buildPos;
-				bool canPlace = !isObjectHere (buildPos) && towers[buildIndex].cost <= manaSys.currentMana ? true : false;
-				Material (canPlace);
-				if (Input.GetMouseButtonDown (0) && canPlace && canBuild) //&& !EventSystem.current.IsPointerOverGameObject())
+
+				//Check for any UI Elements hovered over
+				List<RaycastResult> results = new List<RaycastResult>();
+				PointerEventData data = new PointerEventData(null);
+				data.position = Input.mousePosition;
+				myRay.Raycast(data, results);
+
+				bool canPlace = false;
+
+				if (results.Count > 0) canPlace = false;
+				else canPlace = !isObjectHere(buildPos) && towers[buildIndex].cost <= manaSys.currentMana ? true : false;
+
+				Material(canPlace);
+
+				if (Input.GetMouseButtonDown (0) && canPlace) //&& !EventSystem.current.IsPointerOverGameObject())
 				{
 					Build (buildPos);
 				}
@@ -95,24 +111,28 @@ public class GridSystem : MonoBehaviour {
 	//check if object is present
 	bool isObjectHere (Vector3 position)
 	{
-		bool isIt = false;
-		Collider[] intersecting = Physics.OverlapSphere (position, 0.01f);
-		if (intersecting.Length == 0)
+		bool isObjHere = false;
+
+		Collider[] intersectingColliders = Physics.OverlapSphere(position, 0.05f);
+
+		if (intersectingColliders.Length == 0) isObjHere = false;
+		else
 		{
-			return false;
-		} else {
-			for (int i = 0; i < intersecting.Length; i++)
+			foreach (Collider collider in intersectingColliders)
 			{
-				for (int index = 0; index < ignoreLayersForBuilding.Length; index++)
+				if (!collider.isTrigger)
 				{
-					if (intersecting[i].gameObject.layer == ignoreLayersForBuilding[index])
+					if (collider.gameObject.layer != ignoreLayersForBuilding)
 					{
-						isIt = true;
+						isObjHere = true;
+						break;
 					}
+					else isObjHere = false;
 				}
 			}
-			return isIt;
 		}
+
+		return isObjHere;
 	}
 
 	//handles changing of material (if it can place or not)
@@ -131,6 +151,5 @@ public class GridSystem : MonoBehaviour {
 	public void Uninteractable()
 	{
 		canBuild = false;
-		print("Life sucks take drugs");
 	}
 }

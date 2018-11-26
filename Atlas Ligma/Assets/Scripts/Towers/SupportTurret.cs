@@ -151,12 +151,15 @@ public class SupportTurret : MonoBehaviour
     {
         if(other.tag == "Tower" && !other.isTrigger)
         {
-			affectedTurrets.Add (other.GetComponent<TurretTemplate> ());
-			if (affectedTurrets[affectedTurrets.Count - 1].isPrebuilt) affectedTurrets[affectedTurrets.Count - 1].manaReturnPercentageS += sTurretValues.investmentValue;
-			if (sTurretValues.boostsStats) affectedTurrets[affectedTurrets.Count - 1].fireRateBuff += sTurretValues.buff;
-			affectedTurrets[affectedTurrets.Count - 1].RecalculateInvestmentValue ();
-			affectedTurrets[affectedTurrets.Count - 1].RecalculateFireRate ();
-			print ("Buff");
+			if (other.GetComponent<TurretTemplate>() != null)
+			{
+				affectedTurrets.Add(other.GetComponent<TurretTemplate>());
+				if (affectedTurrets[affectedTurrets.Count - 1].isPrebuilt) affectedTurrets[affectedTurrets.Count - 1].manaReturnPercentageS += sTurretValues.investmentValue;
+				if (sTurretValues.boostsStats) affectedTurrets[affectedTurrets.Count - 1].fireRateBuff += sTurretValues.buff;
+				affectedTurrets[affectedTurrets.Count - 1].RecalculateInvestmentValue();
+				affectedTurrets[affectedTurrets.Count - 1].RecalculateFireRate();
+			}
+			else return;
 		}
     }
    

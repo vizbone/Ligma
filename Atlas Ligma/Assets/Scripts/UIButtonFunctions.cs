@@ -11,6 +11,8 @@ public class UIButtonFunctions : MonoBehaviour {
 	ManaSystem manaSys;
 	GridSystem gridSys;
 
+	public GameObject currentBuild;
+
 	private void Start()
 	{
 		manaSys = FindObjectOfType<ManaSystem>();
@@ -19,8 +21,9 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	private void Update()
 	{
-		if (Input.GetKey(KeyCode.Escape))
+		if (Input.GetMouseButtonDown(1))
 		{
+			DestroyCurrentBuild();
 			gridSys.buildMode = false;
 		}
 	}
@@ -37,51 +40,72 @@ public class UIButtonFunctions : MonoBehaviour {
 		settingsMenu.SetActive(false);
 	}
 
+	void DestroyCurrentBuild()
+	{
+		if (currentBuild != null)
+		{
+			Destroy(currentBuild);
+			currentBuild = null;
+		}
+	}
+
 	public void CrossbowBuild()
 	{
+		DestroyCurrentBuild();
 		gridSys.buildIndex = 0;
 		gridSys.buildMode = true;
 		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
+		currentBuild = build;
 		gridSys.currentBuild = build;
 	}
 
 	public void CannonBuild()
 	{
+		DestroyCurrentBuild();
 		gridSys.buildIndex = 1;
 		gridSys.buildMode = true;
 		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
+		currentBuild = build;
 		gridSys.currentBuild = build;
 	}
 
 	public void CatapultBuild()
 	{
+		DestroyCurrentBuild();
 		gridSys.buildIndex = 2;
 		gridSys.buildMode = true;
 		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
+		currentBuild = build;
 		gridSys.currentBuild = build;
 	}
 
 	public void RocketsBuild()
 	{
+		DestroyCurrentBuild();
 		gridSys.buildIndex = 3;
 		gridSys.buildMode = true;
 		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
+		currentBuild = build;
 		gridSys.currentBuild = build;
 	}
 
 	public void FireRateBuild()
 	{
+		DestroyCurrentBuild();
 		gridSys.buildIndex = 4;
 		gridSys.buildMode = true;
 		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
+		currentBuild = build;
 		gridSys.currentBuild = build;
 	}
 
 	public void InvestmentBuild()
 	{
+		DestroyCurrentBuild();
 		gridSys.buildIndex = 5;
 		gridSys.buildMode = true;
 		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
+		currentBuild = build;
 		gridSys.currentBuild = build;
 	}
 }

@@ -289,6 +289,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		if (other.tag == "AI")
 		{
 			AITemplate enemy = other.GetComponent<AITemplate> ();
+			if (enemies.Contains(null)) enemies.RemoveAll(AI => AI == null);
 			foreach (AttackType attackType in turretValues.attackType)
 			{
 				if (attackType == enemy.enemyType)

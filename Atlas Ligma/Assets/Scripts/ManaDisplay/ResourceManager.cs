@@ -24,8 +24,9 @@ public class ResourceManager : MonoBehaviour
 	{
 		if (addedMana != 0)
 		{
-			Text txt = Instantiate (text, enemyPos, Quaternion.identity, canvas);
+			Text txt = Instantiate (text, enemyPos, canvas.transform.rotation, canvas);
 			txt.text = "+" + addedMana;
+			Destroy(txt, 3f);
 		}
 	}
 }

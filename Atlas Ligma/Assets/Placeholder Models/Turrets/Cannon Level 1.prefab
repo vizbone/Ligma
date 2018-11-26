@@ -170,6 +170,7 @@ MonoBehaviour:
   enemies: []
   bullet: {fileID: 1902089975787962, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}
   bulletScript: {fileID: 0}
+  rsm: {fileID: 0}
 --- !u!114 &114401421622489224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +187,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
     title: Upgrade
   currentTower: {fileID: 1706804124858018}
+  turret: {fileID: 0}
+  sTurret: {fileID: 0}
 --- !u!136 &136796046800122934
 CapsuleCollider:
   m_ObjectHideFlags: 1

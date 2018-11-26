@@ -22,7 +22,10 @@ public class Bullet : MonoBehaviour
 	{
 		if (other.tag == "AI")
 		{
-			if (turret != null) turret.Hit(other.GetComponent<AITemplate>(), turret.isPrebuilt, gameObject, hitCount);
+			if (turret != null)
+			{
+				turret.Hit(other.GetComponentInParent<AITemplate>(), turret.isPrebuilt, gameObject, hitCount);
+			}
 		}
 	}
 }

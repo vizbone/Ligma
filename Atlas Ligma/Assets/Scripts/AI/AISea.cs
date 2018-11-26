@@ -16,7 +16,7 @@ public class AISea : AITemplate
 	public int maxInstances;
 	public int instanceCount;
 
-	Transform townHall;
+	[SerializeField] Transform townHall;
 	NavMeshAgent agent;
 	AIMovement ai;
 	bool unloading;
@@ -42,7 +42,7 @@ public class AISea : AITemplate
 
 		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
-		GameObject.Find ("Town Halll");
+		townHall = GameObject.Find ("Townhall").transform;
 
 		cLock = false;
 		currentDestination = 0;
