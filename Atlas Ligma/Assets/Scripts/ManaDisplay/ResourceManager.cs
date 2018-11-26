@@ -1,25 +1,35 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ResourceManager : MonoBehaviour {
+public class ResourceManager : MonoBehaviour
+{
+	public ManaAnimatedPrefabScript manaAnimatedprefab;
 
-	public enum ResourceType { mana, prebuildMana  } //Types of Resources
-    public static int Mana; //mana variable
+	public Transform townhall;
+	public float manaSpeed;
 
-    public GameObject townhall; //to find the townhall
+	public Canvas numberCanvas;
+	public Text txtSample;
+	public float destroyTime;
 
-    [Header("Prefabs")]
-    public GameObject manaAnimatedprefab;           //Prefab for mana  
-    //public GameObject prebuiltManaAnimatedPrefab;   //Prefab for prebuilt mana
+	public Camera cam;
 
-    public void CollectResource(ResourceType rscType, GameObject target)
-     {
-        ManaAnimatedPrefabScript m = manaAnimatedprefab.GetComponent<ManaAnimatedPrefabScript>();
-        m.manaType = rscType;
-        
-        Vector3 enemyDeathPos = target.transform.position;
-        GameObject manaSpawn = Instantiate(manaAnimatedprefab, enemyDeathPos, Quaternion.identity);
-    }
+	public void CollectResource (Transform enemyPos)
+	{
+		ManaAnimatedPrefabScript manaSpawn = Instantiate (manaAnimatedprefab, enemyPos.position, Quaternion.identity);
+		manaSpawn.endpos = townhall.position;
+		manaSpawn.speed = manaSpeed;
+	}
+
+	public void DisplayText (Transform enemyPos, int addedMana) 
+	{
+		if (addedMana != 0)
+		{
+			Text txt = Instantiate (txtSample, enemyPos.position, numberCanvas.transform.rotation, numberCanvas.transform);
+			txt.text = "+" + addedMana.ToString ();
+			Destroy (txt, destroyTime);
+		}
+	}
 }
