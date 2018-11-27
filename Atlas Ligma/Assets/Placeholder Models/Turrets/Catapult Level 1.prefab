@@ -41,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1396634072807330}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 43.54, y: 1.38, z: 42.68}
-  m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
+  m_LocalScale: {x: 2, y: 2.54, z: 2.54}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -135,6 +135,9 @@ MonoBehaviour:
   currentTower: {fileID: 1396634072807330}
   turret: {fileID: 0}
   sTurret: {fileID: 0}
+  towerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114587908953550296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,6 +172,7 @@ MonoBehaviour:
   enemies: []
   bullet: {fileID: 1017571087022230, guid: de399a4572e306e4fbd0bbc7f8233687, type: 2}
   bulletScript: {fileID: 0}
+  rsm: {fileID: 0}
   explosion: {fileID: 1454996230180334, guid: 24f52a6b4a79e98429fabe57c74405f4, type: 2}
   explosionScript: {fileID: 0}
 --- !u!136 &136564637928575550
