@@ -78,11 +78,11 @@ public class ManaSystem : MonoBehaviour
 		if (addedMana < 0)
 		{
 			txt.color = Color.red;
-			txt.text = "" + addedMana;
+			txt.text = addedMana.ToString();
 		} 
 		else
 		{
-			txt.color = Color.green;
+			txt.color = new Color (0, 0.65f, 1);
 			txt.text = "+" + addedMana;
 		}
 		txt.transform.localPosition += (transform.forward * -1) * 5;

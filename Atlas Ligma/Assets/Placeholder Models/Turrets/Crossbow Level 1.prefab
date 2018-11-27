@@ -152,6 +152,11 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
     title: Upgrade
   currentTower: {fileID: 1614154539434564}
+  turret: {fileID: 0}
+  sTurret: {fileID: 0}
+  towerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114933962414085430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,10 +187,13 @@ MonoBehaviour:
   lvl1Model: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
   lvl2Model: {fileID: 4300000, guid: aaeede97830d95d42948f1aae751ec63, type: 3}
   lvl3Model: {fileID: 4300000, guid: 210bfd219e5afad489c4839eb7edf1d0, type: 3}
+  r: {fileID: 0}
+  nonInvested: {fileID: 2100000, guid: 5b46cbc53cb07b54ba6609047798b55f, type: 2}
+  invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
   collider: {fileID: 0}
   enemies: []
-  bullet: {fileID: 1015669719974578, guid: 223d526f9a2a8e4468708021759c3d82, type: 2}
-  bulletScript: {fileID: 0}
+  bullet: {fileID: 114779164487480798, guid: 223d526f9a2a8e4468708021759c3d82, type: 2}
+  rsm: {fileID: 0}
 --- !u!136 &136596641318702540
 CapsuleCollider:
   m_ObjectHideFlags: 1

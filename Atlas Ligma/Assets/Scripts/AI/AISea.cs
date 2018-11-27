@@ -32,12 +32,12 @@ public class AISea : AITemplate
 		if (whichType == SeaEnemy.boat)
 		{
 			hp = 5;
-			manaDrop = 10;
+			manaDrop = 100;
 		}
 		else
 		{
 			hp = 10;
-			manaDrop = 50;
+			manaDrop = 200;
 		}
 
 		ai = FindObjectOfType<AIMovement> ();

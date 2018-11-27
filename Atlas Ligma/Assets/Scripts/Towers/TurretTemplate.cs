@@ -42,6 +42,9 @@ public abstract class TurretTemplate : MonoBehaviour
 	public Mesh lvl1Model;
 	public Mesh lvl2Model;
 	public Mesh lvl3Model;
+	[SerializeField] Renderer r;
+	[SerializeField] Material nonInvested;
+	[SerializeField] Material invested;
 
 	[Header ("Collider and Enemy List")]
 	[SerializeField]
@@ -50,10 +53,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	List<AITemplate> enemies; //Stores all valid enemies detected
 
 	[Header ("For Bullets")]
-	[SerializeField]
-	private GameObject bullet; //To be set in Inspector
-	[SerializeField]
-	Bullet bulletScript;
+	[SerializeField] Bullet bullet;
 
 	[Header ("For Mana Gain")]
 	public ResourceManager rsm;
@@ -67,13 +67,14 @@ public abstract class TurretTemplate : MonoBehaviour
 		manaSys = FindObjectOfType<ManaSystem> ();
 		rsm = FindObjectOfType<ResourceManager> ();
 
+		r = GetComponent<Renderer>();
+		if (isPrebuilt) r.material = nonInvested;
+
 		model = GetComponent<MeshFilter> ();
 
 		collider = GetComponent<CapsuleCollider> ();
 		collider.isTrigger = true;
 		enemies = new List<AITemplate> ();
-		bulletScript = (bool) bullet.GetComponent<Bullet> () ? bullet.GetComponent<Bullet> () : bullet.AddComponent<Bullet> (); //Get Bullet Component to Alter Values
-		bulletScript.turret = this;
 		SetValues (isPrebuilt);
 
 		//Set range of turret depending on type
@@ -193,6 +194,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		//Only if it is prebuilt, manaReturnPercentageB will change
 		if (isPrebuilt)
 		{
+			r.material = invested;
 			float newPerc;
 
 			switch (level)
@@ -246,7 +248,8 @@ public abstract class TurretTemplate : MonoBehaviour
 			}
 
 			Vector3 direction = enemies[index].enemyType == AttackType.air ? -(transform.position - enemies[index].transform.GetChild (0).position).normalized : -(transform.position - enemies[index].transform.position).normalized;
-			GameObject currentBullet = Instantiate (bullet, transform.position + direction * 0.5f, Quaternion.identity);
+			Bullet currentBullet = Instantiate (bullet, transform.position + direction * 0.5f, Quaternion.identity);
+			currentBullet.turret = this;
 			currentBullet.GetComponent<Rigidbody> ().velocity = direction * turretValues.bulletSpeed;
 			coolDown = 1 / totalFireRate;
 			//print ("Shortest: " + shortestDist);
@@ -283,7 +286,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	{
 		if (other.tag == "AI")
 		{
-			AITemplate enemy = other.GetComponent<AITemplate> ();
+			AITemplate enemy = other.GetComponentInParent<AITemplate> ();
 			if (enemies.Contains(null)) enemies.RemoveAll(AI => AI == null);
 			foreach (AttackType attackType in turretValues.attackType)
 			{

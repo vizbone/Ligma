@@ -168,13 +168,15 @@ MonoBehaviour:
   lvl1Model: {fileID: 4300000, guid: a7a621a122e58af468a18ed0de4a6b9f, type: 3}
   lvl2Model: {fileID: 4300000, guid: cf757c1def4e35746ad0021e2a541e05, type: 3}
   lvl3Model: {fileID: 4300000, guid: 98ae8bef22944f348b818be8eaeb3e40, type: 3}
+  r: {fileID: 0}
+  nonInvested: {fileID: 2100000, guid: 5b46cbc53cb07b54ba6609047798b55f, type: 2}
+  invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
   collider: {fileID: 0}
   enemies: []
-  bullet: {fileID: 1017571087022230, guid: de399a4572e306e4fbd0bbc7f8233687, type: 2}
-  bulletScript: {fileID: 0}
+  bullet: {fileID: 114223184396069200, guid: de399a4572e306e4fbd0bbc7f8233687, type: 2}
   rsm: {fileID: 0}
-  explosion: {fileID: 1454996230180334, guid: 24f52a6b4a79e98429fabe57c74405f4, type: 2}
-  explosionScript: {fileID: 0}
+  explosion: {fileID: 114307124736076234, guid: 24f52a6b4a79e98429fabe57c74405f4,
+    type: 2}
 --- !u!136 &136564637928575550
 CapsuleCollider:
   m_ObjectHideFlags: 1

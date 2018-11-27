@@ -166,10 +166,12 @@ MonoBehaviour:
   lvl1Model: {fileID: 4300000, guid: b20724012ece54c409c9b1cfe3847fe4, type: 3}
   lvl2Model: {fileID: 4300000, guid: 7d3f1bb9e8195e24db2b5918d5b3dc8d, type: 3}
   lvl3Model: {fileID: 4300000, guid: e4aa86b6bb26d6c43bda31cc1518864e, type: 3}
+  r: {fileID: 0}
+  nonInvested: {fileID: 2100000, guid: 5b46cbc53cb07b54ba6609047798b55f, type: 2}
+  invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
   collider: {fileID: 0}
   enemies: []
-  bullet: {fileID: 1902089975787962, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}
-  bulletScript: {fileID: 0}
+  bullet: {fileID: 114884531770006698, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 2}
   rsm: {fileID: 0}
 --- !u!114 &114401421622489224
 MonoBehaviour:
@@ -189,6 +191,9 @@ MonoBehaviour:
   currentTower: {fileID: 1706804124858018}
   turret: {fileID: 0}
   sTurret: {fileID: 0}
+  towerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!136 &136796046800122934
 CapsuleCollider:
   m_ObjectHideFlags: 1

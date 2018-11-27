@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Catapult : TurretTemplate {
-
-	public GameObject explosion;
-	public Explosion explosionScript;
+public class Catapult : TurretTemplate
+{
+	public Explosion explosion;
 
 	protected override void Start()
 	{
 		base.Start();
-		explosionScript = explosion.GetComponent<Explosion>() ? explosion.GetComponent<Explosion>() : explosion.AddComponent<Explosion>();
-		explosionScript.turret = this;
 	}
 
 	protected override void SetValues(bool isPrebuilt)
@@ -24,7 +21,8 @@ public class Catapult : TurretTemplate {
 	{
 		if (!exploded)
 		{
-			Instantiate(explosion, bullet.transform.position, Quaternion.identity);
+			Explosion explosionInst = Instantiate(explosion, bullet.transform.position, Quaternion.identity);
+			explosionInst.turret = this;
 			Destroy(bullet);
 		}
 		if (enemy.hp > 0)
