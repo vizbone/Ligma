@@ -80,7 +80,7 @@ public class SupportTurret : MonoBehaviour
 			default:
 				break;
 		}
-		if (manaSys.currentMana > cost) manaSys.ManaMinus(cost);
+		if (manaSys.currentMana > cost) manaSys.ManaMinus(cost, transform.position, 2);
 		else
 		{
 			print("Not Enough Mana");

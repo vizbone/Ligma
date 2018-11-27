@@ -22,13 +22,8 @@ public class Cannon : TurretTemplate
 			if (enemy.hp <= 0)
 			{
 				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
-				manaSys.ManaAdd (addedMana);
-				rsm.DisplayText (addedMana, enemy.transform.position);
+				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
 				//print (manaSys.currentMana.ToString ());
-				if (isPrebuilt)
-				{
-					rsm.CollectResource (enemy.transform.position);       //if the tower is prebuilt calls manaAnimation
-				}
 				Destroy (enemy.gameObject);
 			}
 		}

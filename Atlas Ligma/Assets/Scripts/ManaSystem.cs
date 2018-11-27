@@ -22,6 +22,8 @@ public class ManaSystem : MonoBehaviour
 	//Mana UI
 	public Text currentManaDisplay;
 	public Slider manaSlider;
+	public Text text;
+	public Transform canvas;
 
 	private void Start()
 	{
@@ -56,16 +58,35 @@ public class ManaSystem : MonoBehaviour
 	}
 
 	//minuses mana from bank
-	public void ManaMinus(int amount)
+	public void ManaMinus(int amount, Vector3 pos, float offset)
 	{
 		currentMana = Mathf.Max (0, currentMana - amount);
+		DisplayText (-amount, pos, offset);
 	}
 
 	//adds mana from bank
-	public void ManaAdd(int amount)
+	public void ManaAdd(int amount, Vector3 pos, float offset)
 	{
 		currentMana += amount;
 		if (currentMana > maxMana) { currentMana = maxMana; }
+		DisplayText (amount, pos, offset);
+	}
+
+	public void DisplayText (int addedMana, Vector3 pos, float offset)
+	{
+		Text txt = Instantiate (text, pos, canvas.transform.rotation, canvas);
+		if (addedMana < 0)
+		{
+			txt.color = Color.red;
+			txt.text = "" + addedMana;
+		} 
+		else
+		{
+			txt.color = Color.green;
+			txt.text = "+" + addedMana;
+		}
+		txt.transform.localPosition += (transform.forward * -1) * 5;
+		Destroy (txt, 3f);
 	}
 
 	/*public int maxMana;

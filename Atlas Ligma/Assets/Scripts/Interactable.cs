@@ -28,11 +28,6 @@ public class Interactable : MonoBehaviour
 		sTurret = gameObject.GetComponent<SupportTurret>() ? gameObject.GetComponent<SupportTurret>() : null;
 	}
 
-	private void Update()
-	{
-		
-	}
-
 	void OnMouseDown()
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

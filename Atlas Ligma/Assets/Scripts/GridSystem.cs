@@ -145,7 +145,7 @@ public class GridSystem : MonoBehaviour {
 	void Build (Vector3 buildPos)
 	{
 		Instantiate (towers[buildIndex].actualTower, buildPos, towers[buildIndex].actualTower.transform.rotation);
-		manaSys.ManaMinus (towers[buildIndex].cost);
+		manaSys.ManaMinus (towers[buildIndex].cost, buildPos, 2);
 	}
 
 	public void Uninteractable()

@@ -4902,6 +4902,8 @@ MonoBehaviour:
   currentWave: 0
   currentManaDisplay: {fileID: 1154172110}
   manaSlider: {fileID: 1814215444}
+  text: {fileID: 114056630426280622, guid: d8131f72ac8482e438a231e880a8bfff, type: 2}
+  canvas: {fileID: 1701641532}
 --- !u!114 &534669910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13002,11 +13004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e628147a91b2842ab3c430e23fe560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  townHall: {fileID: 798252793}
-  manaDrop: {fileID: 114603433383097970, guid: 0ad5eda69f02f624cbe0badb71217c8b, type: 2}
-  manaSpeed: 1
-  text: {fileID: 114056630426280622, guid: d8131f72ac8482e438a231e880a8bfff, type: 2}
-  canvas: {fileID: 1701641532}
 --- !u!4 &1364938355
 Transform:
   m_ObjectHideFlags: 0
@@ -16308,7 +16305,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &1875883212
 MonoBehaviour:

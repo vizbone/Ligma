@@ -95,7 +95,7 @@ public class AI : AITemplate {
 	{
 		if (other.gameObject.tag == "Town Hall" && enemyType == AttackType.ground)
 		{
-			manaSys.ManaMinus (dmg);
+			manaSys.ManaMinus (dmg, transform.position, 0);
 			Destroy (gameObject);
 		}
 	}

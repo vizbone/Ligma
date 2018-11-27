@@ -8,7 +8,10 @@ public class GRENADA : MonoBehaviour
 	public ManaSystem YEETUSFEETUS;
 	void OnCollisionEnter (Collision other)
 	{
-		YEETUSFEETUS.ManaMinus (FORTHEMOTHERLAND);
-		Destroy (gameObject);
+		if (other.gameObject.tag == "TownHall")
+		{
+			YEETUSFEETUS.ManaMinus (FORTHEMOTHERLAND, other.collider.transform.position, 1);
+			Destroy (gameObject);
+		}
 	}
 }
