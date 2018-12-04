@@ -704,8 +704,8 @@ MonoBehaviour:
   path: 4
   currentDestination: 0
   enemies: {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490, type: 2}
-  enemyBatchSpawnCount: 20
-  enemySpawnRate: 100
+  enemyBatchSpawnCount: 10
+  enemySpawnRate: 15
   maxInstances: 100
   instanceCount: 0
   townHall: {fileID: 0}

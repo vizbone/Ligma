@@ -28,23 +28,29 @@ public class Interactable : MonoBehaviour
 		sTurret = gameObject.GetComponent<SupportTurret>() ? gameObject.GetComponent<SupportTurret>() : null;
 	}
 
-	void OnMouseDown()
+
+	void Update()
 	{
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit hit;
-
-		//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
-		bool hasTower = Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, towerLayer, QueryTriggerInteraction.Ignore);
-
-		if (hasTower)
+		if (Input.GetMouseButton (0))
 		{
-			if (hit.collider != null)
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+
+			//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
+			bool hasTower = sensor.Raycast (ray, out hit, Mathf.Infinity);
+
+			if (hasTower)
 			{
-				print(hit.collider.name);
-				if (turret != null) RadialMenuSpawner.ins.SpawnMenu(this, turret);
-				else RadialMenuSpawner.ins.SpawnMenu(this, sTurret);
-			}
+				if (hit.collider != null)
+				{
+					print (hit.collider.name);
+					if (turret != null)
+						RadialMenuSpawner.ins.SpawnMenu (this, turret);
+					else
+						RadialMenuSpawner.ins.SpawnMenu (this, sTurret);
+				}
+			} else
+				return;
 		}
-		else return;
 	}
 }

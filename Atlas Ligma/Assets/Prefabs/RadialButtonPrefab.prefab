@@ -86,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circle: {fileID: 114946152760541916}
   icon: {fileID: 114000706968659380}
-  title: 
+  title: Upgrade
   menu: {fileID: 0}
 --- !u!114 &114946152760541916
 MonoBehaviour:
