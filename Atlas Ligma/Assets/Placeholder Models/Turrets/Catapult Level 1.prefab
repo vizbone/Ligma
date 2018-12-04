@@ -40,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396634072807330}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 43.54, y: 1.38, z: 42.68}
-  m_LocalScale: {x: 2, y: 2.54, z: 2.54}
+  m_LocalPosition: {x: 51.56, y: 0, z: 45.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 34c7b333a73a5f14a8c8f3fafe4316be, type: 2}
+  - {fileID: 2100000, guid: ab980aa4f00a7ac41b91fcc646e5590b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,7 +87,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396634072807330}
-  m_Mesh: {fileID: 4300000, guid: a7a621a122e58af468a18ed0de4a6b9f, type: 3}
+  m_Mesh: {fileID: 4300000, guid: e3ae349cb0fc77942b21516f28b784d6, type: 3}
 --- !u!54 &54259073444971986
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -116,7 +116,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: a7a621a122e58af468a18ed0de4a6b9f, type: 3}
+  m_Mesh: {fileID: 4300000, guid: e3ae349cb0fc77942b21516f28b784d6, type: 3}
 --- !u!114 &114271016013711258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,9 +165,9 @@ MonoBehaviour:
   totalFireRate: 0
   fireRateBuff: 0
   model: {fileID: 0}
-  lvl1Model: {fileID: 4300000, guid: a7a621a122e58af468a18ed0de4a6b9f, type: 3}
-  lvl2Model: {fileID: 4300000, guid: cf757c1def4e35746ad0021e2a541e05, type: 3}
-  lvl3Model: {fileID: 4300000, guid: 98ae8bef22944f348b818be8eaeb3e40, type: 3}
+  lvl1Model: {fileID: 4300000, guid: e3ae349cb0fc77942b21516f28b784d6, type: 3}
+  lvl2Model: {fileID: 4300000, guid: 8df824d84f07fc143aad1b6b2293662a, type: 3}
+  lvl3Model: {fileID: 4300000, guid: 08761e6c23a335545828595b2b413066, type: 3}
   r: {fileID: 0}
   nonInvested: {fileID: 2100000, guid: 5b46cbc53cb07b54ba6609047798b55f, type: 2}
   invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}

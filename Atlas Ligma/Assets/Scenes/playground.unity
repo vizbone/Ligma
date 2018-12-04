@@ -3643,30 +3643,6 @@ Prefab:
       propertyPath: isPrebuilt
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 64430251839439990, guid: ee47aa28bf69cd14f9574fac0f158117,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 64430251839439990, guid: ee47aa28bf69cd14f9574fac0f158117,
-        type: 2}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23012571578359120, guid: ee47aa28bf69cd14f9574fac0f158117,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
-    - target: {fileID: 114351546110365368, guid: ee47aa28bf69cd14f9574fac0f158117,
-        type: 2}
-      propertyPath: turretMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
-    - target: {fileID: 1706804124858018, guid: ee47aa28bf69cd14f9574fac0f158117, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee47aa28bf69cd14f9574fac0f158117, type: 2}
   m_IsPrefabAsset: 0
@@ -5014,7 +4990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   startingMana: 500
-  maxMana: 1000
+  maxMana: 2000
   currentMana: 0
   totalWaves: 10
   currentWave: 0
