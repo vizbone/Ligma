@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 195011581078544746}
   - component: {fileID: 114925057642935008}
   - component: {fileID: 65006958825820156}
-  - component: {fileID: 95002139120629318}
   m_Layer: 11
   m_Name: Pirate Ship
   m_TagString: AI
@@ -67,8 +66,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464889855223836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.846725, y: 2.56, z: 41.06}
-  m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
+  m_LocalPosition: {x: 64.03493, y: -0.00000047683716, z: 67.12557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4116664827327906}
   m_Father: {fileID: 0}
@@ -89,7 +88,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1f0e4213d38ddee4181438fdf4f4afa6, type: 3}
+  - {fileID: 2100000, guid: 51562d5cae507284483260feca15f8c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +114,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432390243763100}
-  m_Mesh: {fileID: 4300000, guid: 1f0e4213d38ddee4181438fdf4f4afa6, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 232a7aff487866e4e98abb63dda6ff9c, type: 3}
 --- !u!65 &65006958825820156
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -128,24 +127,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.42496628, y: 2.0206242, z: 2.7047105}
   m_Center: {x: 0.06347566, y: -0.016972164, z: 0.023074225}
---- !u!95 &95002139120629318
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1464889855223836}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: 1f0e4213d38ddee4181438fdf4f4afa6, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114925057642935008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,7 +158,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1464889855223836}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.25
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
