@@ -43,14 +43,13 @@ public class Interactable : MonoBehaviour
 			{
 				if (hit.collider != null)
 				{
-					print (hit.collider.name);
+					print(hit.collider.name);
 					if (turret != null)
-						RadialMenuSpawner.ins.SpawnMenu (this, turret);
+						RadialMenuSpawner.ins.SpawnMenu(this, turret);
 					else
-						RadialMenuSpawner.ins.SpawnMenu (this, sTurret);
+						RadialMenuSpawner.ins.SpawnMenu(this, sTurret);
 				}
-			} else
-				return;
+			}
 		}
 	}
 }

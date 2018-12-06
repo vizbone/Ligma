@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: GroundEnemy 1
   m_EditorClassIdentifier: 
   type: 0
-  typeOfEnemy: {fileID: 1709179411151454, guid: 093a1e898b0537248ab727a26cb74ebc,
+  typeOfEnemy: {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490,
     type: 2}
   interval: 0.2

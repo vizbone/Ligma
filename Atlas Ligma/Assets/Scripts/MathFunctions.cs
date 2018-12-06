@@ -41,4 +41,14 @@ public class MathFunctions : MonoBehaviour
 		return 0;
 	}
 
+	public static float ParabolicCurve()
+	{
+		//distance multiplier = 1/distance or distance inverse
+
+		//f(y) = sin(Mathf.pi * percentage to 100 * distance multiplier);
+		//differentiate the f(y)
+
+		//f(z) = (distancemultiplier * pi)cos(distance multiplier * pi * x); //Velocity
+		return 0;
+	}
 }
