@@ -30,14 +30,15 @@ public class RadialMenu : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetMouseButtonUp(0))
+		if (Input.GetMouseButtonDown(0))
 		{
 			if (selected)
 			{
 				if (isSupport) sTurret.Upgrade(sTurret.sTurretValues.boostsStats);
 				else turret.Upgrade();
+				this.gameObject.SetActive(false);
 			}
-			Destroy(gameObject);
+			//Destroy(gameObject);
 		}
 	}
 }

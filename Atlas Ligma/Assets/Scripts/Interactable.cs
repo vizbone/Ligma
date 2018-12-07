@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
 	public SupportTurret sTurret;
 	MeshCollider sensor;
 	[SerializeField] LayerMask towerLayer;
+	[SerializeField] RadialMenu menuInst;
 
 	private void Start()
 	{
@@ -31,7 +32,7 @@ public class Interactable : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetMouseButton (0))
+		if (Input.GetMouseButtonDown (0))
 		{
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
@@ -43,12 +44,22 @@ public class Interactable : MonoBehaviour
 			{
 				if (hit.collider != null)
 				{
-					print(hit.collider.name);
-					if (turret != null)
-						RadialMenuSpawner.ins.SpawnMenu(this, turret);
+					if (menuInst == null)
+					{
+						if (turret != null)
+							menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
+						else
+							menuInst = RadialMenuSpawner.ins.SpawnMenu(this, sTurret);
+					}
 					else
-						RadialMenuSpawner.ins.SpawnMenu(this, sTurret);
+					{
+						if (!menuInst.gameObject.activeInHierarchy) menuInst.gameObject.SetActive(true);
+					}
 				}
+			}
+			else
+			{
+				if (menuInst != null && menuInst.gameObject.activeInHierarchy) menuInst.gameObject.SetActive(false);
 			}
 		}
 	}

@@ -29,7 +29,7 @@ public class OwnProjector : MonoBehaviour {
 	void SelectTurret()
 	{
 		//When player click, check if player is clicking on a turret
-		if (Input.GetMouseButton(0))
+		if (Input.GetMouseButtonDown (0))
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
@@ -48,10 +48,10 @@ public class OwnProjector : MonoBehaviour {
 			}
 			else projector.enabled = false;
 		}
-		else
+		/*else
 		{
 			projector.enabled = false;
-		}
+		}*/
 	}
 
 	float CalculateProjectorRadius(float turretRadius)

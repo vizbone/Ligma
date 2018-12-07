@@ -10,26 +10,25 @@ public class RadialMenuSpawner : MonoBehaviour {
 		ins = this;
 	}
 	
-	public void SpawnMenu(Interactable obj, TurretTemplate turret)
+	public RadialMenu SpawnMenu(Interactable obj, TurretTemplate turret)
 	{
-		RadialMenu newMenu = Instantiate(menuPrefab) as RadialMenu;
-		newMenu.turret = turret;
+		RadialMenu newMenu = Instantiate(menuPrefab, obj.currentTower.transform.position, this.gameObject.transform.rotation, this.gameObject.transform) as RadialMenu;
+		newMenu.transform.localPosition += (transform.forward * -1) * 5;
 		newMenu.sTurret = null;
-		newMenu.isSupport = false;
-		newMenu.transform.SetParent(transform, false);
-		print(obj.name);
-		newMenu.transform.position = Camera.main.WorldToScreenPoint(obj.currentTower.transform.position);
+		newMenu.turret = turret;
+		newMenu.isSupport = true;
 		newMenu.SpawnButtons(obj);
+		return newMenu;
 	}
 
-	public void SpawnMenu(Interactable obj, SupportTurret sTurret)
+	public RadialMenu SpawnMenu(Interactable obj, SupportTurret sTurret)
 	{
-		RadialMenu newMenu = Instantiate(menuPrefab) as RadialMenu;
+		RadialMenu newMenu = Instantiate(menuPrefab, obj.currentTower.transform.position, this.gameObject.transform.rotation, this.gameObject.transform) as RadialMenu;
+		newMenu.transform.localPosition += (transform.forward * -1) * 5;
 		newMenu.sTurret = sTurret;
 		newMenu.turret = null;
 		newMenu.isSupport = true;
-		newMenu.transform.SetParent(transform, false);
-		newMenu.transform.position = Camera.main.WorldToScreenPoint(obj.currentTower.transform.position);
 		newMenu.SpawnButtons(obj);
+		return newMenu;
 	}
 }
