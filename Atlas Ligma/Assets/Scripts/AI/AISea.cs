@@ -16,7 +16,7 @@ public class AISea : AITemplate
 	public int maxInstances;
 	public int instanceCount;
 
-	[SerializeField] Transform townHall;
+	Transform townHall;
 	NavMeshAgent agent;
 	AIMovement ai;
 	bool unloading;
@@ -70,10 +70,11 @@ public class AISea : AITemplate
 	IEnumerator spawn () 
 	{
 		cLock = true;
-		GameObject temp = Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
+		Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
 		currentEnemySpawnCount++;
 		if (currentEnemySpawnCount >= enemyBatchSpawnCount)
 		{
+			agent.enabled = true;
 			ai.NextPointSea (agent, this);
 			unloading = false;
 		}
@@ -84,6 +85,7 @@ public class AISea : AITemplate
 	void Instance () 
 	{
 		instanceCount++;
+		agent.enabled = true;
 		ai.NextPointSea (agent, this);
 	}
 
@@ -92,17 +94,22 @@ public class AISea : AITemplate
 		if (other.tag == "WaypointSea")
 		{
 			if (currentDestination == 1)
+			{
 				if (firstTime)
 					firstTime = false;
 				else
+				{
 					unloading = true;
-			else if (instanceCount >= maxInstances)
+					agent.enabled = false;
+				}
+			} else if (instanceCount >= maxInstances)
 				Destroy (gameObject);
 			else
 			{
+				agent.enabled = true;
 				Instance ();
 				currentEnemySpawnCount = 0;
 			}
 		}
-	}
+	}	
 }
