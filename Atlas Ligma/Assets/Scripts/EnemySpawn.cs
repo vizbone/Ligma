@@ -11,14 +11,11 @@ public class EnemySpawn : MonoBehaviour
 	public bool dev;
 	public int maxCount;
 	public int indexOfEnemy;
-	public GameObject[] enemies;
-	public Transform townHallPos;
 	public Transform devPos;
 	public Transform[] spawnPos;
 	public float distance;
 	public Text waveNumber;
 
-	float time;
 	bool cLock;
 
 	WaveSystem waveSys;
@@ -27,7 +24,6 @@ public class EnemySpawn : MonoBehaviour
 	void Start ()
 	{ 
 		if (spawnRate <= 0) { spawnRate = 1; }
-		time = 1 / spawnRate;
 		cLock = false;
 		waveSys = FindObjectOfType<WaveSystem>();
 		prepPhase = FindObjectOfType<PreparationPhase>();
@@ -41,7 +37,10 @@ public class EnemySpawn : MonoBehaviour
 			StartCoroutine ("SpawnClock");
 		}
 		if (count == maxCount) active = false;
-		if (indexOfEnemy == waveSys.wave[prepPhase.currentWave].enemy.Length - 1) prepPhase.WaveEnded();
+		if (prepPhase.currentWave < waveSys.wave.Length)
+		{
+			if (indexOfEnemy == waveSys.wave[prepPhase.currentWave].enemy.Length - 1) prepPhase.WaveEnded ();
+		}
 		waveNumber.text = "Wave " + (prepPhase.currentWave + 1).ToString();
 	}
 

@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220789444131046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.8, y: 0.00000047683716, z: 59.789925}
+  m_LocalPosition: {x: 39.78648, y: 6.702057, z: 72.97081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4213855248871260}
@@ -126,8 +126,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5621986, y: 1.1470237, z: 2.8757706}
-  m_Center: {x: 0.03172493, y: 0.57522154, z: 0.08392334}
+  m_Size: {x: 1.5621986, y: 1.5198268, z: 2.8757706}
+  m_Center: {x: 0.03172493, y: 0.7616231, z: 0.08392334}
 --- !u!95 &95667294187526738
 Animator:
   serializedVersion: 3
@@ -164,11 +164,10 @@ MonoBehaviour:
   path: 4
   currentDestination: 0
   enemies: {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490, type: 2}
-  enemyBatchSpawnCount: 10
+  enemyBatchSpawnCount: 5
   enemySpawnRate: 15
-  maxInstances: 100
+  maxInstances: 10
   instanceCount: 0
-  townHall: {fileID: 0}
 --- !u!195 &195987792027061784
 NavMeshAgent:
   m_ObjectHideFlags: 1
