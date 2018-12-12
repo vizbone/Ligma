@@ -138,6 +138,7 @@ MonoBehaviour:
   towerLayer:
     serializedVersion: 2
     m_Bits: 0
+  menuInst: {fileID: 0}
 --- !u!114 &114587908953550296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,11 +173,12 @@ MonoBehaviour:
   nonInvested: {fileID: 2100000, guid: 5b46cbc53cb07b54ba6609047798b55f, type: 2}
   invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
   collider: {fileID: 0}
-  enemies: []
   bullet: {fileID: 114223184396069200, guid: de399a4572e306e4fbd0bbc7f8233687, type: 2}
   rsm: {fileID: 0}
   explosion: {fileID: 114307124736076234, guid: 24f52a6b4a79e98429fabe57c74405f4,
     type: 2}
+  speed: 10000000
+  amplitude: 3
 --- !u!136 &136564637928575550
 CapsuleCollider:
   m_ObjectHideFlags: 1

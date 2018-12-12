@@ -49,11 +49,10 @@ public abstract class TurretTemplate : MonoBehaviour
 	[Header ("Collider and Enemy List")]
 	[SerializeField]
 	protected CapsuleCollider collider; //Stores the collider for enemy detection
-	[SerializeField]
-	List<AITemplate> enemies; //Stores all valid enemies detected
+	protected List<AITemplate> enemies; //Stores all valid enemies detected
 
 	[Header ("For Bullets")]
-	[SerializeField] Bullet bullet;
+	public Bullet bullet;
 
 	[Header ("For Mana Gain")]
 	public ResourceManager rsm;
@@ -250,6 +249,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			Vector3 direction = enemies[index].enemyType == AttackType.air ? -(transform.position - enemies[index].transform.GetChild (0).position).normalized : -(transform.position - enemies[index].transform.position).normalized;
 			Bullet currentBullet = Instantiate (bullet, transform.position + direction * 0.5f, Quaternion.identity);
 			currentBullet.turret = this;
+			currentBullet.catapult = false;
 			currentBullet.GetComponent<Rigidbody> ().velocity = direction * turretValues.bulletSpeed;
 			coolDown = 1 / totalFireRate;
 			//print ("Shortest: " + shortestDist);

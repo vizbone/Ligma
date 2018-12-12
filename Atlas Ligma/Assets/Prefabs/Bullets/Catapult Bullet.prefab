@@ -113,7 +113,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 0}
-  lifetime: 0
+  lifetime: 100000
+  hitCount: 0
+  frequency1: 0
+  target: {x: 0, y: 0, z: 0}
+  amplitude: 0
+  speed: 0
+  catapult: 0
+  currentStep: 0
 --- !u!135 &135514764174064938
 SphereCollider:
   m_ObjectHideFlags: 1

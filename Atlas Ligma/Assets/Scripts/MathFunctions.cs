@@ -41,14 +41,15 @@ public class MathFunctions : MonoBehaviour
 		return 0;
 	}
 
-	public static float ParabolicCurve()
+	public static void ParabolicCurve (Vector3 target, float amplitude, float currentStep, Transform yourself, float frequency, Vector3 oriPos)
 	{
-		//distance multiplier = 1/distance or distance inverse
+		float nextStep = Mathf.Min (currentStep + 2 * Time.deltaTime, 1);
 
-		//f(y) = sin(Mathf.pi * percentage to 100 * distance multiplier);
-		//differentiate the f(y)
+		float x = Mathf.Lerp (oriPos.x, target.x, nextStep);
+		float z = Mathf.Lerp (oriPos.z, target.z, nextStep);
+		float temp = Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x > 0 ? Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x : -(Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x);
+		float y = amplitude * Mathf.Sin (temp * Mathf.PI * (1 / frequency));
 
-		//f(z) = (distancemultiplier * pi)cos(distance multiplier * pi * x); //Velocity
-		return 0;
+		yourself.position = new Vector3 (x, y, z);
 	}
 }

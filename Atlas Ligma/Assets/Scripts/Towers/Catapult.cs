@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Catapult : TurretTemplate
 {
+	[Header ("Catapult Exclusives")]
 	public Explosion explosion;
+
+	public float speed;
+	public float amplitude;
 
 	protected override void Start()
 	{
@@ -15,6 +19,41 @@ public class Catapult : TurretTemplate
 	{
 		if (!isPrebuilt) turretValues = TurretValueSettings.catapult1s;
 		else turretValues = TurretValueSettings.prebuiltCatapult0s;
+	}
+
+	protected override void Shoot ()
+	{
+		//Remove any "Enemy" from list if the Enemy Reference is not present
+		if (enemies.Contains (null)) enemies.RemoveAll (AI => AI == null);
+
+		if (enemies.Count > 0)
+		{
+			float shortestDist = Mathf.Infinity;
+			int index = 0;
+			for (int i = 0; i < enemies.Count; i++)
+			{
+				//For attacking enemies closest to Townhall
+				float enemyDistance = enemies[i].CheckDistance ();
+				if (enemyDistance < shortestDist)
+				{
+					shortestDist = enemyDistance;
+					index = i;
+				}
+			}
+			Bullet currentBullet = Instantiate (bullet, transform.position + new Vector3 (0, 0.5f, 0), Quaternion.identity);
+			currentBullet.turret = this;
+
+			currentBullet.speed = speed;
+			currentBullet.amplitude = amplitude;
+			currentBullet.target = enemies[index].transform.position;
+			currentBullet.frequency1 = currentBullet.transform.position.x - currentBullet.target.x > 0 ? currentBullet.transform.position.x - currentBullet.target.x : -(currentBullet.transform.position.x - currentBullet.target.x);
+			currentBullet.catapult = true;
+
+			currentBullet = null;
+
+			coolDown = 1 / totalFireRate;
+		} else
+			return;
 	}
 
 	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)

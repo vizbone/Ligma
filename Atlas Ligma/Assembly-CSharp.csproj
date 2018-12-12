@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\MathFunctions.cs" />
      <Compile Include="Assets\Scripts\Misc.cs" />
      <Compile Include="Assets\Scripts\OwnProjector.cs" />
+     <Compile Include="Assets\Scripts\Parabola.cs" />
      <Compile Include="Assets\Scripts\PreparationPhase.cs" />
      <Compile Include="Assets\Scripts\RadialButton.cs" />
      <Compile Include="Assets\Scripts\RadialMenu.cs" />
