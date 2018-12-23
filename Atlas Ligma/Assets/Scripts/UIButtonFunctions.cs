@@ -30,12 +30,14 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void Pause()
 	{
+		FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
 		manaSys.gameState = GameStates.pause;
 		settingsMenu.SetActive(true);
 	}
 
 	public void FromSettingsToGameplay()
 	{
+		FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioB");
 		manaSys.gameState = GameStates.started;
 		settingsMenu.SetActive(false);
 	}

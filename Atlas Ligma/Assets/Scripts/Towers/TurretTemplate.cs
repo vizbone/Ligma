@@ -270,6 +270,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
 				//print (manaSys.currentMana.ToString ());
+				FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
 				Destroy (enemy.gameObject);
 			}
 		}

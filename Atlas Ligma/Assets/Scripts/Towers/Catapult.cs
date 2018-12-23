@@ -52,6 +52,7 @@ public class Catapult : TurretTemplate
 			currentBullet = null;
 
 			coolDown = 1 / totalFireRate;
+			FindObjectOfType<AudioManager>().AudioToPlay("CatapultFire");
 		} else
 			return;
 	}
@@ -72,6 +73,7 @@ public class Catapult : TurretTemplate
 				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
 				manaSys.ManaAdd (addedMana, enemy.transform.position,0);
 				//print (manaSys.currentMana.ToString ());
+				FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
 				Destroy (enemy.gameObject);
 			}
 		}

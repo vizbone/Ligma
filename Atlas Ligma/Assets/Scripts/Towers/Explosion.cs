@@ -15,6 +15,7 @@ public class Explosion : MonoBehaviour {
 		collider = GetComponent<Collider>();
 		Destroy(gameObject, particleSystem.main.duration + 0.5f);
 		Invoke("OffCollider", 0.25f);
+		FindObjectOfType<AudioManager>().AudioToPlay("CatapultExplosion");
 	}
 
 	public void OffCollider()

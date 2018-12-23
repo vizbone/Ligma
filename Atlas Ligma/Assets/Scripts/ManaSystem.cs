@@ -67,6 +67,7 @@ public class ManaSystem : MonoBehaviour
 	//adds mana from bank
 	public void ManaAdd(int amount, Vector3 pos, float offset)
 	{
+		FindObjectOfType<AudioManager>().AudioToPlay("ManaGain");
 		currentMana += amount;
 		if (currentMana > maxMana) { currentMana = maxMana; }
 		DisplayText (amount, pos, offset);
