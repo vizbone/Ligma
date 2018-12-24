@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TurretValueSettings : MonoBehaviour
 {
-	//Script Under Testing
 	//Crossbow Settings
 	[Header("Crossbow Level 1")]
 	public TurretValues crossbow1;
@@ -18,21 +17,29 @@ public class TurretValueSettings : MonoBehaviour
 	public TurretValues crossbow3;
 	public static TurretValues crossbow3s;
 
-	[Header("Prebuilt Crossbow Level 0")]
-	public TurretValues prebuiltCrossbow0;
-	public static TurretValues prebuiltCrossbow0s;
+	[Header("Black Crossbow Level 1")]
+	public TurretValues blackCrossbow1;
+	public static TurretValues blackCrossbow1s;
 
-	[Header("Prebuilt Crossbow Level 1")]
-	public TurretValues prebuiltCrossbow1;
-	public static TurretValues prebuiltCrossbow1s;
+	[Header("Black Crossbow Level 2")]
+	public TurretValues blackCrossbow2;
+	public static TurretValues blackCrossbow2s;
 
-	[Header("Prebuilt Crossbow Level 2")]
-	public TurretValues prebuiltCrossbow2;
-	public static TurretValues prebuiltCrossbow2s;
+	[Header("Black Crossbow Level 3")]
+	public TurretValues blackCrossbow3;
+	public static TurretValues blackCrossbow3s;
 
-	[Header("Prebuilt Crossbow Level 3")]
-	public TurretValues prebuiltCrossbow3;
-	public static TurretValues prebuiltCrossbow3s;
+	[Header("White Crossbow Level 1")]
+	public TurretValues whiteCrossbow1;
+	public static TurretValues whiteCrossbow1s;
+
+	[Header("White Crossbow Level 2")]
+	public TurretValues whiteCrossbow2;
+	public static TurretValues whiteCrossbow2s;
+
+	[Header("White Crossbow Level 3")]
+	public TurretValues whiteCrossbow3;
+	public static TurretValues whiteCrossbow3s;
 
 	//Catapult Settings
 	[Header("Catapult Level 1")]
@@ -47,21 +54,29 @@ public class TurretValueSettings : MonoBehaviour
 	public TurretValues catapult3;
 	public static TurretValues catapult3s;
 
-	[Header("Prebuilt Catapult Level 0")]
-	public TurretValues prebuiltCatapult0;
-	public static TurretValues prebuiltCatapult0s;
+	[Header("Black Catapult Level 1")]
+	public TurretValues blackCatapult1;
+	public static TurretValues blackCatapult1s;
 
-	[Header("Prebuilt Catapult Level 1")]
-	public TurretValues prebuiltCatapult1;
-	public static TurretValues prebuiltCatapult1s;
+	[Header("Black Catapult Level 2")]
+	public TurretValues blackCatapult2;
+	public static TurretValues blackCatapult2s;
 
-	[Header("Prebuilt Catapult Level 2")]
-	public TurretValues prebuiltCatapult2;
-	public static TurretValues prebuiltCatapult2s;
+	[Header("Black Catapult Level 3")]
+	public TurretValues blackCatapult3;
+	public static TurretValues blackCatapult3s;
 
-	[Header("Prebuilt Catapult Level 3")]
-	public TurretValues prebuiltCatapult3;
-	public static TurretValues prebuiltCatapult3s;
+	[Header("White Catapult Level 1")]
+	public TurretValues whiteCatapult1;
+	public static TurretValues whiteCatapult1s;
+
+	[Header("White Catapult Level 2")]
+	public TurretValues whiteCatapult2;
+	public static TurretValues whiteCatapult2s;
+
+	[Header("White Catapult Level 3")]
+	public TurretValues whiteCatapult3;
+	public static TurretValues whiteCatapult3s;
 
 	//Cannon Settings
 	[Header("Cannon Level 1")]
@@ -76,21 +91,29 @@ public class TurretValueSettings : MonoBehaviour
 	public TurretValues cannon3;
 	public static TurretValues cannon3s;
 
-	[Header("Prebuilt Cannon Level 0")]
-	public TurretValues prebuiltCannon0;
-	public static TurretValues prebuiltCannon0s;
+	[Header("Black Cannon Level 1")]
+	public TurretValues blackCannon1;
+	public static TurretValues blackCannon1s;
 
-	[Header("Prebuilt Cannon Level 1")]
-	public TurretValues prebuiltCannon1;
-	public static TurretValues prebuiltCannon1s;
+	[Header("Black Cannon Level 2")]
+	public TurretValues blackCannon2;
+	public static TurretValues blackCannon2s;
 
-	[Header("Prebuilt Cannon Level 2")]
-	public TurretValues prebuiltCannon2;
-	public static TurretValues prebuiltCannon2s;
+	[Header("Black Cannon Level 3")]
+	public TurretValues blackCannon3;
+	public static TurretValues blackCannon3s;
 
-	[Header("Prebuilt Cannon Level 3")]
-	public TurretValues prebuiltCannon3;
-	public static TurretValues prebuiltCannon3s;
+	[Header("White Cannon Level 1")]
+	public TurretValues whiteCannon1;
+	public static TurretValues whiteCannon1s;
+
+	[Header("White Cannon Level 2")]
+	public TurretValues whiteCannon2;
+	public static TurretValues whiteCannon2s;
+
+	[Header("White Cannon Level 3")]
+	public TurretValues whiteCannon3;
+	public static TurretValues whiteCannon3s;
 
 	//Rocket Settings
 	[Header("Rocket Level 1")]
@@ -105,21 +128,49 @@ public class TurretValueSettings : MonoBehaviour
 	public TurretValues rocket3;
 	public static TurretValues rocket3s;
 
-	[Header("Prebuilt Rocket Level 0")]
-	public TurretValues prebuiltRocket0;
-	public static TurretValues prebuiltRocket0s;
+	[Header("Black Rocket Level 1")]
+	public TurretValues blackRocket1;
+	public static TurretValues blackRocket1s;
 
-	[Header("Prebuilt Rocket Level 1")]
-	public TurretValues prebuiltRocket1;
-	public static TurretValues prebuiltRocket1s;
+	[Header("Black Rocket Level 2")]
+	public TurretValues blackRocket2;
+	public static TurretValues blackRocket2s;
 
-	[Header("Prebuilt Rocket Level 2")]
-	public TurretValues prebuiltRocket2;
-	public static TurretValues prebuiltRocket2s;
+	[Header("Black Rocket Level 3")]
+	public TurretValues blackRocket3;
+	public static TurretValues blackRocket3s;
 
-	[Header("Prebuilt Rocket Level 3")]
-	public TurretValues prebuiltRocket3;
-	public static TurretValues prebuiltRocket3s;
+	[Header("White Rocket Level 1")]
+	public TurretValues whiteRocket1;
+	public static TurretValues whiteRocket1s;
+
+	[Header("White Rocket Level 2")]
+	public TurretValues whiteRocket2;
+	public static TurretValues whiteRocket2s;
+
+	[Header("White Rocket Level 3")]
+	public TurretValues whiteRocket3;
+	public static TurretValues whiteRocket3s;
+
+	[Header("Black Investment % in 1.00")]
+	public float blackInvestPerc1;
+	public static float blackInvestPerc1s;
+
+	public float blackInvestPerc2;
+	public static float blackInvestPerc2s;
+
+	public float blackInvestPerc3;
+	public static float blackInvestPerc3s;
+
+	[Header ("White Investment % in 1.00")]
+	public float whiteInvestPerc1;
+	public static float whiteInvestPerc1s;
+
+	public float whiteInvestPerc2;
+	public static float whiteInvestPerc2s;
+
+	public float whiteInvestPerc3;
+	public static float whiteInvestPerc3s;
 
 	private void Awake()
 	{
@@ -127,36 +178,61 @@ public class TurretValueSettings : MonoBehaviour
 		crossbow1s = crossbow1;
 		crossbow2s = crossbow2;
 		crossbow3s = crossbow3;
-		prebuiltCrossbow0s = prebuiltCrossbow0;
-		prebuiltCrossbow1s = prebuiltCrossbow1;
-		prebuiltCrossbow2s = prebuiltCrossbow2;
-		prebuiltCrossbow3s = prebuiltCrossbow3;
+
+		blackCrossbow1s = blackCrossbow1;
+		blackCrossbow2s = blackCrossbow2;
+		blackCrossbow3s = blackCrossbow3;
+
+		whiteCrossbow1s = whiteCrossbow1;
+		whiteCrossbow2s = whiteCrossbow2;
+		whiteCrossbow3s = whiteCrossbow3;
 
 		//Set Values For Catapults
 		catapult1s = catapult1;
 		catapult2s = catapult2;
 		catapult3s = catapult3;
-		prebuiltCatapult0s = prebuiltCatapult0;
-		prebuiltCatapult1s = prebuiltCatapult1;
-		prebuiltCatapult2s = prebuiltCatapult2;
-		prebuiltCatapult3s = prebuiltCatapult3;
+
+		blackCatapult1s = blackCatapult1;
+		blackCatapult2s = blackCatapult2;
+		blackCatapult3s = blackCatapult3;
+
+		whiteCatapult1s = whiteCatapult1;
+		whiteCatapult2s = whiteCatapult2;
+		whiteCatapult3s = whiteCatapult3;
 
 		//Set Values For Cannons
 		cannon1s = cannon1;
 		cannon2s = cannon2;
 		cannon3s = cannon3;
-		prebuiltCannon0s = prebuiltCannon0;
-		prebuiltCannon1s = prebuiltCannon1;
-		prebuiltCannon2s = prebuiltCannon2;
-		prebuiltCannon3s = prebuiltCannon3;
+
+		blackCannon1s = blackCannon1;
+		blackCannon2s = blackCannon2;
+		blackCannon3s = blackCannon3;
+
+		whiteCannon1s = whiteCannon1;
+		whiteCannon2s = whiteCannon2;
+		whiteCannon3s = whiteCannon3;
 
 		//Set Values For Rockets
 		rocket1s = rocket1;
 		rocket2s = rocket2;
 		rocket3s = rocket3;
-		prebuiltRocket0s = prebuiltRocket0;
-		prebuiltRocket1s = prebuiltRocket1;
-		prebuiltRocket2s = prebuiltRocket2;
-		prebuiltRocket3s = prebuiltRocket3;
+
+		blackRocket1s = blackRocket1;
+		blackRocket2s = blackRocket2;
+		blackRocket3s = blackRocket3;
+
+		whiteRocket1s = whiteRocket1;
+		whiteRocket2s = whiteRocket2;
+		whiteRocket3s = whiteRocket3;
+
+		//For Investments
+		blackInvestPerc1s = blackInvestPerc1;
+		blackInvestPerc2s = blackInvestPerc2;
+		blackInvestPerc3s = blackInvestPerc3;
+
+		whiteInvestPerc1s = whiteInvestPerc1;
+		whiteInvestPerc2s = whiteInvestPerc2;
+		whiteInvestPerc3s = whiteInvestPerc3;
 	}
 }

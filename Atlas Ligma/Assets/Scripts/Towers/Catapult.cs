@@ -7,21 +7,39 @@ public class Catapult : TurretTemplate
 	[Header ("Catapult Exclusives")]
 	public Explosion explosion;
 
-	public float speed;
-	public float amplitude;
-
 	protected override void Start()
 	{
 		base.Start();
 	}
 
-	protected override void SetValues(bool isPrebuilt)
+	protected override void SetValues()
 	{
-		if (!isPrebuilt) turretValues = TurretValueSettings.catapult1s;
-		else turretValues = TurretValueSettings.prebuiltCatapult0s;
+		if (isPrebuilt)
+			turretValues = TurretValueSettings.catapult1s;
+		else
+		{
+			switch (level)
+			{
+				case 1:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCatapult1s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCatapult1s;
+					break;
+				case 2:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCatapult2s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCatapult2s;
+					break;
+				case 3:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCatapult3s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCatapult3s;
+					break;
+				default:
+					print("Error in Level");
+					break;
+			}
+		}
 	}
 
-	protected override void Shoot ()
+	/*protected override void Shoot ()
 	{
 		//Remove any "Enemy" from list if the Enemy Reference is not present
 		if (enemies.Contains (null)) enemies.RemoveAll (AI => AI == null);
@@ -55,7 +73,7 @@ public class Catapult : TurretTemplate
 			FindObjectOfType<AudioManager>().AudioToPlay("CatapultFire");
 		} else
 			return;
-	}
+	}*/
 
 	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
@@ -70,7 +88,7 @@ public class Catapult : TurretTemplate
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
-				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
+				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
 				manaSys.ManaAdd (addedMana, enemy.transform.position,0);
 				//print (manaSys.currentMana.ToString ());
 				FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
@@ -79,7 +97,7 @@ public class Catapult : TurretTemplate
 		}
 	}
 
-	protected override void UpgradeStats(bool isPrebuilt)
+	protected override void UpgradeStats()
 	{
 		if (!isPrebuilt)
 		{
@@ -95,25 +113,28 @@ public class Catapult : TurretTemplate
 					turretValues = TurretValueSettings.catapult3s;
 					break;
 				default:
-					turretValues = TurretValueSettings.catapult1s;
+					print("Error in Level");
 					break;
 			}
 		}
-		else
+		else //Incase there is a need for upgrading of turrets as events
 		{
 			switch (level)
 			{
 				case 1:
-					turretValues = TurretValueSettings.prebuiltCatapult1s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCatapult1s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCatapult1s;
 					break;
 				case 2:
-					turretValues = TurretValueSettings.prebuiltCatapult2s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCatapult2s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCatapult2s;
 					break;
 				case 3:
-					turretValues = TurretValueSettings.prebuiltCatapult3s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCatapult3s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCatapult3s;
 					break;
 				default:
-					turretValues = TurretValueSettings.prebuiltCatapult0s;
+					print("Error in Level");
 					break;
 			}
 		}

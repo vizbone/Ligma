@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+/*[System.Serializable]
 public struct STurretValues
 {
 	public bool boostsStats;
@@ -164,4 +164,4 @@ public class SupportTurret : MonoBehaviour
     }
    
 
-}
+}*/

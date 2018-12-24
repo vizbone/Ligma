@@ -6,9 +6,7 @@ public class RadialMenu : MonoBehaviour
 {
 	public RadialButton buttonPrefab;
 	public RadialButton selected;
-	public bool isSupport;
 	public TurretTemplate turret;
-	public SupportTurret sTurret;
 	public int radius;
 
 	public void SpawnButtons(Interactable obj)
@@ -34,11 +32,19 @@ public class RadialMenu : MonoBehaviour
 		{
 			if (selected)
 			{
-				if (isSupport) sTurret.Upgrade(sTurret.sTurretValues.boostsStats);
-				else turret.Upgrade();
-				this.gameObject.SetActive(false);
+				if (turret.faction == Faction.own)
+				{
+					turret.Upgrade();
+					gameObject.SetActive(false);
+				}
+				else
+				{
+					if (selected.title == "Investment 1") turret.Invest(1);
+					else if (selected.title == "Investment 2") turret.Invest(2);
+					else if (selected.title == "Investment 3") turret.Invest(3);
+					else print("Invalid Upgrade Title");
+				}
 			}
-			//Destroy(gameObject);
 		}
 	}
 }

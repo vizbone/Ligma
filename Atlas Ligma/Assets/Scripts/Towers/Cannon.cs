@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class Cannon : TurretTemplate
 {
-
-	protected override void SetValues (bool isPrebuilt)
+	protected override void SetValues ()
 	{
-		if (!isPrebuilt)
+		if (isPrebuilt)
 			turretValues = TurretValueSettings.cannon1s;
 		else
-			turretValues = TurretValueSettings.prebuiltCannon0s;
+		{
+			switch (level)
+			{
+				case 1:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon1s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon1s;
+					break;
+				case 2:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon2s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon2s;
+					break;
+				case 3:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon3s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon3s;
+					break;
+				default:
+					print("Error in Level");
+					break;
+			}
+		}
 	}
 
 	public override void Hit (AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
@@ -21,7 +39,7 @@ public class Cannon : TurretTemplate
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
-				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
+				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
 				//print (manaSys.currentMana.ToString ());
 				FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
@@ -33,7 +51,7 @@ public class Cannon : TurretTemplate
 			Destroy (gameObject);
 	}
 
-	protected override void UpgradeStats (bool isPrebuilt)
+	protected override void UpgradeStats ()
 	{
 		if (!isPrebuilt)
 		{
@@ -49,24 +67,28 @@ public class Cannon : TurretTemplate
 					turretValues = TurretValueSettings.cannon3s;
 					break;
 				default:
-					turretValues = TurretValueSettings.cannon1s;
+					print("Error in Level");
 					break;
 			}
-		} else
+		}
+		else //Incase there is a need for upgrading of turrets as events
 		{
 			switch (level)
 			{
 				case 1:
-					turretValues = TurretValueSettings.prebuiltCannon1s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon1s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon1s;
 					break;
 				case 2:
-					turretValues = TurretValueSettings.prebuiltCannon2s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon2s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon2s;
 					break;
 				case 3:
-					turretValues = TurretValueSettings.prebuiltCannon3s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon3s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon3s;
 					break;
 				default:
-					turretValues = TurretValueSettings.prebuiltCannon0s;
+					print("Error in Level");
 					break;
 			}
 		}

@@ -4,47 +4,71 @@ using UnityEngine;
 
 public class Rockets : TurretTemplate {
 
-	protected override void SetValues(bool isPrebuilt)
+	protected override void SetValues()
 	{
-		if (!isPrebuilt) turretValues = TurretValueSettings.rocket1s;
-		else turretValues = TurretValueSettings.prebuiltRocket0s;
+		if (isPrebuilt)
+			turretValues = TurretValueSettings.rocket1s;
+		else
+		{
+			switch (level)
+			{
+				case 1:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackRocket1s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteRocket1s;
+					break;
+				case 2:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackRocket2s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteRocket2s;
+					break;
+				case 3:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackRocket3s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteRocket3s;
+					break;
+				default:
+					print("Error in Level");
+					break;
+			}
+		}
 	}
 
-	protected override void UpgradeStats(bool isPrebuilt)
+	protected override void UpgradeStats()
 	{
 		if (!isPrebuilt)
 		{
 			switch (level)
 			{
 				case 1:
-					turretValues = TurretValueSettings.rocket1s;
+					turretValues = TurretValueSettings.cannon1s;
 					break;
 				case 2:
-					turretValues = TurretValueSettings.rocket2s;
+					turretValues = TurretValueSettings.cannon2s;
 					break;
 				case 3:
-					turretValues = TurretValueSettings.rocket3s;
+					turretValues = TurretValueSettings.cannon3s;
 					break;
 				default:
-					turretValues = TurretValueSettings.rocket1s;
+					print("Error in Level");
 					break;
 			}
 		}
-		else
+		else //Incase there is a need for upgrading of turrets as events
 		{
 			switch (level)
 			{
 				case 1:
-					turretValues = TurretValueSettings.prebuiltRocket1s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackRocket1s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteRocket1s;
 					break;
 				case 2:
-					turretValues = TurretValueSettings.prebuiltRocket2s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackRocket2s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteRocket2s;
 					break;
 				case 3:
-					turretValues = TurretValueSettings.prebuiltRocket3s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackRocket3s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteRocket3s;
 					break;
 				default:
-					turretValues = TurretValueSettings.prebuiltRocket0s;
+					print("Error in Level");
 					break;
 			}
 		}

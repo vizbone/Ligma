@@ -3648,6 +3648,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ec85a169cd5097b478151ff10523c7b0, type: 2}
+    - target: {fileID: 1706804124858018, guid: ee47aa28bf69cd14f9574fac0f158117, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee47aa28bf69cd14f9574fac0f158117, type: 2}
   m_IsPrefabAsset: 0
@@ -6697,7 +6701,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: ec85a169cd5097b478151ff10523c7b0, type: 2}
     - target: {fileID: 1396634072807330, guid: 04952f9e8a4c3d84693a2067dfdecabb, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04952f9e8a4c3d84693a2067dfdecabb, type: 2}
@@ -10322,169 +10326,259 @@ MonoBehaviour:
     fireRate: 2
     bulletSpeed: 50
     range: 20
+    upgradeOrInvestCost: 
     attackType: 000000000100000002000000
   crossbow2:
     dmg: 2
     fireRate: 3
     bulletSpeed: 50
     range: 20
+    upgradeOrInvestCost: 
     attackType: 000000000100000002000000
   crossbow3:
     dmg: 3
     fireRate: 4
     bulletSpeed: 50
     range: 20
+    upgradeOrInvestCost: 
     attackType: 000000000100000002000000
-  prebuiltCrossbow0:
-    dmg: 3
-    fireRate: 4
-    bulletSpeed: 50
-    range: 20
-    attackType: 000000000100000002000000
-  prebuiltCrossbow1:
-    dmg: 3
-    fireRate: 4
-    bulletSpeed: 50
-    range: 20
-    attackType: 000000000100000002000000
-  prebuiltCrossbow2:
-    dmg: 4
-    fireRate: 5
-    bulletSpeed: 50
-    range: 20
-    attackType: 000000000100000002000000
-  prebuiltCrossbow3:
-    dmg: 4
-    fireRate: 5
-    bulletSpeed: 50
-    range: 20
-    attackType: 000000000100000002000000
+  blackCrossbow1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackCrossbow2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackCrossbow3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCrossbow1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCrossbow2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCrossbow3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
   catapult1:
     dmg: 1
     fireRate: 0.5
     bulletSpeed: 10
     range: 30
+    upgradeOrInvestCost: 
     attackType: 0000000001000000
   catapult2:
     dmg: 3
     fireRate: 0.75
     bulletSpeed: 10
     range: 30
+    upgradeOrInvestCost: 
     attackType: 0000000001000000
   catapult3:
     dmg: 5
     fireRate: 1
     bulletSpeed: 10
     range: 30
+    upgradeOrInvestCost: 
     attackType: 0000000001000000
-  prebuiltCatapult0:
-    dmg: 5
-    fireRate: 1
-    bulletSpeed: 10
-    range: 30
-    attackType: 00000000
-  prebuiltCatapult1:
-    dmg: 5
-    fireRate: 1
-    bulletSpeed: 10
-    range: 30
-    attackType: 0000000001000000
-  prebuiltCatapult2:
-    dmg: 7
-    fireRate: 1.5
-    bulletSpeed: 10
-    range: 30
-    attackType: 0000000001000000
-  prebuiltCatapult3:
-    dmg: 7
-    fireRate: 1.5
-    bulletSpeed: 10
-    range: 30
-    attackType: 0000000001000000
+  blackCatapult1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackCatapult2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackCatapult3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCatapult1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCatapult2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCatapult3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
   cannon1:
     dmg: 1
     fireRate: 1
     bulletSpeed: 25
     range: 10
+    upgradeOrInvestCost: 
     attackType: 0000000002000000
   cannon2:
     dmg: 2
     fireRate: 1.5
     bulletSpeed: 25
     range: 10
+    upgradeOrInvestCost: 
     attackType: 0000000002000000
   cannon3:
     dmg: 4
     fireRate: 2
     bulletSpeed: 25
     range: 10
+    upgradeOrInvestCost: 
     attackType: 0000000002000000
-  prebuiltCannon0:
-    dmg: 4
-    fireRate: 2
-    bulletSpeed: 25
-    range: 10
-    attackType: 0000000002000000
-  prebuiltCannon1:
-    dmg: 4
-    fireRate: 2
-    bulletSpeed: 25
-    range: 10
-    attackType: 0000000002000000
-  prebuiltCannon2:
-    dmg: 6
-    fireRate: 2.5
-    bulletSpeed: 25
-    range: 10
-    attackType: 0000000002000000
-  prebuiltCannon3:
-    dmg: 6
-    fireRate: 2.5
-    bulletSpeed: 25
-    range: 10
-    attackType: 0000000002000000
+  blackCannon1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackCannon2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackCannon3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCannon1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCannon2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteCannon3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
   rocket1:
     dmg: 2
     fireRate: 2
     bulletSpeed: 50
     range: 10
+    upgradeOrInvestCost: 64000000c8000000
     attackType: 0100000002000000
   rocket2:
     dmg: 3
     fireRate: 3
     bulletSpeed: 50
     range: 10
+    upgradeOrInvestCost: 64000000
     attackType: 0100000002000000
   rocket3:
     dmg: 5
     fireRate: 4
     bulletSpeed: 25
     range: 10
+    upgradeOrInvestCost: 00000000
     attackType: 0100000002000000
-  prebuiltRocket0:
-    dmg: 5
-    fireRate: 4
-    bulletSpeed: 25
-    range: 10
-    attackType: 0100000002000000
-  prebuiltRocket1:
-    dmg: 5
-    fireRate: 4
-    bulletSpeed: 25
-    range: 10
-    attackType: 0100000002000000
-  prebuiltRocket2:
-    dmg: 6
-    fireRate: 5
-    bulletSpeed: 25
-    range: 10
-    attackType: 0100000002000000
-  prebuiltRocket3:
-    dmg: 6
-    fireRate: 5
-    bulletSpeed: 25
-    range: 10
-    attackType: 0100000002000000
+  blackRocket1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackRocket2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackRocket3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteRocket1:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteRocket2:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  whiteRocket3:
+    dmg: 0
+    fireRate: 0
+    bulletSpeed: 0
+    range: 0
+    upgradeOrInvestCost: 
+    attackType: 
+  blackInvestPerc1: 0
+  blackInvestPerc2: 0
+  blackInvestPerc3: 0
+  whiteInvestPerc1: 0
+  whiteInvestPerc2: 0
+  whiteInvestPerc3: 0
 --- !u!4 &1052256049
 Transform:
   m_ObjectHideFlags: 0
@@ -14287,7 +14381,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
     - target: {fileID: 1614154539434564, guid: 514be0f0886cf0f4c9b89019052dcf04, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 514be0f0886cf0f4c9b89019052dcf04, type: 2}

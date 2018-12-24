@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum AttackType {ground, air, sea};
+public enum Faction {own, black, white};
+//Black more damage, low returns; 
+//White less damage, high returns;
+//Same Investment Systems, Investment will reset after every wave
+//Different Levels of Investment - Cannot Invest Mid Wave
 
 [System.Serializable]
 public struct TurretValues
@@ -11,32 +16,33 @@ public struct TurretValues
 	public float fireRate; //Fire rate
 	public float bulletSpeed; //Speed of the bullet
 	public float range; //Diameter of where the Turret can detect enemies
+	public int[] upgradeOrInvestCost; //Stores cost of Upgrade or Investment
 	public AttackType[] attackType; //Check which enemy it can attack
 }
 
 [RequireComponent (typeof (CapsuleCollider))]
 public abstract class TurretTemplate : MonoBehaviour
 {
+	[Header ("Static Variables")]
+	public static float amplitude;
+	public static float rotationSpeed;
+
 	[Header ("Values To Be Set")]
 	public TurretValues turretValues;
+	public Faction faction;
 
 	[Header ("Turret Status")]
 	[SerializeField]
 	protected ManaSystem manaSys;
+	public float manaReturnPerc; //Return Percentage of Mana
 	public float coolDown; //Turret cooldown time
 	public int level; //Stores the turret level
+	public int investmentLevel; //Stores the Investment Level of the Turrets
 	public bool isPrebuilt = false; //Check if the Turret is a prebuilt turret
-	public float manaReturnPercentageB; //Stores BASE percentage(in decimal) of mana gained for each kill
-	public float manaReturnPercentageS; //Stores STurrets percentage(in decimal) of mana gained for each kill
-	public float manaReturnPercentageF; //Stores FINAL percentage(in decimal) of mana gained for each kill
-
-	[Header ("For Buffs")]
-	public float totalFireRate;
-	public float fireRateBuff;
 
 	[Header ("For Model Change")]
 	[SerializeField]
-	MeshFilter model;
+	MeshFilter model; //For Model Change when Upgraded
 	//Chose not to put in array since it should be set in the inspector
 	//Three different Meshfilters to completely prevent errors
 	public Mesh lvl1Model;
@@ -47,38 +53,44 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] Material invested;
 
 	[Header ("Collider and Enemy List")]
-	[SerializeField]
-	protected CapsuleCollider collider; //Stores the collider for enemy detection
-	protected List<AITemplate> enemies; //Stores all valid enemies detected
+	[SerializeField] protected CapsuleCollider collider; //Stores the collider for enemy detection
+	[SerializeField] protected List<AITemplate> enemies; //Stores all valid enemies detected
+	[SerializeField] protected AITemplate closestEnemy;
+	[SerializeField] float xRotation;
+	[SerializeField] Vector3 designatedAngle;
 
-	[Header ("For Bullets")]
+	[Header("For Bullets")]
+	public bool arcTravel;
 	public Bullet bullet;
-
-	[Header ("For Mana Gain")]
-	public ResourceManager rsm;
 
 	protected virtual void Start ()
 	{
-		level = isPrebuilt ? 0 : 1; //If is prebuilt, Set Turret Level to 0, else it is a level 1
-		manaReturnPercentageB = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
-		manaReturnPercentageS = 0;
-		manaReturnPercentageF = manaReturnPercentageB;
+		level = isPrebuilt ? this.level : 1; //All Self Built Turrets are Level 1. PREBUILT TURRET LEVELS SHOULD BE SET IN THE PREFAB ITSELF
+		investmentLevel = 0;
+		manaReturnPerc = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
 		manaSys = FindObjectOfType<ManaSystem> ();
-		rsm = FindObjectOfType<ResourceManager> ();
 
+		//Check if its bullets should travel in an arc
+		if (this.GetType() == typeof(Catapult)) arcTravel = true;
+
+		xRotation = transform.eulerAngles.x;
+
+		//Remove once reached finalised stage
 		r = GetComponent<Renderer>();
 		if (isPrebuilt) r.material = nonInvested;
-
+ 
 		model = GetComponent<MeshFilter> ();
 
+		//Set For Enemy Detection
 		collider = GetComponent<CapsuleCollider> ();
 		collider.isTrigger = true;
 		enemies = new List<AITemplate> ();
-		SetValues (isPrebuilt);
-
 		//Set range of turret depending on type
 		//Can Set in Inspector if wanted
 		collider.height = 10 / transform.localScale.x;
+
+		SetValues();
+
 		//Set Center of Collider Based on the capsule collider's direction
 		switch (collider.direction)
 		{
@@ -96,71 +108,53 @@ public abstract class TurretTemplate : MonoBehaviour
 				break;
 		}
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
+		
 		//Set cooldown
-		totalFireRate = turretValues.fireRate;
-		coolDown = 1 / totalFireRate;
+		coolDown = 1 / turretValues.fireRate;
 	}
 
 	protected virtual void Update ()
 	{
+		//Check for closest Enemy if it is not assigned
+		if (enemies.Count > 0 && closestEnemy == null) closestEnemy = EnemyToLookAt();
+
+		if (closestEnemy != null)
+		{
+			LookAtEnemy();
+			if (transform.eulerAngles != designatedAngle) transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(designatedAngle), 0.5f);
+		}
+
 		coolDown = Mathf.Max (coolDown -= Time.deltaTime, 0);
-		if (coolDown <= 0)
-			Shoot ();
 
-		if (Input.GetKeyDown (KeyCode.P) && level < 3)
-			Upgrade ();
+		if (coolDown <= 0) Shoot (arcTravel);
+
+		if (Input.GetKeyDown (KeyCode.P) && level < 3) Upgrade ();
 	}
 
-	protected abstract void SetValues (bool isPrebuilt);
+	protected abstract void SetValues();
 
-	protected abstract void UpgradeStats (bool isPrebuilt);
+	protected abstract void UpgradeStats();
 
-	//To be added when turrets are first placed
-	public void BoostStats (TurretValues turretValues, STurretValues sTurretValues, float oldInvestmentValue, float oldFireRate, bool boostStats)
-	{
-		if (boostStats)
-		{
-			fireRateBuff = MathFunctions.ReturnNewIncrement (fireRateBuff, oldFireRate, sTurretValues.buff);
-			RecalculateFireRate ();
-		}
-		if (isPrebuilt)
-		{
-			manaReturnPercentageS = MathFunctions.ReturnNewIncrement (manaReturnPercentageS, oldInvestmentValue, sTurretValues.investmentValue);
-			RecalculateInvestmentValue ();
-		}
-	}
-
-	public void RecalculateInvestmentValue ()
-	{
-		if (isPrebuilt)
-			manaReturnPercentageF = manaReturnPercentageB + manaReturnPercentageS;
-	}
-
-	public void RecalculateFireRate ()
-	{
-		totalFireRate = turretValues.fireRate + fireRateBuff;
-	}
-
-	public void Upgrade ()
+	//Only For Own Turrets
+	public void Upgrade()
 	{
 		int cost = 0;
 		switch (level)
 		{
-			case 0: //For Prebuilt Turret First Upgrade
-				cost = 50;
-				break;
 			case 1:
-				cost = 100;
+				cost = turretValues.upgradeOrInvestCost[0];
 				break;
 			case 2:
-				cost = 150;
+				cost = turretValues.upgradeOrInvestCost[0];
 				break;
+			case 3:
+				print("Cannot Be Upgraded Further");
+				return;
 			default:
 				break;
 		}
 
-		if (manaSys.currentMana > cost)
-			manaSys.ManaMinus (cost, transform.position, 2);
+		if (manaSys.currentMana > cost) manaSys.ManaMinus (cost, transform.position, 2);
 		else
 		{
 			print ("Not Enough Mana");
@@ -185,41 +179,82 @@ public abstract class TurretTemplate : MonoBehaviour
 				model.mesh = lvl1Model;
 				break;
 		}
+		
 		//Add Changes to Stats as well
-		UpgradeStats (isPrebuilt);
+		UpgradeStats ();
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
-		RecalculateFireRate ();
-
-		//Only if it is prebuilt, manaReturnPercentageB will change
-		if (isPrebuilt)
-		{
-			r.material = invested;
-			float newPerc;
-
-			switch (level)
-			{
-				case 1:
-					newPerc = 0.1f;
-					break;
-				case 2:
-					newPerc = 0.25f;
-					break;
-				case 3:
-					newPerc = 0.5f;
-					break;
-				default:
-					newPerc = 0;
-					break;
-			}
-			manaReturnPercentageB = newPerc;
-			RecalculateInvestmentValue ();
-		}
 	}
 
-	protected virtual void Shoot ()
+	//Only for Prebuilt Turrets
+	public void Invest(int investLevel)
 	{
+		if (faction == Faction.own) return;
+		if (investmentLevel >= investLevel) return;
+
+		int cost = 0;
+		int newLevel = investmentLevel;
+		float newPerc = manaReturnPerc;
+
+		switch (investLevel)
+		{
+			case 1:
+				if (manaSys.currentMana > turretValues.upgradeOrInvestCost[0])
+				{
+					cost = turretValues.upgradeOrInvestCost[0];
+					newLevel = 1;
+					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc1s;
+					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc1s;
+				}
+				else print("Not Enough Mana");
+				break;
+			case 2:
+				if (manaSys.currentMana > turretValues.upgradeOrInvestCost[1])
+				{
+					cost = turretValues.upgradeOrInvestCost[1];
+					newLevel = 2;
+					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc2s;
+					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc2s;
+				}
+				else print("Not Enough Mana");
+				break;
+			case 3:
+				if (manaSys.currentMana > turretValues.upgradeOrInvestCost[2])
+				{
+					cost = turretValues.upgradeOrInvestCost[2];
+					newLevel = 3;
+					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc3s;
+					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc3s;
+				}
+				else print("Not Enough Mana");
+				break;
+			default:
+				print("Invalid Investment Level");
+				break;
+		}
+
+		manaSys.ManaMinus(cost, transform.position, 2);
+		investmentLevel = newLevel;
+		manaReturnPerc = newPerc;
+	}
+
+	public void ResetManaReturnPerc()
+	{
+		if (isPrebuilt) manaReturnPerc = 0;
+	}
+
+	/// <summary>
+	/// Checks which is its closests enemy
+	/// Only checks when
+	/// 1. A new enemy enters its range
+	/// 2. An enemy exists its range
+	/// 3. When the Enemy Count is > 0 and Closest Enemy is null
+	/// </summary>
+	protected AITemplate EnemyToLookAt()
+	{
+		AITemplate enemyToLookAt = null;
+
 		//Remove any "Enemy" from list if the Enemy Reference is not present
-		if (enemies.Contains (null)) enemies.RemoveAll (AI => AI == null);
+		if (enemies.Contains(null)) enemies.RemoveAll(AI => AI == null);
 
 		if (enemies.Count > 0)
 		{
@@ -229,12 +264,13 @@ public abstract class TurretTemplate : MonoBehaviour
 			for (int i = 0; i < enemies.Count; i++)
 			{
 				//For attacking enemies closest to Townhall
-				float enemyDistance = enemies[i].CheckDistance ();
+				float enemyDistance = enemies[i].CheckDistance();
 				//print ("Index " + i + ": " + enemyDistance);
 				if (enemyDistance < shortestDist)
 				{
 					shortestDist = enemyDistance;
 					index = i;
+					enemyToLookAt = enemies[index];
 					//print ("i updated");
 				}
 
@@ -245,16 +281,67 @@ public abstract class TurretTemplate : MonoBehaviour
 					//index = i;
 				}*/
 			}
+			//Vector3 direction = enemies[index].enemyType == AttackType.air ? -(transform.position - enemies[index].transform.GetChild(0).position).normalized : -(transform.position - enemies[index].transform.position).normalized;
+		}
 
-			Vector3 direction = enemies[index].enemyType == AttackType.air ? -(transform.position - enemies[index].transform.GetChild (0).position).normalized : -(transform.position - enemies[index].transform.position).normalized;
+		return enemyToLookAt;
+	}
+
+	protected virtual void LookAtEnemy()
+	{
+		Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position) : -(transform.position - closestEnemy.transform.position);
+
+		//For First Quadrant
+		float designatedAngle = Mathf.Atan(direction.x/direction.z) * Mathf.Rad2Deg;
+		print(designatedAngle);
+		if (direction.x > 0)
+		{
+			//Second Quad
+			if (direction.z < 0) designatedAngle = 180 - Mathf.Abs(designatedAngle);
+		}
+		else
+		{
+			//Third Quad
+			if (direction.z < 0) designatedAngle += 180;
+			//Fourth Quad
+			else designatedAngle = 360 - Mathf.Abs(designatedAngle);
+		}
+		print(designatedAngle);
+
+		this.designatedAngle = new Vector3(xRotation, 0, designatedAngle);
+	}
+
+	protected virtual void Shoot (bool arcTravel)
+	{
+		//Remove any "Enemy" from list if the Enemy Reference is not present
+		if (enemies.Contains (null)) enemies.RemoveAll (AI => AI == null);
+
+		if (enemies.Count > 0 && closestEnemy != null)
+		{
+			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : -(transform.position - closestEnemy.transform.position).normalized;
 			Bullet currentBullet = Instantiate (bullet, transform.position + direction * 0.5f, Quaternion.identity);
 			currentBullet.turret = this;
-			currentBullet.catapult = false;
-			currentBullet.GetComponent<Rigidbody> ().velocity = direction * turretValues.bulletSpeed;
-			coolDown = 1 / totalFireRate;
+
+			if (arcTravel)
+			{
+				currentBullet.speed = turretValues.bulletSpeed;
+				currentBullet.amplitude = amplitude;
+				currentBullet.target = closestEnemy.transform.position;
+				currentBullet.frequency1 = currentBullet.transform.position.x - currentBullet.target.x > 0 ? currentBullet.transform.position.x - currentBullet.target.x : -(currentBullet.transform.position.x - currentBullet.target.x);
+				currentBullet.catapult = true;
+
+				currentBullet = null;
+			}
+			else
+			{
+				currentBullet.catapult = false;
+				currentBullet.GetComponent<Rigidbody>().velocity = direction * turretValues.bulletSpeed;
+			}
+			
+			coolDown = 1 / turretValues.fireRate;
 			//print ("Shortest: " + shortestDist);
-		} else
-			return;
+		}
+		else return;
 	}
 
 	//Only requires overriding for Cannon and Catapult
@@ -267,7 +354,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
 			if (enemy.hp <= 0)
 			{
-				int addedMana = (int) (enemy.manaDrop * manaReturnPercentageF);
+				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
 				//print (manaSys.currentMana.ToString ());
 				FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
@@ -294,6 +381,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				if (attackType == enemy.enemyType)
 				{
 					enemies.Add (enemy);
+					closestEnemy = EnemyToLookAt();
 					break; //Get out of loop once enemy is added
 				}
 			}
@@ -302,6 +390,10 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	void OnTriggerExit (Collider other)
 	{
-		if (other.tag == "AI") enemies.Remove (other.GetComponent<AITemplate> ());
+		if (other.tag == "AI")
+		{
+			enemies.Remove(other.GetComponent<AITemplate>());
+			closestEnemy = EnemyToLookAt();
+		}
 	}
 }

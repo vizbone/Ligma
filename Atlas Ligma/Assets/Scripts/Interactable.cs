@@ -15,7 +15,6 @@ public class Interactable : MonoBehaviour
 	public Action[] options;
 	public GameObject currentTower;
 	public TurretTemplate turret;
-	public SupportTurret sTurret;
 	MeshCollider sensor;
 	[SerializeField] LayerMask towerLayer;
 	[SerializeField] RadialMenu menuInst;
@@ -25,10 +24,8 @@ public class Interactable : MonoBehaviour
 		towerLayer.value = 1 << 10;
 		currentTower = gameObject;
 		sensor = GetComponent<MeshCollider>();
-		turret = gameObject.GetComponent<TurretTemplate>() ? gameObject.GetComponent<TurretTemplate>() : null;
-		sTurret = gameObject.GetComponent<SupportTurret>() ? gameObject.GetComponent<SupportTurret>() : null;
+		turret = gameObject.GetComponent<TurretTemplate>();
 	}
-
 
 	void Update()
 	{
@@ -46,10 +43,7 @@ public class Interactable : MonoBehaviour
 				{
 					if (menuInst == null)
 					{
-						if (turret != null)
-							menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
-						else
-							menuInst = RadialMenuSpawner.ins.SpawnMenu(this, sTurret);
+						menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
 					}
 					else
 					{

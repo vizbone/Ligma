@@ -4,13 +4,34 @@ using UnityEngine;
 
 public class Crossbow : TurretTemplate {
 
-	protected override void SetValues(bool isPrebuilt)
+	protected override void SetValues()
 	{
-		if (!isPrebuilt) turretValues = TurretValueSettings.crossbow1s;
-		else turretValues = TurretValueSettings.prebuiltCrossbow0s;
+		if (isPrebuilt)
+			turretValues = TurretValueSettings.crossbow1s;
+		else
+		{
+			switch (level)
+			{
+				case 1:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCrossbow1s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCrossbow1s;
+					break;
+				case 2:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCrossbow2s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCrossbow2s;
+					break;
+				case 3:
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCrossbow3s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCrossbow3s;
+					break;
+				default:
+					print("Error in Level");
+					break;
+			}
+		}
 	}
 
-	protected override void UpgradeStats(bool isPrebuilt)
+	protected override void UpgradeStats()
 	{
 		if (!isPrebuilt)
 		{
@@ -26,25 +47,28 @@ public class Crossbow : TurretTemplate {
 					turretValues = TurretValueSettings.crossbow3s;
 					break;
 				default:
-					turretValues = TurretValueSettings.crossbow1s;
+					print("Error in Level");
 					break;
 			}
 		}
-		else
+		else //Incase there is a need for upgrading of turrets as events
 		{
 			switch (level)
 			{
 				case 1:
-					turretValues = TurretValueSettings.prebuiltCrossbow1s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCrossbow1s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCrossbow1s;
 					break;
 				case 2:
-					turretValues = TurretValueSettings.prebuiltCrossbow2s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCrossbow2s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCrossbow2s;
 					break;
 				case 3:
-					turretValues = TurretValueSettings.prebuiltCrossbow3s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.blackCrossbow3s;
+					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCrossbow3s;
 					break;
 				default:
-					turretValues = TurretValueSettings.prebuiltCrossbow0s;
+					print("Error in Level");
 					break;
 			}
 		}
