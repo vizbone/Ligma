@@ -18,40 +18,36 @@ public class Bullet : MonoBehaviour
 
 	public Vector3 oriPos;
 	public float currentStep;
-	bool cLock;
 	Rigidbody rb;
 
 	private void Start()
 	{
 		//SetValues(bulletType);
 		hitCount = 0;
-		//lifetime = 5;
-		Destroy(gameObject, lifetime);
+		lifetime = 5;
 		oriPos = transform.position;
 
 		if (catapult)
 		{
-			rb = GetComponent<Rigidbody> ();
+			rb = GetComponent<Rigidbody>();
 			rb.useGravity = false;
-			cLock = false;
 			currentStep = 0;
-			target = new Vector3 (target.x, target.y + 0.5f, target.z);
+			target = new Vector3(target.x, target.y + 0.5f, target.z);
 		}
+		else
+			Destroy(gameObject, lifetime);
 	}
 
 	void Update ()
 	{
-		if (catapult && !cLock) StartCoroutine (Iteration ());
+		if (catapult) ArcTravel();
 	}
 
-	IEnumerator Iteration ()
+	void ArcTravel()
 	{
-		cLock = true;
-		if (currentStep < 1) MathFunctions.ParabolicCurve (target, amplitude, currentStep, transform, frequency1, oriPos);
-		currentStep = Mathf.Min (currentStep + 2 * Time.deltaTime, 1);
-		yield return new WaitForSeconds (1 / speed);
-		cLock = false;
-		if (currentStep >= 1) Destroy (gameObject);
+		if (currentStep < 1) MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos);
+		currentStep = Mathf.Min(currentStep += speed * Time.deltaTime, 1);
+		if (currentStep >= 1) Destroy(gameObject);
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -63,5 +59,10 @@ public class Bullet : MonoBehaviour
 				turret.Hit(other.GetComponentInParent<AITemplate>(), turret.isPrebuilt, gameObject, hitCount);
 			}
 		}
+	}
+
+	private void OnDestroy()
+	{
+		print(name + " is destroyed");
 	}
 }

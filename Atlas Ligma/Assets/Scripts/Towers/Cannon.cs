@@ -6,7 +6,7 @@ public class Cannon : TurretTemplate
 {
 	protected override void SetValues ()
 	{
-		if (isPrebuilt)
+		if (!isPrebuilt)
 			turretValues = TurretValueSettings.cannon1s;
 		else
 		{
@@ -43,6 +43,8 @@ public class Cannon : TurretTemplate
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
 				//print (manaSys.currentMana.ToString ());
 				FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
+				enemies.Remove(enemy);
+				if (closestEnemy == enemy) closestEnemy = null;
 				Destroy (enemy.gameObject);
 			}
 		}

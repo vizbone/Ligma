@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum AttackType {ground, air, sea};
 public enum Faction {own, black, white};
@@ -54,8 +55,8 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	[Header ("Collider and Enemy List")]
 	[SerializeField] protected CapsuleCollider collider; //Stores the collider for enemy detection
-	[SerializeField] protected List<AITemplate> enemies; //Stores all valid enemies detected
-	[SerializeField] protected AITemplate closestEnemy;
+	[SerializeField] public List<AITemplate> enemies; //Stores all valid enemies detected
+	[SerializeField] public AITemplate closestEnemy;
 	[SerializeField] float xRotation;
 	[SerializeField] Vector3 designatedAngle;
 
@@ -116,7 +117,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	protected virtual void Update ()
 	{
 		//Check for closest Enemy if it is not assigned
-		if (enemies.Count > 0 && closestEnemy == null) closestEnemy = EnemyToLookAt();
+		if (closestEnemy == null) closestEnemy = EnemyToLookAt();
 
 		if (closestEnemy != null)
 		{
@@ -246,7 +247,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	/// Checks which is its closests enemy
 	/// Only checks when
 	/// 1. A new enemy enters its range
-	/// 2. An enemy exists its range
+	/// 2. An enemy exits its range
 	/// 3. When the Enemy Count is > 0 and Closest Enemy is null
 	/// </summary>
 	protected AITemplate EnemyToLookAt()
@@ -254,7 +255,8 @@ public abstract class TurretTemplate : MonoBehaviour
 		AITemplate enemyToLookAt = null;
 
 		//Remove any "Enemy" from list if the Enemy Reference is not present
-		if (enemies.Contains(null)) enemies.RemoveAll(AI => AI == null);
+		enemies = enemies.Where(AI => AI != null).ToList();
+		//if (enemies.Contains(null)) enemies.RemoveAll(AI => AI == null);
 
 		if (enemies.Count > 0)
 		{
@@ -293,7 +295,6 @@ public abstract class TurretTemplate : MonoBehaviour
 
 		//For First Quadrant
 		float designatedAngle = Mathf.Atan(direction.x/direction.z) * Mathf.Rad2Deg;
-		print(designatedAngle);
 		if (direction.x > 0)
 		{
 			//Second Quad
@@ -306,7 +307,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			//Fourth Quad
 			else designatedAngle = 360 - Mathf.Abs(designatedAngle);
 		}
-		print(designatedAngle);
+		//print(designatedAngle);
 
 		this.designatedAngle = new Vector3(xRotation, 0, designatedAngle);
 	}
@@ -314,12 +315,15 @@ public abstract class TurretTemplate : MonoBehaviour
 	protected virtual void Shoot (bool arcTravel)
 	{
 		//Remove any "Enemy" from list if the Enemy Reference is not present
-		if (enemies.Contains (null)) enemies.RemoveAll (AI => AI == null);
+		enemies = enemies.Where(AI => AI != null).ToList();
 
-		if (enemies.Count > 0 && closestEnemy != null)
+		if (closestEnemy == null) closestEnemy = EnemyToLookAt();
+
+		if (enemies.Count > 0)
 		{
 			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : -(transform.position - closestEnemy.transform.position).normalized;
-			Bullet currentBullet = Instantiate (bullet, transform.position + direction * 0.5f, Quaternion.identity);
+			Bullet currentBullet = Instantiate(bullet, transform.position + direction * 0.5f, Quaternion.identity);
+			print(currentBullet.name);
 			currentBullet.turret = this;
 
 			if (arcTravel)
@@ -358,6 +362,8 @@ public abstract class TurretTemplate : MonoBehaviour
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
 				//print (manaSys.currentMana.ToString ());
 				FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
+				enemies.Remove(enemy);
+				if (closestEnemy == enemy) closestEnemy = null;
 				Destroy (enemy.gameObject);
 			}
 		}

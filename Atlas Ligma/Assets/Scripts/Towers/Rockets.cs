@@ -6,7 +6,7 @@ public class Rockets : TurretTemplate {
 
 	protected override void SetValues()
 	{
-		if (isPrebuilt)
+		if (!isPrebuilt)
 			turretValues = TurretValueSettings.rocket1s;
 		else
 		{

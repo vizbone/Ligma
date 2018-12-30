@@ -14,7 +14,7 @@ public class RadialMenuSpawner : MonoBehaviour {
 	
 	public RadialMenu SpawnMenu(Interactable obj, TurretTemplate turret)
 	{
-		RadialMenu newMenu = Instantiate(menuPrefab, obj.currentTower.transform.position, this.gameObject.transform.rotation, this.gameObject.transform) as RadialMenu;
+		RadialMenu newMenu = Instantiate(menuPrefab, obj.currentTower.transform.position, this.gameObject.transform.rotation, this.gameObject.transform);
 		newMenu.transform.localPosition += (transform.forward * -1) * 5;
 		newMenu.turret = turret;
 		newMenu.SpawnButtons(obj);
