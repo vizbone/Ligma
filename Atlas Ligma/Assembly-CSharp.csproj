@@ -111,6 +111,7 @@
      <Compile Include="Assets\Scripts\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\EnemySpawnTemplate.cs" />
      <Compile Include="Assets\Scripts\EventsLibrary.cs" />
+     <Compile Include="Assets\Scripts\EventsManager.cs" />
      <Compile Include="Assets\Scripts\GRENADA.cs" />
      <Compile Include="Assets\Scripts\GridSystem.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
