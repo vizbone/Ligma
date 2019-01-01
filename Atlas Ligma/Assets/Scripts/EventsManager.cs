@@ -7,45 +7,48 @@ using UnityEngine;
 public class EventsManager : MonoBehaviour
 {
 	public bool[] events;
-	public delegate void EventsCompilation ();
-	public EventsCompilation[] eventsComp;
+	public List<int> selectedEventIds;
+	public Action<int>[] eventsComp;
 
-	/*void Start ()
-	{
-		Startup ();
-	}
+	/*public delegate void EventsCompilation ();
+	public EventsCompilation[] eventsComp;*/
 
-	void Startup ()
+	void Start ()
 	{
-		Type thisType = this.GetType ();
+		eventsComp = new Action<int>[events.Length];
+		selectedEventIds = new List<int>();
+
 		for (int i = 0; i < events.Length; i++)
 		{
 			if (events[i])
 			{
-				MethodInfo method = thisType.GetMethod ("Condition" + i);
-				print (method);
-				eventsComp[i] = (EventsCompilation) Delegate.CreateDelegate (typeof (EventsCompilation), method);
+				eventsComp[i] = new Action<int>(ConditionList);
+				selectedEventIds.Add(i);
 			}
 		}
-	}*/
+	}
 
 	void Update ()
 	{
-		Run ();
+		for (int i = 0; i < selectedEventIds.Count; i++)
+		{
+			eventsComp[selectedEventIds[i]](selectedEventIds[i]);
+		}
 	}
 
-	void Run ()
+	public void ConditionList (int eventIndex)
 	{
-		if (events[0]) Condition0 ();
-		if (events[1]) Condition1 ();
-	}
-
-	public void Condition0 ()
-	{
-		print ("suck 0 balls");
-	}
-	public void Condition1 ()
-	{
-		print ("suck 1 balls");
+		switch (eventIndex)
+		{
+			case 0:
+				print("suck 0 balls");
+				break;
+			case 1:
+				print("suck 1 balls");
+				break;
+			default:
+				print("suck " + eventIndex + " balls");
+				break;
+		}
 	}
 }

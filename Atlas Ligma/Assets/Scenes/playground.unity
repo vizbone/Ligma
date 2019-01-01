@@ -5644,7 +5644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815089dd2d45bdf4b8b517cb6df9885b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events: 01
+  events: 0101010101
+  selectedEventIds: 
 --- !u!224 &534669915
 RectTransform:
   m_ObjectHideFlags: 0

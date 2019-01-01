@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(WaveSystem))]
-public class WaveSystemEditor : Editor
+[CustomEditor(typeof(EventsManager))]
+public class EventsManagerEditor : Editor
 {
 	public override void OnInspectorGUI()
 	{
