@@ -4,17 +4,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct WhiteTurretStats
+{
+	public TurretTemplate turret;
+	public int investmentLevel;
+}
+
+public struct BlackTurretStats
+{
+	public TurretTemplate turret;
+	public int investmentLevel;
+}
+
 public class EventsManager : MonoBehaviour
 {
 	public bool[] events;
 	public List<int> selectedEventIds;
 	public Action<int>[] eventsComp;
 
-	/*public delegate void EventsCompilation ();
-	public EventsCompilation[] eventsComp;*/
+	List<WhiteTurretStats> whiteTurrets;
+	List<BlackTurretStats> blackTurrets;
 
 	void Start ()
 	{
+		whiteTurrets = new List<WhiteTurretStats> ();
+		blackTurrets = new List<BlackTurretStats> ();
+
 		eventsComp = new Action<int>[events.Length];
 		selectedEventIds = new List<int>();
 
@@ -40,15 +55,121 @@ public class EventsManager : MonoBehaviour
 	{
 		switch (eventIndex)
 		{
+			//Effect:		White turrets that had investments are now more expensive by 150% 
+			//Condition:	When there are 3 or more fully invested white turrets 
+			//Duration:		Activate only on next wave
 			case 0:
-				print("suck 0 balls");
+				Event0 ();
 				break;
+
+			//Effect:		White turrets that had investments are now more expensive by 150% 
+			//Condition:	When there are 3 or more fully invested white turrets 
+			//Duration:		Activate only on next wave
 			case 1:
-				print("suck 1 balls");
+				Event1 ();
 				break;
+
+			//Effect:		White turrets that had investments are now more expensive by 150% 
+			//Condition:	When there are 3 or more fully invested white turrets 
+			//Duration:		Activate only on next wave
+			case 2:
+				Event2 ();
+				break;
+
+			//Effect:		White turrets that had investments are now more expensive by 150% 
+			//Condition:	When there are 3 or more fully invested white turrets 
+			//Duration:		Activate only on next wave
+			case 3:
+				Event3 ();
+				break;
+
+			//Effect:		White turrets that had investments are now more expensive by 150% 
+			//Condition:	When there are 3 or more fully invested white turrets 
+			//Duration:		Activate only on next wave
+			case 4:
+				break;
+
 			default:
-				print("suck " + eventIndex + " balls");
+				print ("Invalid event index number: \"" + eventIndex + "\"; Check the script to see if it exists");
 				break;
 		}
+
+	}
+
+	public WhiteTurretStats SetWhiteTurretStats (WhiteTurretStats turret, TurretTemplate tt)
+	{
+		turret.turret = tt;
+		turret.investmentLevel = tt.investmentLevel;
+		return turret;
+	}
+
+	public BlackTurretStats SetBlackTurretStats (BlackTurretStats turret, TurretTemplate tt)
+	{
+		turret.turret = tt;
+		turret.investmentLevel = tt.investmentLevel;
+		return turret;
+	}
+
+	public void CheckWhite (TurretTemplate tt)
+	{
+		for (int i = 0; i < whiteTurrets.Count; i++)
+		{
+			if (whiteTurrets[i].turret == tt)
+			{
+				WhiteTurretStats tempo = new WhiteTurretStats ();
+				tempo = SetWhiteTurretStats (tempo, tt);
+				whiteTurrets[i] = tempo;
+				return;
+			}
+		}
+		WhiteTurretStats temp = new WhiteTurretStats ();
+		temp = SetWhiteTurretStats (temp, tt);
+		whiteTurrets.Add (temp);
+	}
+
+	public void CheckBlack (TurretTemplate tt)
+	{
+		for (int i = 0; i < blackTurrets.Count; i++)
+		{
+			if (blackTurrets[i].turret == tt)
+			{
+				BlackTurretStats tempo = new BlackTurretStats ();
+				tempo = SetBlackTurretStats (tempo, tt);
+				blackTurrets[i] = tempo;
+				return;
+			}
+		}
+		BlackTurretStats temp = new BlackTurretStats ();
+		temp = SetBlackTurretStats (temp, tt);
+		blackTurrets.Add (temp);
+	}
+
+	void Event0 ()
+	{
+		int maxInvested = 0;
+		for (int i = 0; i < whiteTurrets.Count; i++)
+		{
+			if (whiteTurrets[i].investmentLevel == 3) maxInvested++;
+		}
+
+		if (maxInvested >= 3)
+		{
+			//event
+		}
+	}
+
+	void Event1 ()
+	{
+
+	}
+
+	void Event2 ()
+	{
+
+	}
+
+	void Event3 ()
+	{
+
 	}
 }
