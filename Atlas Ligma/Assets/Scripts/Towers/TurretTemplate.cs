@@ -60,9 +60,12 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] float xRotation;
 	[SerializeField] Vector3 designatedAngle;
 
-	[Header("For Bullets")]
+	[Header ("For Bullets")]
 	public bool arcTravel;
 	public Bullet bullet;
+
+	[Header ("For Events")]
+	[SerializeField] EventsManager eventManager;
 
 	protected virtual void Start ()
 	{
@@ -89,6 +92,8 @@ public abstract class TurretTemplate : MonoBehaviour
 		//Set range of turret depending on type
 		//Can Set in Inspector if wanted
 		collider.height = 10 / transform.localScale.x;
+		//Find event manager
+		eventManager = FindObjectOfType<EventsManager> ();
 
 		SetValues();
 
@@ -109,6 +114,18 @@ public abstract class TurretTemplate : MonoBehaviour
 				break;
 		}
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
+
+		//Adds self to event manager array
+		switch (faction)
+		{
+			case Faction.white:
+				eventManager.CheckWhite (this);
+				break;
+			case Faction.black:
+				eventManager.CheckBlack (this);
+				break;
+			default: break;
+		}
 		
 		//Set cooldown
 		coolDown = 1 / turretValues.fireRate;
@@ -236,6 +253,18 @@ public abstract class TurretTemplate : MonoBehaviour
 		manaSys.ManaMinus(cost, transform.position, 2);
 		investmentLevel = newLevel;
 		manaReturnPerc = newPerc;
+
+		switch (faction)
+		{
+			case Faction.white:
+				eventManager.CheckWhite (this);
+				break;
+			case Faction.black:
+				eventManager.CheckBlack (this);
+				break;
+			default:
+				break;
+		}
 	}
 
 	public void ResetManaReturnPerc()
