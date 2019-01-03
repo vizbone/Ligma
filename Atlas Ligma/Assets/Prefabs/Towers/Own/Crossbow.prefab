@@ -1,21 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1614154539434564}
-  m_IsPrefabAsset: 1
 --- !u!1 &1614154539434564
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4463248596496846}
@@ -28,7 +18,7 @@ GameObject:
   - component: {fileID: 114933962414085430}
   - component: {fileID: 114594549247061124}
   m_Layer: 10
-  m_Name: Crossbow Level 1
+  m_Name: Crossbow
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,9 +26,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4463248596496846
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614154539434564}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 55.188377, y: 0.81, z: 31.835226}
@@ -47,11 +38,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33801405205235328
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614154539434564}
+  m_Mesh: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
 --- !u!23 &23163839482106256
 MeshRenderer:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614154539434564}
   m_Enabled: 1
   m_CastShadows: 1
@@ -61,6 +61,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 34c7b333a73a5f14a8c8f3fafe4316be, type: 2}
   m_StaticBatchInfo:
@@ -82,48 +83,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33801405205235328
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1614154539434564}
-  m_Mesh: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
---- !u!54 &54752552260029560
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1614154539434564}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!64 &64414930175161266
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1614154539434564}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
 --- !u!95 &95730706052832178
 Animator:
   serializedVersion: 3
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614154539434564}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
@@ -136,32 +102,56 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114594549247061124
-MonoBehaviour:
-  m_ObjectHideFlags: 1
+--- !u!64 &64414930175161266
+MeshCollider:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614154539434564}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4406ce129ef0c459df191ff357c0d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  options:
-  - color: {r: 1, g: 0, b: 0, a: 1}
-    sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
-    title: Upgrade
-  currentTower: {fileID: 1614154539434564}
-  turret: {fileID: 0}
-  sTurret: {fileID: 0}
-  towerLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
+--- !u!136 &136596641318702540
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614154539434564}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.32621554
+  m_Height: 5
+  m_Direction: 2
+  m_Center: {x: 0.00000008940697, y: -0.00000029802328, z: 4.2351647e-21}
+--- !u!54 &54752552260029560
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614154539434564}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!114 &114933962414085430
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614154539434564}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -173,16 +163,15 @@ MonoBehaviour:
     fireRate: 0
     bulletSpeed: 0
     range: 0
+    upgradeOrInvestCost: 
     attackType: 
+  faction: 0
   manaSys: {fileID: 0}
+  manaReturnPerc: 0
   coolDown: 0
   level: 0
+  investmentLevel: 0
   isPrebuilt: 0
-  manaReturnPercentageB: 0
-  manaReturnPercentageS: 0
-  manaReturnPercentageF: 0
-  totalFireRate: 0
-  fireRateBuff: 0
   model: {fileID: 0}
   lvl1Model: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
   lvl2Model: {fileID: 4300000, guid: aaeede97830d95d42948f1aae751ec63, type: 3}
@@ -192,18 +181,34 @@ MonoBehaviour:
   invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
   collider: {fileID: 0}
   enemies: []
-  bullet: {fileID: 114779164487480798, guid: 223d526f9a2a8e4468708021759c3d82, type: 2}
-  rsm: {fileID: 0}
---- !u!136 &136596641318702540
-CapsuleCollider:
-  m_ObjectHideFlags: 1
+  closestEnemy: {fileID: 0}
+  xRotation: 0
+  designatedAngle: {x: 0, y: 0, z: 0}
+  arcTravel: 0
+  bullet: {fileID: 114779164487480798, guid: 223d526f9a2a8e4468708021759c3d82, type: 3}
+  eventManager: {fileID: 0}
+--- !u!114 &114594549247061124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614154539434564}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.32621554
-  m_Height: 5
-  m_Direction: 2
-  m_Center: {x: 0.00000008940697, y: -0.00000029802328, z: 4.2351647e-21}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4406ce129ef0c459df191ff357c0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  options:
+  - color: {r: 0.9951434, g: 0, b: 1, a: 1}
+    sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
+    title: Upgrade
+  - color: {r: 1, g: 0, b: 0.009791374, a: 1}
+    sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
+    title: Destroy
+  currentTower: {fileID: 1614154539434564}
+  turret: {fileID: 0}
+  towerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  menuInst: {fileID: 0}

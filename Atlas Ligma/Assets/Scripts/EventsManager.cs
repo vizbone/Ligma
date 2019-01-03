@@ -25,6 +25,8 @@ public class EventsManager : MonoBehaviour
 	List<WhiteTurretStats> whiteTurrets;
 	List<BlackTurretStats> blackTurrets;
 
+	public Action ExecuteEvent;
+
 	void Start ()
 	{
 		whiteTurrets = new List<WhiteTurretStats> ();
@@ -155,7 +157,13 @@ public class EventsManager : MonoBehaviour
 		if (maxInvested >= 3)
 		{
 			//event
+			ExecuteEvent += Event0Execution;
 		}
+	}
+
+	void Event0Execution()
+	{
+		//Things to happen for Event 0
 	}
 
 	void Event1 ()

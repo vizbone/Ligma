@@ -34,7 +34,9 @@ public class RadialMenu : MonoBehaviour
 			{
 				if (turret.faction == Faction.own)
 				{
-					turret.Upgrade();
+					if (selected.title == "Upgrade") turret.Upgrade();
+					else if (selected.title == "Destroy") Destroy(turret.gameObject);
+					else print("Invalid Upgrade Title");
 					gameObject.SetActive(false);
 				}
 				else

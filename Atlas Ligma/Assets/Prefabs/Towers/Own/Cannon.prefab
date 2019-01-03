@@ -186,6 +186,7 @@ MonoBehaviour:
   designatedAngle: {x: 0, y: 0, z: 0}
   arcTravel: 0
   bullet: {fileID: 114884531770006698, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 3}
+  eventManager: {fileID: 0}
 --- !u!114 &114401421622489224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,9 +200,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   options:
-  - color: {r: 1, g: 0, b: 0, a: 1}
+  - color: {r: 0.9951434, g: 0, b: 1, a: 1}
     sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
     title: Upgrade
+  - color: {r: 1, g: 0, b: 0, a: 1}
+    sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
+    title: Destroy
   currentTower: {fileID: 1706804124858018}
   turret: {fileID: 0}
   towerLayer:
