@@ -10,7 +10,7 @@ public class EventsManagerEditor : Editor
 	{
 		base.OnInspectorGUI();
 
-		WaveSystem waveSys = (WaveSystem)target;
+		//WaveSystem waveSys = (WaveSystem)target;
 
 		//EditorGUILayout.
 	}

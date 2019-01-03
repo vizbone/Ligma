@@ -83,18 +83,21 @@ public class Catapult : TurretTemplate
 			explosionInst.turret = this;
 			Destroy(bullet);
 		}
-		if (enemy.hp > 0)
+		else
 		{
-			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
-			if (enemy.hp <= 0)
+			if (enemy.hp > 0)
 			{
-				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
-				manaSys.ManaAdd (addedMana, enemy.transform.position,0);
-				//print (manaSys.currentMana.ToString ());
-				FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
-				enemies.Remove(enemy);
-				if (closestEnemy == enemy) closestEnemy = null;
-				Destroy (enemy.gameObject);
+				enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
+				if (enemy.hp <= 0)
+				{
+					int addedMana = (int)(enemy.manaDrop * manaReturnPerc);
+					manaSys.ManaAdd(addedMana, enemy.transform.position, 0);
+					//print (manaSys.currentMana.ToString ());
+					FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
+					enemies.Remove(enemy);
+					if (closestEnemy == enemy) closestEnemy = null;
+					Destroy(enemy.gameObject);
+				}
 			}
 		}
 	}

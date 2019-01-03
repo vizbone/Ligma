@@ -28,6 +28,8 @@ public class AISea : AITemplate
 
 	protected override void Start () 
 	{
+		WaveSystem.enemyListS.Add(this);
+
 		//Setting Values
 		if (whichType == SeaEnemy.boat)
 		{

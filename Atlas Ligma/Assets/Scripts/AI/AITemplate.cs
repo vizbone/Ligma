@@ -11,6 +11,8 @@ public abstract class AITemplate : MonoBehaviour {
 	// Use this for initialization
 	protected virtual void Start ()
 	{
+		WaveSystem.enemyListS.Add(this);
+
 		if (enemyType == AttackType.ground)
 		{
 			hp = 3;
@@ -25,4 +27,9 @@ public abstract class AITemplate : MonoBehaviour {
 	}
 
 	public abstract float CheckDistance();
+
+	private void OnDestroy()
+	{
+		WaveSystem.enemyListS.Remove(this);
+	}
 }

@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class EnemySpawn : MonoBehaviour
 {
-	public float spawnRate;
-	public int count;
-	public bool active;
-	public bool dev;
-	public int maxCount;
+	//public float spawnRate;
+	//public int count;
+	//public bool active;
+	//public bool dev;
+	//public int maxCount;
 	public int indexOfEnemy;
-	public Transform devPos;
+	//public Transform devPos;
 	public Transform[] spawnPos;
-	public float distance;
-	public Text waveNumber;
+	//public float distance;
+	//public Text waveNumber;
 
 	bool cLock;
 
@@ -23,7 +23,7 @@ public class EnemySpawn : MonoBehaviour
 
 	void Start ()
 	{ 
-		if (spawnRate <= 0) { spawnRate = 1; }
+		//if (spawnRate <= 0) { spawnRate = 1; }
 		cLock = false;
 		waveSys = FindObjectOfType<WaveSystem>();
 		prepPhase = FindObjectOfType<PreparationPhase>();
@@ -36,12 +36,12 @@ public class EnemySpawn : MonoBehaviour
 			indexOfEnemy++;
 			StartCoroutine ("SpawnClock");
 		}
-		if (count == maxCount) active = false;
+		//if (count == maxCount) active = false;
 		if (prepPhase.currentWave < waveSys.wave.Length)
 		{
 			if (indexOfEnemy == waveSys.wave[prepPhase.currentWave].enemy.Length - 1) prepPhase.WaveEnded ();
 		}
-		waveNumber.text = "Wave " + (prepPhase.currentWave + 1).ToString();
+		//waveNumber.text = "Wave " + (prepPhase.currentWave + 1).ToString();
 	}
 
 	IEnumerator SpawnClock () 
@@ -58,7 +58,7 @@ public class EnemySpawn : MonoBehaviour
 			else seaEnemy.GetComponent<AISea>().path = AIMovement.Paths.seaPath2;
 		}
 		cLock = true;
-		count++;
+		//count++;
 		yield return new WaitForSeconds (waveSys.wave[0].enemy[0].interval);
 		cLock = false;
 	}

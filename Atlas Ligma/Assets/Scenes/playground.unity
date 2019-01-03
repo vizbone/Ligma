@@ -5393,10 +5393,8 @@ GameObject:
   - component: {fileID: 534669903}
   - component: {fileID: 534669913}
   - component: {fileID: 534669906}
-  - component: {fileID: 534669907}
   - component: {fileID: 534669908}
   - component: {fileID: 534669909}
-  - component: {fileID: 534669911}
   - component: {fileID: 534669910}
   - component: {fileID: 534669912}
   - component: {fileID: 534669905}
@@ -5505,32 +5503,6 @@ MonoBehaviour:
   buildMode: 0
   canBuild: 0
   myRay: {fileID: 1875883209}
---- !u!114 &534669907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e33e4f2f6180724986881914350d1b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnRate: 1
-  count: 0
-  active: 1
-  dev: 0
-  maxCount: 1
-  indexOfEnemy: 0
-  devPos: {fileID: 525034354}
-  spawnPos:
-  - {fileID: 1233455559}
-  - {fileID: 515478764}
-  - {fileID: 525034354}
-  - {fileID: 2025624853}
-  distance: 10
-  waveNumber: {fileID: 2060755742}
 --- !u!114 &534669908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5584,26 +5556,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875b45707544b9c4b89d74b8b747b561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prepPhase: 0
+  currentWave: 0
+  nextWaveButton: {fileID: 1024170680}
+  prepPhaseText: {fileID: 2060755742}
   wave:
   - enemy:
     - {fileID: 11400000, guid: e882ba17852e9134589198bada5efb10, type: 2}
     - {fileID: 11400000, guid: e882ba17852e9134589198bada5efb10, type: 2}
---- !u!114 &534669911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be654dd87f50beb41a172537cf290e23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prepPhaseActive: 0
-  currentWave: 0
-  nextWaveButton: {fileID: 1024170680}
-  prepPhaseText: {fileID: 2060755742}
+  - enemy:
+    - {fileID: 11400000, guid: e882ba17852e9134589198bada5efb10, type: 2}
+    - {fileID: 11400000, guid: e882ba17852e9134589198bada5efb10, type: 2}
+  - enemy:
+    - {fileID: 11400000, guid: e882ba17852e9134589198bada5efb10, type: 2}
+    - {fileID: 11400000, guid: e882ba17852e9134589198bada5efb10, type: 2}
+  enemySpawnIndex: 0
+  spawnPos:
+  - {fileID: 1233455559}
+  - {fileID: 515478764}
+  - {fileID: 525034354}
+  - {fileID: 525034354}
+  cLock: 0
+  enemyList: []
 --- !u!114 &534669912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10621,7 +10595,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534669911}
+      - m_Target: {fileID: 534669910}
         m_MethodName: WaveStarted
         m_Mode: 1
         m_Arguments:

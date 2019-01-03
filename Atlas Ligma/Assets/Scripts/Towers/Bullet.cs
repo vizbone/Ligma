@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
 	{
 		if (currentStep < 1) MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos);
 		currentStep = Mathf.Min(currentStep += speed * Time.deltaTime, 1);
-		if (currentStep >= 1) Destroy(gameObject);
+		if (currentStep >= 1) turret.Hit(null, turret.isPrebuilt, gameObject, hitCount);
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -59,10 +59,5 @@ public class Bullet : MonoBehaviour
 				turret.Hit(other.GetComponentInParent<AITemplate>(), turret.isPrebuilt, gameObject, hitCount);
 			}
 		}
-	}
-
-	private void OnDestroy()
-	{
-		print(name + " is destroyed");
 	}
 }
