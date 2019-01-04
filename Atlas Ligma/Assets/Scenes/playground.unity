@@ -5578,6 +5578,7 @@ MonoBehaviour:
   - {fileID: 525034354}
   cLock: 0
   enemyList: []
+  em: {fileID: 0}
 --- !u!114 &534669912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5620,6 +5621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events: 0101010101
   selectedEventIds: 
+  event0Executed: 0
 --- !u!224 &534669915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11048,7 +11050,7 @@ MonoBehaviour:
     fireRate: 1
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: 
+    upgradeOrInvestCost: 000000000000000000000000
     attackType: 000000000100000002000000
   blackCrossbow3:
     dmg: 70
@@ -11125,21 +11127,21 @@ MonoBehaviour:
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    upgradeOrInvestCost: 
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 
   whiteCatapult2:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    upgradeOrInvestCost: 
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 
   whiteCatapult3:
     dmg: 0
     fireRate: 0
     bulletSpeed: 0
     range: 0
-    upgradeOrInvestCost: 
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 
   cannon1:
     dmg: 35

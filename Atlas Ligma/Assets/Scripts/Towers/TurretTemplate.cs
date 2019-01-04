@@ -163,7 +163,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				cost = turretValues.upgradeOrInvestCost[0];
 				break;
 			case 2:
-				cost = turretValues.upgradeOrInvestCost[0];
+				cost = turretValues.upgradeOrInvestCost[1];
 				break;
 			case 3:
 				print("Cannot Be Upgraded Further");
@@ -206,64 +206,64 @@ public abstract class TurretTemplate : MonoBehaviour
 	//Only for Prebuilt Turrets
 	public void Invest(int investLevel)
 	{
-		if (faction == Faction.own) return;
-		if (investmentLevel >= investLevel) return;
-
-		int cost = 0;
-		int newLevel = investmentLevel;
-		float newPerc = manaReturnPerc;
-
-		switch (investLevel)
+		if (faction == Faction.black && !eventManager.event1Executed)
 		{
-			case 1:
-				if (manaSys.currentMana > turretValues.upgradeOrInvestCost[0])
-				{
-					cost = turretValues.upgradeOrInvestCost[0];
-					newLevel = 1;
-					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc1s;
-					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc1s;
-				}
-				else print("Not Enough Mana");
-				break;
-			case 2:
-				if (manaSys.currentMana > turretValues.upgradeOrInvestCost[1])
-				{
-					cost = turretValues.upgradeOrInvestCost[1];
-					newLevel = 2;
-					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc2s;
-					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc2s;
-				}
-				else print("Not Enough Mana");
-				break;
-			case 3:
-				if (manaSys.currentMana > turretValues.upgradeOrInvestCost[2])
-				{
-					cost = turretValues.upgradeOrInvestCost[2];
-					newLevel = 3;
-					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc3s;
-					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc3s;
-				}
-				else print("Not Enough Mana");
-				break;
-			default:
-				print("Invalid Investment Level");
-				break;
-		}
+			if (faction == Faction.own) return;
+			if (investmentLevel >= investLevel) return;
 
-		manaSys.ManaMinus(cost, transform.position, 2);
-		investmentLevel = newLevel;
-		manaReturnPerc = newPerc;
+			int cost = 0;
+			int newLevel = investmentLevel;
+			float newPerc = manaReturnPerc;
 
-		switch (faction)
-		{
-			case Faction.white:
-				eventManager.CheckWhite (this);
-				break;
-			case Faction.black:
-				eventManager.CheckBlack (this);
-				break;
-			default:
-				break;
+			switch (investLevel)
+			{
+				case 1:
+					if (manaSys.currentMana > turretValues.upgradeOrInvestCost[0])
+					{
+						cost = turretValues.upgradeOrInvestCost[0];
+						newLevel = 1;
+						if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc1s;
+						else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc1s;
+					} else print ("Not Enough Mana");
+					break;
+				case 2:
+					if (manaSys.currentMana > turretValues.upgradeOrInvestCost[1])
+					{
+						cost = turretValues.upgradeOrInvestCost[1];
+						newLevel = 2;
+						if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc2s;
+						else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc2s;
+					} else print ("Not Enough Mana");
+					break;
+				case 3:
+					if (manaSys.currentMana > turretValues.upgradeOrInvestCost[2])
+					{
+						cost = turretValues.upgradeOrInvestCost[2];
+						newLevel = 3;
+						if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc3s;
+						else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc3s;
+					} else print ("Not Enough Mana");
+					break;
+				default:
+					print ("Invalid Investment Level");
+					break;
+			}
+
+			manaSys.ManaMinus (cost, transform.position, 2);
+			investmentLevel = newLevel;
+			manaReturnPerc = newPerc;
+
+			switch (faction)
+			{
+				case Faction.white:
+					eventManager.CheckWhite (this);
+					break;
+				case Faction.black:
+					eventManager.CheckBlack (this);
+					break;
+				default:
+					break;
+			}
 		}
 	}
 
