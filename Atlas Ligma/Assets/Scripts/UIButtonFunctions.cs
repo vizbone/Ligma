@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 
 public class UIButtonFunctions : MonoBehaviour {
 
@@ -12,6 +13,10 @@ public class UIButtonFunctions : MonoBehaviour {
 	GridSystem gridSys;
 
 	public GameObject currentBuild;
+
+	public AudioMixer masterMixer;
+	public AudioSource uiSoundA;
+	public AudioSource uiSoundB;
 
 	private void Start()
 	{
@@ -30,16 +35,47 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void Pause()
 	{
-		FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
+		//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
+		uiSoundA.Play();
 		manaSys.gameState = GameStates.pause;
 		settingsMenu.SetActive(true);
 	}
 
 	public void FromSettingsToGameplay()
 	{
-		FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioB");
+		//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioB");
+		uiSoundB.Play();
 		manaSys.gameState = GameStates.started;
 		settingsMenu.SetActive(false);
+	}
+
+	public void VolumeBGM(float bgmLvl)
+	{
+		masterMixer.SetFloat("bgmVol", bgmLvl);
+	}
+
+	public void VolumeSFX(float sfxLvl)
+	{
+		masterMixer.SetFloat("sfxVol", sfxLvl);
+	}
+
+	/*public void MuteAllVolumes()
+	{
+		masterMixer.SetFloat("masterVol", -80.0f);
+	}*/
+
+	public void MuteVolumeBGM()
+	{
+		masterMixer.SetFloat("bgmVol", -80.0f);
+		/*if (masterMixer.SetFloat("sfxVol", 0.0f)) bgmMuteActive.SetActive(true);
+		else bgmMuteActive.SetActive(false);*/
+	}
+
+	public void MuteVolumeSFX()
+	{
+		masterMixer.SetFloat("sfxVol", -80.0f);
+		/*if (masterMixer.SetFloat("sfxVol", 0.0f)) sfxMuteActive.SetActive(true);
+		else sfxMuteActive.SetActive(false);*/
 	}
 
 	void DestroyCurrentBuild()

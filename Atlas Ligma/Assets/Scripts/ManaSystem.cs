@@ -24,6 +24,7 @@ public class ManaSystem : MonoBehaviour
 	public Slider manaSlider;
 	public Text text;
 	public Transform canvas;
+	public AudioSource manaGainedSound;
 
 	private void Start()
 	{
@@ -69,7 +70,8 @@ public class ManaSystem : MonoBehaviour
 	//adds mana from bank
 	public void ManaAdd(int amount, Vector3 pos, float offset)
 	{
-		FindObjectOfType<AudioManager>().AudioToPlay("ManaGain");
+		//FindObjectOfType<AudioManager>().AudioToPlay("ManaGain");
+		manaGainedSound.Play();
 		currentMana += amount;
 		if (currentMana > maxMana) { currentMana = maxMana; }
 		DisplayText (amount, pos, offset);

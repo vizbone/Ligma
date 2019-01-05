@@ -20,6 +20,7 @@ public class AI : AITemplate {
 	bool cLock;
 
 	ManaSystem manaSys;
+	public AudioSource skeletonAttackSound;
 
 	protected override void Start () 
 	{
@@ -95,7 +96,8 @@ public class AI : AITemplate {
 	{
 		if (other.gameObject.tag == "Town Hall" && enemyType == AttackType.ground)
 		{
-			FindObjectOfType<AudioManager>().AudioToPlay("SkeletonAttack");
+			//FindObjectOfType<AudioManager>().AudioToPlay("SkeletonAttack");
+			skeletonAttackSound.Play();
 			manaSys.ManaMinus (dmg, transform.position, 0);
 			Destroy (gameObject);
 		}
