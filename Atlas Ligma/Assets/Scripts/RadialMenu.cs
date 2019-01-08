@@ -25,28 +25,4 @@ public class RadialMenu : MonoBehaviour
 			newButton.menu = this;
 		}
 	}
-
-	void Update()
-	{
-		if (Input.GetMouseButtonDown(0))
-		{
-			if (selected)
-			{
-				if (turret.faction == Faction.own)
-				{
-					if (selected.title == "Upgrade") turret.Upgrade();
-					else if (selected.title == "Destroy") Destroy(turret.gameObject);
-					else print("Invalid Upgrade Title");
-					gameObject.SetActive(false);
-				}
-				else
-				{
-					if (selected.title == "Investment 1") turret.Invest(1);
-					else if (selected.title == "Investment 2") turret.Invest(2);
-					else if (selected.title == "Investment 3") turret.Invest(3);
-					else print("Invalid Upgrade Title");
-				}
-			}
-		}
-	}
 }

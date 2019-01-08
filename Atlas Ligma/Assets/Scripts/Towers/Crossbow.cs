@@ -6,7 +6,7 @@ public class Crossbow : TurretTemplate {
 
 	protected override void SetValues()
 	{
-		if (isPrebuilt)
+		if (!isPrebuilt)
 			turretValues = TurretValueSettings.crossbow1s;
 		else
 		{

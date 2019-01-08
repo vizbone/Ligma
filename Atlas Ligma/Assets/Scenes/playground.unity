@@ -2872,7 +2872,7 @@ Transform:
   - {fileID: 525034354}
   - {fileID: 1329751366}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &278292335
 GameObject:
@@ -5636,7 +5636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 73c2b45276c659642b77e87108339b34, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 73c2b45276c659642b77e87108339b34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5783,7 +5783,7 @@ RectTransform:
   - {fileID: 1733787332}
   - {fileID: 101674418}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6170,7 +6170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCamSize: 10
   minCamSize: 1
-  startingCamSize: 5
+  startingCamSize: 7
   scrollSpeed: 1
   cameraPanSpeed: 0.3
   horizontalBorderOffset: 10
@@ -6274,7 +6274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events: 0101010101
-  selectedEventIds: 
+  selectedEventIds: 00000000010000000200000003000000
   event0Executed: 0
   event1Executed: 0
   event2Executed: 0
@@ -8070,7 +8070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46b12845355544642bf8f9d0cb373af7, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46b12845355544642bf8f9d0cb373af7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8495,7 +8495,7 @@ Transform:
   - {fileID: 774584210}
   - {fileID: 144277891}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &761970183
 GameObject:
@@ -10124,7 +10124,7 @@ Transform:
   - {fileID: 2025624853}
   - {fileID: 1022203547}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &933328436
 GameObject:
@@ -10703,36 +10703,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981679487}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &982053634
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 982053635}
-  m_Layer: 0
-  m_Name: devpos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &982053635
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982053634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.130005, y: 2, z: 51.660034}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &988204808
 GameObject:
   m_ObjectHideFlags: 0
@@ -11953,256 +11923,256 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossbow1:
     dmg: 18
-    fireRate: 2
+    fireRate: 1.2
     bulletSpeed: 50
-    range: 20
-    upgradeOrInvestCost: 
+    range: 15
+    upgradeOrInvestCost: 9600000096000000
     attackType: 000000000100000002000000
   crossbow2:
-    dmg: 25
+    dmg: 22
+    fireRate: 1.4
+    bulletSpeed: 50
+    range: 20
+    upgradeOrInvestCost: 9600000096000000
+    attackType: 000000000100000002000000
+  crossbow3:
+    dmg: 26
+    fireRate: 1.6
+    bulletSpeed: 50
+    range: 25
+    upgradeOrInvestCost: 9600000096000000
+    attackType: 000000000100000002000000
+  blackCrossbow1:
+    dmg: 22
+    fireRate: 1.4
+    bulletSpeed: 50
+    range: 15
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 000000000100000002000000
+  blackCrossbow2:
+    dmg: 28
+    fireRate: 2
+    bulletSpeed: 50
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 000000000100000002000000
+  blackCrossbow3:
+    dmg: 34
+    fireRate: 2.6
+    bulletSpeed: 50
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 000000000100000002000000
+  whiteCrossbow1:
+    dmg: 16
+    fireRate: 1
+    bulletSpeed: 50
+    range: 15
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 000000000100000002000000
+  whiteCrossbow2:
+    dmg: 20
+    fireRate: 1.4
+    bulletSpeed: 50
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 000000000100000002000000
+  whiteCrossbow3:
+    dmg: 24
     fireRate: 1.8
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: 
+    upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
-  crossbow3:
-    dmg: 40
-    fireRate: 1.5
-    bulletSpeed: 50
-    range: 20
-    upgradeOrInvestCost: 
-    attackType: 000000000100000002000000
-  blackCrossbow1:
-    dmg: 30
-    fireRate: 1.5
-    bulletSpeed: 50
-    range: 20
-    upgradeOrInvestCost: 
-    attackType: 000000000100000002000000
-  blackCrossbow2:
-    dmg: 50
-    fireRate: 1
-    bulletSpeed: 50
-    range: 20
-    upgradeOrInvestCost: 000000000000000000000000
-    attackType: 000000000100000002000000
-  blackCrossbow3:
-    dmg: 70
-    fireRate: 0.8
-    bulletSpeed: 50
-    range: 20
-    upgradeOrInvestCost: 
-    attackType: 000000000100000002000000
-  whiteCrossbow1:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
-  whiteCrossbow2:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
-  whiteCrossbow3:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
   catapult1:
     dmg: 35
-    fireRate: 4
+    fireRate: 0.8
     bulletSpeed: 10
-    range: 30
-    upgradeOrInvestCost: 
-    attackType: 0000000001000000
+    range: 15
+    upgradeOrInvestCost: 9600000096000000
+    attackType: 0000000002000000
   catapult2:
     dmg: 50
-    fireRate: 3.5
+    fireRate: 1.2
     bulletSpeed: 10
-    range: 30
-    upgradeOrInvestCost: 
-    attackType: 0000000001000000
+    range: 20
+    upgradeOrInvestCost: 9600000096000000
+    attackType: 0000000002000000
   catapult3:
-    dmg: 100
-    fireRate: 3
+    dmg: 65
+    fireRate: 1.6
     bulletSpeed: 10
-    range: 30
-    upgradeOrInvestCost: 
-    attackType: 0000000001000000
+    range: 25
+    upgradeOrInvestCost: 9600000096000000
+    attackType: 0000000002000000
   blackCatapult1:
-    dmg: 50
-    fireRate: 3
+    dmg: 42
+    fireRate: 1
     bulletSpeed: 10
-    range: 30
-    upgradeOrInvestCost: 
-    attackType: 0000000001000000
+    range: 15
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   blackCatapult2:
-    dmg: 80
-    fireRate: 2.5
+    dmg: 62
+    fireRate: 1.4
     bulletSpeed: 10
-    range: 30
-    upgradeOrInvestCost: 
-    attackType: 0000000001000000
+    range: 20
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   blackCatapult3:
-    dmg: 140
-    fireRate: 2
+    dmg: 82
+    fireRate: 1.8
     bulletSpeed: 10
-    range: 30
-    upgradeOrInvestCost: 
-    attackType: 0000000001000000
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   whiteCatapult1:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 320000006400000096000000
-    attackType: 
+    dmg: 28
+    fireRate: 0.6
+    bulletSpeed: 10
+    range: 15
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   whiteCatapult2:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 320000006400000096000000
-    attackType: 
+    dmg: 40
+    fireRate: 0.8
+    bulletSpeed: 10
+    range: 20
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   whiteCatapult3:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 320000006400000096000000
-    attackType: 
+    dmg: 52
+    fireRate: 1
+    bulletSpeed: 10
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   cannon1:
     dmg: 35
-    fireRate: 4
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
+    fireRate: 0.8
+    bulletSpeed: 10
+    range: 15
+    upgradeOrInvestCost: 9600000096000000
     attackType: 0000000002000000
   cannon2:
     dmg: 50
-    fireRate: 3.5
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
+    fireRate: 1.2
+    bulletSpeed: 10
+    range: 20
+    upgradeOrInvestCost: 9600000096000000
     attackType: 0000000002000000
   cannon3:
-    dmg: 100
-    fireRate: 2
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
+    dmg: 65
+    fireRate: 1.6
+    bulletSpeed: 10
+    range: 25
+    upgradeOrInvestCost: 9600000096000000
     attackType: 0000000002000000
   blackCannon1:
-    dmg: 50
-    fireRate: 3.5
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
+    dmg: 42
+    fireRate: 1
+    bulletSpeed: 10
+    range: 15
+    upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
   blackCannon2:
-    dmg: 80
-    fireRate: 2.5
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
+    dmg: 62
+    fireRate: 1.4
+    bulletSpeed: 10
+    range: 20
+    upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
   blackCannon3:
-    dmg: 140
-    fireRate: 2
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
+    dmg: 82
+    fireRate: 1.8
+    bulletSpeed: 10
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
   whiteCannon1:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
+    dmg: 28
+    fireRate: 0.6
+    bulletSpeed: 10
+    range: 15
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   whiteCannon2:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
+    dmg: 40
+    fireRate: 0.8
+    bulletSpeed: 10
+    range: 20
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   whiteCannon3:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
+    dmg: 52
+    fireRate: 1
+    bulletSpeed: 10
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 0000000002000000
   rocket1:
     dmg: 25
-    fireRate: 3
-    bulletSpeed: 50
-    range: 10
-    upgradeOrInvestCost: 64000000c8000000
-    attackType: 0100000002000000
-  rocket2:
-    dmg: 35
-    fireRate: 2.5
-    bulletSpeed: 50
-    range: 10
-    upgradeOrInvestCost: 64000000
-    attackType: 0100000002000000
-  rocket3:
-    dmg: 50
-    fireRate: 2
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 00000000
-    attackType: 0100000002000000
-  blackRocket1:
-    dmg: 35
-    fireRate: 2
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
-    attackType: 
-  blackRocket2:
-    dmg: 55
-    fireRate: 1.5
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
-    attackType: 
-  blackRocket3:
-    dmg: 75
     fireRate: 1
-    bulletSpeed: 25
-    range: 10
-    upgradeOrInvestCost: 
-    attackType: 
+    bulletSpeed: 50
+    range: 15
+    upgradeOrInvestCost: 9600000096000000
+    attackType: 01000000
+  rocket2:
+    dmg: 30
+    fireRate: 1.4
+    bulletSpeed: 50
+    range: 20
+    upgradeOrInvestCost: 9600000096000000
+    attackType: 01000000
+  rocket3:
+    dmg: 35
+    fireRate: 1.8
+    bulletSpeed: 50
+    range: 25
+    upgradeOrInvestCost: 9600000096000000
+    attackType: 01000000
+  blackRocket1:
+    dmg: 28
+    fireRate: 1.2
+    bulletSpeed: 50
+    range: 15
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 01000000
+  blackRocket2:
+    dmg: 32
+    fireRate: 1.5
+    bulletSpeed: 50
+    range: 20
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 01000000
+  blackRocket3:
+    dmg: 36
+    fireRate: 1.8
+    bulletSpeed: 50
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 01000000
   whiteRocket1:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
+    dmg: 22
+    fireRate: 0.8
+    bulletSpeed: 30
+    range: 15
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 01000000
   whiteRocket2:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
+    dmg: 26
+    fireRate: 1.2
+    bulletSpeed: 50
+    range: 20
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 01000000
   whiteRocket3:
-    dmg: 0
-    fireRate: 0
-    bulletSpeed: 0
-    range: 0
-    upgradeOrInvestCost: 
-    attackType: 
+    dmg: 30
+    fireRate: 1.6
+    bulletSpeed: 50
+    range: 25
+    upgradeOrInvestCost: c80000005e010000f4010000
+    attackType: 01000000
   blackInvestPerc1: 0
   blackInvestPerc2: 0
   blackInvestPerc3: 0
@@ -12221,7 +12191,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1055450104
 GameObject:
@@ -13739,75 +13709,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222949785}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1224831351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1224831353}
-  - component: {fileID: 1224831352}
-  m_Layer: 0
-  m_Name: Directional Light (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!108 &1224831352
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224831351}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 1
-  m_Color: {r: 0.4056604, g: 0.37059328, b: 0.22005163, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 1
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1224831353
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224831351}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 70.70318, y: -49.775772, z: 68.230965}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1225204170
 GameObject:
   m_ObjectHideFlags: 0
@@ -14829,7 +14730,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1364770487
 GameObject:
@@ -17165,7 +17066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1623133888
 BoxCollider:
@@ -17637,7 +17538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1686388339
 GameObject:
@@ -18046,7 +17947,7 @@ RectTransform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -19070,7 +18971,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1826935220
 GameObject:
@@ -19501,7 +19402,7 @@ Transform:
   - {fileID: 1666546378}
   - {fileID: 135668308}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1875883207
 GameObject:
@@ -20948,7 +20849,7 @@ Transform:
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1981118532
 MeshRenderer:
@@ -21270,7 +21171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004568420
 GameObject:
