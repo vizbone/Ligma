@@ -26,24 +26,23 @@ public class AI : AITemplate {
 	{
 		ai = FindObjectOfType<AIMovement>();
 		manaSys = FindObjectOfType<ManaSystem> ();
-
-		int temp = Find();
+		if (path != AIMovement.Paths.air)
+		{
+			int temp = Find ();
 			if (temp == 0)
 			{
 				path = AIMovement.Paths.path1;
-			}
-			else if (temp == 1)
+			} else if (temp == 1)
 			{
 				path = AIMovement.Paths.path2;
-			}
-			else if (temp == 2)
+			} else if (temp == 2)
 			{
 				path = AIMovement.Paths.path3;
-			}
-			else if (temp == 3)
+			} else if (temp == 3)
 			{
 				path = AIMovement.Paths.path4;
 			}
+		}
 
 		base.Start();
 		agent = GetComponent<NavMeshAgent> ();
@@ -84,7 +83,7 @@ public class AI : AITemplate {
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Waypoint") ai.NextPoint (agent, this, false);
+		if (other.tag == "Waypoint" && path != AIMovement.Paths.air) ai.NextPoint (agent, this, false);
 	}
 
 	void OnTriggerStay (Collider other)
