@@ -6283,7 +6283,8 @@ MonoBehaviour:
   currentWave: 0
   currentManaDisplay: {fileID: 1154172110}
   manaSlider: {fileID: 1814215444}
-  text: {fileID: 114056630426280622, guid: d8131f72ac8482e438a231e880a8bfff, type: 3}
+  manaDrop: {fileID: 3490758228446144676, guid: 20f63cb6bfe3ac34599ed809e14a552c,
+    type: 3}
   canvas: {fileID: 1701641532}
   manaGainedSound: {fileID: 354224953}
 --- !u!114 &534669910
