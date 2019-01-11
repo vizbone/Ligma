@@ -22,7 +22,7 @@ public class ManaSystem : MonoBehaviour
 	//Mana UI
 	public Text currentManaDisplay;
 	public Slider manaSlider;
-	public Text text;
+	public ManaFeedback manaDrop;
 	public Transform canvas;
 
 	private void Start()
@@ -77,19 +77,21 @@ public class ManaSystem : MonoBehaviour
 
 	public void DisplayText (int addedMana, Vector3 pos, float offset)
 	{
-		Text txt = Instantiate (text, pos, canvas.transform.rotation, canvas);
+		ManaFeedback manaDrop = Instantiate (this.manaDrop, pos, canvas.transform.rotation, canvas);
+		Text txt = manaDrop.manaDrop;
 		if (addedMana < 0)
 		{
-			txt.color = Color.red;
+			manaDrop.targetColor = Color.red;
 			txt.text = addedMana.ToString();
 		} 
 		else
 		{
-			txt.color = new Color (0, 0.65f, 1);
+			manaDrop.targetColor = new Color (0, 0.65f, 1);
 			txt.text = "+" + addedMana;
 		}
-		txt.transform.localPosition += (transform.forward * -1) * 5;
-		Destroy (txt, 3f);
+		//manaDrop.icon.color = Color.clear;
+		//manaDrop.manaDrop.color = Color.clear;
+		manaDrop.transform.localPosition += (transform.forward * -1) * 5;
 	}
 
 	/*public int maxMana;

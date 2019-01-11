@@ -124,6 +124,7 @@
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\ManaDisplay\ManaAnimatedPrefabScript.cs" />
+    <Compile Include="Assets\Scripts\ManaFeedback.cs" />
     <Compile Include="Assets\Scripts\ManaSystem.cs" />
     <Compile Include="Assets\Scripts\MathFunctions.cs" />
     <Compile Include="Assets\Scripts\Misc.cs" />

@@ -27,6 +27,12 @@ public class Explosion : MonoBehaviour {
 	{
 		//Turret should be a catapult
 		//0 refers to the hitCount. Not needed for explosion
-		if (other.tag == "AI") if (turret != null) turret.Hit(other.GetComponentInParent<AITemplate>(), turret.isPrebuilt, gameObject, 0, true);
+		if (other.tag == "AI")
+		{
+			if (turret != null)
+			{
+				turret.Hit(other.GetComponentInParent<AITemplate>(), turret.isPrebuilt, gameObject, 0, true);
+			}
+		}
 	}
 }

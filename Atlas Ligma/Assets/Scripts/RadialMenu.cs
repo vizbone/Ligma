@@ -26,7 +26,7 @@ public class RadialMenu : MonoBehaviour
 		}
 	}
 
-	void Update()
+	/*void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -47,6 +47,7 @@ public class RadialMenu : MonoBehaviour
 					else print("Invalid Upgrade Title");
 				}
 			}
+			else print("No Button Selected");
 		}
-	}
+	}*/
 }
