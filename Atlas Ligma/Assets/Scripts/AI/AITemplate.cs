@@ -15,13 +15,13 @@ public abstract class AITemplate : MonoBehaviour {
 
 		if (enemyType == AttackType.ground)
 		{
-			hp = 3;
-			manaDrop = 50;
+			hp = 100;
+			manaDrop = 5;
 		}
 		else if (enemyType == AttackType.air)
 		{
-			hp = 10;
-			manaDrop = 100;
+			hp = 200;
+			manaDrop = 20;
 		}
 		//Sea Enemies will be overriding the Start Function
 	}

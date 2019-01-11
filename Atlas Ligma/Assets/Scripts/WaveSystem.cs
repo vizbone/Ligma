@@ -68,6 +68,8 @@ public class WaveSystem : MonoBehaviour {
 		prepPhaseText.text = "Wave " + (currentWave + 1);
 
 		nextWaveButton.SetActive(false);
+		if (em.event2Executed) em.ExecuteEvent += em.Event2End;
+		if (em.event3Executed) em.Event3ExecutionMidWay ();
 	}
 
 	public void WaveEnded()
@@ -89,7 +91,7 @@ public class WaveSystem : MonoBehaviour {
 
 			//em.ExecuteReverseEvent;
 			em.ExecuteEvent();
-			em.ExecuteEvent = null;
+			em.EndWave ();
 		}
 	}
 
@@ -99,12 +101,14 @@ public class WaveSystem : MonoBehaviour {
 
 		if (wave[currentWave].enemy[enemySpawnIndex].type == AttackType.sea)
 		{
-			int result = Random.Range(2, 4);
-			GameObject seaEnemy = Instantiate(wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[result].position, Quaternion.identity);
-			if (result == 2) seaEnemy.GetComponent<AISea>().path = AIMovement.Paths.seaPath1;
-			else seaEnemy.GetComponent<AISea>().path = AIMovement.Paths.seaPath2;
-		}
-		else Instantiate(wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range(0, 2)].position, Quaternion.identity);
+			int result = Random.Range (2, 4);
+			GameObject seaEnemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[result].position, Quaternion.identity);
+			if (result == 2) seaEnemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath1;
+			else seaEnemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath2;
+		} else if (wave[currentWave].enemy[enemySpawnIndex].type == AttackType.air)
+		{
+			Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range(4, 7)].position, Quaternion.identity);
+		} else Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
 
 		yield return new WaitForSeconds(wave[0].enemy[0].interval);
 

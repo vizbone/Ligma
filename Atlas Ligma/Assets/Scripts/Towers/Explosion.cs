@@ -8,6 +8,8 @@ public class Explosion : MonoBehaviour {
 	[SerializeField] ParticleSystem particleSystem;
 	[SerializeField] Collider collider;
 
+	public AudioSource explosionSound;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -15,7 +17,8 @@ public class Explosion : MonoBehaviour {
 		collider = GetComponent<Collider>();
 		Destroy(gameObject, particleSystem.main.duration + 0.5f);
 		Invoke("OffCollider", 0.25f);
-		FindObjectOfType<AudioManager>().AudioToPlay("CatapultExplosion");
+		//FindObjectOfType<AudioManager>().AudioToPlay("CatapultExplosion");
+		explosionSound.Play();
 	}
 
 	public void OffCollider()

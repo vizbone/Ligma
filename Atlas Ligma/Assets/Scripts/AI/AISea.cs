@@ -33,12 +33,12 @@ public class AISea : AITemplate
 		//Setting Values
 		if (whichType == SeaEnemy.boat)
 		{
-			hp = 5;
+			hp = 200;
 			manaDrop = 100;
 		}
 		else
 		{
-			hp = 10;
+			hp = 300;
 			manaDrop = 200;
 		}
 
