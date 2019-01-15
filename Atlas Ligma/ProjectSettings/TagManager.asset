@@ -13,6 +13,7 @@ TagManager:
   - Trap
   - TrapSlow
   - Town Hall
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -27,10 +28,10 @@ TagManager:
   - Tower
   - AI
   - Obstructions
-  - 
-  - 
-  - 
-  - 
+  - path1
+  - path2
+  - path3
+  - path4
   - 
   - 
   - 

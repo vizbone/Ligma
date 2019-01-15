@@ -72,5 +72,34 @@ PrefabInstance:
       propertyPath: faction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4856722383252118508, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
+        type: 3}
+      propertyPath: options.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b4142e1fd6d7be4b81c2ff7466db4a4,
+        type: 3}
+    - target: {fileID: 4856722383252118508, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
+        type: 3}
+      propertyPath: options.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bf80b97c6adeb154cbbe43a88c39eadb,
+        type: 3}
+    - target: {fileID: 4856722383252118508, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
+        type: 3}
+      propertyPath: options.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fccd6b835f2fe53469e4f7c4f8ea9211,
+        type: 3}
+    - target: {fileID: 4856722383252118508, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
+        type: 3}
+      propertyPath: currentTower
+      value: 
+      objectReference: {fileID: 4930576021622323328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9fdc58a677a03c40ac2b8ee5cc94261, type: 3}
+--- !u!1 &4930576021622323328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4825398815583129968, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
+    type: 3}
+  m_PrefabInstance: {fileID: 476165967395105264}
+  m_PrefabAsset: {fileID: 0}

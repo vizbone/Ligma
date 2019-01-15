@@ -39,7 +39,8 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 			if (menu.selected.title == "Upgrade") menu.turret.Upgrade();
 			else if (menu.selected.title == "Destroy") Destroy(menu.turret.gameObject);
 			else print("Invalid Upgrade Title");
-			gameObject.SetActive(false);
+			//menu.gameObject.SetActive(false);
+			Destroy(menu.gameObject);
 		}
 		else
 		{
