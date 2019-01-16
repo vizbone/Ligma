@@ -7,6 +7,8 @@ public enum GameStates {preStart, started, pause, win, lose};
 
 public class ManaSystem : MonoBehaviour
 {
+	public static ManaSystem inst;
+
 	//Game State
 	public GameStates gameState = GameStates.preStart; //Stores the state of the game
 
@@ -28,6 +30,8 @@ public class ManaSystem : MonoBehaviour
 
 	private void Start()
 	{
+		inst = this;
+
 		TurretTemplate.amplitude = 3;
 
 		gameState = GameStates.preStart;

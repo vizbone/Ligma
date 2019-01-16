@@ -47,7 +47,11 @@ public class Interactable : MonoBehaviour
 					}
 					else
 					{
-						if (!menuInst.gameObject.activeInHierarchy) menuInst.gameObject.SetActive(true);
+						if (!menuInst.gameObject.activeInHierarchy)
+						{
+							menuInst.gameObject.SetActive(true);
+							menuInst.CheckDisabled();
+						}
 					}
 				}
 			}

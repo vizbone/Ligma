@@ -4756,6 +4756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1891549614434444, guid: 9cbc4713c1b678248b02fc0acca2328b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4965841036871190, guid: 9cbc4713c1b678248b02fc0acca2328b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.2
@@ -6370,10 +6374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events: 0101010101
   selectedEventIds: 00000000010000000200000003000000
-  event0Executed: 0
-  event1Executed: 0
-  event2Executed: 0
-  event3Executed: 0
+  allWhiteTurrets: []
+  allBlackTurrets: []
 --- !u!224 &534669915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12108,14 +12110,14 @@ MonoBehaviour:
     fireRate: 2
     bulletSpeed: 50
     range: 15
-    upgradeOrInvestCost: 9600000096000000
+    upgradeOrInvestCost: 96000000
     attackType: 000000000100000002000000
   crossbow2:
     dmg: 18
     fireRate: 2.5
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: 9600000096000000
+    upgradeOrInvestCost: 96000000
     attackType: 000000000100000002000000
   crossbow3:
     dmg: 25
@@ -19423,6 +19425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 1891549614434444, guid: 9cbc4713c1b678248b02fc0acca2328b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4965841036871190, guid: 9cbc4713c1b678248b02fc0acca2328b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.2
@@ -23119,6 +23125,10 @@ PrefabInstance:
     - target: {fileID: 1614154539434564, guid: 514be0f0886cf0f4c9b89019052dcf04, type: 3}
       propertyPath: m_Name
       value: Crossbow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614154539434564, guid: 514be0f0886cf0f4c9b89019052dcf04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4463248596496846, guid: 514be0f0886cf0f4c9b89019052dcf04, type: 3}
       propertyPath: m_LocalPosition.x

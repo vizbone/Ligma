@@ -6,11 +6,14 @@ public class RadialMenu : MonoBehaviour
 {
 	public RadialButton buttonPrefab;
 	public RadialButton selected;
+	public List<RadialButton> buttons;
 	public TurretTemplate turret;
 	public int radius;
 
 	public void SpawnButtons(Interactable obj)
 	{
+		buttons = new List<RadialButton>();
+
 		for (int i = 0; i < obj.options.Length; i++)
 		{
 			RadialButton newButton = Instantiate(buttonPrefab) as RadialButton;
@@ -23,31 +26,17 @@ public class RadialMenu : MonoBehaviour
 			newButton.icon.sprite = obj.options[i].sprite;
 			newButton.title = obj.options[i].title;
 			newButton.menu = this;
+			newButton.CheckDisabled();
+
+			buttons.Add(newButton);
 		}
 	}
 
-	/*void Update()
+	public void CheckDisabled()
 	{
-		if (Input.GetMouseButtonDown(0))
+		for (int i = 0; i < buttons.Count; i++)
 		{
-			if (selected)
-			{
-				if (turret.faction == Faction.own)
-				{
-					if (selected.title == "Upgrade") turret.Upgrade();
-					else if (selected.title == "Destroy") Destroy(turret.gameObject);
-					else print("Invalid Upgrade Title");
-					gameObject.SetActive(false);
-				}
-				else
-				{
-					if (selected.title == "Investment 1") turret.Invest(1);
-					else if (selected.title == "Investment 2") turret.Invest(2);
-					else if (selected.title == "Investment 3") turret.Invest(3);
-					else print("Invalid Upgrade Title");
-				}
-			}
-			else print("No Button Selected");
+			buttons[i].CheckDisabled();
 		}
-	}*/
+	}
 }

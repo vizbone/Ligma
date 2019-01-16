@@ -68,8 +68,6 @@ public class WaveSystem : MonoBehaviour {
 		prepPhaseText.text = "Wave " + (currentWave + 1);
 
 		nextWaveButton.SetActive(false);
-		if (em.event2Executed) em.ExecuteEvent += em.Event2End;
-		if (em.event3Executed) em.Event3ExecutionMidWay ();
 	}
 
 	public void WaveEnded()
@@ -89,9 +87,10 @@ public class WaveSystem : MonoBehaviour {
 			enemySpawnIndex = -1;
 			nextWaveButton.SetActive(true);
 
-			//em.ExecuteReverseEvent;
+			em.EventEnd();
 			em.ExecuteEvent();
-			em.EndWave ();
+
+			em.ExecuteEvent = null;
 		}
 	}
 
