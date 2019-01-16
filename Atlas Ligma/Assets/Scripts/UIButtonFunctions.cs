@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class UIButtonFunctions : MonoBehaviour {
 
@@ -18,6 +19,8 @@ public class UIButtonFunctions : MonoBehaviour {
 	public AudioSource uiSoundA;
 	public AudioSource uiSoundB;
 
+	public GameObject winObj;
+
 	private void Start()
 	{
 		manaSys = FindObjectOfType<ManaSystem>();
@@ -31,6 +34,26 @@ public class UIButtonFunctions : MonoBehaviour {
 			DestroyCurrentBuild();
 			gridSys.buildMode = false;
 		}
+	}
+
+	public void BackToMainMenu ()
+	{
+		SceneManager.LoadScene ("Main Menu");
+	}
+	
+	public void Continue ()
+	{
+		winObj.SetActive (false);
+	}
+
+	public void NextLevel (string arg)
+	{
+		SceneManager.LoadScene (arg);
+	}
+
+	public void Retry ()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 	}
 
 	public void Pause()

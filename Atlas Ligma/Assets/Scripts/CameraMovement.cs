@@ -45,22 +45,22 @@ public class CameraMovement : MonoBehaviour
 	//handles camera movement
 	void CameraMove () 
 	{
-		if (Input.mousePosition.x <= 10 && horizontalOffset > -horizontalBorderOffset) 
+		if (Input.GetKey (key: KeyCode.A) && horizontalOffset > -horizontalBorderOffset) 
 		{ 
 			transform.position += -right * cameraPanSpeed;
 			horizontalOffset -= cameraPanSpeed;
 		}
-		if (Input.mousePosition.x >= screenSize.x - 10 && horizontalOffset < horizontalBorderOffset) 
+		if (Input.GetKey (key: KeyCode.D) && horizontalOffset < horizontalBorderOffset) 
 		{ 
 			transform.position += right * cameraPanSpeed;
 			horizontalOffset += cameraPanSpeed;
 		}
-		if (Input.mousePosition.y <= 10 && verticalOffset > -verticalBorderOffset) 
+		if (Input.GetKey (key: KeyCode.S) && verticalOffset > -verticalBorderOffset) 
 		{ 
 			transform.position += -forward * cameraPanSpeed;
 			verticalOffset -= cameraPanSpeed;
 		}
-		if (Input.mousePosition.y >= screenSize.y - 10 && verticalOffset < verticalBorderOffset) 
+		if (Input.GetKey (key: KeyCode.W) && verticalOffset < verticalBorderOffset) 
 		{ 
 			transform.position += forward * cameraPanSpeed;
 			verticalOffset += cameraPanSpeed;

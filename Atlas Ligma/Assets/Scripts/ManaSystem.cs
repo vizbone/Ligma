@@ -28,6 +28,10 @@ public class ManaSystem : MonoBehaviour
 	public Transform canvas;
 	public AudioSource manaGainedSound;
 
+	//Win and Lose
+	public GameObject winObj;
+	public GameObject loseObj;
+
 	private void Start()
 	{
 		inst = this;
@@ -36,6 +40,9 @@ public class ManaSystem : MonoBehaviour
 
 		gameState = GameStates.preStart;
 		currentMana = startingMana;
+
+		winObj.SetActive (false);
+		loseObj.SetActive (false);
 	}
 
 	void Update()
@@ -46,6 +53,7 @@ public class ManaSystem : MonoBehaviour
 	void Functions ()
 	{
 		UpdateGameState ();
+		WinLose ();
 
 		//Players win the game once their Current Mana is >= Max Mana
 		if (currentMana > maxMana)
@@ -79,6 +87,17 @@ public class ManaSystem : MonoBehaviour
 		currentMana += amount;
 		if (currentMana > maxMana) { currentMana = maxMana; }
 		DisplayText (amount, pos, offset);
+	}
+
+	public void WinLose ()
+	{
+		if (gameState == GameStates.win)
+		{
+			winObj.SetActive (true);
+		} else if (gameState == GameStates.lose)
+		{
+			loseObj.SetActive (true);
+		}
 	}
 
 	public void DisplayText (int addedMana, Vector3 pos, float offset)
