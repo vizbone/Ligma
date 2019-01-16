@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler {
 
-	public Image circle;
 	public Image icon;
 	public string title;
 	public RadialMenu menu;
@@ -16,7 +15,7 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	void Start()
 	{
-		defaultColor = circle.color;
+		defaultColor = Color.white;
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
@@ -82,6 +81,6 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		}
 
 		icon.color = disabled ? Color.gray : Color.white;
-		circle.color = disabled ? Color.gray : Color.white;
+		//circle.color = disabled ? Color.gray : Color.white;
 	}
 }

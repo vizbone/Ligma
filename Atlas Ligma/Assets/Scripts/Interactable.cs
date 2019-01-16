@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
 	[System.Serializable]
 	public class Action
 	{
-		public Color color;
+		public Color color; //Not Needed Actually
 		public Sprite sprite;
 		public string title;
 	}

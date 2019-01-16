@@ -18,9 +18,9 @@ public class RadialMenu : MonoBehaviour
 		{
 			RadialButton newButton = Instantiate(buttonPrefab) as RadialButton;
 			newButton.transform.SetParent(transform, false);
-			float theta = (2 * Mathf.PI / obj.options.Length) * i;
-			float xPos = Mathf.Sin(theta) * 1.5f;
-			float yPos = Mathf.Cos(theta) * 1.5f;
+			float theta = obj.options.Length == 3? (3 * Mathf.PI / 12) * i : (3 * Mathf.PI / 10) * i;
+			float xPos = Mathf.Sin(theta) * 1.75f;
+			float yPos = Mathf.Cos(theta) * 1.75f;
 			newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * radius;
 			//newButton.circle.color = obj.options[i].color;
 			newButton.icon.sprite = obj.options[i].sprite;

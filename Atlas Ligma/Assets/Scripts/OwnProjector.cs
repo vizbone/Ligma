@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OwnProjector : MonoBehaviour {
 
+	[SerializeField] GridSystem gridSys;
+
 	public Projector projector;
 	[SerializeField] bool selected;
 	[SerializeField] LayerMask towerLayer;
@@ -12,6 +14,8 @@ public class OwnProjector : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		gridSys = FindObjectOfType<GridSystem>();
+
 		transform.rotation = Quaternion.Euler(90, 0, 0);
 		projector = GetComponent<Projector>();
 		radiusAspectRatio = 0.9304f;
@@ -36,7 +40,7 @@ public class OwnProjector : MonoBehaviour {
 			//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
 			bool hasTower = Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, towerLayer, QueryTriggerInteraction.Ignore);
 
-			if (hasTower)
+			if (hasTower && !gridSys.buildMode)
 			{
 				if (hit.collider != null)
 				{

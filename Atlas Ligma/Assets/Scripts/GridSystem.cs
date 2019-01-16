@@ -20,6 +20,8 @@ public class GridSystem : MonoBehaviour {
 	public bool buildMode;
 	public bool canBuild;
 
+	public static bool isBuilding;
+
 	public GraphicRaycaster myRay;
 
 	void Start () 
