@@ -32,15 +32,19 @@ public class AI : AITemplate {
 			if (temp == 0)
 			{
 				path = AIMovement.Paths.path1;
+				gameObject.layer = 13;
 			} else if (temp == 1)
 			{
 				path = AIMovement.Paths.path2;
+				gameObject.layer = 14;
 			} else if (temp == 2)
 			{
 				path = AIMovement.Paths.path3;
+				gameObject.layer = 15;
 			} else if (temp == 3)
 			{
 				path = AIMovement.Paths.path4;
+				gameObject.layer = 16;
 			}
 		}
 

@@ -183,11 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   options:
-  - color: {r: 0.9951434, g: 0, b: 1, a: 1}
-    sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
+  - color: {r: 0.9960785, g: 0, b: 1, a: 0}
+    sprite: {fileID: 21300000, guid: 3fa4e087019e2d04da517913d703e104, type: 3}
     title: Upgrade
-  - color: {r: 1, g: 0, b: 0.04082775, a: 1}
-    sprite: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652, type: 3}
+  - color: {r: 1, g: 0, b: 0.047468662, a: 0}
+    sprite: {fileID: 21300000, guid: e9fea353ededc064fadcf9a4cd340c0e, type: 3}
     title: Destroy
   currentTower: {fileID: 1891549614434444}
   turret: {fileID: 0}

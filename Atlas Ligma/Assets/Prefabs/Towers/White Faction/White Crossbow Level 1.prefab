@@ -109,7 +109,7 @@ PrefabInstance:
         type: 3}
       propertyPath: options.Array.data[1].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652,
+      objectReference: {fileID: 21300000, guid: bf80b97c6adeb154cbbe43a88c39eadb,
         type: 3}
     - target: {fileID: 114594549247061124, guid: 514be0f0886cf0f4c9b89019052dcf04,
         type: 3}
@@ -135,12 +135,29 @@ PrefabInstance:
         type: 3}
       propertyPath: options.Array.data[2].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 30c4fb1afa4c6a94e87b95481a048652,
+      objectReference: {fileID: 21300000, guid: fccd6b835f2fe53469e4f7c4f8ea9211,
         type: 3}
     - target: {fileID: 114594549247061124, guid: 514be0f0886cf0f4c9b89019052dcf04,
         type: 3}
       propertyPath: options.Array.data[2].title
       value: Investment 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114594549247061124, guid: 514be0f0886cf0f4c9b89019052dcf04,
+        type: 3}
+      propertyPath: options.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b4142e1fd6d7be4b81c2ff7466db4a4,
+        type: 3}
+    - target: {fileID: 114594549247061124, guid: 514be0f0886cf0f4c9b89019052dcf04,
+        type: 3}
+      propertyPath: currentTower
+      value: 
+      objectReference: {fileID: 8759739613217316565}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 514be0f0886cf0f4c9b89019052dcf04, type: 3}
+--- !u!1 &8759739613217316565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1614154539434564, guid: 514be0f0886cf0f4c9b89019052dcf04,
+    type: 3}
+  m_PrefabInstance: {fileID: 8761019515058510993}
+  m_PrefabAsset: {fileID: 0}

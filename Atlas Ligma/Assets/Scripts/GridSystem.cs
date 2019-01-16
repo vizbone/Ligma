@@ -11,6 +11,7 @@ public class GridSystem : MonoBehaviour {
 	public Tower[] towers;
 	public LayerMask ignoreLayersForBuilding;
 	public float gridSize;
+	public Vector3 offset;
 
 	public GameObject currentBuild;
 	Camera cam;
@@ -84,7 +85,7 @@ public class GridSystem : MonoBehaviour {
 			Vector3 buildPos;
 			if (hit.collider != null)
 			{
-				buildPos = new Vector3 (hit.point.x - Mathf.Repeat (hit.point.x, gridSize) + gridSize * 0.5f, 0.5f, hit.point.z - Mathf.Repeat (hit.point.z, gridSize) + gridSize * 0.5f);
+				buildPos = new Vector3 (hit.point.x - Mathf.Repeat (hit.point.x, gridSize) + gridSize * 0.5f, 0f, hit.point.z - Mathf.Repeat (hit.point.z, gridSize) + gridSize * 0.5f) + offset;
 				currentBuild.transform.position = buildPos;
 
 				//Check for any UI Elements hovered over
@@ -99,7 +100,7 @@ public class GridSystem : MonoBehaviour {
 				else canPlace = !isObjectHere(buildPos) && towers[buildIndex].cost <= manaSys.currentMana ? true : false;
 
 				Material(canPlace);
-
+				
 				if (Input.GetMouseButtonDown (0) && canPlace) //&& !EventSystem.current.IsPointerOverGameObject())
 				{
 					Build (buildPos);
@@ -113,16 +114,20 @@ public class GridSystem : MonoBehaviour {
 	{
 		bool isObjHere = false;
 
-		Collider[] intersectingColliders = Physics.OverlapSphere(position, 0.05f);
+		Collider[] intersectingColliders = Physics.OverlapSphere(position /*+ new Vector3(0, 0.5f, 0)*/, 0.05f);
 
-		if (intersectingColliders.Length == 0) isObjHere = false;
+		if (intersectingColliders.Length == 0)
+		{
+			print("nothing here");
+			isObjHere = false;
+		}
 		else
 		{
 			foreach (Collider collider in intersectingColliders)
 			{
 				if (!collider.isTrigger)
 				{
-					if (collider.gameObject.layer != ignoreLayersForBuilding)
+					if (1 << collider.gameObject.layer != (ignoreLayersForBuilding.value & 1 << collider.gameObject.layer))
 					{
 						isObjHere = true;
 						break;
