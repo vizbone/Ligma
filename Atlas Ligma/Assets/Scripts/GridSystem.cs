@@ -99,7 +99,7 @@ public class GridSystem : MonoBehaviour {
 				bool canPlace = false;
 
 				if (results.Count > 0) canPlace = false;
-				else canPlace = !isObjectHere(buildPos) && towers[buildIndex].cost <= manaSys.currentMana ? true : false;
+				else canPlace = !isObjectHere(buildPos) && towers[buildIndex].cost < manaSys.currentMana ? true : false;
 
 				Material(canPlace);
 				
@@ -116,7 +116,7 @@ public class GridSystem : MonoBehaviour {
 	{
 		bool isObjHere = false;
 
-		Collider[] intersectingColliders = Physics.OverlapSphere(position /*+ new Vector3(0, 0.5f, 0)*/, 0.05f);
+		Collider[] intersectingColliders = Physics.OverlapSphere(position /*+ new Vector3(0, 0.5f, 0)*/, 0.25f);
 
 		if (intersectingColliders.Length == 0)
 		{
@@ -151,11 +151,8 @@ public class GridSystem : MonoBehaviour {
 	//handles placing of building
 	void Build (Vector3 buildPos)
 	{
-		if (manaSys.currentMana <= towers[buildIndex].cost)
-		{
-			Instantiate(towers[buildIndex].actualTower, buildPos, towers[buildIndex].actualTower.transform.rotation);
-			manaSys.ManaMinus(towers[buildIndex].cost, buildPos, 2);
-		}
+		Instantiate(towers[buildIndex].actualTower, buildPos, towers[buildIndex].actualTower.transform.rotation);
+		manaSys.ManaMinus(towers[buildIndex].cost, buildPos, 2);
 	}
 
 	public void Uninteractable()

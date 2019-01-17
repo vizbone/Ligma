@@ -59,6 +59,8 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] public AITemplate closestEnemy;
 	[SerializeField] float xRotation;
 	[SerializeField] Vector3 designatedAngle;
+	[SerializeField] public MeshCollider meshCollider;
+	[SerializeField] Interactable2 i2;
 
 	[Header ("For Bullets")]
 	public bool arcTravel;
@@ -73,6 +75,9 @@ public abstract class TurretTemplate : MonoBehaviour
 		investmentLevel = 0;
 		manaReturnPerc = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
 		manaSys = FindObjectOfType<ManaSystem> ();
+		i2 = FindObjectOfType<Interactable2> ();
+		meshCollider = GetComponent<MeshCollider> ();
+		i2.meshes.Add (meshCollider);
 
 		//Check if its bullets should travel in an arc
 		if (this.GetType() == typeof(Catapult)) arcTravel = true;
@@ -169,6 +174,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				break;
 			case 3:
 				model.mesh = lvl3Model;
+				investOrUpgradeDisabled = true;
 				break;
 			default:
 				model.mesh = lvl1Model;
@@ -333,7 +339,8 @@ public abstract class TurretTemplate : MonoBehaviour
 			else
 			{
 				currentBullet.catapult = false;
-				currentBullet.velocity = new Vector3(direction.x, 0, direction.z) * turretValues.bulletSpeed;
+				if (this.GetType () == typeof (Cannon)) currentBullet.velocity = new Vector3(direction.x, 0, direction.z) * turretValues.bulletSpeed;
+				else currentBullet.velocity = direction * turretValues.bulletSpeed;
 			}
 			
 			coolDown = 1 / turretValues.fireRate;

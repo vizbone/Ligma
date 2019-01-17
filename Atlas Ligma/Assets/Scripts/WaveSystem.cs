@@ -26,6 +26,7 @@ public class WaveSystem : MonoBehaviour {
 	[Header("For Enemy Tracking")]
 	[SerializeField] List<AITemplate> enemyList;
 	public static List<AITemplate> enemyListS; //Allows Adding and Removing of Enemies more easily.
+	public TurretTemplate[] tt;
 
 	//[Header("For Events")]
 	//[SerializeField] EventsManager em;
@@ -37,6 +38,7 @@ public class WaveSystem : MonoBehaviour {
 		enemySpawnIndex = -1;
 		enemyListS = new List<AITemplate>();
 		//em = FindObjectOfType<EventsManager>();
+		tt = FindObjectsOfType<TurretTemplate> ();
 	}
 
 	void Update()
@@ -79,10 +81,17 @@ public class WaveSystem : MonoBehaviour {
 
 		prepPhaseText.text = "Preparation Phase";
 
+		foreach (TurretTemplate ttt in tt)
+		{
+			ttt.investmentLevel = 0;
+			ttt.manaReturnPerc = 0;
+		}
+
 		//If Current Wave is the Final Wave
 		if (currentWave == wave.Length - 1)
 		{
 			print("Check Mana to See Win or Lose");
+			ManaSystem.gameStateS = GameStates.lose;
 		}
 		else
 		{

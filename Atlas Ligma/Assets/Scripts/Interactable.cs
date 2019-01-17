@@ -19,12 +19,15 @@ public class Interactable : MonoBehaviour
 	[SerializeField] LayerMask towerLayer;
 	[SerializeField] RadialMenu menuInst;
 
+	WaveSystem waveSys;
+
 	private void Start()
 	{
 		towerLayer.value = 1 << 10;
 		currentTower = gameObject;
 		sensor = GetComponent<MeshCollider>();
 		turret = gameObject.GetComponent<TurretTemplate>();
+		waveSys = FindObjectOfType<WaveSystem> ();
 	}
 
 	void Update()
@@ -45,7 +48,7 @@ public class Interactable : MonoBehaviour
 					{
 						if (menuInst == null)
 						{
-							menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
+							//menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
 						}
 						else
 						{
