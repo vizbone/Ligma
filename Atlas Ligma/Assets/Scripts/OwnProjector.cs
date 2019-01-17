@@ -42,6 +42,7 @@ public class OwnProjector : MonoBehaviour {
 			RaycastHit hit;
 			//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
 			bool hasTower = Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, towerLayer, QueryTriggerInteraction.Ignore);
+			selected = hasTower;
 
 			if (hasTower && !gridSys.buildMode)
 			{

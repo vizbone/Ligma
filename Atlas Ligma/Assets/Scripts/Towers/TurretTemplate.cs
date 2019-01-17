@@ -60,7 +60,6 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] float xRotation;
 	[SerializeField] Vector3 designatedAngle;
 	[SerializeField] public MeshCollider meshCollider;
-	[SerializeField] Interactable2 i2;
 
 	[Header ("For Bullets")]
 	public bool arcTravel;
@@ -75,9 +74,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		investmentLevel = 0;
 		manaReturnPerc = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
 		manaSys = FindObjectOfType<ManaSystem> ();
-		i2 = FindObjectOfType<Interactable2> ();
 		meshCollider = GetComponent<MeshCollider> ();
-		i2.meshes.Add (meshCollider);
 
 		//Check if its bullets should travel in an arc
 		if (this.GetType() == typeof(Catapult)) arcTravel = true;
@@ -180,6 +177,8 @@ public abstract class TurretTemplate : MonoBehaviour
 				model.mesh = lvl1Model;
 				break;
 		}
+		meshCollider.sharedMesh = model.mesh;
+
 		ChangeMaterial (level);
 		//Add Changes to Stats as well
 		UpgradeStats ();

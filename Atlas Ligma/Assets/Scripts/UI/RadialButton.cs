@@ -13,12 +13,9 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	Color defaultColor;
 
-	Interactable2 i2;
-
 	void Start()
 	{
 		defaultColor = Color.white;
-		i2 = FindObjectOfType<Interactable2> ();
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
@@ -42,7 +39,6 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 				if (menu.selected.title == "Upgrade" && !disabled) menu.turret.Upgrade ();
 				else if (menu.selected.title == "Destroy")
 				{
-					i2.meshes.Remove (menu.turret.meshCollider);
 					Destroy (menu.turret.gameObject);
 				} 
 				else print ("Invalid Upgrade Title");

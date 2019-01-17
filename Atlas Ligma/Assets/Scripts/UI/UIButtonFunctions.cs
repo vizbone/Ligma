@@ -19,8 +19,6 @@ public class UIButtonFunctions : MonoBehaviour {
 	public AudioSource uiSoundA;
 	public AudioSource uiSoundB;
 
-	public GameObject winObj;
-
 	private void Start()
 	{
 		manaSys = FindObjectOfType<ManaSystem>();

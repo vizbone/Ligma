@@ -12,7 +12,7 @@ public class RadialMenuSpawner : MonoBehaviour {
 		ins = this;
 	}
 	
-	public RadialMenu SpawnMenu (Interactable2 obj, TurretTemplate turret)
+	public RadialMenu SpawnMenu (Interactable obj, TurretTemplate turret)
 	{
 		RadialMenu newMenu = Instantiate(menuPrefab, turret.transform.position + Vector3.right * 0.5f + Vector3.down * 0.3f, this.gameObject.transform.rotation, this.gameObject.transform);
 		newMenu.transform.localPosition += (transform.forward * -1) * 15;
