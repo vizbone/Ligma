@@ -74,12 +74,12 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void VolumeBGM(float bgmLvl)
 	{
-		masterMixer.SetFloat("bgmVol", bgmLvl);
+		masterMixer.SetFloat("bgmVol", Mathf.Log(bgmLvl) * 20);
 	}
 
 	public void VolumeSFX(float sfxLvl)
 	{
-		masterMixer.SetFloat("sfxVol", sfxLvl);
+		masterMixer.SetFloat("sfxVol", Mathf.Log(sfxLvl) * 20);
 	}
 
 	/*public void MuteAllVolumes()
