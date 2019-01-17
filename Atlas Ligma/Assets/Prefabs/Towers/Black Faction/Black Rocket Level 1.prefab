@@ -95,6 +95,16 @@ PrefabInstance:
       propertyPath: currentTower
       value: 
       objectReference: {fileID: 4930576021622323328}
+    - target: {fileID: 7717445182386774001, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6736576cfb9de15499ff3d670f1a4f01, type: 2}
+    - target: {fileID: 7717445182386774003, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6736576cfb9de15499ff3d670f1a4f01, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9fdc58a677a03c40ac2b8ee5cc94261, type: 3}
 --- !u!1 &4930576021622323328 stripped

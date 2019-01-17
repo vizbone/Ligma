@@ -67,11 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
-        type: 3}
-      propertyPath: faction
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8647610532746162197, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
         type: 3}
       propertyPath: options.Array.data[0].sprite
@@ -95,6 +90,21 @@ PrefabInstance:
       propertyPath: currentTower
       value: 
       objectReference: {fileID: 3367765548198477719}
+    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: faction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817592655996252637, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6736576cfb9de15499ff3d670f1a4f01, type: 2}
+    - target: {fileID: 1817592655996252639, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6736576cfb9de15499ff3d670f1a4f01, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1, type: 3}
 --- !u!1 &3367765548198477719 stripped

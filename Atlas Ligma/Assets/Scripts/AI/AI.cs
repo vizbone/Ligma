@@ -24,7 +24,6 @@ public class AI : AITemplate {
 
 	protected override void Start () 
 	{
-		defaultMoveSpeed = agent.speed;
 		ai = FindObjectOfType<AIMovement>();
 		manaSys = FindObjectOfType<ManaSystem> ();
 		if (path != AIMovement.Paths.air)
@@ -51,6 +50,7 @@ public class AI : AITemplate {
 
 		base.Start();
 		agent = GetComponent<NavMeshAgent> ();
+		defaultMoveSpeed = agent.speed;
 		currentDestination = 0;
 		ai.NextPoint (agent, this, true);
 		cLock = false;

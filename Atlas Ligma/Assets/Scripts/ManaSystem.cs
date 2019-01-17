@@ -39,7 +39,7 @@ public class ManaSystem : MonoBehaviour
 
 		TurretTemplate.amplitude = 3;
 
-		gameStateS = GameStates.preStart;
+		gameStateS = GameStates.started;
 		gameState = gameStateS;
 		currentMana = startingMana;
 

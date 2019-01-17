@@ -30,8 +30,6 @@ public class AISea : AITemplate
 
 	protected override void Start () 
 	{
-		defaultMoveSpeed = agent.speed;
-
 		WaveSystem.enemyListS.Add(this);
 
 		//Setting Values
@@ -48,6 +46,7 @@ public class AISea : AITemplate
 
 		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
+		defaultMoveSpeed = agent.speed;
 		townHall = GameObject.Find ("Townhall").transform;
 
 		cLock = false;

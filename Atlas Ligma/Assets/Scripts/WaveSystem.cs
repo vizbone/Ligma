@@ -27,8 +27,8 @@ public class WaveSystem : MonoBehaviour {
 	[SerializeField] List<AITemplate> enemyList;
 	public static List<AITemplate> enemyListS; //Allows Adding and Removing of Enemies more easily.
 
-	[Header("For Events")]
-	[SerializeField] EventsManager em;
+	//[Header("For Events")]
+	//[SerializeField] EventsManager em;
 
 	private void Awake()
 	{
@@ -36,7 +36,7 @@ public class WaveSystem : MonoBehaviour {
 		currentWave = 0;
 		enemySpawnIndex = -1;
 		enemyListS = new List<AITemplate>();
-		em = FindObjectOfType<EventsManager>();
+		//em = FindObjectOfType<EventsManager>();
 	}
 
 	void Update()
@@ -90,10 +90,10 @@ public class WaveSystem : MonoBehaviour {
 			enemySpawnIndex = -1;
 			nextWaveButton.SetActive(true);
 
-			em.EventEnd();
-			em.ExecuteEvent();
+			//em.EventEnd();
+			//em.ExecuteEvent();
 
-			em.ExecuteEvent = null;
+			//em.ExecuteEvent = null;
 		}
 	}
 
