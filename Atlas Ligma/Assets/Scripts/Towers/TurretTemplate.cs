@@ -51,8 +51,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	public Mesh lvl2Model;
 	public Mesh lvl3Model;
 	[SerializeField] Renderer r;
-	[SerializeField] Material nonInvested;
-	[SerializeField] Material invested;
+	[SerializeField] Material[] turretMaterials;
 
 	[Header ("Collider and Enemy List")]
 	[SerializeField] protected CapsuleCollider collider; //Stores the collider for enemy detection
@@ -82,7 +81,7 @@ public abstract class TurretTemplate : MonoBehaviour
 
 		//Remove once reached finalised stage
 		r = GetComponent<Renderer>();
-		if (isPrebuilt) r.material = nonInvested;
+		ChangeMaterial (level);
  
 		model = GetComponent<MeshFilter> ();
 
@@ -128,7 +127,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		if (closestEnemy != null)
 		{
 			LookAtEnemy();
-			if (transform.eulerAngles != designatedAngle) transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(designatedAngle), 0.5f);
+			if (transform.eulerAngles != designatedAngle) transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(designatedAngle), 5f);
 		}
 
 		coolDown = Mathf.Max (coolDown -= Time.deltaTime, 0);
@@ -145,21 +144,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	//Only For Own Turrets
 	public void Upgrade()
 	{
-		int cost = 0;
-		switch (level)
-		{
-			case 1:
-				cost = turretValues.upgradeOrInvestCost[0];
-				break;
-			case 2:
-				cost = turretValues.upgradeOrInvestCost[1];
-				break;
-			case 3:
-				print("Cannot Be Upgraded Further");
-				return;
-			default:
-				break;
-		}
+		int cost = turretValues.upgradeOrInvestCost[0];
 
 		if (manaSys.currentMana > cost) manaSys.ManaMinus (cost, transform.position, 2);
 		else
@@ -186,7 +171,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				model.mesh = lvl1Model;
 				break;
 		}
-		
+		ChangeMaterial (level);
 		//Add Changes to Stats as well
 		UpgradeStats ();
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
@@ -328,7 +313,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		if (enemies.Count > 0)
 		{
 			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : -(transform.position - closestEnemy.transform.position).normalized;
-			Bullet currentBullet = Instantiate(bullet, transform.position + direction * 0.5f, Quaternion.identity);
+			Bullet currentBullet = Instantiate (bullet, transform.position + direction * 0.5f + new Vector3 (0, 0.5f, 0), Quaternion.identity);
 			print(currentBullet.name);
 			currentBullet.turret = this;
 
@@ -345,7 +330,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			else
 			{
 				currentBullet.catapult = false;
-				currentBullet.GetComponent<Rigidbody>().velocity = direction * turretValues.bulletSpeed;
+				currentBullet.GetComponent<Rigidbody> ().velocity = new Vector3(direction.x, 0, direction.z) * turretValues.bulletSpeed;
 			}
 			
 			coolDown = 1 / turretValues.fireRate;
@@ -374,6 +359,24 @@ public abstract class TurretTemplate : MonoBehaviour
 			}
 		}
 		Destroy (bullet);
+	}
+
+	void ChangeMaterial (int lvlIndex)
+	{
+		switch (lvlIndex)
+		{
+			case 1:
+			r.material = turretMaterials[0];
+			break;
+
+			case 2:
+			r.material = turretMaterials[1];
+			break;
+
+			case 3:
+			r.material = turretMaterials[2];
+			break;
+		}
 	}
 
 	/*void OnTriggerStay (Collider other)
