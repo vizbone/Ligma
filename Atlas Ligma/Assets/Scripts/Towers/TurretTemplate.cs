@@ -121,20 +121,23 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	protected virtual void Update ()
 	{
-		//Check for closest Enemy if it is not assigned
-		if (closestEnemy == null) closestEnemy = EnemyToLookAt();
-
-		if (closestEnemy != null)
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
-			LookAtEnemy();
-			if (transform.eulerAngles != designatedAngle) transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(designatedAngle), 5f);
+			//Check for closest Enemy if it is not assigned
+			if (closestEnemy == null) closestEnemy = EnemyToLookAt();
+
+			if (closestEnemy != null)
+			{
+				LookAtEnemy();
+				if (transform.eulerAngles != designatedAngle) transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(designatedAngle), 5f);
+			}
+
+			coolDown = Mathf.Max(coolDown -= Time.deltaTime, 0);
+
+			if (coolDown <= 0) Shoot(arcTravel);
+
+			//if (Input.GetKeyDown(KeyCode.P) && level < 3) Upgrade();
 		}
-
-		coolDown = Mathf.Max (coolDown -= Time.deltaTime, 0);
-
-		if (coolDown <= 0) Shoot (arcTravel);
-
-		if (Input.GetKeyDown (KeyCode.P) && level < 3) Upgrade ();
 	}
 
 	protected abstract void SetValues();
@@ -330,7 +333,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			else
 			{
 				currentBullet.catapult = false;
-				currentBullet.GetComponent<Rigidbody> ().velocity = new Vector3(direction.x, 0, direction.z) * turretValues.bulletSpeed;
+				currentBullet.velocity = new Vector3(direction.x, 0, direction.z) * turretValues.bulletSpeed;
 			}
 			
 			coolDown = 1 / turretValues.fireRate;

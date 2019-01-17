@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec85a169cd5097b478151ff10523c7b0, type: 2}
+  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,13 +137,16 @@ MonoBehaviour:
   level: 0
   investmentLevel: 0
   isPrebuilt: 0
+  investOrUpgradeDisabled: 0
   model: {fileID: 0}
   lvl1Model: {fileID: 4300000, guid: e3ae349cb0fc77942b21516f28b784d6, type: 3}
   lvl2Model: {fileID: 4300000, guid: 8df824d84f07fc143aad1b6b2293662a, type: 3}
   lvl3Model: {fileID: 4300000, guid: 08761e6c23a335545828595b2b413066, type: 3}
   r: {fileID: 0}
-  nonInvested: {fileID: 2100000, guid: 5b46cbc53cb07b54ba6609047798b55f, type: 2}
-  invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
+  turretMaterials:
+  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
+  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
+  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
   collider: {fileID: 0}
   enemies: []
   closestEnemy: {fileID: 0}

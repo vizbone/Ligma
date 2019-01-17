@@ -46,7 +46,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706804124858018}
-  m_Mesh: {fileID: 4300000, guid: f132c02ec79eed044b3dab76941586d7, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
 --- !u!23 &23012571578359120
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec85a169cd5097b478151ff10523c7b0, type: 2}
+  - {fileID: 2100000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,7 +130,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: f132c02ec79eed044b3dab76941586d7, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
 --- !u!54 &54489596485453210
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -175,14 +175,14 @@ MonoBehaviour:
   isPrebuilt: 0
   investOrUpgradeDisabled: 0
   model: {fileID: 0}
-  lvl1Model: {fileID: 4300000, guid: 1959c070880a1764692d4be3c24a0b98, type: 3}
-  lvl2Model: {fileID: 4300000, guid: 36b43f3eda56fd2489262329a8e35d35, type: 3}
-  lvl3Model: {fileID: 4300000, guid: e4aa86b6bb26d6c43bda31cc1518864e, type: 3}
+  lvl1Model: {fileID: 4300000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
+  lvl2Model: {fileID: 4300000, guid: 00c02377d80d10e4cbcc66a08c47ac9e, type: 3}
+  lvl3Model: {fileID: 4300000, guid: 2341bf0c59cd0194a85efa89aa9f48f7, type: 3}
   r: {fileID: 0}
   turretMaterials:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
+  - {fileID: 2100000, guid: 00c02377d80d10e4cbcc66a08c47ac9e, type: 3}
+  - {fileID: 2100000, guid: 2341bf0c59cd0194a85efa89aa9f48f7, type: 3}
   collider: {fileID: 0}
   enemies: []
   closestEnemy: {fileID: 0}

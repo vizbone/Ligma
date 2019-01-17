@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1614154539434564}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 55.188377, y: 0.81, z: 31.835226}
-  m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614154539434564}
-  m_Mesh: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 401969e79eecc954db678f2d9a662031, type: 3}
 --- !u!23 &23163839482106256
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34c7b333a73a5f14a8c8f3fafe4316be, type: 2}
+  - {fileID: 2100000, guid: ba4472f2d8774f24f8fb3748c2b8370a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +115,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 401969e79eecc954db678f2d9a662031, type: 3}
 --- !u!136 &136596641318702540
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -172,13 +172,16 @@ MonoBehaviour:
   level: 0
   investmentLevel: 0
   isPrebuilt: 0
+  investOrUpgradeDisabled: 0
   model: {fileID: 0}
-  lvl1Model: {fileID: 4300000, guid: 742572de3cdf8a847a19ae861caabfb5, type: 3}
-  lvl2Model: {fileID: 4300000, guid: aaeede97830d95d42948f1aae751ec63, type: 3}
-  lvl3Model: {fileID: 4300000, guid: 210bfd219e5afad489c4839eb7edf1d0, type: 3}
+  lvl1Model: {fileID: 4300000, guid: 401969e79eecc954db678f2d9a662031, type: 3}
+  lvl2Model: {fileID: 4300000, guid: cdd68fa85917c7d42b4df242c095cb2d, type: 3}
+  lvl3Model: {fileID: 4300000, guid: c9c9816142bba174d99e06756e688031, type: 3}
   r: {fileID: 0}
-  nonInvested: {fileID: 2100000, guid: 5b46cbc53cb07b54ba6609047798b55f, type: 2}
-  invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
+  turretMaterials:
+  - {fileID: 2100000, guid: ba4472f2d8774f24f8fb3748c2b8370a, type: 2}
+  - {fileID: 2100000, guid: 946c0b92e69a35046a30108f0b966fdb, type: 2}
+  - {fileID: 2100000, guid: 7c20b9fc83a660e42b95466ff1c5608f, type: 2}
   collider: {fileID: 0}
   enemies: []
   closestEnemy: {fileID: 0}

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 	public TurretTemplate turret;
+	public Vector3 velocity; //Save the Speed the Bullet is supposed to move
 	public float lifetime;
 	public int hitCount; //Only used by Cannon
 
@@ -22,14 +23,13 @@ public class Bullet : MonoBehaviour
 
 	private void Start()
 	{
-		//SetValues(bulletType);
+		rb = GetComponent<Rigidbody>();
 		hitCount = 0;
 		lifetime = 5;
 		oriPos = transform.position;
 
 		if (catapult)
 		{
-			rb = GetComponent<Rigidbody>();
 			rb.useGravity = false;
 			currentStep = 0;
 			target = new Vector3(target.x, target.y + 0.5f, target.z);
@@ -43,6 +43,11 @@ public class Bullet : MonoBehaviour
 		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
 			if (catapult) ArcTravel();
+			else rb.velocity = velocity;
+		}
+		else
+		{
+			rb.velocity = Vector3.zero;
 		}
 	}
 

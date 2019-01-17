@@ -155,13 +155,16 @@ MonoBehaviour:
   level: 0
   investmentLevel: 0
   isPrebuilt: 0
+  investOrUpgradeDisabled: 0
   model: {fileID: 0}
   lvl1Model: {fileID: 4300000, guid: 3ea9ef62e5a8fc24f9a0e6f6597840a8, type: 3}
   lvl2Model: {fileID: 4300000, guid: 3ea9ef62e5a8fc24f9a0e6f6597840a8, type: 3}
   lvl3Model: {fileID: 4300000, guid: 3ea9ef62e5a8fc24f9a0e6f6597840a8, type: 3}
   r: {fileID: 0}
-  nonInvested: {fileID: 2100000, guid: 5b46cbc53cb07b54ba6609047798b55f, type: 2}
-  invested: {fileID: 2100000, guid: 9bb96ecfc05479e41b6be17b3a721340, type: 2}
+  turretMaterials:
+  - {fileID: 2100000, guid: 8ab4c9c1229aa5749a3cb88a54f4db99, type: 2}
+  - {fileID: 2100000, guid: 8ab4c9c1229aa5749a3cb88a54f4db99, type: 2}
+  - {fileID: 2100000, guid: 8ab4c9c1229aa5749a3cb88a54f4db99, type: 2}
   collider: {fileID: 0}
   enemies: []
   closestEnemy: {fileID: 0}
