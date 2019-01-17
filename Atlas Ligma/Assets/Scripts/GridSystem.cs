@@ -18,6 +18,7 @@ public class GridSystem : MonoBehaviour {
 	ManaSystem manaSys;
 	public int buildIndex;
 	public bool buildMode;
+	public bool canBuild;
 
 	public static bool isBuilding;
 
@@ -152,5 +153,10 @@ public class GridSystem : MonoBehaviour {
 	{
 		Instantiate(towers[buildIndex].actualTower, buildPos, towers[buildIndex].actualTower.transform.rotation);
 		manaSys.ManaMinus(towers[buildIndex].cost, buildPos, 2);
+	}
+
+	public void Uninteractable()
+	{
+		canBuild = false;
 	}
 }

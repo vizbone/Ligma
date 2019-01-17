@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396634072807330}
-  m_Mesh: {fileID: 4300000, guid: e3ae349cb0fc77942b21516f28b784d6, type: 3}
+  m_Mesh: {fileID: 4300000, guid: c5adfbf166ce9d24a9ea5645f25e177d, type: 3}
 --- !u!23 &23683738355152140
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
+  - {fileID: 2100000, guid: c5adfbf166ce9d24a9ea5645f25e177d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: e3ae349cb0fc77942b21516f28b784d6, type: 3}
+  m_Mesh: {fileID: 4300000, guid: c5adfbf166ce9d24a9ea5645f25e177d, type: 3}
 --- !u!136 &136564637928575550
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -139,14 +139,14 @@ MonoBehaviour:
   isPrebuilt: 0
   investOrUpgradeDisabled: 0
   model: {fileID: 0}
-  lvl1Model: {fileID: 4300000, guid: e3ae349cb0fc77942b21516f28b784d6, type: 3}
-  lvl2Model: {fileID: 4300000, guid: 8df824d84f07fc143aad1b6b2293662a, type: 3}
-  lvl3Model: {fileID: 4300000, guid: 08761e6c23a335545828595b2b413066, type: 3}
+  lvl1Model: {fileID: 4300000, guid: c5adfbf166ce9d24a9ea5645f25e177d, type: 3}
+  lvl2Model: {fileID: 4300000, guid: b632be2eb538ba042b1fa905ed353e16, type: 3}
+  lvl3Model: {fileID: 4300000, guid: 1f5d2069ae555d44f94dcd93768a3725, type: 3}
   r: {fileID: 0}
   turretMaterials:
-  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
-  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
-  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
+  - {fileID: 2100000, guid: c5adfbf166ce9d24a9ea5645f25e177d, type: 3}
+  - {fileID: 2100000, guid: b632be2eb538ba042b1fa905ed353e16, type: 3}
+  - {fileID: 2100000, guid: 1f5d2069ae555d44f94dcd93768a3725, type: 3}
   collider: {fileID: 0}
   enemies: []
   closestEnemy: {fileID: 0}
