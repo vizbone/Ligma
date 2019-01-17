@@ -29,35 +29,38 @@ public class Interactable : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetMouseButtonDown (0))
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			RaycastHit hit;
-
-			//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
-			bool hasTower = sensor.Raycast (ray, out hit, Mathf.Infinity);
-
-			if (hasTower)
+			if (Input.GetMouseButtonDown(0))
 			{
-				if (hit.collider != null)
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				RaycastHit hit;
+
+				//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
+				bool hasTower = sensor.Raycast(ray, out hit, Mathf.Infinity);
+
+				if (hasTower)
 				{
-					if (menuInst == null)
+					if (hit.collider != null)
 					{
-						menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
-					}
-					else
-					{
-						if (!menuInst.gameObject.activeInHierarchy)
+						if (menuInst == null)
 						{
-							menuInst.gameObject.SetActive(true);
-							menuInst.CheckDisabled();
+							menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
+						}
+						else
+						{
+							if (!menuInst.gameObject.activeInHierarchy)
+							{
+								menuInst.gameObject.SetActive(true);
+								menuInst.CheckDisabled();
+							}
 						}
 					}
 				}
-			}
-			else
-			{
-				if (menuInst != null && menuInst.gameObject.activeInHierarchy) menuInst.gameObject.SetActive(false);
+				else
+				{
+					if (menuInst != null && menuInst.gameObject.activeInHierarchy) menuInst.gameObject.SetActive(false);
+				}
 			}
 		}
 	}

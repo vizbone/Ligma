@@ -24,10 +24,14 @@ public class AISea : AITemplate
 	bool cLock;
 	bool firstTime;
 
+	public AudioSource seaEnemySpawnAudio;
+
 	int currentEnemySpawnCount;
 
 	protected override void Start () 
 	{
+		defaultMoveSpeed = agent.speed;
+
 		WaveSystem.enemyListS.Add(this);
 
 		//Setting Values
@@ -59,8 +63,13 @@ public class AISea : AITemplate
 
 	void Update () 
 	{
-		if (unloading && !cLock)
-			StartCoroutine (spawn ());
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		{
+			agent.speed = defaultMoveSpeed;
+			if (unloading && !cLock)
+			StartCoroutine(spawn());
+		}
+		else agent.speed = 0;
 	}
 
 	//Do we need this???
@@ -73,6 +82,7 @@ public class AISea : AITemplate
 	{
 		cLock = true;
 		Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
+		seaEnemySpawnAudio.Play();
 		currentEnemySpawnCount++;
 		if (currentEnemySpawnCount >= enemyBatchSpawnCount)
 		{

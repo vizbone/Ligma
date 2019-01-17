@@ -33,7 +33,10 @@ public class CameraMovement : MonoBehaviour
 
 	void Update ()
 	{
-		CamFunctions ();
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		{
+			CamFunctions();
+		}
 	}
 
 	void CamFunctions () 

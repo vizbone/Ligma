@@ -41,21 +41,24 @@ public class WaveSystem : MonoBehaviour {
 
 	void Update()
 	{
-		if (!prepPhase)
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
-			//Update Enemy List for checking in Inspector
-			enemyList = enemyListS;
-
-			if (!cLock)
+			if (!prepPhase)
 			{
-				enemySpawnIndex = Mathf.Min (++enemySpawnIndex, wave[currentWave].enemy.Length);
+				//Update Enemy List for checking in Inspector
+				enemyList = enemyListS;
 
-				//Only if Reached Last Enemy
-				if (enemySpawnIndex == wave[currentWave].enemy.Length)
+				if (!cLock)
 				{
-					if (enemyList.Count == 0) WaveEnded(); //Wait for Last Enemy to Die to end the Wave
+					enemySpawnIndex = Mathf.Min(++enemySpawnIndex, wave[currentWave].enemy.Length);
+
+					//Only if Reached Last Enemy
+					if (enemySpawnIndex == wave[currentWave].enemy.Length)
+					{
+						if (enemyList.Count == 0) WaveEnded(); //Wait for Last Enemy to Die to end the Wave
+					}
+					else StartCoroutine(SpawnClock());
 				}
-				else StartCoroutine(SpawnClock());
 			}
 		}
 	}

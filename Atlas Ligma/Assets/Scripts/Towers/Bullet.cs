@@ -40,7 +40,10 @@ public class Bullet : MonoBehaviour
 
 	void Update ()
 	{
-		if (catapult) ArcTravel();
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		{
+			if (catapult) ArcTravel();
+		}
 	}
 
 	void ArcTravel()

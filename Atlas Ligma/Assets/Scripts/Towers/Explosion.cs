@@ -26,6 +26,18 @@ public class Explosion : MonoBehaviour {
 		collider.enabled = false;
 	}
 
+	private void Update()
+	{
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		{
+			if (particleSystem.isPaused) particleSystem.Play();
+		}
+		else
+		{
+			if (particleSystem.isPlaying) particleSystem.Pause();
+		}
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		//Turret should be a catapult

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GameStates {preStart, started, pause, win, lose};
+public enum GameStates {preStart, started, pause, win, lose, afterWin};
 
 public class ManaSystem : MonoBehaviour
 {
 	public static ManaSystem inst;
 
 	//Game State
-	public GameStates gameState = GameStates.preStart; //Stores the state of the game
+	public static GameStates gameStateS = GameStates.preStart; //Stores the state of the game
+	public GameStates gameState;
 
 	//Mana System
 	[SerializeField] private int startingMana = 1000; //Amt of mana players will start with. Will differ for each level
@@ -38,7 +39,8 @@ public class ManaSystem : MonoBehaviour
 
 		TurretTemplate.amplitude = 3;
 
-		gameState = GameStates.preStart;
+		gameStateS = GameStates.preStart;
+		gameState = gameStateS;
 		currentMana = startingMana;
 
 		winObj.SetActive (false);
@@ -55,12 +57,6 @@ public class ManaSystem : MonoBehaviour
 		UpdateGameState ();
 		WinLose ();
 
-		//Players win the game once their Current Mana is >= Max Mana
-		if (currentMana > maxMana)
-			gameState = GameStates.win;
-		else if (currentMana <= 0)
-			gameState = GameStates.lose;
-
 		//Display Current Mana
 		currentManaDisplay.text = currentMana.ToString () + "/" + "2000";
 		manaSlider.value = currentMana;
@@ -68,8 +64,18 @@ public class ManaSystem : MonoBehaviour
 
 	void UpdateGameState()
 	{
-		if (gameState == GameStates.pause) Time.timeScale = 0; //Time scale does not work with animation but mehhh
-		else Time.timeScale = 1;
+		gameState = gameStateS;
+
+		if (gameState == GameStates.started)
+		{
+			//Players win the game once their Current Mana is >= Max Mana
+			if (currentMana >= maxMana)
+				gameState = GameStates.win;
+			else if (currentMana <= 0)
+				gameState = GameStates.lose;
+		}
+		/*if (gameState == GameStates.pause) Time.timeScale = 0; //Time scale does not work with animation but mehhh
+		else Time.timeScale = 1;*/
 	}
 
 	//minuses mana from bank
@@ -94,7 +100,8 @@ public class ManaSystem : MonoBehaviour
 		if (gameState == GameStates.win)
 		{
 			winObj.SetActive (true);
-		} else if (gameState == GameStates.lose)
+		}
+		else if (gameState == GameStates.lose)
 		{
 			loseObj.SetActive (true);
 		}
