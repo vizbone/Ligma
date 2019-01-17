@@ -19,6 +19,8 @@ public class Interactable : MonoBehaviour
 	[SerializeField] LayerMask towerLayer;
 	[SerializeField] RadialMenu menuInst;
 
+	public static Interactable inst;
+
 	private void Start()
 	{
 		towerLayer.value = 1 << 10;
@@ -43,16 +45,22 @@ public class Interactable : MonoBehaviour
 				{
 					if (hit.collider != null)
 					{
-						if (menuInst == null)
+						if (inst == null) inst = this;
+						print(inst.name);
+
+						if (inst == this)
 						{
-							menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
-						}
-						else
-						{
-							if (!menuInst.gameObject.activeInHierarchy)
+							if (menuInst == null)
 							{
-								menuInst.gameObject.SetActive(true);
-								menuInst.CheckDisabled();
+								menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
+							}
+							else
+							{
+								if (!menuInst.gameObject.activeInHierarchy)
+								{
+									menuInst.gameObject.SetActive(true);
+									menuInst.CheckDisabled();
+								}
 							}
 						}
 					}
@@ -61,6 +69,12 @@ public class Interactable : MonoBehaviour
 				{
 					if (menuInst != null && menuInst.gameObject.activeInHierarchy) menuInst.gameObject.SetActive(false);
 				}
+
+				if (inst != this && menuInst != null && menuInst.gameObject.activeInHierarchy) menuInst.gameObject.SetActive(false);
+			}
+			else if (Input.GetMouseButtonUp(0))
+			{
+				inst = null;
 			}
 		}
 	}

@@ -43,7 +43,10 @@ public class UIButtonFunctions : MonoBehaviour {
 	
 	public void Continue ()
 	{
-		winObj.SetActive (false);
+		ManaSystem.gameStateS = GameStates.afterWin;
+		ManaSystem.inst.gui.lerpTime = null;
+		ManaSystem.inst.gui.lerpTime = new float[2];
+		ManaSystem.inst.gui.uiAnim += ManaSystem.inst.gui.HideEndScreen;
 	}
 
 	public void NextLevel (string arg)
@@ -53,7 +56,7 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void Retry ()
 	{
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		SceneManager.LoadScene (SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 	}
 
 	public void Pause()

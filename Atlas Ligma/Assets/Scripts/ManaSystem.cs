@@ -9,32 +9,28 @@ public class ManaSystem : MonoBehaviour
 {
 	public static ManaSystem inst;
 
-	//Game State
+	[Header ("Game State Manager")]
 	public static GameStates gameStateS = GameStates.preStart; //Stores the state of the game
 	public GameStates gameState;
 
-	//Mana System
+	[Header ("Mana System")]
 	[SerializeField] private int startingMana = 1000; //Amt of mana players will start with. Will differ for each level
 	public int maxMana; //Amt of mana players will have to reach to win the game. MAY differ for each level
 	public int currentMana; //Amt of mana player has. Updated throughout the game
 
-	//Wave System
-	public int totalWaves = 10; //Total number of waves the level will have
-	public int currentWave; //Stores the current wave the player is in
-
-	//Mana UI
+	[Header("Mana UI (World Space)")]
 	public Text currentManaDisplay;
 	public Slider manaSlider;
 	public ManaFeedback manaDrop;
 	public Transform canvas;
 	public AudioSource manaGainedSound;
 
-	//Win and Lose
-	public GameObject winObj;
-	public GameObject loseObj;
+	[Header("Overlayed GUI")]
+	public GUIOverlay gui;
 
 	private void Start()
 	{
+		gui = FindObjectOfType<GUIOverlay>();
 		inst = this;
 
 		TurretTemplate.amplitude = 3;
@@ -42,20 +38,22 @@ public class ManaSystem : MonoBehaviour
 		gameStateS = GameStates.started;
 		gameState = gameStateS;
 		currentMana = startingMana;
-
-		winObj.SetActive (false);
-		loseObj.SetActive (false);
 	}
 
 	void Update()
 	{
+		if (gameState == GameStates.started)
+		{
+			if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
+			if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
+		}
+
 		Functions ();
 	}
 
 	void Functions ()
 	{
 		UpdateGameState ();
-		WinLose ();
 
 		//Display Current Mana
 		currentManaDisplay.text = currentMana.ToString () + "/" + "2000";
@@ -95,18 +93,7 @@ public class ManaSystem : MonoBehaviour
 		DisplayText (amount, pos, offset);
 	}
 
-	public void WinLose ()
-	{
-		if (gameState == GameStates.win)
-		{
-			winObj.SetActive (true);
-		}
-		else if (gameState == GameStates.lose)
-		{
-			loseObj.SetActive (true);
-		}
-	}
-
+	//UI Animations
 	public void DisplayText (int addedMana, Vector3 pos, float offset)
 	{
 		ManaFeedback manaDrop = Instantiate (this.manaDrop, pos, canvas.transform.rotation, canvas);
