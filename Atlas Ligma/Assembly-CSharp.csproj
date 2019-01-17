@@ -193,6 +193,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
     <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
+    <None Include="Assets\Shaders\Custom Shader.shader" />
     <None Include="Assets\Particle Effects Package\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Particle Effects Package\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.shader" />
