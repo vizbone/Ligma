@@ -117,12 +117,10 @@
     <Compile Include="Assets\Scripts\Custom Inspectors\EventsManagerEditor.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawnTemplate.cs" />
-    <Compile Include="Assets\Scripts\EventsLibrary.cs" />
     <Compile Include="Assets\Scripts\EventsManager.cs" />
     <Compile Include="Assets\Scripts\GRENADA.cs" />
     <Compile Include="Assets\Scripts\GridSystem.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\ManaDisplay\ManaAnimatedPrefabScript.cs" />
     <Compile Include="Assets\Scripts\ManaFeedback.cs" />
     <Compile Include="Assets\Scripts\ManaSystem.cs" />
@@ -131,9 +129,6 @@
     <Compile Include="Assets\Scripts\OwnProjector.cs" />
     <Compile Include="Assets\Scripts\Parabola.cs" />
     <Compile Include="Assets\Scripts\PreparationPhase.cs" />
-    <Compile Include="Assets\Scripts\RadialButton.cs" />
-    <Compile Include="Assets\Scripts\RadialMenu.cs" />
-    <Compile Include="Assets\Scripts\RadialMenuSpawner.cs" />
     <Compile Include="Assets\Scripts\Tower.cs" />
     <Compile Include="Assets\Scripts\Towers\Bullet.cs" />
     <Compile Include="Assets\Scripts\Towers\Cannon.cs" />
@@ -144,10 +139,13 @@
     <Compile Include="Assets\Scripts\Towers\SupportTurret.cs" />
     <Compile Include="Assets\Scripts\Towers\TurretTemplate.cs" />
     <Compile Include="Assets\Scripts\Towers\TurretValueSettings.cs" />
-    <Compile Include="Assets\Scripts\TownHall.cs" />
-    <Compile Include="Assets\Scripts\UIButtonFunctions.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\RadialButton.cs" />
+    <Compile Include="Assets\Scripts\UI\RadialMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\RadialMenuSpawner.cs" />
+    <Compile Include="Assets\Scripts\UI\UIButtonFunctions.cs" />
+    <Compile Include="Assets\Scripts\UI\WinLose.cs" />
     <Compile Include="Assets\Scripts\WaveSystem.cs" />
-    <Compile Include="Assets\Scripts\WinLose.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\Particle Effects Package\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Particle Effects Package\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
@@ -211,19 +209,19 @@
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
     <None Include="Assets\Particle Effects Package\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -427,19 +425,19 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Advertisements.Editor">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/KGZ/Desktop/DGDD/GDDS/Ligma Tower Defense/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

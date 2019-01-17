@@ -24,6 +24,7 @@ public class AI : AITemplate {
 
 	protected override void Start () 
 	{
+		defaultMoveSpeed = agent.speed;
 		ai = FindObjectOfType<AIMovement>();
 		manaSys = FindObjectOfType<ManaSystem> ();
 		if (path != AIMovement.Paths.air)
@@ -59,6 +60,12 @@ public class AI : AITemplate {
 			if (fireRate == 0) fireRate = 1;
 			time = 1 / fireRate;
 		}
+	}
+
+	private void Update()
+	{
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin) agent.speed = defaultMoveSpeed;
+		else agent.speed = 0;
 	}
 
 	int Find()

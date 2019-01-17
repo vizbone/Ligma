@@ -26,8 +26,11 @@ public class OwnProjector : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		//Calculate field of view
-		SelectTurret();
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		{
+			//Calculate field of view
+			SelectTurret();
+		}
 	}
 
 	void SelectTurret()

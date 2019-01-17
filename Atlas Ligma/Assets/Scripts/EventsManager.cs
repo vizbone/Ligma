@@ -83,9 +83,12 @@ public class EventsManager : MonoBehaviour
 
 	void Update ()
 	{
-		for (int i = 0; i < selectedEventIds.Count; i++)
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
-			eventsComp[selectedEventIds[i]](selectedEventIds[i]);
+			for (int i = 0; i < selectedEventIds.Count; i++)
+			{
+				eventsComp[selectedEventIds[i]](selectedEventIds[i]);
+			}
 		}
 	}
 

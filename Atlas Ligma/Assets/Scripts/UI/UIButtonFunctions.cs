@@ -58,17 +58,20 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void Pause()
 	{
-		//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
-		uiSoundA.Play();
-		manaSys.gameState = GameStates.pause;
-		settingsMenu.SetActive(true);
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		{
+			//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
+			uiSoundA.Play();
+			ManaSystem.gameStateS = GameStates.pause;
+			settingsMenu.SetActive(true);
+		}
 	}
 
 	public void FromSettingsToGameplay()
 	{
 		//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioB");
 		uiSoundB.Play();
-		manaSys.gameState = GameStates.started;
+		ManaSystem.gameStateS = GameStates.started;
 		settingsMenu.SetActive(false);
 	}
 
@@ -144,26 +147,6 @@ public class UIButtonFunctions : MonoBehaviour {
 	{
 		DestroyCurrentBuild();
 		gridSys.buildIndex = 3;
-		gridSys.buildMode = true;
-		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
-		currentBuild = build;
-		gridSys.currentBuild = build;
-	}
-
-	public void FireRateBuild()
-	{
-		DestroyCurrentBuild();
-		gridSys.buildIndex = 4;
-		gridSys.buildMode = true;
-		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
-		currentBuild = build;
-		gridSys.currentBuild = build;
-	}
-
-	public void InvestmentBuild()
-	{
-		DestroyCurrentBuild();
-		gridSys.buildIndex = 5;
 		gridSys.buildMode = true;
 		GameObject build = Instantiate(gridSys.towers[gridSys.buildIndex].buildModel, Vector3.zero, gridSys.towers[gridSys.buildIndex].buildModel.transform.rotation);
 		currentBuild = build;

@@ -35,7 +35,7 @@ public class GridSystem : MonoBehaviour {
 
 	void Update ()
 	{
-		BuildFunction ();
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin) BuildFunction ();
 	}
 
 	void BuildFunction()
@@ -151,8 +151,11 @@ public class GridSystem : MonoBehaviour {
 	//handles placing of building
 	void Build (Vector3 buildPos)
 	{
-		Instantiate (towers[buildIndex].actualTower, buildPos, towers[buildIndex].actualTower.transform.rotation);
-		manaSys.ManaMinus (towers[buildIndex].cost, buildPos, 2);
+		if (manaSys.currentMana <= towers[buildIndex].cost)
+		{
+			Instantiate(towers[buildIndex].actualTower, buildPos, towers[buildIndex].actualTower.transform.rotation);
+			manaSys.ManaMinus(towers[buildIndex].cost, buildPos, 2);
+		}
 	}
 
 	public void Uninteractable()

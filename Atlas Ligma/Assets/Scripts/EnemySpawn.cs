@@ -32,16 +32,20 @@ public class EnemySpawn : MonoBehaviour
 
 	void Update ()
 	{
-		if (!prepPhase.prepPhaseActive && !cLock) {
-			indexOfEnemy++;
-			StartCoroutine ("SpawnClock");
-		}
-		//if (count == maxCount) active = false;
-		if (prepPhase.currentWave < waveSys.wave.Length)
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
-			if (indexOfEnemy == waveSys.wave[prepPhase.currentWave].enemy.Length - 1) prepPhase.WaveEnded ();
+			if (!prepPhase.prepPhaseActive && !cLock)
+			{
+				indexOfEnemy++;
+				StartCoroutine("SpawnClock");
+			}
+			//if (count == maxCount) active = false;
+			if (prepPhase.currentWave < waveSys.wave.Length)
+			{
+				if (indexOfEnemy == waveSys.wave[prepPhase.currentWave].enemy.Length - 1) prepPhase.WaveEnded();
+			}
+			//waveNumber.text = "Wave " + (prepPhase.currentWave + 1).ToString();
 		}
-		//waveNumber.text = "Wave " + (prepPhase.currentWave + 1).ToString();
 	}
 
 	IEnumerator SpawnClock () 
