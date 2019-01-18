@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
 	MeshCollider sensor;
 	[SerializeField] LayerMask towerLayer;
 	[SerializeField] RadialMenu menuInst;
+	GridSystem gridSys;
 
 	public static Interactable inst;
 
@@ -25,6 +26,7 @@ public class Interactable : MonoBehaviour
 	{
 		towerLayer.value = 1 << 10;
 		currentTower = gameObject;
+		gridSys = FindObjectOfType<GridSystem>();
 		sensor = GetComponent<MeshCollider>();
 		turret = gameObject.GetComponent<TurretTemplate>();
 	}
@@ -41,12 +43,11 @@ public class Interactable : MonoBehaviour
 				//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
 				bool hasTower = sensor.Raycast(ray, out hit, Mathf.Infinity);
 
-				if (hasTower)
+				if (hasTower && !gridSys.buildMode)
 				{
 					if (hit.collider != null)
 					{
 						if (inst == null) inst = this;
-						print(inst.name);
 
 						if (inst == this)
 						{
