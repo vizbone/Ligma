@@ -6,9 +6,11 @@ public class GRENADA : MonoBehaviour
 {
 	public int FORTHEMOTHERLAND;
 	public ManaSystem YEETUSFEETUS;
+	public AudioClip bombSound;
 	void OnCollisionEnter (Collision other)
 	{
-		YEETUSFEETUS.ManaMinus (FORTHEMOTHERLAND, other.collider.transform.position, 1);
-		Destroy (gameObject);
+		ManaSystem.inst.ManaMinus(FORTHEMOTHERLAND, other.collider.transform.position, 1);
+		AudioSource.PlayClipAtPoint(bombSound, other.collider.transform.position);
+		Destroy(gameObject);
 	}
 }

@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FORTHEMOTHERLAND: 0
   YEETUSFEETUS: {fileID: 0}
+  bombSound: {fileID: 8300000, guid: fe32fddbc644931459b485204e616b0d, type: 3}
 --- !u!54 &54061091555440896
 Rigidbody:
   m_ObjectHideFlags: 0

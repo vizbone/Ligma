@@ -81,7 +81,7 @@ public class AISea : AITemplate
 	{
 		cLock = true;
 		Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
-		seaEnemySpawnAudio.Play();
+		//seaEnemySpawnAudio.Play();
 		currentEnemySpawnCount++;
 		if (currentEnemySpawnCount >= enemyBatchSpawnCount)
 		{
