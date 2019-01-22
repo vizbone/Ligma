@@ -81,7 +81,6 @@ public class AISea : AITemplate
 	{
 		cLock = true;
 		Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
-		//seaEnemySpawnAudio.Play();
 		currentEnemySpawnCount++;
 		if (currentEnemySpawnCount >= enemyBatchSpawnCount)
 		{
@@ -104,6 +103,7 @@ public class AISea : AITemplate
 	{
 		if (other.tag == "WaypointSea")
 		{
+			seaEnemySpawnAudio.Play ();
 			if (currentDestination == 1)
 			{
 				if (firstTime)
