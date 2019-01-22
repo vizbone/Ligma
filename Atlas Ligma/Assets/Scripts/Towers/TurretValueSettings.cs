@@ -6,174 +6,175 @@ public class TurretValueSettings : MonoBehaviour
 {
 	//Crossbow Settings
 	[Header("Crossbow Level 1")]
-	public TurretValues crossbow1;
+	[SerializeField] TurretValues crossbow1;
 	public static TurretValues crossbow1s;
 
 	[Header("Crossbow Level 2")]
-	public TurretValues crossbow2;
+	[SerializeField] TurretValues crossbow2;
 	public static TurretValues crossbow2s;
 
 	[Header("Crossbow Level 3")]
-	public TurretValues crossbow3;
+	[SerializeField] TurretValues crossbow3;
 	public static TurretValues crossbow3s;
 
 	[Header("Black Crossbow Level 1")]
-	public TurretValues blackCrossbow1;
+	[SerializeField] TurretValues blackCrossbow1;
 	public static TurretValues blackCrossbow1s;
 
 	[Header("Black Crossbow Level 2")]
-	public TurretValues blackCrossbow2;
+	[SerializeField] TurretValues blackCrossbow2;
 	public static TurretValues blackCrossbow2s;
 
 	[Header("Black Crossbow Level 3")]
-	public TurretValues blackCrossbow3;
+	[SerializeField] TurretValues blackCrossbow3;
 	public static TurretValues blackCrossbow3s;
 
 	[Header("White Crossbow Level 1")]
-	public TurretValues whiteCrossbow1;
+	[SerializeField] TurretValues whiteCrossbow1;
 	public static TurretValues whiteCrossbow1s;
 
 	[Header("White Crossbow Level 2")]
-	public TurretValues whiteCrossbow2;
+	[SerializeField] TurretValues whiteCrossbow2;
 	public static TurretValues whiteCrossbow2s;
 
 	[Header("White Crossbow Level 3")]
-	public TurretValues whiteCrossbow3;
+	[SerializeField] TurretValues whiteCrossbow3;
 	public static TurretValues whiteCrossbow3s;
 
 	//Catapult Settings
 	[Header("Catapult Level 1")]
-	public TurretValues catapult1;
+	[SerializeField] TurretValues catapult1;
 	public static TurretValues catapult1s;
 
 	[Header("Catapult Level 2")]
-	public TurretValues catapult2;
+	[SerializeField] TurretValues catapult2;
 	public static TurretValues catapult2s;
 
 	[Header("Catapult Level 3")]
-	public TurretValues catapult3;
+	[SerializeField] TurretValues catapult3;
 	public static TurretValues catapult3s;
 
 	[Header("Black Catapult Level 1")]
-	public TurretValues blackCatapult1;
+	[SerializeField] TurretValues blackCatapult1;
 	public static TurretValues blackCatapult1s;
 
 	[Header("Black Catapult Level 2")]
-	public TurretValues blackCatapult2;
+	[SerializeField] TurretValues blackCatapult2;
 	public static TurretValues blackCatapult2s;
 
 	[Header("Black Catapult Level 3")]
-	public TurretValues blackCatapult3;
+	[SerializeField] TurretValues blackCatapult3;
 	public static TurretValues blackCatapult3s;
 
 	[Header("White Catapult Level 1")]
-	public TurretValues whiteCatapult1;
+	[SerializeField] public TurretValues whiteCatapult1;
 	public static TurretValues whiteCatapult1s;
 
 	[Header("White Catapult Level 2")]
-	public TurretValues whiteCatapult2;
+	[SerializeField] TurretValues whiteCatapult2;
 	public static TurretValues whiteCatapult2s;
 
 	[Header("White Catapult Level 3")]
-	public TurretValues whiteCatapult3;
+	[SerializeField] TurretValues whiteCatapult3;
 	public static TurretValues whiteCatapult3s;
 
 	//Cannon Settings
 	[Header("Cannon Level 1")]
-	public TurretValues cannon1;
+	[SerializeField] TurretValues cannon1;
 	public static TurretValues cannon1s;
 
 	[Header("Cannon Level 2")]
-	public TurretValues cannon2;
+	[SerializeField] TurretValues cannon2;
 	public static TurretValues cannon2s;
 
 	[Header("Cannon Level 3")]
-	public TurretValues cannon3;
+	[SerializeField] TurretValues cannon3;
 	public static TurretValues cannon3s;
 
 	[Header("Black Cannon Level 1")]
-	public TurretValues blackCannon1;
+	[SerializeField] TurretValues blackCannon1;
 	public static TurretValues blackCannon1s;
 
 	[Header("Black Cannon Level 2")]
-	public TurretValues blackCannon2;
+	[SerializeField] TurretValues blackCannon2;
 	public static TurretValues blackCannon2s;
 
 	[Header("Black Cannon Level 3")]
-	public TurretValues blackCannon3;
+	[SerializeField] TurretValues blackCannon3;
 	public static TurretValues blackCannon3s;
 
 	[Header("White Cannon Level 1")]
-	public TurretValues whiteCannon1;
+	[SerializeField] TurretValues whiteCannon1;
 	public static TurretValues whiteCannon1s;
 
 	[Header("White Cannon Level 2")]
-	public TurretValues whiteCannon2;
+	[SerializeField] TurretValues whiteCannon2;
 	public static TurretValues whiteCannon2s;
 
 	[Header("White Cannon Level 3")]
-	public TurretValues whiteCannon3;
+	[SerializeField] TurretValues whiteCannon3;
 	public static TurretValues whiteCannon3s;
 
 	//Rocket Settings
 	[Header("Rocket Level 1")]
-	public TurretValues rocket1;
+	[SerializeField] TurretValues rocket1;
 	public static TurretValues rocket1s;
 
 	[Header("Rocket Level 2")]
-	public TurretValues rocket2;
+	[SerializeField] TurretValues rocket2;
 	public static TurretValues rocket2s;
 
 	[Header("Rocket Level 3")]
-	public TurretValues rocket3;
+	[SerializeField] TurretValues rocket3;
 	public static TurretValues rocket3s;
 
 	[Header("Black Rocket Level 1")]
-	public TurretValues blackRocket1;
+	[SerializeField] TurretValues blackRocket1;
 	public static TurretValues blackRocket1s;
 
 	[Header("Black Rocket Level 2")]
-	public TurretValues blackRocket2;
+	[SerializeField] TurretValues blackRocket2;
 	public static TurretValues blackRocket2s;
 
 	[Header("Black Rocket Level 3")]
-	public TurretValues blackRocket3;
+	[SerializeField] TurretValues blackRocket3;
 	public static TurretValues blackRocket3s;
 
 	[Header("White Rocket Level 1")]
-	public TurretValues whiteRocket1;
+	[SerializeField] TurretValues whiteRocket1;
 	public static TurretValues whiteRocket1s;
 
 	[Header("White Rocket Level 2")]
-	public TurretValues whiteRocket2;
+	[SerializeField] TurretValues whiteRocket2;
 	public static TurretValues whiteRocket2s;
 
 	[Header("White Rocket Level 3")]
-	public TurretValues whiteRocket3;
+	[SerializeField] TurretValues whiteRocket3;
 	public static TurretValues whiteRocket3s;
 
 	[Header("Black Investment % in 1.00")]
-	public float blackInvestPerc1;
+	[SerializeField] float blackInvestPerc1;
 	public static float blackInvestPerc1s;
 
-	public float blackInvestPerc2;
+	[SerializeField] float blackInvestPerc2;
 	public static float blackInvestPerc2s;
 
-	public float blackInvestPerc3;
+	[SerializeField] float blackInvestPerc3;
 	public static float blackInvestPerc3s;
 
 	[Header ("White Investment % in 1.00")]
-	public float whiteInvestPerc1;
+	[SerializeField] float whiteInvestPerc1;
 	public static float whiteInvestPerc1s;
 
-	public float whiteInvestPerc2;
+	[SerializeField] float whiteInvestPerc2;
 	public static float whiteInvestPerc2s;
 
-	public float whiteInvestPerc3;
+	[SerializeField] float whiteInvestPerc3;
 	public static float whiteInvestPerc3s;
 
 	private void Awake()
 	{
+
 		//Set Values For Crossbows
 		crossbow1s = crossbow1;
 		crossbow2s = crossbow2;
@@ -234,5 +235,21 @@ public class TurretValueSettings : MonoBehaviour
 		whiteInvestPerc1s = whiteInvestPerc1;
 		whiteInvestPerc2s = whiteInvestPerc2;
 		whiteInvestPerc3s = whiteInvestPerc3;
+	}
+
+	public static TurretValues SetValuesCorrectly (TurretValues staticValues)
+	{
+		TurretValues turretValues;
+		turretValues.attackType = staticValues.attackType;
+		turretValues.bulletSpeed = staticValues.bulletSpeed;
+		turretValues.dmg = staticValues.dmg;
+		turretValues.fireRate = staticValues.fireRate;
+		turretValues.range = staticValues.range;
+		turretValues.upgradeOrInvestCost = new int[staticValues.upgradeOrInvestCost.Length];
+		for (int i = 0; i < staticValues.upgradeOrInvestCost.Length; i++)
+		{
+			turretValues.upgradeOrInvestCost[i] = staticValues.upgradeOrInvestCost[i];
+		}
+		return turretValues;
 	}
 }

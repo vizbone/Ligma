@@ -40,7 +40,7 @@ public class OwnProjector : MonoBehaviour {
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
-
+			
 			//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
 			bool hasTower = Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, towerLayer, QueryTriggerInteraction.Ignore);
 			selected = hasTower;
@@ -48,7 +48,8 @@ public class OwnProjector : MonoBehaviour {
 			if (hasTower && !gridSys.buildMode)
 			{
 				print(hit.collider.name);
-				print(hit.collider.gameObject.layer);
+				//print(hit.collider.gameObject.layer);
+				
 
 				if (hit.collider != null)
 				{
@@ -56,11 +57,12 @@ public class OwnProjector : MonoBehaviour {
 					transform.position = turretPos;
 					projector.orthographicSize = CalculateProjectorRadius(hit.collider.gameObject.GetComponent<CapsuleCollider>().radius * hit.collider.transform.localScale.x);
 					projector.enabled = true;
+					print (projector.orthographicSize);
 				}
 			}
 			else
 			{
-				print("No Object");
+				//print("No Object");
 				projector.enabled = false;
 			}
 		}

@@ -322,7 +322,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		{
 			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : -(transform.position - closestEnemy.transform.position).normalized;
 			Bullet currentBullet = Instantiate (bullet, transform.position + direction * 0.5f + new Vector3 (0, 0.5f, 0), Quaternion.identity);
-			print(currentBullet.name);
+			//print(currentBullet.name);
 			currentBullet.turret = this;
 
 			if (arcTravel)

@@ -30,17 +30,17 @@ public class WaveSystem : MonoBehaviour {
 	[Header("Prebuilt Turrets")]
 	public TurretTemplate[] allPrebuiltTurrets;
 
-	//[Header("For Events")]
-	//[SerializeField] EventsManager em;
+	[Header("For Events")]
+	[SerializeField] EventsManager em;
 
 	private void Awake()
 	{
-		prepPhase = true;
+		prepPhase = false;
 		currentWave = 0;
 		enemySpawnIndex = -1;
 		enemyListS = new List<AITemplate>();
-		//em = FindObjectOfType<EventsManager>();
-
+		em = GetComponent<EventsManager> ();
+		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length + ", Preparation";
 		allPrebuiltTurrets = FindObjectsOfType<TurretTemplate>();
 	}
 
@@ -73,7 +73,7 @@ public class WaveSystem : MonoBehaviour {
 	{
 		prepPhase = false;
 
-		prepPhaseText.text = "Wave " + (currentWave + 1);
+		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length;
 
 		nextWaveButton.SetActive(false);
 	}
@@ -82,7 +82,7 @@ public class WaveSystem : MonoBehaviour {
 	{
 		prepPhase = true;
 
-		prepPhaseText.text = "Preparation Phase";
+		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length + ", Preparation";
 
 		foreach (TurretTemplate turret in allPrebuiltTurrets)
 		{
@@ -106,10 +106,9 @@ public class WaveSystem : MonoBehaviour {
 			enemySpawnIndex = -1;
 			nextWaveButton.SetActive(true);
 
-			//em.EventEnd();
-			//em.ExecuteEvent();
-
-			//em.ExecuteEvent = null;
+			//em.EventEnd ();
+			em.ExecuteEvent ();
+			em.ExecuteEvent = null;
 		}
 	}
 

@@ -4,20 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct WhiteTurretStats
-{
-	public TurretTemplate turret;
-	public int investmentLevel;
-	public bool invested;
-}
-
-public struct BlackTurretStats
-{
-	public TurretTemplate turret;
-	public int investmentLevel;
-	public bool event3Changed;
-}
-
+[System.Serializable]
 public struct EventItems
 {
 	public List<TurretTemplate> affectedWhiteTurrets;
@@ -123,7 +110,7 @@ public class EventsManager : MonoBehaviour
 	//================================================================================================================================================
 	/// <summary>
 	/// When there are 3 or more fully invested white turrets (Condition),
-	/// White turrets that had investments are now more expensive by 150% (Effect),
+	/// White turrets that had investments are now more expensive, 150% of original cost (Effect),
 	/// This is only activated on next wave (Duration).
 	/// </summary>
 	void Event0()
@@ -134,13 +121,20 @@ public class EventsManager : MonoBehaviour
 		//Check Number of Fully Invested White Turrets
 		for (int i = 0; i < allWhiteTurrets.Count; i++)
 		{
-			if (allWhiteTurrets[i].investmentLevel == 3) maxInvested++;
-			turretsToAdd.Add(allWhiteTurrets[i]);
+			if (allWhiteTurrets[i].investmentLevel == 3)
+			{
+				maxInvested++;
+				turretsToAdd.Add (allWhiteTurrets[i]);
+			} 
 		}
+
+		//print (maxInvested);
 
 		if (maxInvested >= 3)
 		{
+			//print ("condition met");
 			eventItems[0].affectedWhiteTurrets = turretsToAdd;
+			eventItems[0].eventExecuted = 1; //Set Event 0 to "Active"
 			ExecuteEvent += Event0Execution;
 		}
 	}
@@ -166,7 +160,11 @@ public class EventsManager : MonoBehaviour
 
 		eventItems[1].turnCount = activateEvent ? ++eventItems[1].turnCount : 0;
 
-		if (eventItems[1].turnCount >= 5) ExecuteEvent += Event1Execution;
+		if (eventItems[1].turnCount >= 5)
+		{
+			eventItems[1].eventExecuted = 1; //Set Event 1 to "Active"
+			ExecuteEvent += Event1Execution;
+		}
 	}
 	//================================================================================================================================================
 	/// <summary>
@@ -187,6 +185,7 @@ public class EventsManager : MonoBehaviour
 		if (maxInvested >= 3)
 		{
 			eventItems[2].affectedBlackTurrets = allBlackTurrets;
+			eventItems[2].eventExecuted = 1; //Set Event 2 to "Active"
 			ExecuteEvent += Event2Execution;
 		}
 	}
@@ -215,6 +214,7 @@ public class EventsManager : MonoBehaviour
 		if (eventItems[3].turnCount >= 3)
 		{
 			eventItems[3].affectedBlackTurrets = allBlackTurrets;
+			eventItems[3].eventExecuted = 1; //Set Event 0 to "Active"
 			ExecuteEvent += Event3Execution;
 		}
 	}
@@ -228,15 +228,20 @@ public class EventsManager : MonoBehaviour
 	//================================================================================================================================================
 	void Event0Execution()
 	{
+		TurretValueSettings t = FindObjectOfType<TurretValueSettings> ();
 		foreach (TurretTemplate whiteTurrets in eventItems[0].affectedWhiteTurrets)
 		{
 			for (int i = 0; i < whiteTurrets.turretValues.upgradeOrInvestCost.Length; i++)
 			{
+				//print (whiteTurrets.gameObject.name);
+				//print (t.whiteCatapult1.upgradeOrInvestCost[i]);
 				whiteTurrets.turretValues.upgradeOrInvestCost[i] = (int)(whiteTurrets.turretValues.upgradeOrInvestCost[i] * 1.5f);
+				//print (t.whiteCatapult1.upgradeOrInvestCost[i]);
+				//print ("--");
 			}
 		}
-		eventItems[0].eventExecuted = 1; //Set Event 0 to "Active"
-
+		
+		//print ("event 0 executed");
 		//Note: Event End Should Come First Before Execute Event
 		if (eventItems[0].eventExecuted == 1) EventEnd += Event0End;
 	}
@@ -265,8 +270,6 @@ public class EventsManager : MonoBehaviour
 			blackTurrets.investOrUpgradeDisabled = true;
 		}
 
-		eventItems[1].eventExecuted = 1; //Set Event 1 to "Active"
-
 		//Note: Event End Should Come First Before Execute Event
 		if (eventItems[1].eventExecuted == 1) EventEnd += Event1End;
 	}
@@ -288,8 +291,6 @@ public class EventsManager : MonoBehaviour
 		{
 			blackTurrets.enabled = false;
 		}
-
-		eventItems[2].eventExecuted = 1; //Set Event 2 to "Active"
 
 		//Note: Event End Should Come First Before Execute Event
 		if (eventItems[2].eventExecuted == 1) EventEnd += Event2End;
@@ -314,9 +315,8 @@ public class EventsManager : MonoBehaviour
 			{
 				blackTurrets.turretValues.fireRate *= 0.5f;
 			}
-			eventItems[0].eventExecuted = 1; //Set Event 0 to "Active"
 		}
-		else eventItems[0].eventExecuted++;
+		else eventItems[3].eventExecuted++;
 
 		//Note: Event End Should Come First Before Execute Event
 		EventEnd += Event3End; //Added No Matter the Turn Count. It will only cease the Event if it checks that it is 2 in EventEnd
