@@ -10,22 +10,22 @@ public class Cannon : TurretTemplate
 	protected override void SetValues ()
 	{
 		if (!isPrebuilt)
-			turretValues = TurretValueSettings.cannon1s;
+			turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.cannon1s);
 		else
 		{
 			switch (level)
 			{
 				case 1:
-					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon1s;
-					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon1s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.blackCannon1s);
+					else if (faction == Faction.white) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.whiteCannon1s);
 					break;
 				case 2:
-					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon2s;
-					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon2s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.blackCannon2s);
+					else if (faction == Faction.white) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.whiteCannon2s);
 					break;
 				case 3:
-					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon3s;
-					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon3s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.blackCannon3s);
+					else if (faction == Faction.white) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.whiteCannon3s);
 					break;
 				default:
 					print("Error in Level");
@@ -63,13 +63,13 @@ public class Cannon : TurretTemplate
 			switch (level)
 			{
 				case 1:
-					turretValues = TurretValueSettings.cannon1s;
+					turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.cannon1s);
 					break;
 				case 2:
-					turretValues = TurretValueSettings.cannon2s;
+					turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.cannon2s);
 					break;
 				case 3:
-					turretValues = TurretValueSettings.cannon3s;
+					turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.cannon3s);
 					break;
 				default:
 					print("Error in Level");
@@ -81,19 +81,19 @@ public class Cannon : TurretTemplate
 			switch (level)
 			{
 				case 1:
-					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon1s;
-					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon1s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.blackCannon1s);
+					else if (faction == Faction.white) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.whiteCannon1s);
 					break;
 				case 2:
-					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon2s;
-					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon2s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.blackCannon2s);
+					else if (faction == Faction.white) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.whiteCannon2s);
 					break;
 				case 3:
-					if (faction == Faction.black) turretValues = TurretValueSettings.blackCannon3s;
-					else if (faction == Faction.white) turretValues = TurretValueSettings.whiteCannon3s;
+					if (faction == Faction.black) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.blackCannon3s);
+					else if (faction == Faction.white) turretValues = TurretValueSettings.SetValuesCorrectly (TurretValueSettings.whiteCannon3s);
 					break;
 				default:
-					print("Error in Level");
+					print ("Error in Level");
 					break;
 			}
 		}

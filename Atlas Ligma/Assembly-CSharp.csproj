@@ -129,6 +129,7 @@
     <Compile Include="Assets\Scripts\OwnProjector.cs" />
     <Compile Include="Assets\Scripts\Parabola.cs" />
     <Compile Include="Assets\Scripts\PreparationPhase.cs" />
+    <Compile Include="Assets\Scripts\temp.cs" />
     <Compile Include="Assets\Scripts\Tower.cs" />
     <Compile Include="Assets\Scripts\Towers\Bullet.cs" />
     <Compile Include="Assets\Scripts\Towers\Cannon.cs" />
