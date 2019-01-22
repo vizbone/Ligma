@@ -16,7 +16,7 @@ public abstract class AITemplate : MonoBehaviour {
 
 		if (enemyType == AttackType.ground)
 		{
-			hp = 200;
+			hp = 150;
 			manaDrop = 30;
 		}
 		else if (enemyType == AttackType.air)

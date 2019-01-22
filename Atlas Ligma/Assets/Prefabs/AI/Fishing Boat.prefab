@@ -73,12 +73,13 @@ MonoBehaviour:
   enemyType: 2
   hp: 10
   manaDrop: 10
+  defaultMoveSpeed: 0
   whichType: 1
   path: 4
   currentDestination: 0
   enemies: {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490, type: 3}
   enemyBatchSpawnCount: 5
-  enemySpawnRate: 15
+  enemySpawnRate: 2
   maxInstances: 10
   instanceCount: 0
   seaEnemySpawnAudio: {fileID: 3742604478935463135}
@@ -233,8 +234,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243778512097608918, guid: f3eb1d3a03bbb434da1fade3429f5b85,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2e7fa7b22dec0e4488cf02ac00b8dffb, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 96fc942406bbaeb47a16e7d998e0d775, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
