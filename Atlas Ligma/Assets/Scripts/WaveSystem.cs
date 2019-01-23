@@ -35,7 +35,7 @@ public class WaveSystem : MonoBehaviour {
 
 	private void Awake()
 	{
-		prepPhase = false;
+		prepPhase = true;
 		currentWave = 0;
 		enemySpawnIndex = -1;
 		enemyListS = new List<AITemplate>();
@@ -106,8 +106,8 @@ public class WaveSystem : MonoBehaviour {
 			enemySpawnIndex = -1;
 			nextWaveButton.SetActive(true);
 
-			//em.EventEnd ();
-			em.ExecuteEvent ();
+			if (em.EventEnd != null) em.EventEnd ();
+			if (em.ExecuteEvent != null) em.ExecuteEvent ();
 			em.ExecuteEvent = null;
 		}
 	}

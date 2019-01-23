@@ -134,7 +134,6 @@ public class EventsManager : MonoBehaviour
 		{
 			//print ("condition met");
 			eventItems[0].affectedWhiteTurrets = turretsToAdd;
-			eventItems[0].eventExecuted = 1; //Set Event 0 to "Active"
 			ExecuteEvent += Event0Execution;
 		}
 	}
@@ -228,6 +227,8 @@ public class EventsManager : MonoBehaviour
 	//================================================================================================================================================
 	void Event0Execution()
 	{
+		eventItems[0].eventExecuted = 1; //Set Event 0 to "Active" //Special Case as still need to add turrets that are level 3 or more even after reaching condition
+
 		TurretValueSettings t = FindObjectOfType<TurretValueSettings> ();
 		foreach (TurretTemplate whiteTurrets in eventItems[0].affectedWhiteTurrets)
 		{
@@ -257,6 +258,7 @@ public class EventsManager : MonoBehaviour
 		}
 
 		eventItems[0].affectedWhiteTurrets = null;
+		EventEnd -= Event0End;
 		eventItems[0].eventExecuted = 0; //Set Event 0 to "Not Executed Yet"
 	}
 	//================================================================================================================================================
@@ -282,6 +284,7 @@ public class EventsManager : MonoBehaviour
 		}
 
 		eventItems[1].affectedBlackTurrets = null;
+		EventEnd -= Event1End;
 		eventItems[1].eventExecuted = 0; //Set Event 0 to "Not Executed Yet"
 	}
 	//================================================================================================================================================
@@ -304,6 +307,7 @@ public class EventsManager : MonoBehaviour
 		}
 
 		eventItems[2].affectedBlackTurrets = null;
+		EventEnd -= Event2End;
 		eventItems[2].eventExecuted = 0; //Set Event 2 to "False"
 	}
 	//================================================================================================================================================
@@ -333,6 +337,7 @@ public class EventsManager : MonoBehaviour
 			}
 
 			eventItems[3].affectedBlackTurrets = null;
+			EventEnd -= Event3End;
 			eventItems[3].eventExecuted = 0; //Set Event 2 to "False"
 		}
 	}

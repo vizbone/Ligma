@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\GRENADA.cs" />
     <Compile Include="Assets\Scripts\GridSystem.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\LightingEffect.cs" />
     <Compile Include="Assets\Scripts\ManaDisplay\ManaAnimatedPrefabScript.cs" />
     <Compile Include="Assets\Scripts\ManaFeedback.cs" />
     <Compile Include="Assets\Scripts\ManaSystem.cs" />

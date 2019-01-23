@@ -22,7 +22,7 @@ GameObject:
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &4463248596496846
 Transform:
@@ -187,6 +187,7 @@ MonoBehaviour:
   closestEnemy: {fileID: 0}
   xRotation: 0
   designatedAngle: {x: 0, y: 0, z: 0}
+  meshCollider: {fileID: 0}
   arcTravel: 0
   bullet: {fileID: 114779164487480798, guid: 223d526f9a2a8e4468708021759c3d82, type: 3}
   eventManager: {fileID: 0}
