@@ -47,7 +47,7 @@ public class OwnProjector : MonoBehaviour {
 
 			if (hasTower && !gridSys.buildMode)
 			{
-				print(hit.collider.name);
+				//print(hit.collider.name);
 				//print(hit.collider.gameObject.layer);
 				
 
@@ -57,7 +57,7 @@ public class OwnProjector : MonoBehaviour {
 					transform.position = turretPos;
 					projector.orthographicSize = CalculateProjectorRadius(hit.collider.gameObject.GetComponent<CapsuleCollider>().radius * hit.collider.transform.localScale.x);
 					projector.enabled = true;
-					print (projector.orthographicSize);
+					//print (projector.orthographicSize);
 				}
 			}
 			else

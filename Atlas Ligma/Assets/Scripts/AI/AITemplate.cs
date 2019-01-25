@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class AITemplate : MonoBehaviour {
 
 	public AttackType enemyType;
-	public int hp = 3;
+	public int hp;
 	public int manaDrop = 10;
 	public float defaultMoveSpeed;
 
@@ -16,12 +16,12 @@ public abstract class AITemplate : MonoBehaviour {
 
 		if (enemyType == AttackType.ground)
 		{
-			hp = 150;
+			if (hp == 0) hp = 150;
 			manaDrop = 30;
 		}
 		else if (enemyType == AttackType.air)
 		{
-			hp = 350;
+			if (hp == 0) hp = 350;
 			manaDrop = 70;
 		}
 		//Sea Enemies will be overriding the Start Function

@@ -145,25 +145,8 @@ public class EventsManager : MonoBehaviour
 	/// </summary>
 	void Event1()
 	{
-		bool activateEvent = false;
-
-		foreach (TurretTemplate whiteTurrets in allWhiteTurrets)
-		{
-			if (whiteTurrets.investmentLevel >= 0) activateEvent = true;
-			else
-			{
-				activateEvent = false;
-				break;
-			}
-		}
-
-		eventItems[1].turnCount = activateEvent ? ++eventItems[1].turnCount : 0;
-
-		if (eventItems[1].turnCount >= 5)
-		{
-			eventItems[1].eventExecuted = 1; //Set Event 1 to "Active"
-			ExecuteEvent += Event1Execution;
-		}
+		eventItems[1].eventExecuted = 1;
+		ExecuteEvent += Event1Execution;
 	}
 	//================================================================================================================================================
 	/// <summary>
@@ -264,16 +247,38 @@ public class EventsManager : MonoBehaviour
 	//================================================================================================================================================
 	void Event1Execution()
 	{
-		//Disable Investment Button
-		eventItems[1].affectedBlackTurrets = allBlackTurrets;
+		bool reset = false;
 
-		foreach (TurretTemplate blackTurrets in eventItems[1].affectedBlackTurrets)
+		foreach (TurretTemplate whiteTurrets in allWhiteTurrets)
 		{
-			blackTurrets.investOrUpgradeDisabled = true;
+			if (whiteTurrets.investmentLevel > 0)
+			{
+				eventItems[1].turnCount++;
+				reset = false;
+				break;
+			} 
+			else reset = true;
 		}
 
-		//Note: Event End Should Come First Before Execute Event
-		if (eventItems[1].eventExecuted == 1) EventEnd += Event1End;
+		if (reset) eventItems[1].turnCount = 0;
+
+		if (eventItems[1].turnCount >= 3)
+		{
+			//Disable Investment Button
+			eventItems[1].affectedBlackTurrets = allBlackTurrets;
+
+			foreach (TurretTemplate blackTurrets in eventItems[1].affectedBlackTurrets)
+			{
+				blackTurrets.investOrUpgradeDisabled = true;
+			}
+
+			eventItems[1].eventExecuted = 2; //Set to differentiate that the event has started
+			eventItems[1].turnCount = 0; //Reset Turn Count Upon Activation
+
+			//Note: Event End Should Come First Before Execute Event
+			EventEnd += Event1End;
+		} 
+		else eventItems[1].eventExecuted = 0; //Set Event 0 to "Not Executed Yet"
 	}
 
 	void Event1End()

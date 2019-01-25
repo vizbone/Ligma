@@ -84,12 +84,6 @@ public class WaveSystem : MonoBehaviour {
 
 		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length + ", Preparation";
 
-		foreach (TurretTemplate turret in allPrebuiltTurrets)
-		{
-			turret.investmentLevel = 0;
-			turret.manaReturnPerc = 0;
-		}
-
 		//If Current Wave is the Final Wave
 		if (currentWave == wave.Length - 1)
 		{
@@ -109,6 +103,13 @@ public class WaveSystem : MonoBehaviour {
 			if (em.EventEnd != null) em.EventEnd ();
 			if (em.ExecuteEvent != null) em.ExecuteEvent ();
 			em.ExecuteEvent = null;
+		}
+
+		//Reset Investment after checking events as some of the Event rely on checking investment levelss
+		foreach (TurretTemplate turret in allPrebuiltTurrets)
+		{
+			turret.investmentLevel = 0;
+			turret.manaReturnPerc = 0;
 		}
 	}
 
