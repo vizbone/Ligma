@@ -179,26 +179,8 @@ public class EventsManager : MonoBehaviour
 	/// </summary>
 	void Event3()
 	{
-		bool activateEvent = false;
-
-		foreach (TurretTemplate blackTurrets in allBlackTurrets)
-		{
-			if (blackTurrets.investmentLevel >= 0) activateEvent = true;
-			else
-			{
-				activateEvent = false;
-				break;
-			}
-		}
-
-		eventItems[3].turnCount = activateEvent ? ++eventItems[3].turnCount : 0;
-
-		if (eventItems[3].turnCount >= 3)
-		{
-			eventItems[3].affectedBlackTurrets = allBlackTurrets;
-			eventItems[3].eventExecuted = 1; //Set Event 0 to "Active"
-			ExecuteEvent += Event3Execution;
-		}
+		eventItems[3].eventExecuted = 1;
+		ExecuteEvent += Event3Execution;
 	}
 	//================================================================================================================================================
 	//Event Conditions END
@@ -297,6 +279,7 @@ public class EventsManager : MonoBehaviour
 	{
 		foreach (TurretTemplate blackTurrets in eventItems[2].affectedBlackTurrets)
 		{
+			blackTurrets.investOrUpgradeDisabled = true;
 			blackTurrets.enabled = false;
 		}
 
@@ -308,6 +291,7 @@ public class EventsManager : MonoBehaviour
 	{
 		foreach (TurretTemplate blackTurrets in eventItems[2].affectedBlackTurrets)
 		{
+			blackTurrets.investOrUpgradeDisabled = false;
 			blackTurrets.enabled = true;
 		}
 
@@ -318,22 +302,53 @@ public class EventsManager : MonoBehaviour
 	//================================================================================================================================================
 	void Event3Execution ()
 	{
-		if (eventItems[3].eventExecuted == 0)
+		if (eventItems[3].eventExecuted == 1)
 		{
-			foreach (TurretTemplate blackTurrets in eventItems[3].affectedBlackTurrets)
+			bool reset = false;
+
+			foreach (TurretTemplate blackTurrets in allBlackTurrets)
 			{
-				blackTurrets.turretValues.fireRate *= 0.5f;
+				if (blackTurrets.investmentLevel > 0)
+				{
+					eventItems[3].turnCount++;
+					reset = false;
+					break;
+				} else reset = true;
 			}
+
+			if (reset) eventItems[3].turnCount = 0;
+
+			if (eventItems[3].turnCount >= 3)
+			{
+				eventItems[3].affectedBlackTurrets = allBlackTurrets;
+
+				foreach (TurretTemplate blackTurrets in eventItems[3].affectedBlackTurrets)
+				{
+					blackTurrets.turretValues.fireRate *= 0.5f;
+				}
+
+				eventItems[3].eventExecuted = 2; //Set to differentiate that the event has started
+				eventItems[3].turnCount = 0; //Reset Turn Count Upon Activation
+			} 
+			else
+			{
+				eventItems[3].eventExecuted = 0; //Set Event 0 to "Not Executed Yet"
+				return;
+			} 
 		}
-		else eventItems[3].eventExecuted++;
+		else if (eventItems[3].eventExecuted >= 2) eventItems[3].eventExecuted++;//First Turn of Event Start
 
 		//Note: Event End Should Come First Before Execute Event
-		EventEnd += Event3End; //Added No Matter the Turn Count. It will only cease the Event if it checks that it is 2 in EventEnd
+		if (eventItems[3].eventExecuted >= 2) EventEnd += Event3End; //Added No Matter the Turn Count. It will only cease the Event if it checks that it is 2 in EventEnd
 	}
 
 	void Event3End ()
 	{
-		if (eventItems[3].eventExecuted != 2) ExecuteEvent += Event3Execution; //Loop Back to Increase Turn Count
+		if (eventItems[3].eventExecuted != 4)
+		{
+			ExecuteEvent += Event3Execution; //Loop Back to Increase Turn Count. 2 is the 1st turn of Event
+			EventEnd -= Event3End;
+		} 
 		else
 		{
 			foreach (TurretTemplate blackTurrets in eventItems[3].affectedBlackTurrets)
@@ -343,6 +358,7 @@ public class EventsManager : MonoBehaviour
 
 			eventItems[3].affectedBlackTurrets = null;
 			EventEnd -= Event3End;
+			eventItems[3].turnCount = 0;
 			eventItems[3].eventExecuted = 0; //Set Event 2 to "False"
 		}
 	}
