@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,6 +13,6 @@ MonoBehaviour:
   m_Name: GroundEnemy 1
   m_EditorClassIdentifier: 
   type: 0
-  typeOfEnemy: {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490,
-    type: 2}
-  interval: 0.2
+  typeOfEnemy: {fileID: 1709179411151454, guid: 4506ce26f0d77914ebfda147b9bcf0b8,
+    type: 3}
+  interval: 0

@@ -102,8 +102,9 @@ public class AI : AITemplate {
 		if (other.tag == "Town Hall" && enemyType == AttackType.air && !cLock) StartCoroutine (ALLAHUAKBAAR ());
 	}
 
-	void OnCollisionEnter (Collision other)
+	void OnCollisionStay (Collision other)
 	{
+		print ("tell hall");
 		if (other.gameObject.tag == "Town Hall" && enemyType == AttackType.ground)
 		{
 			//FindObjectOfType<AudioManager>().AudioToPlay("SkeletonAttack");

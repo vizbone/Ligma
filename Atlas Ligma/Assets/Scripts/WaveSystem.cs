@@ -132,6 +132,11 @@ public class WaveSystem : MonoBehaviour {
 		}
 		else Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
 
+		/*for (int i = 0; i <= 30; i++)
+		{
+			Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
+		}*/
+
 		yield return new WaitForSeconds(wave[0].enemy[0].interval);
 
 		cLock = false;
