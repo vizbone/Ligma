@@ -7,8 +7,6 @@ public class Catapult : TurretTemplate
 	[Header ("Catapult Exclusives")]
 	public Explosion explosion;
 
-	public AudioSource skeletonDeathSound;
-
 	protected override void Start()
 	{
 		base.Start();
@@ -94,9 +92,7 @@ public class Catapult : TurretTemplate
 				{
 					int addedMana = (int)(enemy.manaDrop * manaReturnPerc);
 					manaSys.ManaAdd(addedMana, enemy.transform.position, 0);
-					//print (manaSys.currentMana.ToString ());
-					//FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
-					skeletonDeathSound.Play();
+					enemyDeathSfx.Play();
 					enemies.Remove(enemy);
 					if (closestEnemy == enemy) closestEnemy = null;
 					Destroy(enemy.gameObject);

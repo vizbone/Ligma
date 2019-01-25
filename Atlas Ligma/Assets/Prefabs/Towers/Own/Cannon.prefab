@@ -174,11 +174,20 @@ MonoBehaviour:
   investmentLevel: 0
   isPrebuilt: 0
   investOrUpgradeDisabled: 0
-  model: {fileID: 0}
-  lvl1Model: {fileID: 4300000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
-  lvl2Model: {fileID: 4300000, guid: 00c02377d80d10e4cbcc66a08c47ac9e, type: 3}
-  lvl3Model: {fileID: 4300000, guid: 2341bf0c59cd0194a85efa89aa9f48f7, type: 3}
-  r: {fileID: 0}
+  turretGO: {fileID: 0}
+  baseModel: {fileID: 0}
+  turretModel: {fileID: 0}
+  lvl1Model:
+  - {fileID: 4300000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
+  - {fileID: 4300000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
+  lvl2Model:
+  - {fileID: 4300000, guid: 00c02377d80d10e4cbcc66a08c47ac9e, type: 3}
+  - {fileID: 4300000, guid: 00c02377d80d10e4cbcc66a08c47ac9e, type: 3}
+  lvl3Model:
+  - {fileID: 4300000, guid: 2341bf0c59cd0194a85efa89aa9f48f7, type: 3}
+  - {fileID: 4300000, guid: 2341bf0c59cd0194a85efa89aa9f48f7, type: 3}
+  baseR: {fileID: 0}
+  turretR: {fileID: 0}
   turretMaterials:
   - {fileID: 2100000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
   - {fileID: 2100000, guid: 00c02377d80d10e4cbcc66a08c47ac9e, type: 3}
@@ -189,10 +198,11 @@ MonoBehaviour:
   xRotation: 0
   designatedAngle: {x: 0, y: 0, z: 0}
   meshCollider: {fileID: 0}
+  turretMeshCollider: {fileID: 0}
   arcTravel: 0
   bullet: {fileID: 114884531770006698, guid: fdf5f84d5bd792f458003dd50ec3dbd2, type: 3}
   eventManager: {fileID: 0}
-  skeletonDeathSound: {fileID: 6657499973327419742}
+  enemyDeathSfx: {fileID: 6657499973327419742}
 --- !u!114 &114401421622489224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +239,7 @@ GameObject:
   - component: {fileID: 2920478357882708274}
   - component: {fileID: 6657499973327419742}
   m_Layer: 10
-  m_Name: SkeletonDeathSound
+  m_Name: Enemy Death SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

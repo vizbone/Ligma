@@ -42,15 +42,17 @@ public abstract class TurretTemplate : MonoBehaviour
 	public bool isPrebuilt = false; //Check if the Turret is a prebuilt turret
 	public bool investOrUpgradeDisabled; //Check if can be invested
 
-	[Header ("For Model Change")]
-	[SerializeField]
-	MeshFilter model; //For Model Change when Upgraded
+	[Header("For Model Change")]
+	[SerializeField] GameObject turretGO; //Stores the Game Object where the Mesh is to be the Main Turret Component
+	[SerializeField] MeshFilter baseModel;
+	[SerializeField] MeshFilter turretModel;
 	//Chose not to put in array since it should be set in the inspector
 	//Three different Meshfilters to completely prevent errors
-	public Mesh lvl1Model;
-	public Mesh lvl2Model;
-	public Mesh lvl3Model;
-	[SerializeField] Renderer r;
+	[SerializeField] Mesh[] lvl1Model;
+	[SerializeField] Mesh[] lvl2Model;
+	[SerializeField] Mesh[] lvl3Model;
+	[SerializeField] Renderer baseR;
+	[SerializeField] Renderer turretR;
 	[SerializeField] Material[] turretMaterials;
 
 	[Header ("Collider and Enemy List")]
@@ -59,7 +61,9 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] public AITemplate closestEnemy;
 	[SerializeField] float xRotation;
 	[SerializeField] Vector3 designatedAngle;
-	[SerializeField] public MeshCollider meshCollider;
+
+	public MeshCollider meshCollider;
+	public MeshCollider turretMeshCollider;
 
 	[Header ("For Bullets")]
 	public bool arcTravel;
@@ -68,13 +72,18 @@ public abstract class TurretTemplate : MonoBehaviour
 	[Header ("For Events")]
 	[SerializeField] EventsManager eventManager;
 
+	[Header("SFX")]
+	[SerializeField] protected AudioSource enemyDeathSfx; //To be set in Inspector
+
 	protected virtual void Start ()
 	{
 		level = isPrebuilt ? this.level : 1; //All Self Built Turrets are Level 1. PREBUILT TURRET LEVELS SHOULD BE SET IN THE PREFAB ITSELF
 		investmentLevel = 0;
 		manaReturnPerc = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
 		manaSys = FindObjectOfType<ManaSystem> ();
+		turretGO = gameObject;
 		meshCollider = GetComponent<MeshCollider> ();
+		turretMeshCollider = turretGO.GetComponent<MeshCollider>();
 
 		//Check if its bullets should travel in an arc
 		if (this.GetType() == typeof(Catapult)) arcTravel = true;
@@ -82,10 +91,12 @@ public abstract class TurretTemplate : MonoBehaviour
 		xRotation = transform.eulerAngles.x;
 
 		//Remove once reached finalised stage
-		r = GetComponent<Renderer>();
+		baseR = GetComponent<Renderer>();
+		turretR = turretGO.GetComponent<Renderer>();
 		ChangeMaterial (level);
  
-		model = GetComponent<MeshFilter> ();
+		baseModel = GetComponent<MeshFilter> ();
+		turretModel = turretGO.GetComponent<MeshFilter>();
 
 		//Set For Enemy Detection
 		collider = GetComponent<CapsuleCollider> ();
@@ -131,12 +142,16 @@ public abstract class TurretTemplate : MonoBehaviour
 			if (closestEnemy != null)
 			{
 				LookAtEnemy();
-				if (transform.eulerAngles != designatedAngle) transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(designatedAngle), 5f);
+				if (turretGO.transform.rotation != Quaternion.Euler(designatedAngle)) turretGO.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(designatedAngle), 5f);
 			}
 
 			coolDown = Mathf.Max(coolDown -= Time.deltaTime, 0);
 
-			if (coolDown <= 0) Shoot(arcTravel);
+			if (coolDown <= 0)
+			{
+				float angleDiff = Mathf.Abs(designatedAngle.z - turretGO.transform.eulerAngles.y) % 360; //Compare with y since z rotation checks the euler of y
+				if (angleDiff <= 20) Shoot(arcTravel); //If the angle difference is minimal, then allow to shoot
+			}
 
 			//if (Input.GetKeyDown(KeyCode.P) && level < 3) Upgrade();
 		}
@@ -164,20 +179,25 @@ public abstract class TurretTemplate : MonoBehaviour
 		switch (level)
 		{
 			case 1:
-				model.mesh = lvl1Model;
+				baseModel.mesh = lvl1Model[0];
+				turretModel.mesh = lvl1Model[1];
 				break;
 			case 2:
-				model.mesh = lvl2Model;
+				baseModel.mesh = lvl2Model[0];
+				turretModel.mesh = lvl2Model[1];
 				break;
 			case 3:
-				model.mesh = lvl3Model;
+				baseModel.mesh = lvl3Model[0];
+				turretModel.mesh = lvl3Model[1];
 				investOrUpgradeDisabled = true;
 				break;
 			default:
-				model.mesh = lvl1Model;
+				baseModel.mesh = lvl1Model[0];
+				turretModel.mesh = lvl1Model[1];
+				print("Invalid Level Detected");
 				break;
 		}
-		meshCollider.sharedMesh = model.mesh;
+		meshCollider.sharedMesh = baseModel.mesh;
 
 		ChangeMaterial (level);
 		//Add Changes to Stats as well
@@ -360,9 +380,8 @@ public abstract class TurretTemplate : MonoBehaviour
 			{
 				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
-				//print (manaSys.currentMana.ToString ());
-				//FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
 				enemies.Remove(enemy);
+				enemyDeathSfx.Play();
 				if (closestEnemy == enemy) closestEnemy = null;
 				Destroy (enemy.gameObject);
 			}
@@ -375,16 +394,19 @@ public abstract class TurretTemplate : MonoBehaviour
 		switch (lvlIndex)
 		{
 			case 1:
-			r.material = turretMaterials[0];
-			break;
+				baseR.material = turretMaterials[0];
+				turretR.material = turretMaterials[0];
+				break;
 
 			case 2:
-			r.material = turretMaterials[1];
-			break;
+				baseR.material = turretMaterials[1];
+				turretR.material = turretMaterials[1];
+				break;
 
 			case 3:
-			r.material = turretMaterials[2];
-			break;
+				baseR.material = turretMaterials[2];
+				turretR.material = turretMaterials[2];
+				break;
 		}
 	}
 

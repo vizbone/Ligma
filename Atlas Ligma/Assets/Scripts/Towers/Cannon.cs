@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Cannon : TurretTemplate
 {
-
-	public AudioSource skeletonDeathSound;
-
 	protected override void SetValues ()
 	{
 		if (!isPrebuilt)
@@ -44,9 +41,8 @@ public class Cannon : TurretTemplate
 			{
 				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
-				//print (manaSys.currentMana.ToString ());
-				//FindObjectOfType<AudioManager>().AudioToPlay("SkeletonDeath");
 				enemies.Remove(enemy);
+				enemyDeathSfx.Play();
 				if (closestEnemy == enemy) closestEnemy = null;
 				Destroy (enemy.gameObject);
 			}
