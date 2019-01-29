@@ -90,34 +90,12 @@ PrefabInstance:
       propertyPath: faction
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    - target: {fileID: 8335287275741505059, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
-        type: 3}
-      propertyPath: fireAudio
-      value: 
-      objectReference: {fileID: 180170167939091630}
-    - target: {fileID: 8335287275741505059, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
-        type: 3}
-      propertyPath: shootingSounds
-      value: 
-      objectReference: {fileID: 180170167939091630}
-    - target: {fileID: 2837669302475471472, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
->>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
-    - target: {fileID: 2186463243984037361, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
-=======
     - target: {fileID: 7566667571250971699, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7566667571249071827, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
->>>>>>> parent of 52162207... ui presentation
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

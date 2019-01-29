@@ -72,35 +72,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    - target: {fileID: 8415807900545506735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
->>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
-    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
-        type: 3}
-      propertyPath: faction
-      value: 1
-      objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
-    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
-        type: 3}
-      propertyPath: fireAudio
-      value: 
-      objectReference: {fileID: 1021108008792500046}
-    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
-        type: 3}
-      propertyPath: shootingSounds
-      value: 
-      objectReference: {fileID: 1021108008792500046}
->>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
-=======
->>>>>>> parent of 52162207... ui presentation
     - target: {fileID: 8647610532746162197, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
         type: 3}
       propertyPath: options.Array.data[0].sprite

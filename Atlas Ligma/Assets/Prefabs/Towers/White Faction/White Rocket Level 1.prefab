@@ -158,27 +158,6 @@ PrefabInstance:
       propertyPath: currentTower
       value: 
       objectReference: {fileID: 4825398815583129968}
-<<<<<<< HEAD
-    - target: {fileID: 8169775365989214690, guid: 9cbc4713c1b678248b02fc0acca2328b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
-    - target: {fileID: 9010204307576475062, guid: 9cbc4713c1b678248b02fc0acca2328b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004818393793410781, guid: 9cbc4713c1b678248b02fc0acca2328b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
->>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
-=======
->>>>>>> parent of 52162207... ui presentation
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cbc4713c1b678248b02fc0acca2328b, type: 3}
 --- !u!1 &4825398815583129968 stripped
@@ -298,15 +277,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    - target: {fileID: 100000, guid: 031da89678f0bda429326ca17cf6c2d5, type: 3}
-      propertyPath: m_Name
-      value: Flag
-      objectReference: {fileID: 0}
->>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
-=======
     - target: {fileID: 400002, guid: 031da89678f0bda429326ca17cf6c2d5, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.7071068
@@ -343,6 +313,5 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.07
       objectReference: {fileID: 0}
->>>>>>> parent of 52162207... ui presentation
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 031da89678f0bda429326ca17cf6c2d5, type: 3}
