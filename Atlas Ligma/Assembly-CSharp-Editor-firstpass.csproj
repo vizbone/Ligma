@@ -49,7 +49,7 @@
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
     <UnityProjectType>EditorPlugins:7</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
-    <UnityVersion>2018.3.0f2</UnityVersion>
+    <UnityVersion>2018.3.0f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -102,7 +102,12 @@
     <Compile Include="Assets\Standard Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
     <Compile Include="Assets\Standard Assets\Shared\Ramps\Editor\RampAssetEditor.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <HintPath>D:/Unity Projects/GitHub/Ligma/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+=======
       <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+>>>>>>> parent of 52162207... ui presentation
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
@@ -114,7 +119,26 @@
       <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
+<<<<<<< HEAD
+      <HintPath>D:/Unity Projects/GitHub/Ligma/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+=======
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+>>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
+=======
       <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+>>>>>>> parent of 52162207... ui presentation
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -351,7 +375,12 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="PackageManagerAssembly">
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <HintPath>D:/Unity Projects/GitHub/Ligma/Ligma/Atlas Ligma/Assets/Particle Effects Package/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
+=======
       <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Assets/Particle Effects Package/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
+>>>>>>> parent of 52162207... ui presentation
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -372,7 +401,35 @@
       <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
+<<<<<<< HEAD
+      <HintPath>D:/Unity Projects/GitHub/Ligma/Ligma/Atlas Ligma/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+=======
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Assets/Particle Effects Package/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.ads@2.3.1/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements.Editor">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Users/mathe_000/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+>>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
+=======
       <HintPath>C:/Users/Nigel/Documents/GitHub/Ligma/Atlas Ligma/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+>>>>>>> parent of 52162207... ui presentation
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
