@@ -90,6 +90,24 @@ PrefabInstance:
       propertyPath: faction
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 8335287275741505059, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: fireAudio
+      value: 
+      objectReference: {fileID: 180170167939091630}
+    - target: {fileID: 8335287275741505059, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: shootingSounds
+      value: 
+      objectReference: {fileID: 180170167939091630}
+    - target: {fileID: 2837669302475471472, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+>>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
     - target: {fileID: 2186463243984037361, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -115,5 +133,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6736576cfb9de15499ff3d670f1a4f01, type: 2}
+    - target: {fileID: 3745106561907960662, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7, type: 3}
+--- !u!82 &180170167939091630 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5054472184098084903, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 4946360297765180553}
+  m_PrefabAsset: {fileID: 0}
