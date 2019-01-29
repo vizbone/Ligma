@@ -8,7 +8,14 @@ public class RadialMenu : MonoBehaviour
 	public RadialButton selected;
 	public List<RadialButton> buttons;
 	public TurretTemplate turret;
-	public int radius;
+	public float radius;
+
+	Camera cam;
+
+	void Start ()
+	{
+		cam = FindObjectOfType<Camera> ();
+	}
 
 	public void SpawnButtons(Interactable obj, bool isPrebuilt)
 	{
@@ -29,6 +36,12 @@ public class RadialMenu : MonoBehaviour
 
 			buttons.Add(newButton);
 		}
+	}
+
+	void Update ()
+	{
+		radius = cam.orthographicSize * 0.05f;
+		transform.localScale = Vector3.one * cam.orthographicSize * 0.07f;
 	}
 
 	public void CheckDisabled()
