@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Catapult Level 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8727401886565509431, guid: 7ccf536de8687d149b34ae18bee294ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8725417189752487117, guid: 7ccf536de8687d149b34ae18bee294ec,
         type: 3}
       propertyPath: m_LocalPosition.x

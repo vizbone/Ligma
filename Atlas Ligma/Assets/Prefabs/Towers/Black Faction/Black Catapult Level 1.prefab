@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Catapult Level 1
       objectReference: {fileID: 0}
-    - target: {fileID: 830528917457067042, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 832529127808485848, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,16 +72,6 @@ PrefabInstance:
       propertyPath: faction
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 726573251278833240, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
-        type: 3}
-      propertyPath: fireAudio
-      value: 
-      objectReference: {fileID: 4528146848972424324}
-    - target: {fileID: 726573251278833240, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
-        type: 3}
-      propertyPath: shootingSounds
-      value: 
-      objectReference: {fileID: 4528146848972424324}
     - target: {fileID: 727242826666175514, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
         type: 3}
       propertyPath: options.Array.data[0].sprite
@@ -120,22 +105,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6736576cfb9de15499ff3d670f1a4f01, type: 2}
-    - target: {fileID: 1398089372238817982, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2, type: 3}
 --- !u!1 &8727401886565509431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 830528917457067042, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
-    type: 3}
-  m_PrefabInstance: {fileID: 8258287116236649749}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &4528146848972424324 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5497876935641280913, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
     type: 3}
   m_PrefabInstance: {fileID: 8258287116236649749}
   m_PrefabAsset: {fileID: 0}
