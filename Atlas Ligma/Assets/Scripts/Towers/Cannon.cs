@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Cannon : TurretTemplate
 {
+	public AudioSource fireAudio;
+	//public AudioSource enemyDeathAudio;
 	protected override void SetValues ()
 	{
 		if (!isPrebuilt)
@@ -42,7 +44,7 @@ public class Cannon : TurretTemplate
 				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
 				enemies.Remove(enemy);
-				enemyDeathSfx.Play();
+				//enemyDeathSfx.Play();
 				if (closestEnemy == enemy) closestEnemy = null;
 				Destroy (enemy.gameObject);
 			}

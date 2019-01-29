@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13461,7 +13461,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
     - target: {fileID: 1725294466686282967, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
@@ -13470,8 +13469,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
 =======
 >>>>>>> parent of 52162207... ui presentation
-=======
->>>>>>> parent of 9916829a... AddedAudio
     - target: {fileID: 1725294466131677521, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -13622,20 +13619,14 @@ PrefabInstance:
       value: 482.74
       objectReference: {fileID: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
 >>>>>>> 9916829af5eefc59ed87833eea1bb026e493541a
 =======
-=======
->>>>>>> parent of 9916829a... AddedAudio
     - target: {fileID: 1725294466686282967, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
 >>>>>>> parent of 52162207... ui presentation
-=======
->>>>>>> parent of 9916829a... AddedAudio
     - target: {fileID: 1725294467557838918, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
