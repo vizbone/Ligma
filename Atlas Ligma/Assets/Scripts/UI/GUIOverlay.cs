@@ -7,12 +7,12 @@ public class GUIOverlay : MonoBehaviour
 {
 	[Header("Screen GUIs")]
 	public Image winObj;
-	public Image win;
+	public Text win;
 	public RectTransform[] winButtons;
 	public Button continueButton;
 
 	public Image loseObj;
-	public Image lose;
+	public Text lose;
 	public RectTransform[] loseButtons;
 
 	public float[] lerpTime; //0 is for Image, 1 is for Text, subsequent is for Buttons

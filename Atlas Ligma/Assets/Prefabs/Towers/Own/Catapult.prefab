@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   options:
   - color: {r: 0.9951434, g: 0, b: 1, a: 1}
-    sprite: {fileID: 21300000, guid: fba9374ef111e7143b6c27aac683ee3f, type: 3}
+    sprite: {fileID: 21300000, guid: 3fa4e087019e2d04da517913d703e104, type: 3}
     title: Upgrade
   - color: {r: 1, g: 0, b: 0.047468662, a: 1}
     sprite: {fileID: 21300000, guid: e9fea353ededc064fadcf9a4cd340c0e, type: 3}

@@ -14,10 +14,8 @@ public class WaveSystem : MonoBehaviour {
 	[Header("For Prep Phase")]
 	public bool prepPhase;
 	public int currentWave; //Refers to Index of Wave Array
+	public GameObject nextWaveButton;
 	public Text prepPhaseText;
-	public Text pressSpaceToStart;
-	public Image phases;
-	public Sprite[] phasesSprites;
 
 	[Header("Enemy Spawn")]
 	public Waves[] wave;
@@ -42,7 +40,7 @@ public class WaveSystem : MonoBehaviour {
 		enemySpawnIndex = -1;
 		enemyListS = new List<AITemplate>();
 		em = GetComponent<EventsManager> ();
-		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length;
+		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length + ", Preparation";
 		allPrebuiltTurrets = FindObjectsOfType<TurretTemplate>();
 	}
 
@@ -57,18 +55,15 @@ public class WaveSystem : MonoBehaviour {
 
 				if (!cLock)
 				{
-					enemySpawnIndex = Mathf.Min (++enemySpawnIndex, wave[currentWave].enemy.Length);
+					enemySpawnIndex = Mathf.Min(++enemySpawnIndex, wave[currentWave].enemy.Length);
 
 					//Only if Reached Last Enemy
 					if (enemySpawnIndex == wave[currentWave].enemy.Length)
 					{
-						if (enemyList.Count == 0) WaveEnded (); //Wait for Last Enemy to Die to end the Wave
-					} else StartCoroutine (SpawnClock ());
+						if (enemyList.Count == 0) WaveEnded(); //Wait for Last Enemy to Die to end the Wave
+					}
+					else StartCoroutine(SpawnClock());
 				}
-			} 
-			else
-			{
-				if (Input.GetKeyDown (KeyCode.Space)) WaveStarted ();
 			}
 		}
 	}
@@ -80,14 +75,14 @@ public class WaveSystem : MonoBehaviour {
 
 		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length;
 
-		phases.sprite = phasesSprites[0];
-
-		pressSpaceToStart.gameObject.SetActive(false);
+		nextWaveButton.SetActive(false);
 	}
 
 	public void WaveEnded()
 	{
 		prepPhase = true;
+
+		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length + ", Preparation";
 
 		//If Current Wave is the Final Wave
 		if (currentWave == wave.Length - 1)
@@ -103,16 +98,12 @@ public class WaveSystem : MonoBehaviour {
 		{
 			currentWave = Mathf.Min(++currentWave, wave.Length);
 			enemySpawnIndex = -1;
-			pressSpaceToStart.gameObject.SetActive(true);
+			nextWaveButton.SetActive(true);
 
 			if (em.EventEnd != null) em.EventEnd ();
 			if (em.ExecuteEvent != null) em.ExecuteEvent ();
 			em.ExecuteEvent = null;
 		}
-
-		prepPhaseText.text = "Wave " + (currentWave + 1) + "/" + wave.Length;
-
-		phases.sprite = phasesSprites[1];
 
 		//Reset Investment after checking events as some of the Event rely on checking investment levelss
 		foreach (TurretTemplate turret in allPrebuiltTurrets)
