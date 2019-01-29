@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Crossbow Level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2217269077159405475, guid: 4b140db6652a4b14eacfa4f05cb3dcdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2220051586347406377, guid: 4b140db6652a4b14eacfa4f05cb3dcdf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,5 +92,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300000, guid: c9c9816142bba174d99e06756e688031, type: 3}
+    - target: {fileID: 1413987399511827673, guid: 4b140db6652a4b14eacfa4f05cb3dcdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b140db6652a4b14eacfa4f05cb3dcdf, type: 3}

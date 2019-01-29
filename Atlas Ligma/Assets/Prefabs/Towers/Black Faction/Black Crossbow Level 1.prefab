@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Crossbow Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8759739613217316565, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8762526692250004831, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +72,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8415807900545506735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: faction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: fireAudio
+      value: 
+      objectReference: {fileID: 1021108008792500046}
+    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: shootingSounds
+      value: 
+      objectReference: {fileID: 1021108008792500046}
     - target: {fileID: 8647610532746162197, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
         type: 3}
       propertyPath: options.Array.data[0].sprite
@@ -90,11 +115,6 @@ PrefabInstance:
       propertyPath: currentTower
       value: 
       objectReference: {fileID: 3367765548198477719}
-    - target: {fileID: 8650630935391373735, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
-        type: 3}
-      propertyPath: faction
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1817592655996252637, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -105,11 +125,27 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6736576cfb9de15499ff3d670f1a4f01, type: 2}
+    - target: {fileID: 425959185958401728, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415334216148796940, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+        type: 3}
+      propertyPath: Priority
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1, type: 3}
 --- !u!1 &3367765548198477719 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8759739613217316565, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6281514499893059906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1021108008792500046 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6415334216148796940, guid: 2bc1d7c8f4d91a5439189ec3f31b0eb1,
     type: 3}
   m_PrefabInstance: {fileID: 6281514499893059906}
   m_PrefabAsset: {fileID: 0}
