@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Catapult : TurretTemplate
 {
-	public AudioSource fireAudio;
-	//public AudioSource enemyDeathAudio;
 
 	[Header ("Catapult Exclusives")]
 	public Explosion explosion;
@@ -95,7 +93,7 @@ public class Catapult : TurretTemplate
 				{
 					int addedMana = (int)(enemy.manaDrop * manaReturnPerc);
 					manaSys.ManaAdd(addedMana, enemy.transform.position, 0);
-					//enemyDeathSfx.Play();
+					enemyDeathSfx.Play();
 					enemies.Remove(enemy);
 					if (closestEnemy == enemy) closestEnemy = null;
 					Destroy(enemy.gameObject);

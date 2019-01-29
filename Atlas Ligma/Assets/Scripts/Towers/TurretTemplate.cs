@@ -74,8 +74,8 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] EventsManager eventManager;
 
 	[Header("SFX")]
-	public AudioSource shootingSounds; //To be set in Inspector
-	//[SerializeField] protected AudioSource enemyDeathAudio;
+	[SerializeField] protected AudioSource shootingSounds; //To be set in Inspector
+	[SerializeField] protected AudioSource enemyDeathSfx;
 
 
 	protected virtual void Start ()
@@ -87,7 +87,9 @@ public abstract class TurretTemplate : MonoBehaviour
 		turretGO = gameObject;
 		meshCollider = GetComponent<MeshCollider> ();
 		turretMeshCollider = turretGO.GetComponent<MeshCollider>();
-		shootingSounds = GetComponentInChildren<AudioSource>();
+
+		//shootingSounds = transform.GetChild(0).GetComponent<AudioSource>();
+		//enemyDeathSfx = transform.GetChild(1).GetComponent<AudioSource>();
 
 		//Check if its bullets should travel in an arc
 		if (this.GetType() == typeof(Catapult)) arcTravel = true;
@@ -348,6 +350,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			Bullet currentBullet = Instantiate (bullet, transform.position + direction * 0.5f + new Vector3 (0, 0.5f, 0), Quaternion.identity);
 			//print(currentBullet.name);
 			currentBullet.turret = this;
+
 			shootingSounds.Play();
 
 			if (arcTravel)
@@ -386,7 +389,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
 				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
 				enemies.Remove(enemy);
-				//enemyDeathSfx.Play();
+				enemyDeathSfx.Play();
 				if (closestEnemy == enemy) closestEnemy = null;
 				Destroy (enemy.gameObject);
 			}

@@ -22,7 +22,6 @@ public class RadialMenu : MonoBehaviour
 			float xPos = Mathf.Sin(theta) * 1.75f;
 			float yPos = Mathf.Cos(theta) * 1.75f;
 			newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * radius;
-			//newButton.circle.color = obj.options[i].color;
 			newButton.icon.sprite = obj.options[i].sprite;
 			newButton.title = obj.options[i].title;
 			newButton.menu = this;

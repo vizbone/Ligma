@@ -98,8 +98,8 @@ public class GridSystem : MonoBehaviour {
 
 				bool canPlace = false;
 
-				if (results.Count > 0) canPlace = false;
-				else canPlace = !isObjectHere(buildPos) && towers[buildIndex].cost < manaSys.currentMana ? true : false;
+				//if (results.Count > 0) canPlace = false;
+				canPlace = !isObjectHere(buildPos) && towers[buildIndex].cost < manaSys.currentMana ? true : false;
 
 				Material(canPlace);
 				
