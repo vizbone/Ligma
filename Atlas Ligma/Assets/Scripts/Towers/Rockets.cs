@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rockets : TurretTemplate {
-	public AudioSource fireAudio;
-	//public AudioSource enemyDeathAudio;
+public class Rockets : TurretTemplate
+{
 
 	protected override void SetValues()
 	{

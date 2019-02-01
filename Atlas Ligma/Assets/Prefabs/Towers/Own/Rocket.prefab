@@ -34,8 +34,8 @@ Transform:
   m_LocalPosition: {x: 43.69, y: 1.2, z: 47.25}
   m_LocalScale: {x: 2.54, y: 2.54, z: 2.54}
   m_Children:
-  - {fileID: 8169775365989214690}
   - {fileID: 2004818393793410781}
+  - {fileID: 8169775365989214690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -186,8 +186,8 @@ MonoBehaviour:
   arcTravel: 0
   bullet: {fileID: 114921432386778986, guid: 4582cb63bb08fef40b13aee5269be7a1, type: 3}
   eventManager: {fileID: 0}
-  shootingSounds: {fileID: 0}
-  fireAudio: {fileID: 6482915259196597736}
+  shootingSounds: {fileID: 6482915259196597736}
+  enemyDeathSfx: {fileID: 5754317690347458702}
 --- !u!114 &114685334013731344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,11 +201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   options:
-  - color: {r: 0.9960785, g: 0, b: 1, a: 0}
-    sprite: {fileID: 21300000, guid: 3fa4e087019e2d04da517913d703e104, type: 3}
+  - sprite: {fileID: 21300000, guid: ebd2a5ccf9f49e841805189197ebbb9c, type: 3}
     title: Upgrade
-  - color: {r: 1, g: 0, b: 0.047468662, a: 0}
-    sprite: {fileID: 21300000, guid: e9fea353ededc064fadcf9a4cd340c0e, type: 3}
+  - sprite: {fileID: 21300000, guid: 0fe2963b1c46fc34da53d37c263fcf16, type: 3}
     title: Destroy
   currentTower: {fileID: 1891549614434444}
   turret: {fileID: 0}
@@ -242,7 +240,7 @@ Transform:
   m_LocalScale: {x: 0.3937008, y: 0.39370093, z: 0.39370093}
   m_Children: []
   m_Father: {fileID: 4965841036871190}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6482915259196597736
 AudioSource:
@@ -357,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8169775365989214690
 Transform:
   m_ObjectHideFlags: 0
@@ -370,7 +368,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4965841036871190}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5754317690347458702
 AudioSource:

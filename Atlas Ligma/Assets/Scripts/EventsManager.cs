@@ -133,8 +133,8 @@ public class EventsManager : MonoBehaviour
 		if (maxInvested >= 3)
 		{
 			//print ("condition met");
+			if (eventItems[0].affectedWhiteTurrets == null) ExecuteEvent += Event0Execution; //This ensures that the event is only added once.
 			eventItems[0].affectedWhiteTurrets = turretsToAdd;
-			ExecuteEvent += Event0Execution;
 		}
 	}
 	//================================================================================================================================================

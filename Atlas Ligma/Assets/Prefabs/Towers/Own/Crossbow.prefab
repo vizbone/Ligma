@@ -35,8 +35,8 @@ Transform:
   m_LocalPosition: {x: 55.188377, y: 0.81, z: 31.835226}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6354811396757682929}
   - {fileID: 8970092161866312273}
+  - {fileID: 6354811396757682929}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -203,8 +203,8 @@ MonoBehaviour:
   arcTravel: 0
   bullet: {fileID: 114779164487480798, guid: 223d526f9a2a8e4468708021759c3d82, type: 3}
   eventManager: {fileID: 0}
-  shootingSounds: {fileID: 0}
-  fireAudio: {fileID: 0}
+  shootingSounds: {fileID: 2347145811552803485}
+  enemyDeathSfx: {fileID: 2503397855195288243}
 --- !u!114 &114594549247061124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,11 +218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   options:
-  - color: {r: 0.9951434, g: 0, b: 1, a: 1}
-    sprite: {fileID: 21300000, guid: 3fa4e087019e2d04da517913d703e104, type: 3}
+  - sprite: {fileID: 21300000, guid: ebd2a5ccf9f49e841805189197ebbb9c, type: 3}
     title: Upgrade
-  - color: {r: 1, g: 0, b: 0.047468662, a: 1}
-    sprite: {fileID: 21300000, guid: e9fea353ededc064fadcf9a4cd340c0e, type: 3}
+  - sprite: {fileID: 21300000, guid: 0fe2963b1c46fc34da53d37c263fcf16, type: 3}
     title: Destroy
   currentTower: {fileID: 1614154539434564}
   turret: {fileID: 0}
@@ -246,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6354811396757682929
 Transform:
   m_ObjectHideFlags: 0
@@ -259,7 +257,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4463248596496846}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2503397855195288243
 AudioSource:
@@ -387,7 +385,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Children: []
   m_Father: {fileID: 4463248596496846}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2347145811552803485
 AudioSource:

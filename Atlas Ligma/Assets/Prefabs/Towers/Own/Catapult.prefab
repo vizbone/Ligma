@@ -34,8 +34,8 @@ Transform:
   m_LocalPosition: {x: 51.56, y: 0, z: 45.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7756607633889146703}
   - {fileID: 1793934022841631038}
+  - {fileID: 7756607633889146703}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,8 +167,8 @@ MonoBehaviour:
   arcTravel: 0
   bullet: {fileID: 114223184396069200, guid: de399a4572e306e4fbd0bbc7f8233687, type: 3}
   eventManager: {fileID: 0}
-  shootingSounds: {fileID: 0}
-  fireAudio: {fileID: 5174132863654402577}
+  shootingSounds: {fileID: 5174132863654402577}
+  enemyDeathSfx: {fileID: 6953835440358545325}
   explosion: {fileID: 114307124736076234, guid: 24f52a6b4a79e98429fabe57c74405f4,
     type: 3}
 --- !u!114 &114271016013711258
@@ -184,11 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   options:
-  - color: {r: 0.9951434, g: 0, b: 1, a: 1}
-    sprite: {fileID: 21300000, guid: 3fa4e087019e2d04da517913d703e104, type: 3}
+  - sprite: {fileID: 21300000, guid: ebd2a5ccf9f49e841805189197ebbb9c, type: 3}
     title: Upgrade
-  - color: {r: 1, g: 0, b: 0.047468662, a: 1}
-    sprite: {fileID: 21300000, guid: e9fea353ededc064fadcf9a4cd340c0e, type: 3}
+  - sprite: {fileID: 21300000, guid: 0fe2963b1c46fc34da53d37c263fcf16, type: 3}
     title: Destroy
   currentTower: {fileID: 1396634072807330}
   turret: {fileID: 0}
@@ -223,7 +221,7 @@ GameObject:
   - component: {fileID: 1793934022841631038}
   - component: {fileID: 5174132863654402577}
   m_Layer: 0
-  m_Name: CatapultFire
+  m_Name: Catapult Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,7 +239,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_Children: []
   m_Father: {fileID: 4480827329962584}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5174132863654402577
 AudioSource:
@@ -356,7 +354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7756607633889146703
 Transform:
   m_ObjectHideFlags: 0
@@ -369,7 +367,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4480827329962584}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6953835440358545325
 AudioSource:
