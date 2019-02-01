@@ -10,13 +10,17 @@ public class CameraMovement : MonoBehaviour
 	public float scrollSpeed;
 
 	public float cameraPanSpeed;
-	public float horizontalBorderOffset;
-	public float verticalBorderOffset;
+	public float oriHorizontalBorderOffset;
+	public float oriVerticalBorderOffset;
 
 	Camera cam;
 	Vector2 screenSize;
 	Vector3 forward;
 	Vector3 right;
+
+	public float horizontalBorderOffset;
+	public float verticalBorderOffset;
+
 	float horizontalOffset;
 	float verticalOffset;
 
@@ -43,6 +47,14 @@ public class CameraMovement : MonoBehaviour
 	{
 		CameraZoom ();
 		CameraMove ();
+		BorderOffset ();
+	}
+
+	void BorderOffset ()
+	{
+		float difference = cam.orthographicSize - startingCamSize;
+		horizontalBorderOffset = oriHorizontalBorderOffset - difference;
+		verticalBorderOffset = oriVerticalBorderOffset - difference;
 	}
 
 	//handles camera movement
