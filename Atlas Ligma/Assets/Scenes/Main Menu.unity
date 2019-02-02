@@ -1725,9 +1725,6 @@ MonoBehaviour:
   credits: {fileID: 930706533}
   quit: {fileID: 25745946}
   levelselbut: {fileID: 1678359831}
-  stage2: {fileID: 0}
-  stage3: {fileID: 0}
-  board: {fileID: 0}
   startGame: {fileID: 1061275278}
   mainMenu: {fileID: 1276540195}
   levelSelect: {fileID: 629840264}

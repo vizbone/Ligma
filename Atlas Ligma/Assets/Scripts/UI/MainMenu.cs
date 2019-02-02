@@ -21,9 +21,6 @@ public class MainMenu : MonoBehaviour
 	public Image credits;
 	public Image quit;
 	public Image levelselbut;
-	public Image stage2;
-	public Image stage3;
-	public Image board;
 	public Image startGame;
 
 	public GameObject mainMenu;
@@ -62,7 +59,6 @@ public class MainMenu : MonoBehaviour
 	public void LevelSelectToMainFade()
 	{
 		levelSelect.SetActive(false);
-		title.gameObject.SetActive(true);
 		start.gameObject.SetActive(true);
 		settings.gameObject.SetActive(true);
 		credits.gameObject.SetActive(true);
@@ -75,9 +71,6 @@ public class MainMenu : MonoBehaviour
 		quit.color = new Color(1, 1, 1, 1);
 
 		levelselbut.color = new Color(1, 1, 1, 0);
-		stage2.color = new Color(1, 1, 1, 0);
-		stage3.color = new Color(1, 1, 1, 0);
-		board.color = new Color(1, 1, 1, 0);
 		startGame.color = new Color(1, 1, 1, 0);
 
 		mainMenu.SetActive(true);
@@ -147,33 +140,6 @@ public class MainMenu : MonoBehaviour
 			{
 				levelselbut.color = new Color(1, 1, 1, 1);
 				levelselbut.gameObject.SetActive(true);
-			}
-
-			fadeTime += 0.2f * Time.deltaTime;
-			stage2.color = Color.Lerp(stage2.color, new Color(1, 1, 1, 1), fadeTime);
-
-			if (stage2.color.a > 0.90f)
-			{
-				stage2.color = new Color(1, 1, 1, 1);
-				stage2.gameObject.SetActive(true);
-			}
-
-			fadeTime += 0.2f * Time.deltaTime;
-			stage3.color = Color.Lerp(stage3.color, new Color(1, 1, 1, 1), fadeTime);
-
-			if (stage3.color.a > 0.90f)
-			{
-				stage3.color = new Color(1, 1, 1, 1);
-				stage3.gameObject.SetActive(true);
-			}
-
-			fadeTime += 0.2f * Time.deltaTime;
-			board.color = Color.Lerp(board.color, new Color(1, 1, 1, 1), fadeTime);
-
-			if (board.color.a > 0.90f)
-			{
-				board.color = new Color(1, 1, 1, 1);
-				board.gameObject.SetActive(true);
 			}
 
 			fadeTime += 0.2f * Time.deltaTime;
