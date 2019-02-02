@@ -57,17 +57,6 @@ public class UIButtonFunctions : MonoBehaviour {
 		SceneManager.LoadScene (SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 	}
 
-	public void Pause()
-	{
-		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
-		{
-			//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
-			uiSoundA.Play();
-			ManaSystem.gameStateS = GameStates.pause;
-			settingsMenu.SetActive(true);
-		}
-	}
-
 	public void FromSettingsToGameplay()
 	{
 		//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioB");

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GameStates {preStart, started, pause, win, lose, afterWin};
+public enum GameStates {preStart, started, pause, win, lose, afterWin, gameComplete};
 
 public class ManaSystem : MonoBehaviour
 {
@@ -19,18 +19,22 @@ public class ManaSystem : MonoBehaviour
 	public int currentMana; //Amt of mana player has. Updated throughout the game
 
 	[Header("Mana UI (World Space)")]
-	public Text currentManaDisplay;
-	public Slider manaSlider;
 	public ManaFeedback manaDrop;
 	public Transform canvas;
 	public AudioSource manaGainedSound;
 
 	[Header("Overlayed GUI")]
 	public GUIOverlay gui;
+	public UIButtonFunctions buttonFunctionUI;
+
+	[Header("Systems and Managers")]
+	public WaveSystem waveSystem;
+	public EventsManager eventsManager;
 
 	private void Start()
 	{
 		gui = FindObjectOfType<GUIOverlay>();
+		buttonFunctionUI = FindObjectOfType<UIButtonFunctions>();
 		inst = this;
 
 		TurretTemplate.amplitude = 3;
@@ -38,14 +42,25 @@ public class ManaSystem : MonoBehaviour
 		gameStateS = GameStates.started;
 		gameState = gameStateS;
 		currentMana = startingMana;
+
+		waveSystem = GetComponent<WaveSystem>();
+		eventsManager = GetComponent<EventsManager>();
 	}
 
 	void Update()
 	{
-		if (gameState == GameStates.started)
+		if (gameState == GameStates.started || gameStateS == GameStates.afterWin)
 		{
-			if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
-			if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
+			/*if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
+			if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;*/
+
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+					//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
+					buttonFunctionUI.uiSoundA.Play();
+					gameStateS = GameStates.pause;
+					buttonFunctionUI.settingsMenu.SetActive(true);
+			}
 		}
 
 		Functions ();
@@ -54,26 +69,27 @@ public class ManaSystem : MonoBehaviour
 	void Functions ()
 	{
 		UpdateGameState ();
-
-		//Display Current Mana
-		currentManaDisplay.text = currentMana.ToString () + "/" + "2000";
-		manaSlider.value = currentMana;
 	}
 
 	void UpdateGameState()
 	{
-		gameState = gameStateS;
-
 		if (gameState == GameStates.started)
 		{
 			//Players win the game once their Current Mana is >= Max Mana
 			if (currentMana >= maxMana)
-				gameState = GameStates.win;
+				gameStateS = GameStates.win;
 			else if (currentMana <= 0)
-				gameState = GameStates.lose;
+				gameStateS = GameStates.lose;
+		}
+		else if (gameState == GameStates.afterWin)
+		{
+			if (currentMana <= 0 || waveSystem.allWavesCleared)
+				gameStateS = GameStates.gameComplete;
 		}
 		/*if (gameState == GameStates.pause) Time.timeScale = 0; //Time scale does not work with animation but mehhh
 		else Time.timeScale = 1;*/
+
+		gameState = gameStateS;
 	}
 
 	//minuses mana from bank
@@ -112,34 +128,4 @@ public class ManaSystem : MonoBehaviour
 		//manaDrop.manaDrop.color = Color.clear;
 		manaDrop.transform.localPosition += (transform.forward * -1) * 5;
 	}
-
-	/*public int maxMana;
-	public int currentMana;
-	public int manaRegenPerTick;
-	public int manaRegenRate;
-
-	bool cLock;
-	float time;
-
-	void Start ()
-	{
-		if (manaRegenRate <= 0) { manaRegenRate = 1; }
-		time = 1 / manaRegenRate;
-		cLock = false;
-		currentMana = maxMana; 
-	}
-
-	void Update ()
-	{
-		if (!cLock) { StartCoroutine ("spawnClock"); }
-	}
-
-	IEnumerator spawnClock () 
-	{
-		cLock = true;
-		if (currentMana < maxMana) { currentMana += manaRegenPerTick; }
-		if (currentMana > maxMana) { currentMana = maxMana; }
-		yield return new WaitForSeconds (time);
-		cLock = false;
-	}*/
 }

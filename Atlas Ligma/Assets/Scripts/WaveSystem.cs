@@ -14,17 +14,13 @@ public class WaveSystem : MonoBehaviour {
 	[Header("For Prep Phase")]
 	public bool prepPhase;
 	public int currentWave; //Refers to Index of Wave Array
-	[SerializeField] Text waveNumber;
-	[SerializeField] Image phaseImage;
-	[SerializeField] Sprite[] phasesSprites; //0 is Prep, 1 is Battle
-	[SerializeField] Text pressSpaceToStart;
-	[SerializeField] float lerpTime;
 
 	[Header("Enemy Spawn")]
 	public Waves[] wave;
 	[SerializeField] int enemySpawnIndex; //Stores the Index of Which Enemy to Spawn according to the Waves struct
 	[SerializeField] Transform[] spawnPos;
 	[SerializeField] bool cLock;
+	public bool allWavesCleared;
 
 	[Header("For Enemy Tracking")]
 	[SerializeField] List<AITemplate> enemyList;
@@ -36,18 +32,19 @@ public class WaveSystem : MonoBehaviour {
 	[Header("For Events")]
 	[SerializeField] EventsManager em;
 
-	private void Awake()
+	private void Start()
 	{
+		allWavesCleared = false;
+
 		prepPhase = true;
 		currentWave = 0;
 		enemySpawnIndex = -1;
 		enemyListS = new List<AITemplate>();
 		em = GetComponent<EventsManager> ();
 
-		waveNumber.text = "Wave " + (currentWave + 1) + "/" + wave.Length;
-		phaseImage.sprite = phasesSprites[0];
-
 		allPrebuiltTurrets = FindObjectsOfType<TurretTemplate>();
+
+		ManaSystem.inst.gui.EndWaveAppearance(); //Prep Phase Mode
 	}
 
 	void Update()
@@ -75,8 +72,6 @@ public class WaveSystem : MonoBehaviour {
 			{
 				if (Input.GetKeyDown(KeyCode.Space)) WaveStarted();
 			}
-
-			FadeInAndOut(); //For Press Space to Start
 		}
 	}
 
@@ -85,9 +80,7 @@ public class WaveSystem : MonoBehaviour {
 	{
 		prepPhase = false;
 
-		phaseImage.sprite = phasesSprites[1];
-
-		pressSpaceToStart.gameObject.SetActive(false);
+		ManaSystem.inst.gui.StartWaveAppearance();
 	}
 
 	public void WaveEnded()
@@ -98,26 +91,23 @@ public class WaveSystem : MonoBehaviour {
 		if (currentWave == wave.Length - 1)
 		{
 			if (ManaSystem.gameStateS == GameStates.started) ManaSystem.gameStateS = GameStates.lose;
-			else if (ManaSystem.gameStateS == GameStates.afterWin)
-			{
-				ManaSystem.inst.gui.continueButton.interactable = false;
-				ManaSystem.inst.gui.uiAnim += ManaSystem.inst.gui.DisplayWin;
-			}
+			else if (ManaSystem.gameStateS == GameStates.afterWin) allWavesCleared = true;
 		}
 		else
 		{
 			currentWave = Mathf.Min(++currentWave, wave.Length);
 			enemySpawnIndex = -1;
 
-			phaseImage.sprite = phasesSprites[0];
-			pressSpaceToStart.gameObject.SetActive(true);
+			ManaSystem.inst.gui.EndWaveAppearance();
 
 			if (em.EventEnd != null) em.EventEnd ();
 			if (em.ExecuteEvent != null) em.ExecuteEvent ();
 			em.ExecuteEvent = null;
+
+			ManaSystem.inst.gui.CheckEventNotifications();
 		}
 
-		waveNumber.text = "Wave " + (currentWave + 1) + "/" + wave.Length;
+		ManaSystem.inst.gui.UpdateWave(currentWave, wave.Length);
 
 		//Reset Investment after checking events as some of the Event rely on checking investment levelss
 		foreach (TurretTemplate turret in allPrebuiltTurrets)
@@ -125,18 +115,6 @@ public class WaveSystem : MonoBehaviour {
 			turret.investmentLevel = 0;
 			turret.manaReturnPerc = 0;
 		}
-	}
-
-	private void FadeInAndOut()
-	{
-		if (pressSpaceToStart.gameObject.activeInHierarchy)
-		{
-			lerpTime += Time.deltaTime;
-
-			float alpha = MathFunctions.SmoothPingPong(lerpTime, 1);
-			pressSpaceToStart.color = new Color(pressSpaceToStart.color.r, pressSpaceToStart.color.g, pressSpaceToStart.color.b, alpha);
-		}
-		else lerpTime = 0;
 	}
 
 	IEnumerator SpawnClock()
