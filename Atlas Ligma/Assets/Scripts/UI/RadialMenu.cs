@@ -17,8 +17,17 @@ public class RadialMenu : MonoBehaviour
 		cam = FindObjectOfType<Camera> ();
 	}
 
+	/// <summary>
+	/// Spawns Each Button According to what is stored in the Interactable Script.
+	/// Checks if the Button should be enabled or disabled when first spawned.
+	/// Checks the cost for each Button Action when it first spawns.
+	/// </summary>
+	/// <param name="interactable"></param>
+	/// <param name="isPrebuilt"></param>
 	public void SpawnButtons(Interactable obj, bool isPrebuilt)
 	{
+		turret = obj.turret;
+
 		buttons = new List<RadialButton>();
 
 		for (int i = 0; i < obj.options.Length; i++)
@@ -29,10 +38,13 @@ public class RadialMenu : MonoBehaviour
 			float xPos = Mathf.Sin(theta) * 1.75f;
 			float yPos = Mathf.Cos(theta) * 1.75f;
 			newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * radius;
-			newButton.icon.sprite = obj.options[i].sprite;
-			newButton.title = obj.options[i].title;
-			newButton.menu = this;
+
+			newButton.icon.sprite = obj.options[i].sprite; //Set Icon of Turret
+			newButton.title = obj.options[i].title; //Set Title of Button
+			newButton.menu = this; 
+
 			newButton.CheckDisabled();
+			newButton.CheckCost();
 
 			buttons.Add(newButton);
 		}
@@ -49,6 +61,15 @@ public class RadialMenu : MonoBehaviour
 		for (int i = 0; i < buttons.Count; i++)
 		{
 			buttons[i].CheckDisabled();
+		}
+	}
+
+	public void CheckCost()
+	{
+		for (int i = 0; i < buttons.Count; i++)
+		{
+			buttons[i].CheckCost();
+			print("Cost Checked");
 		}
 	}
 }

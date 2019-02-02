@@ -60,6 +60,7 @@ public class Interactable : MonoBehaviour
 								{
 									menuInst.gameObject.SetActive(true);
 									menuInst.CheckDisabled();
+									menuInst.CheckCost();
 								}
 							}
 						}

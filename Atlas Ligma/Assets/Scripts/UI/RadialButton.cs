@@ -8,6 +8,7 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 	public Image icon;
 	public string title;
+	public Text cost;
 	public RadialMenu menu;
 	public bool disabled;
 
@@ -54,8 +55,36 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		}
 	}
 
+	public void CheckCost()
+	{
+		if (menu.turret.faction == Faction.own)
+		{
+			if (title == "Upgrade") cost.text = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
+			else cost.text = "";
+		}
+		else
+		{
+			if (title == "Investment 1")
+			{
+				string temp = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
+				cost.text = temp;
+				print(menu.turret.turretValues.upgradeOrInvestCost[0]);
+			}
+			else if (title == "Investment 2") cost.text = menu.turret.turretValues.upgradeOrInvestCost[1].ToString();
+			else if (title == "Investment 3") cost.text = menu.turret.turretValues.upgradeOrInvestCost[2].ToString();
+			else print("Invalid Button");
+		}
+	}
+
 	public void CheckDisabled()
 	{
+		if (!menu.turret.isActiveAndEnabled)
+		{
+			disabled = true;
+			icon.color = disabled ? Color.gray : Color.white;
+			return;
+		}
+
 		if (menu.turret.investOrUpgradeDisabled)
 		{
 			if (title != "Destroy") disabled = true;
