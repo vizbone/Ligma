@@ -38978,6 +38978,10 @@ PrefabInstance:
       propertyPath: m_ReferencePixelsPerUnit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 534109246, guid: 6e02b39222fb8d241a7dd7073b8108b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e02b39222fb8d241a7dd7073b8108b3, type: 3}
 --- !u!1001 &8473635757413033150
