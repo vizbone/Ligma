@@ -97,21 +97,21 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.1
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.033333335
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: a0a69c9d9119b2d44a7e5bff6290cfd1, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6f68a875d35532547ad3e994dc1ec732, type: 2}
 --- !u!1001 &12046700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6981,7 +6981,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &626332634
 Transform:
@@ -6991,7 +6991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626332633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.0486, y: 0, z: -8.415}
+  m_LocalPosition: {x: 8.22, y: 0, z: -8.415}
   m_LocalScale: {x: 4, y: 1, z: 12}
   m_Children: []
   m_Father: {fileID: 1904728252}
@@ -8630,16 +8630,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1725294467250317557, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4631659969961415290}
-    - target: {fileID: 1725294467250317557, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: WaveStarted
-      objectReference: {fileID: 0}
     - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8764,6 +8754,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Value
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725294467250317557, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4631659969961415290}
+    - target: {fileID: 1725294467250317557, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: WaveStarted
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e921ef9028bd36e418150b73d46ce86b, type: 3}
@@ -19026,7 +19026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904728251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.466064, y: 0.3, z: 57.91531}
+  m_LocalPosition: {x: 72.466064, y: 0.11, z: 57.91531}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 626332634}

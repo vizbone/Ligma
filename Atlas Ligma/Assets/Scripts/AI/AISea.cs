@@ -31,7 +31,7 @@ public class AISea : AITemplate
 	protected override void Start () 
 	{
 		timer = 0.1f;
-		worldCanvas = GameObject.Find ("World Space Canvas").transform;
+		//worldCanvas = GameObject.Find ("World Space Canvas").transform;
 		WaveSystem.enemyListS.Add(this);
 
 		//Setting Values
@@ -71,6 +71,8 @@ public class AISea : AITemplate
 			StartCoroutine(spawn());
 		}
 		else agent.speed = 0;
+
+		base.Update();
 	}
 
 	//Do we need this???
@@ -82,7 +84,9 @@ public class AISea : AITemplate
 	IEnumerator spawn () 
 	{
 		cLock = true;
-		Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
+
+		GameObject enemy = Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
+		enemy.GetComponent<AITemplate>().worldCanvas = ManaSystem.inst.worldSpaceCanvas;
 		currentEnemySpawnCount++;
 		if (currentEnemySpawnCount >= enemyBatchSpawnCount)
 		{

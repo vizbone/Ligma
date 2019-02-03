@@ -18,7 +18,6 @@ public abstract class AITemplate : MonoBehaviour {
 	protected virtual void Start ()
 	{
 		timer = 0.1f;
-		worldCanvas = GameObject.Find ("World Space Canvas").transform;
 		WaveSystem.enemyListS.Add(this);
 
 		if (enemyType == AttackType.ground)

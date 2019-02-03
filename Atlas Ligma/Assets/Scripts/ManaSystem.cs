@@ -30,8 +30,9 @@ public class ManaSystem : MonoBehaviour
 	[Header("Systems and Managers")]
 	public WaveSystem waveSystem;
 	public EventsManager eventsManager;
+	public Transform worldSpaceCanvas;
 
-	private void Start()
+	private void Awake()
 	{
 		gui = FindObjectOfType<GUIOverlay>();
 		buttonFunctionUI = FindObjectOfType<UIButtonFunctions>();
@@ -45,6 +46,7 @@ public class ManaSystem : MonoBehaviour
 
 		waveSystem = GetComponent<WaveSystem>();
 		eventsManager = GetComponent<EventsManager>();
+		worldSpaceCanvas = GameObject.Find("World Space Canvas").transform;
 	}
 
 	void Update()

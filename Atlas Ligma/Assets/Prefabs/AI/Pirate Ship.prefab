@@ -147,13 +147,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
-  hp: 100
+  hp: 300
   manaDrop: 10
   defaultMoveSpeed: 0
   hpPack: {fileID: 0}
   hpPrefab: {fileID: 9107345785413763961, guid: bb87fb92b2640c948bc19f5160dbc523,
     type: 3}
   worldCanvas: {fileID: 0}
+  timer: 0
   whichType: 0
   path: 4
   currentDestination: 0
@@ -220,13 +221,13 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 96fc942406bbaeb47a16e7d998e0d775, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.5
+  m_Pitch: 0.5
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

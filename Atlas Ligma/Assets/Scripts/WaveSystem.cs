@@ -44,6 +44,8 @@ public class WaveSystem : MonoBehaviour {
 
 		allPrebuiltTurrets = FindObjectsOfType<TurretTemplate>();
 
+		print(ManaSystem.inst.gui.gameObject.name);
+
 		ManaSystem.inst.gui.EndWaveAppearance(); //Prep Phase Mode
 	}
 
@@ -121,25 +123,29 @@ public class WaveSystem : MonoBehaviour {
 	{
 		cLock = true;
 
+		GameObject enemy = null;
+
 		if (wave[currentWave].enemy[enemySpawnIndex].type == AttackType.sea)
 		{
 			int result = Random.Range (2, 4);
 
-			GameObject seaEnemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[result].position, Quaternion.identity);
+			enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[result].position, Quaternion.identity);
 
-			if (result == 2) seaEnemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath1;
-			else seaEnemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath2;
+			if (result == 2) enemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath1;
+			else enemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath2;
 		}
 		else if (wave[currentWave].enemy[enemySpawnIndex].type == AttackType.air)
 		{
-			Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range(4, 7)].position, Quaternion.identity);
+			enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range(4, 7)].position, Quaternion.identity);
 		}
-		else Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
+		else enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
 
 		/*for (int i = 0; i <= 30; i++)
 		{
 			Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
 		}*/
+
+		enemy.GetComponent<AITemplate>().worldCanvas = ManaSystem.inst.worldSpaceCanvas;
 
 		yield return new WaitForSeconds(wave[0].enemy[0].interval);
 
