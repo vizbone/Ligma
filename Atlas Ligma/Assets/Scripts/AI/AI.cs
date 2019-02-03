@@ -66,6 +66,7 @@ public class AI : AITemplate {
 	{
 		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin) agent.speed = defaultMoveSpeed;
 		else agent.speed = 0;
+		base.Update ();
 	}
 
 	int Find()
@@ -104,7 +105,6 @@ public class AI : AITemplate {
 
 	void OnCollisionStay (Collision other)
 	{
-		print ("tell hall");
 		if (other.gameObject.tag == "Town Hall" && enemyType == AttackType.ground)
 		{
 			//FindObjectOfType<AudioManager>().AudioToPlay("SkeletonAttack");

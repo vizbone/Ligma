@@ -74,6 +74,10 @@ MonoBehaviour:
   hp: 10
   manaDrop: 10
   defaultMoveSpeed: 0
+  hpPack: {fileID: 0}
+  hpPrefab: {fileID: 9107345785413763961, guid: bb87fb92b2640c948bc19f5160dbc523,
+    type: 3}
+  worldCanvas: {fileID: 0}
   whichType: 1
   path: 4
   currentDestination: 0

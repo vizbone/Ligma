@@ -126,6 +126,6 @@ public class ManaSystem : MonoBehaviour
 		}
 		//manaDrop.icon.color = Color.clear;
 		//manaDrop.manaDrop.color = Color.clear;
-		manaDrop.transform.localPosition += (transform.forward * -1) * 5;
+		manaDrop.transform.localPosition += (transform.forward * -1) * offset;
 	}
 }

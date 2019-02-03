@@ -384,10 +384,11 @@ public abstract class TurretTemplate : MonoBehaviour
 		if (enemy.hp > 0)
 		{
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
+			enemy.ResetTimer ();
 			if (enemy.hp <= 0)
 			{
 				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
-				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
+				manaSys.ManaAdd (addedMana, enemy.transform.position, 5);
 				enemies.Remove(enemy);
 				enemyDeathSfx.Play();
 				if (closestEnemy == enemy) closestEnemy = null;

@@ -35,9 +35,10 @@ public class Cannon : TurretTemplate
 	public override void Hit (AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
 		if (enemy.hp > 0)
-		{
+		{		
 			hitCount++;
 			enemy.hp -= turretValues.dmg; //Decrease Enemy Health Upon Hit
+			enemy.ResetTimer ();
 			if (enemy.hp <= 0)
 			{
 				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
