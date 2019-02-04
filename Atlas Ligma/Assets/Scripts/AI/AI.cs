@@ -145,4 +145,9 @@ public class AI : AITemplate {
 		}
 		return fractional + remainingDist;
 	}
+
+	void OnDestroy ()
+	{
+		Destroy (hpPack.gameObject);
+	}
 }
