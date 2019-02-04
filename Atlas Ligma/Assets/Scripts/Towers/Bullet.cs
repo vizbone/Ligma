@@ -21,6 +21,9 @@ public class Bullet : MonoBehaviour
 	public float currentStep;
 	Rigidbody rb;
 
+	[Header("Particle Effects")]
+	[SerializeField] protected Particles damageFeedback;
+
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -65,6 +68,28 @@ public class Bullet : MonoBehaviour
 			if (turret != null)
 			{
 				turret.Hit(other.GetComponentInParent<AITemplate>(), turret.isPrebuilt, gameObject, hitCount);
+
+				if (turret.GetType() == typeof(Catapult)) return;
+
+				Vector3 dir = -velocity.normalized;
+				
+				//For First Quadrant
+				float designatedAngle = Mathf.Atan(dir.x / dir.z) * Mathf.Rad2Deg;
+				if (dir.x > 0)
+				{
+					//Second Quad
+					if (dir.z < 0) designatedAngle = 180 - Mathf.Abs(designatedAngle);
+				}
+				else
+				{
+					//Third Quad
+					if (dir.z < 0) designatedAngle += 180;
+					//Fourth Quad
+					else designatedAngle = 360 - Mathf.Abs(designatedAngle);
+				}
+				//print(designatedAngle);
+
+				Instantiate(damageFeedback, other.transform.position, Quaternion.Euler(0, 0, designatedAngle));
 			}
 		}
 	}

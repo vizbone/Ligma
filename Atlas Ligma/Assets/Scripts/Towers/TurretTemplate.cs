@@ -73,9 +73,6 @@ public abstract class TurretTemplate : MonoBehaviour
 	[Header ("For Events")]
 	[SerializeField] EventsManager eventManager;
 
-	[Header("Particle Effects")]
-	[SerializeField] protected ParticleSystem damageFeedback;
-
 	[Header("SFX")]
 	[SerializeField] protected AudioSource audioSource; //For Turret Fire
 
@@ -407,6 +404,29 @@ public abstract class TurretTemplate : MonoBehaviour
 			}
 		}
 		Destroy (bullet);
+	}
+
+	protected void DamageEffect()
+	{
+		Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position) : -(transform.position - closestEnemy.transform.position);
+
+		//For First Quadrant
+		float designatedAngle = Mathf.Atan(direction.x / direction.z) * Mathf.Rad2Deg;
+		if (direction.x > 0)
+		{
+			//Second Quad
+			if (direction.z < 0) designatedAngle = 180 - Mathf.Abs(designatedAngle);
+		}
+		else
+		{
+			//Third Quad
+			if (direction.z < 0) designatedAngle += 180;
+			//Fourth Quad
+			else designatedAngle = 360 - Mathf.Abs(designatedAngle);
+		}
+		//print(designatedAngle);
+
+		this.designatedAngle = new Vector3(xRotation, 0, designatedAngle);
 	}
 
 	void ChangeMaterial (int lvlIndex)

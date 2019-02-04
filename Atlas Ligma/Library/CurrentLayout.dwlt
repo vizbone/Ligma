@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 398}
+  m_MinSize: {x: 950, y: 548}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -71,10 +71,10 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
-  m_MinSize: {x: 681, y: 348}
-  m_MaxSize: {x: 12006, y: 8048}
+  m_MinSize: {x: 679, y: 498}
+  m_MaxSize: {x: 14002, y: 14048}
   vertical: 0
-  controlID: 10
+  controlID: 123
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,15 +94,15 @@ MonoBehaviour:
     y: 457
     width: 1259
     height: 274
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 232, y: 274}
+  m_MaxSize: {x: 10002, y: 10024}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 19}
   - {fileID: 18}
   - {fileID: 13}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,10 +124,10 @@ MonoBehaviour:
     y: 0
     width: 1259
     height: 731
-  m_MinSize: {x: 406, y: 348}
-  m_MaxSize: {x: 8006, y: 8048}
+  m_MinSize: {x: 404, y: 498}
+  m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 11
+  controlID: 67
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 781
-  m_MinSize: {x: 950, y: 398}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -216,10 +216,10 @@ MonoBehaviour:
     y: 0
     width: 1259
     height: 457
-  m_MinSize: {x: 406, y: 224}
-  m_MaxSize: {x: 8006, y: 4024}
+  m_MinSize: {x: 404, y: 224}
+  m_MaxSize: {x: 8004, y: 4024}
   vertical: 0
-  controlID: 12
+  controlID: 68
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -466,7 +466,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -526,24 +526,24 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 12}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d418ffff
+      m_ExpandedIDs: b6fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Attack Effect
+        m_OriginalName: Attack Effect
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 20656
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 4
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -584,9 +584,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 70.892395, y: -9.294345, z: 54.918064}
+    m_Target: {x: 36.326744, y: 3.2466986, z: 55.040405}
     speed: 2
-    m_Value: {x: 70.892395, y: -9.294345, z: 54.918064}
+    m_Value: {x: 36.326744, y: 3.2466986, z: 55.040405}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -614,13 +614,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.29146123, y: -0.46369982, z: 0.1647577, w: -0.82029736}
+    m_Target: {x: -0.118924595, y: -0.6322937, z: 0.09905693, w: -0.7591188}
     speed: 2
-    m_Value: {x: -0.29146123, y: -0.46369982, z: 0.1647577, w: -0.82029736}
+    m_Value: {x: -0.11892389, y: -0.63228995, z: 0.09905634, w: -0.75911427}
   m_Size:
-    m_Target: 65.26258
+    m_Target: 13.214996
     speed: 2
-    m_Value: 65.26258
+    m_Value: 13.214996
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -685,7 +685,7 @@ MonoBehaviour:
     height: 254
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: attac
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -696,35 +696,35 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Bullets
+    - Assets/Scripts/Towers
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Prefabs/Bullets
+  - Assets/Scripts/Towers
   m_LastFoldersGridSize: 71
   m_LastProjectPath: C:\Users\KGZ\Desktop\DGDD\GDDS\Ligma Tower Defense\Ligma\Atlas
     Ligma
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 495}
-    m_SelectedIDs: 128b0000
-    m_LastClickedID: 35602
-    m_ExpandedIDs: 00000000804b0000ca5d0000f25d0000fe5d0000c46d0000c68a0000328b00004c8b00009a8b0000228c0000448c00009c8c0000dc8c0000f68c0000fc8c00003a8d0000ca8d0000de8d0000348e0000388e0000248f00004e8f0000b08f0000829000008c900000909000006291000090910000b0910000f091000042920000b69200001a9300002a930000629300008893000098930000e4930000029400003a94000066950000ea95000034a0000036a0000038a000003aa000003ca000003ea0000040a0000042a0000000ca9a3b
+    scrollPos: {x: 0, y: 595}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 000000009a2a0000ba2b0000e02b00004c2c0000b42c0000362d0000622d0000162e0000962e0000dc2e0000ea2e00005c2f00005c3000008630000008310000103100006a320000a032000056330000683400009c340000aa340000ac340000fe3400000a360000da360000203700007e3700000838000088380000b4380000463900000c3a00001e3a0000923a0000e63a0000043b0000763b0000aa3b0000083c00008e4000008c4100006450000066500000685000006a5000006c5000006e500000705000007250000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Black Faction
-      m_OriginalName: Black Faction
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 37360
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
@@ -738,7 +738,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000804b0000ca5d0000f25d0000fe5d0000c46d0000c68a0000328b00004c8b00009a8b0000228c0000448c00009c8c0000dc8c0000f68c0000fc8c00003a8d0000ca8d0000de8d0000348e0000388e0000248f00004e8f0000829000008c900000909000006291000090910000b0910000f091000042920000b69200001a9300002a930000629300008893000098930000e4930000029400003a94000066950000ea95000034a0000036a0000038a000003aa000003ca000003ea0000040a0000042a00000
+    m_ExpandedIDs: 000000009a2a0000ba2b0000e02b00004c2c0000b42c0000362d0000622d0000162e0000962e0000dc2e0000ea2e00005c2f00005c3000008630000008310000103100006a320000a032000056330000683400009c340000aa340000ac340000fe3400000a360000da360000203700007e3700000838000088380000b4380000463900000c3a00001e3a0000923a0000e63a0000043b0000763b0000aa3b0000083c00008e4000008c4100006450000066500000685000006a5000006c5000006e5000007050000072500000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

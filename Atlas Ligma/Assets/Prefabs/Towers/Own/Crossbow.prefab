@@ -203,8 +203,9 @@ MonoBehaviour:
   arcTravel: 0
   bullet: {fileID: 114779164487480798, guid: 223d526f9a2a8e4468708021759c3d82, type: 3}
   eventManager: {fileID: 0}
-  shootingSounds: {fileID: 2347145811552803485}
-  enemyDeathSfx: {fileID: 2503397855195288243}
+  damageFeedback: {fileID: 664750416770024074, guid: cfbc10ad308e92e42b534c2b9f985b47,
+    type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &114594549247061124
 MonoBehaviour:
   m_ObjectHideFlags: 0

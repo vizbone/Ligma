@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cannon : TurretTemplate
 {
+	[SerializeField] Particles smokeAndFlash;
 
 	protected override void SetValues ()
 	{
