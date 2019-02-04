@@ -24,8 +24,6 @@ public class AISea : AITemplate
 	bool cLock;
 	bool firstTime;
 
-	public AudioSource seaEnemySpawnAudio;
-
 	int currentEnemySpawnCount;
 
 	protected override void Start () 
@@ -109,7 +107,8 @@ public class AISea : AITemplate
 	{
 		if (other.tag == "WaypointSea")
 		{
-			seaEnemySpawnAudio.Play ();
+			ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.unloading, audioSource);
+
 			if (currentDestination == 1)
 			{
 				if (firstTime)

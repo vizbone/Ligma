@@ -7,6 +7,7 @@ public enum GameStates {preStart, started, pause, win, lose, afterWin, gameCompl
 
 public class ManaSystem : MonoBehaviour
 {
+	//To Act as Game Manager
 	public static ManaSystem inst;
 
 	[Header ("Game State Manager")]
@@ -30,6 +31,7 @@ public class ManaSystem : MonoBehaviour
 	[Header("Systems and Managers")]
 	public WaveSystem waveSystem;
 	public EventsManager eventsManager;
+	public AudioManager audioLibrary;
 	public Transform worldSpaceCanvas;
 
 	private void Awake()
@@ -46,6 +48,7 @@ public class ManaSystem : MonoBehaviour
 
 		waveSystem = GetComponent<WaveSystem>();
 		eventsManager = GetComponent<EventsManager>();
+		audioLibrary = GetComponent<AudioManager>();
 		worldSpaceCanvas = GameObject.Find("World Space Canvas").transform;
 	}
 
@@ -95,7 +98,7 @@ public class ManaSystem : MonoBehaviour
 	}
 
 	//minuses mana from bank
-	public void ManaMinus(int amount, Vector3 pos, float offset)
+	public void ManaMinus(int amount, Vector3 pos, float offset = 5)
 	{
 		currentMana = Mathf.Max (0, currentMana - amount);
 		DisplayText (-amount, pos, offset);

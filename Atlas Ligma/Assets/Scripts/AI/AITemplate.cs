@@ -9,6 +9,8 @@ public abstract class AITemplate : MonoBehaviour {
 	public int manaDrop = 10;
 	public float defaultMoveSpeed;
 
+	public AudioSource audioSource;
+
 	public HealthBar hpPack;
 	public HealthBar hpPrefab;
 	public Transform worldCanvas;

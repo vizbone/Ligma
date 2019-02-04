@@ -42,9 +42,12 @@ public class Cannon : TurretTemplate
 			if (enemy.hp <= 0)
 			{
 				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
-				manaSys.ManaAdd (addedMana, enemy.transform.position, 0);
+				manaSys.ManaAdd (addedMana, transform.position, 5);
 				enemies.Remove(enemy);
-				enemyDeathSfx.Play();
+
+				AudioSource source = enemy.GetComponent<AudioSource>();
+				ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.skeletonDeath, audioSource);
+
 				if (closestEnemy == enemy) closestEnemy = null;
 				Destroy (enemy.gameObject);
 			}

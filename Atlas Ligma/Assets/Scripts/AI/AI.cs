@@ -19,13 +19,9 @@ public class AI : AITemplate {
 	float time;
 	bool cLock;
 
-	ManaSystem manaSys;
-	public AudioSource skeletonAttackSound;
-
 	protected override void Start () 
 	{
 		ai = FindObjectOfType<AIMovement>();
-		manaSys = FindObjectOfType<ManaSystem> ();
 		if (path != AIMovement.Paths.air)
 		{
 			int temp = Find ();
@@ -107,9 +103,8 @@ public class AI : AITemplate {
 	{
 		if (other.gameObject.tag == "Town Hall" && enemyType == AttackType.ground)
 		{
-			//FindObjectOfType<AudioManager>().AudioToPlay("SkeletonAttack");
-			skeletonAttackSound.Play();
-			manaSys.ManaMinus (dmg, transform.position, 0);
+			ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.skeletonAttack, audioSource);
+			ManaSystem.inst.ManaMinus (dmg, transform.position, 0);
 			Destroy (gameObject);
 		}
 	}
@@ -119,7 +114,7 @@ public class AI : AITemplate {
 		cLock = true;
 		GRENADA GRENADA = Instantiate (YYYEEEEEEETTTT, transform.GetChild (0).position + offset, Quaternion.identity);
 		GRENADA.FORTHEMOTHERLAND = dmg;
-		GRENADA.YEETUSFEETUS = manaSys;
+		GRENADA.YEETUSFEETUS = ManaSystem.inst; //Not sure if using a static inst would change anything
 		yield return new WaitForSeconds (time);
 		cLock = false;
 	}

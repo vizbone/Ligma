@@ -73,9 +73,11 @@ public abstract class TurretTemplate : MonoBehaviour
 	[Header ("For Events")]
 	[SerializeField] EventsManager eventManager;
 
+	[Header("Particle Effects")]
+	[SerializeField] protected ParticleSystem damageFeedback;
+
 	[Header("SFX")]
-	[SerializeField] protected AudioSource shootingSounds; //To be set in Inspector
-	[SerializeField] protected AudioSource enemyDeathSfx;
+	[SerializeField] protected AudioSource audioSource; //For Turret Fire
 
 
 	protected virtual void Start ()
@@ -88,6 +90,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		meshCollider = GetComponent<MeshCollider> ();
 		turretMeshCollider = turretGO.GetComponent<MeshCollider>();
 
+		audioSource = GetComponentInChildren<AudioSource>(); //For now use Get Component in Children because the Prefabs are messy
 		//shootingSounds = transform.GetChild(0).GetComponent<AudioSource>();
 		//enemyDeathSfx = transform.GetChild(1).GetComponent<AudioSource>();
 
@@ -351,7 +354,12 @@ public abstract class TurretTemplate : MonoBehaviour
 			//print(currentBullet.name);
 			currentBullet.turret = this;
 
-			shootingSounds.Play();
+			//Help to refine this if possible. Best that I can think of for now
+			if (this.GetType() == typeof(Cannon)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.cannon, audioSource);
+			else if (this.GetType() == typeof(Catapult)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.catapult, audioSource);
+			else if (this.GetType() == typeof(Crossbow)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.crossbow, audioSource);
+			else if (this.GetType() == typeof(Rockets)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.rocket, audioSource);
+			else print("Error in Getting Correct Audio Source");
 
 			if (arcTravel)
 			{
@@ -388,9 +396,12 @@ public abstract class TurretTemplate : MonoBehaviour
 			if (enemy.hp <= 0)
 			{
 				int addedMana = (int) (enemy.manaDrop * manaReturnPerc);
-				manaSys.ManaAdd (addedMana, enemy.transform.position, 5);
+				manaSys.ManaAdd (addedMana, transform.position, 5);
 				enemies.Remove(enemy);
-				enemyDeathSfx.Play();
+
+				AudioSource source = enemy.GetComponent<AudioSource>();
+				ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.skeletonDeath, audioSource);
+
 				if (closestEnemy == enemy) closestEnemy = null;
 				Destroy (enemy.gameObject);
 			}

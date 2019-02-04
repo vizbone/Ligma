@@ -10,7 +10,8 @@ public class GRENADA : MonoBehaviour
 	void OnCollisionEnter (Collision other)
 	{
 		ManaSystem.inst.ManaMinus(FORTHEMOTHERLAND, other.collider.transform.position, 1);
-		bombSound.Play();
+		bombSound = GetComponent<AudioSource>();
+		ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.airShipBomb, bombSound);
 		Destroy(gameObject);
 	}
 }

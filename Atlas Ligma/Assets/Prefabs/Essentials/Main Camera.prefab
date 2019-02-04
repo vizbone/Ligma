@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4631659969495447585}
   - component: {fileID: 4631659969495447592}
   - component: {fileID: 4631659969495447587}
+  - component: {fileID: 5420911518988906447}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -112,16 +113,16 @@ MonoBehaviour:
   startingMana: -10
   maxMana: 2000
   currentMana: 0
-  totalWaves: 10
-  currentWave: 0
-  currentManaDisplay: {fileID: 0}
-  manaSlider: {fileID: 0}
   manaDrop: {fileID: 3490758228446144676, guid: 20f63cb6bfe3ac34599ed809e14a552c,
     type: 3}
   canvas: {fileID: 0}
   manaGainedSound: {fileID: 4631659969608898880}
-  winObj: {fileID: 0}
-  loseObj: {fileID: 0}
+  gui: {fileID: 0}
+  buttonFunctionUI: {fileID: 0}
+  waveSystem: {fileID: 0}
+  eventsManager: {fileID: 0}
+  audioLibrary: {fileID: 0}
+  worldSpaceCanvas: {fileID: 0}
 --- !u!114 &4631659969495447584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +191,8 @@ MonoBehaviour:
   startingCamSize: 15
   scrollSpeed: 1
   cameraPanSpeed: 0.3
+  oriHorizontalBorderOffset: 0
+  oriVerticalBorderOffset: 0
   horizontalBorderOffset: 10
   verticalBorderOffset: 10
 --- !u!114 &4631659969495447599
@@ -206,8 +209,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prepPhase: 0
   currentWave: 0
-  nextWaveButton: {fileID: 0}
-  prepPhaseText: {fileID: 0}
   wave:
   - enemy:
     - {fileID: 11400000, guid: ca7d1cfd97b702d44b9cb67ae7cd20e8, type: 2}
@@ -279,7 +280,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   cLock: 0
+  allWavesCleared: 0
   enemyList: []
+  allPrebuiltTurrets: []
   em: {fileID: 0}
 --- !u!114 &4631659969495447585
 MonoBehaviour:
@@ -322,6 +325,116 @@ MonoBehaviour:
   selectedEventIds: 00000000010000000200000003000000
   allWhiteTurrets: []
   allBlackTurrets: []
+  eventItems: []
+  eventLineUp: []
+--- !u!114 &5420911518988906447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4631659969495447607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d329dc6d49d3e943ae62c6aba3a94a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannon:
+    audioClip: {fileID: 8300000, guid: 19752713b2a846e47aa57616b80ed131, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  catapult:
+    audioClip: {fileID: 8300000, guid: 11e592f344fb0ba47b8c05985354379c, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  catapultExplosion:
+    audioClip: {fileID: 8300000, guid: b5e4a35ed5f62154cb9b631fa56455b5, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  crossbow:
+    audioClip: {fileID: 8300000, guid: f92e4a68a283f8f488210e37d42840fa, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  rocket:
+    audioClip: {fileID: 8300000, guid: 449b428ce106ee2488e3486ce699f5aa, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  skeletonAttack:
+    audioClip: {fileID: 8300000, guid: fdd778655d39c474da7db4d1884e26f9, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  skeletonDeath:
+    audioClip: {fileID: 8300000, guid: 4a5ff79b36b820d4594a75b46002cb83, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  unloading:
+    audioClip: {fileID: 8300000, guid: 96fc942406bbaeb47a16e7d998e0d775, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  seaEnemyDestroyed:
+    audioClip: {fileID: 8300000, guid: 4a5ff79b36b820d4594a75b46002cb83, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  airShipBomb:
+    audioClip: {fileID: 8300000, guid: fe32fddbc644931459b485204e616b0d, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  airShipDestroyed:
+    audioClip: {fileID: 8300000, guid: 4a5ff79b36b820d4594a75b46002cb83, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  manaGain:
+    audioClip: {fileID: 8300000, guid: 7626140963863db46903e773a1d28bba, type: 3}
+    defaultVolume: 1
+    minVolume: 1
+    maxVolume: 1
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
 --- !u!1 &4631659969608898894
 GameObject:
   m_ObjectHideFlags: 0
