@@ -76,6 +76,9 @@ public abstract class TurretTemplate : MonoBehaviour
 	[Header("SFX")]
 	[SerializeField] protected AudioSource audioSource; //For Turret Fire
 
+	[Header("Particles")]
+	[SerializeField] Transform particlePos;
+	[SerializeField] Particles smokeAndFlash;
 
 	protected virtual void Start ()
 	{
@@ -371,8 +374,13 @@ public abstract class TurretTemplate : MonoBehaviour
 			else
 			{
 				currentBullet.catapult = false;
-				if (this.GetType () == typeof (Cannon)) currentBullet.velocity = new Vector3(direction.x, 0, direction.z) * turretValues.bulletSpeed;
-				else currentBullet.velocity = direction * turretValues.bulletSpeed;
+				if (this.GetType () == typeof (Cannon))
+				{
+					currentBullet.velocity = new Vector3 (direction.x, 0, direction.z) * turretValues.bulletSpeed;
+					Quaternion rotation = transform.rotation;
+					rotation.eulerAngles = rotation.eulerAngles - new Vector3 (rotation.eulerAngles.x, 0, 0);
+					Instantiate (smokeAndFlash, particlePos.position, rotation); //i put the cannon particle here for now until more particles
+				} else currentBullet.velocity = direction * turretValues.bulletSpeed;
 			}
 			
 			coolDown = 1 / turretValues.fireRate;

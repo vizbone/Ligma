@@ -44,8 +44,6 @@ public class WaveSystem : MonoBehaviour {
 
 		allPrebuiltTurrets = FindObjectsOfType<TurretTemplate>();
 
-		print(ManaSystem.inst.gui.gameObject.name);
-
 		ManaSystem.inst.gui.EndWaveAppearance(); //Prep Phase Mode
 	}
 

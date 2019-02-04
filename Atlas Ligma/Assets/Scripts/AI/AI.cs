@@ -103,7 +103,7 @@ public class AI : AITemplate {
 	{
 		if (other.gameObject.tag == "Town Hall" && enemyType == AttackType.ground)
 		{
-			ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.skeletonAttack, audioSource);
+			//ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.skeletonAttack, audioSource);
 			ManaSystem.inst.ManaMinus (dmg, transform.position, 0);
 			Destroy (gameObject);
 		}
@@ -144,10 +144,5 @@ public class AI : AITemplate {
 			ai.path4DV[i];
 		}
 		return fractional + remainingDist;
-	}
-
-	void OnDestroy ()
-	{
-		Destroy (hpPack.gameObject);
 	}
 }

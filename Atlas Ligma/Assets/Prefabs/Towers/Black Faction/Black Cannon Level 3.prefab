@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7109414140762934361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6388605964090733522}
+  m_Layer: 0
+  m_Name: particlePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6388605964090733522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109414140762934361}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.020401001, y: -1.3073732, z: 1.334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3782683067329902609}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9017592485518283663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,23 +117,22 @@ PrefabInstance:
       propertyPath: level
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5250623499574109704, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+    - target: {fileID: 5250593655124236344, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
-      propertyPath: options.Array.data[0].sprite
+      propertyPath: particlePos
       value: 
-      objectReference: {fileID: 21300000, guid: 7ec26c19ad68af54ab2eace40a50d616,
+      objectReference: {fileID: 6388605964090733522}
+    - target: {fileID: 5250593655124236344, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
-    - target: {fileID: 5250623499574109704, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-        type: 3}
-      propertyPath: options.Array.data[1].sprite
+      propertyPath: smokeAndFlash
       value: 
-      objectReference: {fileID: 21300000, guid: 851d2d6de334cf241ac8099e286a3de3,
-        type: 3}
-    - target: {fileID: 5250623499574109704, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-        type: 3}
-      propertyPath: options.Array.data[2].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: bc7dcd4a1b52457458e1cb221cbb4747,
+      objectReference: {fileID: 586501335781586706, guid: c27d601a4ac9e214689ecfdd18156808,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ad447ccd06b448ad62f47f8ddc7eb, type: 3}
+--- !u!4 &3782683067329902609 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5285579597727525790, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 9017592485518283663}
+  m_PrefabAsset: {fileID: 0}
