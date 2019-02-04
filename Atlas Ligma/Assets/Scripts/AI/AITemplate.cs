@@ -62,7 +62,8 @@ public abstract class AITemplate : MonoBehaviour {
 			if (hp <= 0) Destroy (hpPack.gameObject);
 		} else if (hpPack != null) hpPack.gameObject.SetActive (false);
 
-		if (hpPack != null) hpPack.transform.position = transform.position + worldCanvas.transform.up * 0.6f + (worldCanvas.transform.forward * -1) * 5;
+		float vertOffset = enemyType == AttackType.ground ? 0.6f : enemyType == AttackType.air ? 2f : 0.6f;
+		if (hpPack != null) hpPack.transform.position = transform.position + worldCanvas.transform.up * vertOffset + (worldCanvas.transform.forward * -1) * 5;
 	}
 
 	public void ResetTimer ()

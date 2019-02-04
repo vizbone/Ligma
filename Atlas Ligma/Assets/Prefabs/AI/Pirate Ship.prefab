@@ -121,7 +121,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1464889855223836}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 0.1
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -150,6 +150,7 @@ MonoBehaviour:
   hp: 300
   manaDrop: 10
   defaultMoveSpeed: 0
+  audioSource: {fileID: 0}
   hpPack: {fileID: 0}
   hpPrefab: {fileID: 9107345785413763961, guid: bb87fb92b2640c948bc19f5160dbc523,
     type: 3}
@@ -163,7 +164,6 @@ MonoBehaviour:
   enemySpawnRate: 1
   maxInstances: 1
   instanceCount: 0
-  seaEnemySpawnAudio: {fileID: 6380646306625261007}
 --- !u!65 &65006958825820156
 BoxCollider:
   m_ObjectHideFlags: 0

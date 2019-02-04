@@ -52,7 +52,7 @@ public class CameraMovement : MonoBehaviour
 
 	void BorderOffset ()
 	{
-		float difference = cam.orthographicSize - startingCamSize;
+		float difference = (cam.orthographicSize - startingCamSize) * 1.5f;
 		horizontalBorderOffset = oriHorizontalBorderOffset - difference;
 		verticalBorderOffset = oriVerticalBorderOffset - difference;
 	}
