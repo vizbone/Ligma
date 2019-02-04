@@ -19,10 +19,19 @@ public class UIButtonFunctions : MonoBehaviour {
 	public AudioSource uiSoundA;
 	public AudioSource uiSoundB;
 
+	public Slider bgmSlider;
+	public Slider sfxSlider;
+
 	private void Start()
 	{
 		manaSys = FindObjectOfType<ManaSystem>();
 		gridSys = FindObjectOfType<GridSystem>();
+
+		//Load the Saved Values throughout scenes
+		bgmSlider.value = PlayerPrefs.GetFloat("bgmSavedVol", 0.3f);
+		sfxSlider.value = PlayerPrefs.GetFloat("sfxSavedVol", 0.3f);
+		masterMixer.SetFloat("bgmVol", Mathf.Log(bgmSlider.value) * 20);
+		masterMixer.SetFloat("sfxVol", Mathf.Log(sfxSlider.value) * 20);
 	}
 
 	private void Update()
@@ -68,11 +77,13 @@ public class UIButtonFunctions : MonoBehaviour {
 	public void VolumeBGM(float bgmLvl)
 	{
 		masterMixer.SetFloat("bgmVol", Mathf.Log(bgmLvl) * 20);
+		PlayerPrefs.SetFloat("bgmSavedVol", bgmLvl);
 	}
 
 	public void VolumeSFX(float sfxLvl)
 	{
 		masterMixer.SetFloat("sfxVol", Mathf.Log(sfxLvl) * 20);
+		PlayerPrefs.SetFloat("sfxSavedVol", sfxLvl);
 	}
 
 	/*public void MuteAllVolumes()

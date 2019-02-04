@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class WaveSystem : MonoBehaviour {
 	
@@ -31,6 +32,10 @@ public class WaveSystem : MonoBehaviour {
 
 	[Header("For Events")]
 	[SerializeField] EventsManager em;
+
+	[Header("For AudioMixerSnapShot System")]
+	[SerializeField] AudioMixerSnapshot prepPhaseSnapShot;
+	[SerializeField] AudioMixerSnapshot battlePhaseSnapShot;
 
 	private void Start()
 	{
@@ -80,12 +85,18 @@ public class WaveSystem : MonoBehaviour {
 	{
 		prepPhase = false;
 
+		//BGM Transition from PrepPhase to BattlePhase
+		battlePhaseSnapShot.TransitionTo(1.0f);
+
 		ManaSystem.inst.gui.StartWaveAppearance();
 	}
 
 	public void WaveEnded()
 	{
 		prepPhase = true;
+
+		//BGM Transition from BattlePhase to PrepPhase
+		prepPhaseSnapShot.TransitionTo(1.0f);
 
 		//If Current Wave is the Final Wave
 		if (currentWave == wave.Length - 1)

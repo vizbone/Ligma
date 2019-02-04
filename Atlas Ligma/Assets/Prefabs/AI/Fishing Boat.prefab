@@ -74,7 +74,7 @@ MonoBehaviour:
   hp: 200
   manaDrop: 10
   defaultMoveSpeed: 0
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 3742604478935463135}
   hpPack: {fileID: 0}
   hpPrefab: {fileID: 9107345785413763961, guid: bb87fb92b2640c948bc19f5160dbc523,
     type: 3}
@@ -99,8 +99,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5621986, y: 0.93336606, z: 2.8757706}
-  m_Center: {x: 0.03172493, y: -0.4906212, z: 0.08392334}
+  m_Size: {x: 1.5621986, y: 3.061461, z: 2.8757706}
+  m_Center: {x: 0.03172493, y: 0.57342625, z: 0.08392334}
 --- !u!95 &95667294187526738
 Animator:
   serializedVersion: 3
