@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 	public TurretTemplate turret;
 	public Vector3 velocity; //Save the Speed the Bullet is supposed to move
 	public float lifetime;
+	float timeElpased;
 	public int hitCount; //Only used by Cannon
 
 	public float frequency1;
@@ -37,8 +38,6 @@ public class Bullet : MonoBehaviour
 			currentStep = 0;
 			target = new Vector3(target.x, target.y + 0.5f, target.z);
 		}
-		else
-			Destroy(gameObject, lifetime);
 	}
 
 	void Update ()
@@ -46,7 +45,13 @@ public class Bullet : MonoBehaviour
 		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
 			if (catapult) ArcTravel();
-			else rb.velocity = velocity;
+			else
+			{
+				rb.velocity = velocity;
+				timeElpased += Time.deltaTime;
+
+				if (timeElpased >= lifetime) Destroy(gameObject);
+			}
 		}
 		else
 		{
@@ -71,7 +76,7 @@ public class Bullet : MonoBehaviour
 
 				if (turret.GetType() == typeof(Catapult)) return;
 
-				Vector3 dir = -velocity.normalized;
+				Vector3 dir = velocity.normalized;
 				
 				//For First Quadrant
 				float designatedAngle = Mathf.Atan(dir.x / dir.z) * Mathf.Rad2Deg;
@@ -87,9 +92,10 @@ public class Bullet : MonoBehaviour
 					//Fourth Quad
 					else designatedAngle = 360 - Mathf.Abs(designatedAngle);
 				}
+
 				//print(designatedAngle);
 
-				Instantiate(damageFeedback, other.transform.position, Quaternion.Euler(0, 0, designatedAngle));
+				Instantiate(damageFeedback, other.transform.position, Quaternion.Euler(0, designatedAngle, 0));
 			}
 		}
 	}

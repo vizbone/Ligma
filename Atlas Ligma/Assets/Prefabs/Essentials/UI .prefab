@@ -1637,9 +1637,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsMenu: {fileID: 1725294467619621733}
   currentBuild: {fileID: 0}
-  masterMixer: {fileID: 24100000, guid: 64f23a9aa7be5d94d9e4bbf231f2f6e0, type: 2}
+  masterMixer: {fileID: 24100000, guid: f3eb1d3a03bbb434da1fade3429f5b85, type: 2}
   uiSoundA: {fileID: 1725294466699061593}
   uiSoundB: {fileID: 1725294467981894299}
+  bgmSlider: {fileID: 1725294466302561338}
+  sfxSlider: {fileID: 1725294466099319851}
 --- !u!114 &2986809627746218756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1679,6 +1681,7 @@ MonoBehaviour:
   notification: {fileID: 8533722814923961615}
   eventText: {fileID: 7003860394673477033}
   eventNotifLerpTime: 0
+  eventNotificationSpeed: 0.0005
   notificationShown: 0
 --- !u!1 &1725294466522634661
 GameObject:
@@ -2372,8 +2375,8 @@ RectTransform:
   m_Father: {fileID: 1725294467655299854}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.2992993, y: 0}
+  m_AnchorMax: {x: 0.2992993, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3263,8 +3266,8 @@ RectTransform:
   m_Father: {fileID: 1725294467774732624}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.2992993, y: 0}
+  m_AnchorMax: {x: 0.2992993, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}

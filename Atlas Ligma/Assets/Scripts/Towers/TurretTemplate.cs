@@ -19,6 +19,7 @@ public struct TurretValues
 	public float range; //Diameter of where the Turret can detect enemies
 	public int[] upgradeOrInvestCost; //Stores cost of Upgrade or Investment
 	public AttackType[] attackType; //Check which enemy it can attack
+	public Vector3 firingPos; //Position that the Bullet Instantiates from
 }
 
 [RequireComponent (typeof (CapsuleCollider))]
@@ -77,8 +78,8 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] protected AudioSource audioSource; //For Turret Fire
 
 	[Header("Particles")]
-	[SerializeField] Transform particlePos;
-	[SerializeField] Particles smokeAndFlash;
+	//[SerializeField] Transform particlePos;
+	[SerializeField] Particles shootingEffects;
 
 	protected virtual void Start ()
 	{
@@ -349,13 +350,19 @@ public abstract class TurretTemplate : MonoBehaviour
 
 		if (enemies.Count > 0)
 		{
-			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : -(transform.position - closestEnemy.transform.position).normalized;
-			Bullet currentBullet = Instantiate (bullet, transform.position + direction * 0.5f + new Vector3 (0, 0.5f, 0), Quaternion.identity);
+			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : new Vector3(transform.position.x - closestEnemy.transform.position.x, 0, transform.position.z - closestEnemy.transform.position.z).normalized * -1;
+			Vector3 direction2D = new Vector3(direction.x, 0, direction.z);
+			Bullet currentBullet = Instantiate (bullet, transform.position + Vector3.Scale(turretValues.firingPos, direction2D), Quaternion.Euler(-90, 0, 0));
 			//print(currentBullet.name);
 			currentBullet.turret = this;
 
-			//Help to refine this if possible. Best that I can think of for now
-			if (this.GetType() == typeof(Cannon)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.cannon, audioSource);
+			//For Audio
+			if (this.GetType() == typeof(Cannon))
+			{
+				ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.cannon, audioSource);
+				Instantiate(shootingEffects, transform.position + turretValues.firingPos, Quaternion.identity); //i put the cannon particle here for now until more particles
+				print(turretValues.firingPos);
+			}
 			else if (this.GetType() == typeof(Catapult)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.catapult, audioSource);
 			else if (this.GetType() == typeof(Crossbow)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.crossbow, audioSource);
 			else if (this.GetType() == typeof(Rockets)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.rocket, audioSource);
@@ -374,13 +381,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			else
 			{
 				currentBullet.catapult = false;
-				if (this.GetType () == typeof (Cannon))
-				{
-					currentBullet.velocity = new Vector3 (direction.x, 0, direction.z) * turretValues.bulletSpeed;
-					Quaternion rotation = transform.rotation;
-					rotation.eulerAngles = rotation.eulerAngles - new Vector3 (rotation.eulerAngles.x, 0, 0);
-					Instantiate (smokeAndFlash, particlePos.position, rotation); //i put the cannon particle here for now until more particles
-				} else currentBullet.velocity = direction * turretValues.bulletSpeed;
+				currentBullet.velocity = direction * turretValues.bulletSpeed;
 			}
 			
 			coolDown = 1 / turretValues.fireRate;

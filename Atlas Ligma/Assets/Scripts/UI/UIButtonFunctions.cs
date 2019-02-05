@@ -45,25 +45,37 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void BackToMainMenu ()
 	{
-		SceneManager.LoadScene ("Main Menu");
+		if (ManaSystem.inst != null)
+		{
+			if (!ManaSystem.inst.gui.endScreenIsPlaying)  SceneManager.LoadScene("Main Menu");
+		}
+		else SceneManager.LoadScene("Main Menu");
 	}
 	
 	public void Continue ()
 	{
-		ManaSystem.gameStateS = GameStates.afterWin;
-		ManaSystem.inst.gui.lerpTime = null;
-		ManaSystem.inst.gui.lerpTime = new float[2];
-		ManaSystem.inst.gui.uiAnim += ManaSystem.inst.gui.HideEndScreen;
+		if (!ManaSystem.inst.gui.endScreenIsPlaying)
+		{
+			ManaSystem.gameStateS = GameStates.afterWin;
+			ManaSystem.inst.gui.lerpTime = null;
+			ManaSystem.inst.gui.endScreenIsPlaying = true;
+			ManaSystem.inst.gui.lerpTime = new float[2];
+			ManaSystem.inst.gui.uiAnim += ManaSystem.inst.gui.HideEndScreen;
+		}
 	}
 
 	public void NextLevel (string arg)
 	{
-		SceneManager.LoadScene (arg);
+		if (ManaSystem.inst != null)
+		{
+			if (!ManaSystem.inst.gui.endScreenIsPlaying) SceneManager.LoadScene(arg);
+		}
+		else SceneManager.LoadScene(arg);
 	}
 
 	public void Retry ()
 	{
-		SceneManager.LoadScene (SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 	}
 
 	public void FromSettingsToGameplay()

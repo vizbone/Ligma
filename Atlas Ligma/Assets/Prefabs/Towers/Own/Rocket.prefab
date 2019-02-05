@@ -150,6 +150,7 @@ MonoBehaviour:
     range: 0
     upgradeOrInvestCost: 
     attackType: 
+    firingPos: {x: 0, y: 0, z: 0}
   faction: 0
   manaSys: {fileID: 0}
   manaReturnPerc: 0
@@ -186,9 +187,9 @@ MonoBehaviour:
   arcTravel: 0
   bullet: {fileID: 114921432386778986, guid: 4582cb63bb08fef40b13aee5269be7a1, type: 3}
   eventManager: {fileID: 0}
-  damageFeedback: {fileID: 664750416770024074, guid: cfbc10ad308e92e42b534c2b9f985b47,
-    type: 3}
   audioSource: {fileID: 0}
+  shootingEffects: {fileID: 586501335781586706, guid: c27d601a4ac9e214689ecfdd18156808,
+    type: 3}
 --- !u!114 &114685334013731344
 MonoBehaviour:
   m_ObjectHideFlags: 0

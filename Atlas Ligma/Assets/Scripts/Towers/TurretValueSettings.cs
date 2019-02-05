@@ -250,6 +250,7 @@ public class TurretValueSettings : MonoBehaviour
 		{
 			turretValues.upgradeOrInvestCost[i] = staticValues.upgradeOrInvestCost[i];
 		}
+		turretValues.firingPos = staticValues.firingPos;
 		return turretValues;
 	}
 }

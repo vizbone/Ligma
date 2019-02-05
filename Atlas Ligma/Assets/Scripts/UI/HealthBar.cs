@@ -20,8 +20,11 @@ public class HealthBar : MonoBehaviour
 
 	void Update ()
 	{
-		currentHp = ai.hp;
-		hp.fillAmount = (float) currentHp / maxHp;
-		if (ai == null) Destroy (gameObject);
+		if (ai != null)
+		{
+			currentHp = ai.hp;
+			hp.fillAmount = (float)currentHp / maxHp;
+		}
+		else Destroy(gameObject);
 	}
 }

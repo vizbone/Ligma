@@ -22,6 +22,8 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] Image lose;
 	[SerializeField] RectTransform[] loseButtons;
 
+	public bool endScreenIsPlaying;
+
 	public float[] lerpTime; //0 is for Image, 1 is for Text, subsequent is for Buttons
 
 	[Header("Prep Phase GUI")]
@@ -36,6 +38,7 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] Image notification;
 	[SerializeField] Text eventText;
 	[SerializeField] float eventNotifLerpTime;
+	[SerializeField] float eventNotificationSpeed;
 	[SerializeField] bool notificationShown;
 
 	public System.Action uiAnim;
@@ -44,6 +47,7 @@ public class GUIOverlay : MonoBehaviour
 	void Start()
     {
 		SetWinLoseObj();
+		endScreenIsPlaying = false;
 
 		winObj.gameObject.SetActive(false);
 		loseObj.gameObject.SetActive(false);
@@ -52,6 +56,7 @@ public class GUIOverlay : MonoBehaviour
 		phaseImage.sprite = phasesSprites[0];
 
 		if (prepPhaseLerpSpeed <= 0) prepPhaseLerpSpeed = 1;
+		if (eventNotificationSpeed <= 0) eventNotificationSpeed = 0.05f;
 
 		notificationShown = false;
 	}
@@ -71,12 +76,14 @@ public class GUIOverlay : MonoBehaviour
 		{
 			lerpTime = new float[6];
 			winObj.gameObject.SetActive(true);
+			endScreenIsPlaying = true;
 			uiAnim += DisplayWin;
 		}
 		else if (ManaSystem.inst.gameState == GameStates.lose && !loseObj.gameObject.activeInHierarchy)
 		{
 			lerpTime = new float[4];
 			loseObj.gameObject.SetActive(true);
+			endScreenIsPlaying = true;
 			uiAnim += DisplayLose;
 		}
 		else if (ManaSystem.inst.gameState == GameStates.gameComplete && !winObj.gameObject.activeInHierarchy)
@@ -84,6 +91,7 @@ public class GUIOverlay : MonoBehaviour
 			lerpTime = new float[6];
 			winObj.gameObject.SetActive(true);
 			continueButton.interactable = false;
+			endScreenIsPlaying = true;
 			uiAnim += DisplayWin;
 		}
 	}
@@ -146,7 +154,7 @@ public class GUIOverlay : MonoBehaviour
 
 		yield return new WaitUntil( () => notificationShown == true);
 
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(5);
 
 		uiAnim += HideNotification;
 
@@ -173,7 +181,7 @@ public class GUIOverlay : MonoBehaviour
 
 	private void DisplayNotification()
 	{
-		eventNotifLerpTime = Mathf.Min(MathFunctions.SinerpValue(eventNotifLerpTime + 0.05f * Time.deltaTime, 1), 1);
+		eventNotifLerpTime = Mathf.Min(MathFunctions.SinerpValue(eventNotifLerpTime + eventNotificationSpeed * Time.deltaTime, 1), 1);
 
 		//95 x is displayed, -110 x is not hidden
 		float xPos = Mathf.Lerp(-110, 95, eventNotifLerpTime);
@@ -190,7 +198,7 @@ public class GUIOverlay : MonoBehaviour
 
 	private void HideNotification()
 	{
-		eventNotifLerpTime = Mathf.Min(MathFunctions.SinerpValue(eventNotifLerpTime + 0.05f * Time.deltaTime, 1), 1);
+		eventNotifLerpTime = Mathf.Min(MathFunctions.SinerpValue(eventNotifLerpTime + eventNotificationSpeed * Time.deltaTime, 1), 1);
 
 		//95 x is displayed, -110 x is not hidden
 		float xPos = Mathf.Lerp(95, -110, eventNotifLerpTime);
@@ -265,6 +273,8 @@ public class GUIOverlay : MonoBehaviour
 			winButtons[3].anchoredPosition = new Vector2(winButtons[3].anchoredPosition.x, -125);
 			uiAnim -= DisplayWinButtons;
 
+			endScreenIsPlaying = false;
+
 			lerpTime = null;
 		}
 	}
@@ -311,6 +321,8 @@ public class GUIOverlay : MonoBehaviour
 			loseButtons[1].anchoredPosition = new Vector2(loseButtons[1].anchoredPosition.x, -125);
 			uiAnim -= DisplayLoseButtons;
 
+			endScreenIsPlaying = false;
+
 			lerpTime = null;
 		}
 	}
@@ -346,6 +358,8 @@ public class GUIOverlay : MonoBehaviour
 			uiAnim -= HideEndScreen;
 			winObj.gameObject.SetActive(false);
 			SetWinLoseObj();
+
+			endScreenIsPlaying = false;
 
 			lerpTime = null;
 			ManaSystem.gameStateS = GameStates.afterWin;

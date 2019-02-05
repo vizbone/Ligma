@@ -28,6 +28,7 @@ public class GridSystem : MonoBehaviour {
 	{
 		cam = GetComponent<Camera> ();
 		manaSys = GetComponent<ManaSystem> ();
+		myRay = ManaSystem.inst.worldSpaceCanvas.GetComponent<GraphicRaycaster>();
 		//myRay = FindObjectOfType<GraphicRaycaster>(); Manually Assign in Inspector
 		buildMode = false;
 		buildIndex = 0;

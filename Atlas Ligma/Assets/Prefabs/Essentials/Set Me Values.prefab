@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8473635756431033233}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.003906, y: 0.4659428, z: 50.826538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -50,6 +50,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: 96000000
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -0.55, z: 1.1}
   crossbow2:
     dmg: 18
     fireRate: 2.5
@@ -57,6 +58,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: 96000000
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -1.2, z: 1.3}
   crossbow3:
     dmg: 25
     fireRate: 3
@@ -64,6 +66,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: 
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -1.6, z: 1.55}
   blackCrossbow1:
     dmg: 22
     fireRate: 2
@@ -71,6 +74,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -0.55, z: 1.1}
   blackCrossbow2:
     dmg: 28
     fireRate: 2.5
@@ -78,6 +82,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -1.2, z: 1.3}
   blackCrossbow3:
     dmg: 34
     fireRate: 3
@@ -85,6 +90,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -1.6, z: 1.55}
   whiteCrossbow1:
     dmg: 12
     fireRate: 2
@@ -92,6 +98,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -0.55, z: 1.1}
   whiteCrossbow2:
     dmg: 15
     fireRate: 2.5
@@ -99,6 +106,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -1.2, z: 1.3}
   whiteCrossbow3:
     dmg: 20
     fireRate: 3
@@ -106,6 +114,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
+    firingPos: {x: 0, y: -1.6, z: 1.55}
   catapult1:
     dmg: 35
     fireRate: 0.2
@@ -113,6 +122,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: 96000000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 0.95, z: 1.3}
   catapult2:
     dmg: 50
     fireRate: 0.5
@@ -120,6 +130,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: 96000000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 1.1, z: 1.95}
   catapult3:
     dmg: 65
     fireRate: 0.8
@@ -127,6 +138,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: 
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 1.3, z: 2.5}
   blackCatapult1:
     dmg: 45
     fireRate: 0.2
@@ -134,6 +146,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 0.95, z: 1.3}
   blackCatapult2:
     dmg: 65
     fireRate: 0.5
@@ -141,6 +154,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 1.1, z: 1.95}
   blackCatapult3:
     dmg: 85
     fireRate: 0.8
@@ -148,6 +162,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 1.3, z: 2.5}
   whiteCatapult1:
     dmg: 25
     fireRate: 0.2
@@ -155,6 +170,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 0.95, z: 1.3}
   whiteCatapult2:
     dmg: 40
     fireRate: 0.5
@@ -162,6 +178,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 1.1, z: 1.95}
   whiteCatapult3:
     dmg: 50
     fireRate: 0.8
@@ -169,6 +186,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: 1.3, z: 2.5}
   cannon1:
     dmg: 15
     fireRate: 0.8
@@ -176,6 +194,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: 96000000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -0.7, z: 1}
   cannon2:
     dmg: 35
     fireRate: 1.2
@@ -183,6 +202,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: 96000000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -1, z: 1.15}
   cannon3:
     dmg: 50
     fireRate: 1.6
@@ -190,6 +210,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: 
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -1.3, z: 1.3}
   blackCannon1:
     dmg: 25
     fireRate: 0.8
@@ -197,6 +218,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -0.7, z: 1}
   blackCannon2:
     dmg: 40
     fireRate: 1.2
@@ -204,6 +226,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -1, z: 1.15}
   blackCannon3:
     dmg: 65
     fireRate: 1.6
@@ -211,6 +234,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -1.3, z: 1.3}
   whiteCannon1:
     dmg: 10
     fireRate: 0.8
@@ -218,6 +242,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -0.7, z: 1}
   whiteCannon2:
     dmg: 25
     fireRate: 1.2
@@ -225,6 +250,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -1, z: 1.15}
   whiteCannon3:
     dmg: 40
     fireRate: 1.6
@@ -232,6 +258,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
+    firingPos: {x: 0, y: -1.3, z: 1.3}
   rocket1:
     dmg: 40
     fireRate: 1.5
@@ -239,6 +266,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: 96000000
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   rocket2:
     dmg: 50
     fireRate: 1.8
@@ -246,6 +274,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: 96000000
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   rocket3:
     dmg: 67
     fireRate: 2
@@ -253,6 +282,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: 
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   blackRocket1:
     dmg: 60
     fireRate: 1.5
@@ -260,6 +290,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   blackRocket2:
     dmg: 70
     fireRate: 1.8
@@ -267,6 +298,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   blackRocket3:
     dmg: 80
     fireRate: 2
@@ -274,6 +306,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   whiteRocket1:
     dmg: 30
     fireRate: 1.5
@@ -281,6 +314,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   whiteRocket2:
     dmg: 40
     fireRate: 1.8
@@ -288,6 +322,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   whiteRocket3:
     dmg: 55
     fireRate: 2
@@ -295,9 +330,10 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
+    firingPos: {x: 0, y: 0.3, z: 0.75}
   blackInvestPerc1: 0.25
   blackInvestPerc2: 0.5
   blackInvestPerc3: 0.75
-  whiteInvestPerc1: 1.25
-  whiteInvestPerc2: 1.5
+  whiteInvestPerc1: 1.4
+  whiteInvestPerc2: 1.8
   whiteInvestPerc3: 2

@@ -19,7 +19,7 @@ public abstract class AITemplate : MonoBehaviour {
 
 	protected virtual void Start ()
 	{
-		timer = 0.1f;
+		//timer = 0.1f;
 		WaveSystem.enemyListS.Add(this);
 
 		if (enemyType == AttackType.ground)
@@ -40,7 +40,7 @@ public abstract class AITemplate : MonoBehaviour {
 	private void OnDestroy()
 	{
 		WaveSystem.enemyListS.Remove(this);
-		Destroy (hpPack.gameObject);
+		hpPack.ai = null;
 	}
 
 	public void Update ()

@@ -131,6 +131,7 @@ MonoBehaviour:
     range: 0
     upgradeOrInvestCost: 
     attackType: 
+    firingPos: {x: 0, y: 0, z: 0}
   faction: 0
   manaSys: {fileID: 0}
   manaReturnPerc: 0
@@ -168,8 +169,8 @@ MonoBehaviour:
   bullet: {fileID: 114223184396069200, guid: de399a4572e306e4fbd0bbc7f8233687, type: 3}
   eventManager: {fileID: 0}
   audioSource: {fileID: 0}
-  particlePos: {fileID: 0}
-  smokeAndFlash: {fileID: 0}
+  shootingEffects: {fileID: 586501335781586706, guid: c27d601a4ac9e214689ecfdd18156808,
+    type: 3}
   explosion: {fileID: 114307124736076234, guid: 24f52a6b4a79e98429fabe57c74405f4,
     type: 3}
 --- !u!114 &114271016013711258

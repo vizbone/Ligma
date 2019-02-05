@@ -21,7 +21,6 @@ public class ManaSystem : MonoBehaviour
 
 	[Header("Mana UI (World Space)")]
 	public ManaFeedback manaDrop;
-	public Transform canvas;
 	public AudioSource manaGainedSound;
 
 	[Header("Overlayed GUI")]
@@ -117,7 +116,7 @@ public class ManaSystem : MonoBehaviour
 	//UI Animations
 	public void DisplayText (int addedMana, Vector3 pos, float offset)
 	{
-		ManaFeedback manaDrop = Instantiate (this.manaDrop, pos, canvas.transform.rotation, canvas);
+		ManaFeedback manaDrop = Instantiate (this.manaDrop, pos, worldSpaceCanvas.transform.rotation, worldSpaceCanvas);
 		Text txt = manaDrop.manaDrop;
 		if (addedMana < 0)
 		{

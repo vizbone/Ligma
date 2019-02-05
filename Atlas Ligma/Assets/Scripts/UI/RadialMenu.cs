@@ -54,6 +54,9 @@ public class RadialMenu : MonoBehaviour
 	{
 		radius = cam.orthographicSize * 0.05f;
 		transform.localScale = Vector3.one * cam.orthographicSize * 0.07f;
+
+		CheckCost();
+		CheckDisabled();
 	}
 
 	public void CheckDisabled()

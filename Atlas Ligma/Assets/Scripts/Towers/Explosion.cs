@@ -10,13 +10,16 @@ public class Explosion : MonoBehaviour {
 
 	public AudioSource explosionSound;
 
+	public float lifeTime;
+	public float timeElapsed;
+
 	// Use this for initialization
 	void Start ()
 	{
 		particleSystem = GetComponent<ParticleSystem>();
 		collider = GetComponent<Collider>();
 		explosionSound = GetComponent<AudioSource>();
-		Destroy(gameObject, particleSystem.main.duration + 0.5f);
+		lifeTime = particleSystem.main.duration + 0.5f;
 		Invoke("OffCollider", 0.25f);
 
 		ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.catapultExplosion, explosionSound);
@@ -32,6 +35,10 @@ public class Explosion : MonoBehaviour {
 		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
 			if (particleSystem.isPaused) particleSystem.Play();
+
+			timeElapsed += Time.deltaTime;
+
+			if (timeElapsed >= lifeTime) Destroy(gameObject);
 		}
 		else
 		{
