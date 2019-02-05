@@ -38,6 +38,10 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] float eventNotifLerpTime;
 	[SerializeField] bool notificationShown;
 
+	[Header("Win/Lose Music")]
+	[SerializeField] AudioSource winMusic;
+	[SerializeField] AudioSource loseMusic;
+
 	public System.Action uiAnim;
 
 	// Start is called before the first frame update
@@ -71,18 +75,21 @@ public class GUIOverlay : MonoBehaviour
 		{
 			lerpTime = new float[6];
 			winObj.gameObject.SetActive(true);
+			winMusic.Play();
 			uiAnim += DisplayWin;
 		}
 		else if (ManaSystem.inst.gameState == GameStates.lose && !loseObj.gameObject.activeInHierarchy)
 		{
 			lerpTime = new float[4];
 			loseObj.gameObject.SetActive(true);
+			loseMusic.Play();
 			uiAnim += DisplayLose;
 		}
 		else if (ManaSystem.inst.gameState == GameStates.gameComplete && !winObj.gameObject.activeInHierarchy)
 		{
 			lerpTime = new float[6];
 			winObj.gameObject.SetActive(true);
+			winMusic.Play();
 			continueButton.interactable = false;
 			uiAnim += DisplayWin;
 		}
