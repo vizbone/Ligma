@@ -24,6 +24,8 @@ public class CameraMovement : MonoBehaviour
 	float horizontalOffset;
 	float verticalOffset;
 
+	Vector3 oriPos;
+
 	void Start ()
 	{
 		cam = GetComponent<Camera>();
@@ -33,6 +35,7 @@ public class CameraMovement : MonoBehaviour
 		right = new Vector3 (transform.right.x, 0, transform.right.z).normalized;
 		horizontalOffset = 0;
 		verticalOffset = 0;
+		oriPos = transform.position;
 	}
 
 	void Update ()
@@ -60,29 +63,63 @@ public class CameraMovement : MonoBehaviour
 	//handles camera movement
 	void CameraMove () 
 	{
-		if (Input.GetKey (key: KeyCode.A) && horizontalOffset > -horizontalBorderOffset) 
+		bool left = false;
+		bool rright = false;
+		bool down = false;
+		bool up = false;
+
+		if (horizontalOffset < -horizontalBorderOffset)
+		{
+			left = true;
+			horizontalOffset = -horizontalBorderOffset;
+
+		} else if (Input.GetKey (key: KeyCode.A) && horizontalOffset - cameraPanSpeed > -horizontalBorderOffset) 
 		{ 
 			transform.position += -right * cameraPanSpeed;
 			horizontalOffset -= cameraPanSpeed;
 		}
-		if (Input.GetKey (key: KeyCode.D) && horizontalOffset < horizontalBorderOffset) 
+		if (horizontalOffset > horizontalBorderOffset)
+		{
+			rright = true;
+			horizontalOffset = horizontalBorderOffset;
+
+		} else if (Input.GetKey (key: KeyCode.D) && horizontalOffset + cameraPanSpeed < horizontalBorderOffset) 
 		{ 
 			transform.position += right * cameraPanSpeed;
 			horizontalOffset += cameraPanSpeed;
 		}
-		if (Input.GetKey (key: KeyCode.S) && verticalOffset > -verticalBorderOffset) 
+		if (verticalOffset < - verticalBorderOffset)
+		{
+			down = true;
+			verticalOffset = -verticalBorderOffset;
+
+		} else if (Input.GetKey (key: KeyCode.S) && verticalOffset - cameraPanSpeed > -verticalBorderOffset) 
 		{ 
 			transform.position += -forward * cameraPanSpeed;
 			verticalOffset -= cameraPanSpeed;
 		}
-		if (Input.GetKey (key: KeyCode.W) && verticalOffset < verticalBorderOffset) 
+		if (verticalOffset > verticalBorderOffset)
+		{
+			up = true;
+			verticalOffset = verticalBorderOffset;
+
+		} else if (Input.GetKey (key: KeyCode.W) && verticalOffset + cameraPanSpeed < verticalBorderOffset) 
 		{ 
 			transform.position += forward * cameraPanSpeed;
 			verticalOffset += cameraPanSpeed;
 		}
+
+		Vector3 newPos = oriPos;
+		if (left || rright) newPos += new Vector3 (right.x * horizontalOffset, 0, right.z * horizontalOffset);
+		if (down || up) newPos += new Vector3 (forward.x * verticalOffset, 0, forward.z * verticalOffset);
+
+		if ((left || rright) && !(down || up)) newPos += new Vector3 (forward.x * verticalOffset, 0, forward.z * verticalOffset);
+		if ((up || down) && !(left || rright)) newPos += new Vector3 (right.x * horizontalOffset, 0, right.z * horizontalOffset);
+
+		if (left || rright || up || down) transform.position = newPos;
 	}
 
-	//handles camera zoom function
+	//handles camera zoom functionx
 	void CameraZoom () 
 	{
 		float size = cam.orthographicSize;
