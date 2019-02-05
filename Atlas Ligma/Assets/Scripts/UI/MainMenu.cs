@@ -70,9 +70,6 @@ public class MainMenu : MonoBehaviour
 		credits.color = new Color(1, 1, 1, 1);
 		quit.color = new Color(1, 1, 1, 1);
 
-		levelselbut.color = new Color(1, 1, 1, 0);
-		startGame.color = new Color(1, 1, 1, 0);
-
 		mainMenu.SetActive(true);
 	}
 
