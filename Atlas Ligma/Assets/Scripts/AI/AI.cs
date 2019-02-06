@@ -48,7 +48,7 @@ public class AI : AITemplate {
 
 		base.Start();
 		agent = GetComponent<NavMeshAgent> ();
-		defaultMoveSpeed = agent.speed;
+		defaultAngularSpeed = agent.angularSpeed;
 		currentDestination = 0;
 		ai.NextPoint (agent, this, true);
 		canShoot = true;
@@ -63,8 +63,20 @@ public class AI : AITemplate {
 
 	private void Update()
 	{
-		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin) agent.speed = defaultMoveSpeed;
-		else agent.speed = 0;
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		{
+			if (agent.velocity.magnitude == 0 && defaultMoveSpeed.magnitude > 0) agent.velocity = defaultMoveSpeed;
+
+			if (agent.angularSpeed == 0) agent.angularSpeed = defaultAngularSpeed;
+		}
+		else
+		{
+			if (agent.velocity != Vector3.zero) defaultMoveSpeed = agent.velocity;
+
+			if (agent.angularSpeed > 0) agent.angularSpeed = 0;
+
+			agent.velocity = Vector3.zero;
+		}
 
 
 		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)

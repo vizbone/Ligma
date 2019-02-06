@@ -3056,11 +3056,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2088502225}
     m_Modifications:
-    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Black Cannon Level 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5285579597727525790, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3125,6 +3120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Black Cannon Level 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ad447ccd06b448ad62f47f8ddc7eb, type: 3}
@@ -9841,7 +9841,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3042004495436821673, guid: e921ef9028bd36e418150b73d46ce86b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e921ef9028bd36e418150b73d46ce86b, type: 3}
 --- !u!1 &785916821 stripped
 GameObject:
@@ -22416,11 +22417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2088502225}
     m_Modifications:
-    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Black Cannon Level 2 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 5285579597727525790, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22485,6 +22481,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Black Cannon Level 2 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ad447ccd06b448ad62f47f8ddc7eb, type: 3}

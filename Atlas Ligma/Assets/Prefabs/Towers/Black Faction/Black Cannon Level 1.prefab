@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Cannon Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8231649833943506489, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8226702279599166853, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +72,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8335287275741505059, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: faction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745106561907960662, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837669302475471472, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8335264342028097555, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
         type: 3}
       propertyPath: options.Array.data[0].sprite
@@ -85,21 +105,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 69a7bf68832d1ca40bd7a18b4e955b5a,
         type: 3}
-    - target: {fileID: 8335287275741505059, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
-        type: 3}
-      propertyPath: faction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3745106561907960662, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2837669302475471472, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2186463243984037363, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -125,5 +130,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6736576cfb9de15499ff3d670f1a4f01, type: 2}
+    - target: {fileID: 7706268894696922246, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200981553940639659, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21ca17f1c6dad8641a1b91e49ab2bfc7, type: 3}

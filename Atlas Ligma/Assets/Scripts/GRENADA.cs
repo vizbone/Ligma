@@ -6,10 +6,11 @@ public class GRENADA : MonoBehaviour
 {
 	public int FORTHEMOTHERLAND;
 	public ManaSystem YEETUSFEETUS;
-	public AudioSource bombSound;
 
 	Rigidbody rb;
 	Vector3 vel;
+
+	public Particles enemyExplosion;
 
 	public bool tick;
 
@@ -17,14 +18,6 @@ public class GRENADA : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody> ();
 		tick = false;
-	}
-
-	void OnCollisionEnter (Collision other)
-	{
-		ManaSystem.inst.ManaMinus(FORTHEMOTHERLAND, other.collider.transform.position, 1);
-		bombSound = GetComponentInChildren<AudioSource>();
-		ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.airShipBomb, bombSound);
-		Destroy(gameObject);
 	}
 
 	void Update ()
@@ -35,13 +28,19 @@ public class GRENADA : MonoBehaviour
 			rb.velocity = Vector3.zero;
 			rb.useGravity = false;
 			tick = true;
-			print ("yes");
-		} else if ((ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin) && tick)
+		}
+		else if ((ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin) && tick)
 		{
 			rb.velocity = vel;
 			rb.useGravity = true;
 			tick = false;
-			print ("wahtttt");
 		}
+	}
+
+	void OnCollisionEnter(Collision other)
+	{
+		ManaSystem.inst.ManaMinus(FORTHEMOTHERLAND, other.collider.transform.position, 1);
+		Instantiate(enemyExplosion, transform.position, Quaternion.identity);
+		Destroy(gameObject);
 	}
 }

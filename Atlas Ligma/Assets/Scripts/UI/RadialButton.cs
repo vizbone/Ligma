@@ -59,7 +59,7 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	{
 		if (menu.turret.faction == Faction.own)
 		{
-			if (title == "Upgrade") cost.text = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
+			if (title == "Upgrade" && menu.turret.level < 3) cost.text = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
 			else cost.text = "";
 		}
 		else

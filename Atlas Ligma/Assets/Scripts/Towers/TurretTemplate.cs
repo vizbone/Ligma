@@ -20,6 +20,7 @@ public struct TurretValues
 	public int[] upgradeOrInvestCost; //Stores cost of Upgrade or Investment
 	public AttackType[] attackType; //Check which enemy it can attack
 	public Vector3 firingPos; //Position that the Bullet Instantiates from
+	public Vector3 lightingPos; //Position that the Mana Lighting Effect should be
 }
 
 [RequireComponent (typeof (CapsuleCollider))]
@@ -56,6 +57,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] Renderer baseR;
 	[SerializeField] Renderer turretR;
 	[SerializeField] Material[] turretMaterials;
+	[SerializeField] LightingEffect manaLight;
 
 	[Header ("Collider and Enemy List")]
 	[SerializeField] protected CapsuleCollider collider; //Stores the collider for enemy detection
@@ -65,7 +67,6 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] Vector3 designatedAngle;
 
 	public MeshCollider meshCollider;
-	public MeshCollider turretMeshCollider;
 
 	[Header ("For Bullets")]
 	public bool arcTravel;
@@ -78,7 +79,6 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] protected AudioSource audioSource; //For Turret Fire
 
 	[Header("Particles")]
-	//[SerializeField] Transform particlePos;
 	[SerializeField] Particles shootingEffects;
 
 	protected virtual void Start ()
@@ -87,13 +87,9 @@ public abstract class TurretTemplate : MonoBehaviour
 		investmentLevel = 0;
 		manaReturnPerc = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
 		manaSys = FindObjectOfType<ManaSystem> ();
-		turretGO = gameObject;
 		meshCollider = GetComponent<MeshCollider> ();
-		turretMeshCollider = turretGO.GetComponent<MeshCollider>();
 
 		audioSource = GetComponentInChildren<AudioSource>(); //For now use Get Component in Children because the Prefabs are messy
-		//shootingSounds = transform.GetChild(0).GetComponent<AudioSource>();
-		//enemyDeathSfx = transform.GetChild(1).GetComponent<AudioSource>();
 
 		//Check if its bullets should travel in an arc
 		if (this.GetType() == typeof(Catapult)) arcTravel = true;
@@ -119,6 +115,9 @@ public abstract class TurretTemplate : MonoBehaviour
 		eventManager = FindObjectOfType<EventsManager> ();
 
 		SetValues();
+
+		manaLight = GetComponentInChildren<LightingEffect>();
+		manaLight.gameObject.transform.localPosition = turretValues.lightingPos;
 
 		//Set Center of Collider Based on the capsule collider's direction
 		/*switch (collider.direction)
@@ -152,7 +151,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			if (closestEnemy != null)
 			{
 				LookAtEnemy();
-				if (turretGO.transform.rotation != Quaternion.Euler(designatedAngle)) turretGO.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(designatedAngle), 5f);
+				if (turretGO.transform.rotation != Quaternion.Euler(designatedAngle)) turretGO.transform.rotation = Quaternion.RotateTowards(turretGO.transform.rotation, Quaternion.Euler(designatedAngle), 5f);
 			}
 
 			coolDown = Mathf.Max(coolDown -= Time.deltaTime, 0);
@@ -162,8 +161,6 @@ public abstract class TurretTemplate : MonoBehaviour
 				float angleDiff = Mathf.Abs(designatedAngle.z - turretGO.transform.eulerAngles.y) % 360; //Compare with y since z rotation checks the euler of y
 				if (angleDiff <= 20) Shoot(arcTravel); //If the angle difference is minimal, then allow to shoot
 			}
-
-			//if (Input.GetKeyDown(KeyCode.P) && level < 3) Upgrade();
 		}
 	}
 
@@ -191,28 +188,33 @@ public abstract class TurretTemplate : MonoBehaviour
 			case 1:
 				baseModel.mesh = lvl1Model[0];
 				turretModel.mesh = lvl1Model[1];
+				meshCollider.sharedMesh = lvl1Model[2];
 				break;
 			case 2:
 				baseModel.mesh = lvl2Model[0];
 				turretModel.mesh = lvl2Model[1];
+				meshCollider.sharedMesh = lvl2Model[2];
 				break;
 			case 3:
 				baseModel.mesh = lvl3Model[0];
 				turretModel.mesh = lvl3Model[1];
+				meshCollider.sharedMesh = lvl3Model[2];
 				investOrUpgradeDisabled = true;
 				break;
 			default:
 				baseModel.mesh = lvl1Model[0];
 				turretModel.mesh = lvl1Model[1];
+				meshCollider.sharedMesh = lvl1Model[2];
 				print("Invalid Level Detected");
 				break;
 		}
-		meshCollider.sharedMesh = baseModel.mesh;
 
 		ChangeMaterial (level);
 		//Add Changes to Stats as well
 		UpgradeStats ();
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
+
+		manaLight.gameObject.transform.localPosition = turretValues.lightingPos;
 	}
 
 	//Only for Prebuilt Turrets

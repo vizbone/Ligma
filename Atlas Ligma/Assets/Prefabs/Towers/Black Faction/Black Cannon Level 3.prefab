@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7109414140762934361
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6388605964090733522}
-  m_Layer: 0
-  m_Name: particlePos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6388605964090733522
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7109414140762934361}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.020401001, y: -1.3073732, z: 1.334}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3782683067329902609}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9017592485518283663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Black Cannon Level 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5285579597727525790, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,11 +62,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Black Cannon Level 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5277434907871281050, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 2341bf0c59cd0194a85efa89aa9f48f7, type: 3}
+      objectReference: {fileID: 4300000, guid: 9d6d2c11c13f05249b29493ad5380467, type: 3}
     - target: {fileID: 5267620517124148176, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -121,18 +91,27 @@ PrefabInstance:
         type: 3}
       propertyPath: particlePos
       value: 
-      objectReference: {fileID: 6388605964090733522}
+      objectReference: {fileID: 0}
     - target: {fileID: 5250593655124236344, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: smokeAndFlash
       value: 
       objectReference: {fileID: 586501335781586706, guid: c27d601a4ac9e214689ecfdd18156808,
         type: 3}
+    - target: {fileID: 5873558387239887517, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628039892758231834, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2341bf0c59cd0194a85efa89aa9f48f7, type: 3}
+    - target: {fileID: 6429000475302706072, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 9d6d2c11c13f05249b29493ad5380467, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ad447ccd06b448ad62f47f8ddc7eb, type: 3}
---- !u!4 &3782683067329902609 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5285579597727525790, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 9017592485518283663}
-  m_PrefabAsset: {fileID: 0}

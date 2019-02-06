@@ -41,14 +41,14 @@ public class MathFunctions : MonoBehaviour
 		return 0;
 	}
 
-	public static void ParabolicCurve (Vector3 target, float amplitude, float currentStep, Transform yourself, float frequency, Vector3 oriPos)
+	public static void ParabolicCurve (Vector3 target, float amplitude, float currentStep, Transform yourself, float frequency, Vector3 oriPos, float currentY)
 	{
 		float nextStep = Mathf.Min (currentStep + 2 * Time.deltaTime, 1);
 
 		float x = Mathf.Lerp (oriPos.x, target.x, nextStep);
 		float z = Mathf.Lerp (oriPos.z, target.z, nextStep);
 		float temp = Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x > 0 ? Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x : -(Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x);
-		float y = amplitude * Mathf.Sin (temp * Mathf.PI * (1 / frequency));
+		float y = (amplitude * Mathf.Sin (temp * Mathf.PI * (1 / frequency))) + currentY;
 
 		yourself.position = new Vector3 (x, y, z);
 	}

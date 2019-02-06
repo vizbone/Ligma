@@ -51,6 +51,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 96000000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -0.55, z: 1.1}
+    lightingPos: {x: 0, y: 0.55, z: 1.05}
   crossbow2:
     dmg: 18
     fireRate: 2.5
@@ -59,6 +60,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 96000000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.2, z: 1.3}
+    lightingPos: {x: 0, y: 0.9, z: 1.25}
   crossbow3:
     dmg: 25
     fireRate: 3
@@ -67,6 +69,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.6, z: 1.55}
+    lightingPos: {x: 0, y: 1.1, z: 1.45}
   blackCrossbow1:
     dmg: 22
     fireRate: 2
@@ -75,6 +78,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -0.55, z: 1.1}
+    lightingPos: {x: 0, y: 0.55, z: 1.05}
   blackCrossbow2:
     dmg: 28
     fireRate: 2.5
@@ -83,6 +87,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.2, z: 1.3}
+    lightingPos: {x: 0, y: 0.9, z: 1.25}
   blackCrossbow3:
     dmg: 34
     fireRate: 3
@@ -91,6 +96,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.6, z: 1.55}
+    lightingPos: {x: 0, y: 1.1, z: 1.45}
   whiteCrossbow1:
     dmg: 12
     fireRate: 2
@@ -99,6 +105,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -0.55, z: 1.1}
+    lightingPos: {x: 0, y: 0.55, z: 1.05}
   whiteCrossbow2:
     dmg: 15
     fireRate: 2.5
@@ -107,6 +114,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.2, z: 1.3}
+    lightingPos: {x: 0, y: 0.9, z: 1.25}
   whiteCrossbow3:
     dmg: 20
     fireRate: 3
@@ -115,6 +123,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.6, z: 1.55}
+    lightingPos: {x: 0, y: 1.1, z: 1.45}
   catapult1:
     dmg: 35
     fireRate: 0.2
@@ -123,6 +132,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 96000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 0.95, z: 1.3}
+    lightingPos: {x: 0, y: 0, z: 0.65}
   catapult2:
     dmg: 50
     fireRate: 0.5
@@ -131,6 +141,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 96000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.1, z: 1.95}
+    lightingPos: {x: 0, y: 0, z: 1.25}
   catapult3:
     dmg: 65
     fireRate: 0.8
@@ -139,6 +150,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.3, z: 2.5}
+    lightingPos: {x: 0, y: 0, z: 1.45}
   blackCatapult1:
     dmg: 45
     fireRate: 0.2
@@ -147,6 +159,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 0.95, z: 1.3}
+    lightingPos: {x: 0, y: 0, z: 0.65}
   blackCatapult2:
     dmg: 65
     fireRate: 0.5
@@ -155,6 +168,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.1, z: 1.95}
+    lightingPos: {x: 0, y: 0, z: 1.25}
   blackCatapult3:
     dmg: 85
     fireRate: 0.8
@@ -163,6 +177,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.3, z: 2.5}
+    lightingPos: {x: 0, y: 0, z: 1.45}
   whiteCatapult1:
     dmg: 25
     fireRate: 0.2
@@ -171,6 +186,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 0.95, z: 1.3}
+    lightingPos: {x: 0, y: 0, z: 0.65}
   whiteCatapult2:
     dmg: 40
     fireRate: 0.5
@@ -179,6 +195,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.1, z: 1.95}
+    lightingPos: {x: 0, y: 0, z: 1.25}
   whiteCatapult3:
     dmg: 50
     fireRate: 0.8
@@ -187,6 +204,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.3, z: 2.5}
+    lightingPos: {x: 0, y: 0, z: 1.45}
   cannon1:
     dmg: 15
     fireRate: 0.8
@@ -195,6 +213,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 96000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -0.7, z: 1}
+    lightingPos: {x: 0, y: 0.6, z: 1.025}
   cannon2:
     dmg: 35
     fireRate: 1.2
@@ -203,6 +222,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 96000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1, z: 1.15}
+    lightingPos: {x: 0, y: 0.945, z: 1.15}
   cannon3:
     dmg: 50
     fireRate: 1.6
@@ -211,6 +231,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1.3, z: 1.3}
+    lightingPos: {x: 0, y: 1.15, z: 1.325}
   blackCannon1:
     dmg: 25
     fireRate: 0.8
@@ -219,6 +240,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -0.7, z: 1}
+    lightingPos: {x: 0, y: 0.6, z: 1.025}
   blackCannon2:
     dmg: 40
     fireRate: 1.2
@@ -227,6 +249,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1, z: 1.15}
+    lightingPos: {x: 0, y: 0.945, z: 1.15}
   blackCannon3:
     dmg: 65
     fireRate: 1.6
@@ -235,6 +258,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1.3, z: 1.3}
+    lightingPos: {x: 0, y: 1.15, z: 1.325}
   whiteCannon1:
     dmg: 10
     fireRate: 0.8
@@ -243,6 +267,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -0.7, z: 1}
+    lightingPos: {x: 0, y: 0.6, z: 1.025}
   whiteCannon2:
     dmg: 25
     fireRate: 1.2
@@ -251,6 +276,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1, z: 1.15}
+    lightingPos: {x: 0, y: 0.945, z: 1.15}
   whiteCannon3:
     dmg: 40
     fireRate: 1.6
@@ -259,6 +285,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1.3, z: 1.3}
+    lightingPos: {x: 0, y: 1.15, z: 1.325}
   rocket1:
     dmg: 40
     fireRate: 1.5
@@ -267,6 +294,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 96000000
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   rocket2:
     dmg: 50
     fireRate: 1.8
@@ -275,6 +303,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 96000000
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   rocket3:
     dmg: 67
     fireRate: 2
@@ -283,6 +312,7 @@ MonoBehaviour:
     upgradeOrInvestCost: 
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   blackRocket1:
     dmg: 60
     fireRate: 1.5
@@ -291,6 +321,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   blackRocket2:
     dmg: 70
     fireRate: 1.8
@@ -299,6 +330,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   blackRocket3:
     dmg: 80
     fireRate: 2
@@ -307,6 +339,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   whiteRocket1:
     dmg: 30
     fireRate: 1.5
@@ -315,6 +348,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   whiteRocket2:
     dmg: 40
     fireRate: 1.8
@@ -323,6 +357,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   whiteRocket3:
     dmg: 55
     fireRate: 2
@@ -331,6 +366,7 @@ MonoBehaviour:
     upgradeOrInvestCost: c80000005e010000f4010000
     attackType: 01000000
     firingPos: {x: 0, y: 0.3, z: 0.75}
+    lightingPos: {x: 0, y: 0, z: 0}
   blackInvestPerc1: 0.25
   blackInvestPerc2: 0.5
   blackInvestPerc3: 0.75

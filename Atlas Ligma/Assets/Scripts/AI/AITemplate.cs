@@ -7,7 +7,8 @@ public abstract class AITemplate : MonoBehaviour {
 	public AttackType enemyType;
 	public int hp;
 	public int manaDrop = 10;
-	public float defaultMoveSpeed;
+	public Vector3 defaultMoveSpeed;
+	public float defaultAngularSpeed;
 
 	public AudioSource audioSource;
 

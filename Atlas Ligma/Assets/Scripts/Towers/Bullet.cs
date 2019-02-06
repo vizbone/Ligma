@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour
 
 	void ArcTravel()
 	{
-		if (currentStep < 1) MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos);
+		if (currentStep < 1) MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos, turret.transform.position.y);
 		currentStep = Mathf.Min(currentStep += speed * Time.deltaTime, 1);
 		if (currentStep >= 1) turret.Hit(null, turret.isPrebuilt, gameObject, hitCount);
 	}
