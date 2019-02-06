@@ -40,7 +40,7 @@ public abstract class AITemplate : MonoBehaviour {
 	private void OnDestroy()
 	{
 		WaveSystem.enemyListS.Remove(this);
-		hpPack.ai = null;
+		//hpPack.ai = null;
 	}
 
 	public void Update ()

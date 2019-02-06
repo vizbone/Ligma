@@ -18,8 +18,8 @@ public class CameraMovement : MonoBehaviour
 	Vector3 forward;
 	Vector3 right;
 
-	public float horizontalBorderOffset;
-	public float verticalBorderOffset;
+	float horizontalBorderOffset;
+	float verticalBorderOffset;
 
 	float horizontalOffset;
 	float verticalOffset;
@@ -63,14 +63,11 @@ public class CameraMovement : MonoBehaviour
 	//handles camera movement
 	void CameraMove () 
 	{
-		bool left = false;
-		bool rright = false;
-		bool down = false;
-		bool up = false;
+		bool snap = false;
 
 		if (horizontalOffset < -horizontalBorderOffset)
 		{
-			left = true;
+			snap = true;
 			horizontalOffset = -horizontalBorderOffset;
 
 		} else if (Input.GetKey (key: KeyCode.A) && horizontalOffset - cameraPanSpeed > -horizontalBorderOffset) 
@@ -80,7 +77,7 @@ public class CameraMovement : MonoBehaviour
 		}
 		if (horizontalOffset > horizontalBorderOffset)
 		{
-			rright = true;
+			snap = true;
 			horizontalOffset = horizontalBorderOffset;
 
 		} else if (Input.GetKey (key: KeyCode.D) && horizontalOffset + cameraPanSpeed < horizontalBorderOffset) 
@@ -90,7 +87,7 @@ public class CameraMovement : MonoBehaviour
 		}
 		if (verticalOffset < - verticalBorderOffset)
 		{
-			down = true;
+			snap = true;
 			verticalOffset = -verticalBorderOffset;
 
 		} else if (Input.GetKey (key: KeyCode.S) && verticalOffset - cameraPanSpeed > -verticalBorderOffset) 
@@ -100,7 +97,7 @@ public class CameraMovement : MonoBehaviour
 		}
 		if (verticalOffset > verticalBorderOffset)
 		{
-			up = true;
+			snap = true;
 			verticalOffset = verticalBorderOffset;
 
 		} else if (Input.GetKey (key: KeyCode.W) && verticalOffset + cameraPanSpeed < verticalBorderOffset) 
@@ -109,14 +106,13 @@ public class CameraMovement : MonoBehaviour
 			verticalOffset += cameraPanSpeed;
 		}
 
-		Vector3 newPos = oriPos;
-		if (left || rright) newPos += new Vector3 (right.x * horizontalOffset, 0, right.z * horizontalOffset);
-		if (down || up) newPos += new Vector3 (forward.x * verticalOffset, 0, forward.z * verticalOffset);
-
-		if ((left || rright) && !(down || up)) newPos += new Vector3 (forward.x * verticalOffset, 0, forward.z * verticalOffset);
-		if ((up || down) && !(left || rright)) newPos += new Vector3 (right.x * horizontalOffset, 0, right.z * horizontalOffset);
-
-		if (left || rright || up || down) transform.position = newPos;
+		if (snap)
+		{
+			Vector3 newPos = oriPos;
+			newPos += new Vector3 (forward.x * verticalOffset, 0, forward.z * verticalOffset);
+			newPos += new Vector3 (right.x * horizontalOffset, 0, right.z * horizontalOffset);
+			transform.position = newPos;
+		}
 	}
 
 	//handles camera zoom functionx

@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfdb2796f2ca274981f150dd675d536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FORTHEMOTHERLAND: 0
+  FORTHEMOTHERLAND: 10
   YEETUSFEETUS: {fileID: 0}
   bombSound: {fileID: 4824686450410916738}
 --- !u!54 &54061091555440896

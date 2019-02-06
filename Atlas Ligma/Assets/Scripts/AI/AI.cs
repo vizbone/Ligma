@@ -16,8 +16,10 @@ public class AI : AITemplate {
 	public GRENADA YYYEEEEEEETTTT;
 	public Vector3 offset;
 
+	float cooldown;
 	float time;
-	bool cLock;
+
+	bool canShoot;
 
 	protected override void Start () 
 	{
@@ -49,12 +51,13 @@ public class AI : AITemplate {
 		defaultMoveSpeed = agent.speed;
 		currentDestination = 0;
 		ai.NextPoint (agent, this, true);
-		cLock = false;
+		canShoot = true;
 		
 		if (enemyType == AttackType.air)
 		{
 			if (fireRate == 0) fireRate = 1;
-			time = 1 / fireRate;
+			cooldown = 1 / fireRate;
+			time = cooldown;
 		}
 	}
 
@@ -62,6 +65,14 @@ public class AI : AITemplate {
 	{
 		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin) agent.speed = defaultMoveSpeed;
 		else agent.speed = 0;
+
+
+		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		{
+			time -= Time.deltaTime;
+			if (time <= 0) canShoot = true;
+		}
+
 		base.Update ();
 	}
 
@@ -96,7 +107,11 @@ public class AI : AITemplate {
 
 	void OnTriggerStay (Collider other)
 	{
-		if (other.tag == "Town Hall" && enemyType == AttackType.air && !cLock) StartCoroutine (ALLAHUAKBAAR ());
+		if (other.tag == "Town Hall" && enemyType == AttackType.air && canShoot && (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin))
+		{
+			ALLAHUAKBAAR ();
+			canShoot = false;
+		}
 	}
 
 	void OnCollisionStay (Collision other)
@@ -109,14 +124,12 @@ public class AI : AITemplate {
 		}
 	}
 
-	IEnumerator ALLAHUAKBAAR ()
+	void ALLAHUAKBAAR ()
 	{
-		cLock = true;
 		GRENADA GRENADA = Instantiate (YYYEEEEEEETTTT, transform.GetChild (0).position + offset, Quaternion.identity);
 		GRENADA.FORTHEMOTHERLAND = dmg;
 		GRENADA.YEETUSFEETUS = ManaSystem.inst; //Not sure if using a static inst would change anything
-		yield return new WaitForSeconds (time);
-		cLock = false;
+		time = cooldown;
 	}
 
 	public override float CheckDistance () 

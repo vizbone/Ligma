@@ -88,7 +88,7 @@ public class GridSystem : MonoBehaviour {
 			Vector3 buildPos;
 			if (hit.collider != null)
 			{
-				buildPos = new Vector3 (hit.point.x - Mathf.Repeat (hit.point.x, gridSize) + gridSize * 0.5f, 0f, hit.point.z - Mathf.Repeat (hit.point.z, gridSize) + gridSize * 0.5f) + offset;
+				buildPos = new Vector3 (hit.point.x - Mathf.Repeat (hit.point.x, gridSize) + gridSize * 0.5f, hit.point.y, hit.point.z - Mathf.Repeat (hit.point.z, gridSize) + gridSize * 0.5f) + offset;
 				currentBuild.transform.position = buildPos;
 
 				//Check for any UI Elements hovered over

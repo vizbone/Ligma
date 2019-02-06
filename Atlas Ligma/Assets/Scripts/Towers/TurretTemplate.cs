@@ -121,7 +121,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		SetValues();
 
 		//Set Center of Collider Based on the capsule collider's direction
-		switch (collider.direction)
+		/*switch (collider.direction)
 		{
 			case 0:
 				collider.center = new Vector3 (-transform.position.y / transform.localScale.x, 0, 0);
@@ -135,7 +135,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			default:
 				collider.center = new Vector3 (0, -transform.position.y / transform.localScale.x, 0);
 				break;
-		}
+		}*/
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
 		
 		//Set cooldown
@@ -351,8 +351,11 @@ public abstract class TurretTemplate : MonoBehaviour
 		if (enemies.Count > 0)
 		{
 			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : new Vector3(transform.position.x - closestEnemy.transform.position.x, 0, transform.position.z - closestEnemy.transform.position.z).normalized * -1;
-			Vector3 direction2D = new Vector3(direction.x, 0, direction.z);
-			Bullet currentBullet = Instantiate (bullet, transform.position + Vector3.Scale(turretValues.firingPos, direction2D), Quaternion.Euler(-90, 0, 0));
+			Vector3 direction2D = new Vector3 (direction.x, 0, direction.z);
+			Bullet currentBullet = Instantiate (bullet, transform);
+			currentBullet.transform.localPosition = turretValues.firingPos;
+			currentBullet.transform.eulerAngles = Vector3.zero;
+			currentBullet.transform.parent = null;
 			//print(currentBullet.name);
 			currentBullet.turret = this;
 
@@ -360,8 +363,11 @@ public abstract class TurretTemplate : MonoBehaviour
 			if (this.GetType() == typeof(Cannon))
 			{
 				ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.cannon, audioSource);
-				Instantiate(shootingEffects, transform.position + turretValues.firingPos, Quaternion.identity); //i put the cannon particle here for now until more particles
-				print(turretValues.firingPos);
+				Particles effects = Instantiate(shootingEffects, transform); //i put the cannon particle here for now until more particles
+				effects.transform.localPosition = turretValues.firingPos;
+				effects.transform.eulerAngles = Vector3.zero;
+				effects.transform.parent = null;
+				//print (turretValues.firingPos);
 			}
 			else if (this.GetType() == typeof(Catapult)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.catapult, audioSource);
 			else if (this.GetType() == typeof(Crossbow)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.crossbow, audioSource);
