@@ -111,7 +111,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -65, y: -125}
-  m_SizeDelta: {x: 200, y: 40}
+  m_SizeDelta: {x: 125, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4877515112138754357
 CanvasRenderer:
@@ -239,7 +239,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 100, y: -125}
-  m_SizeDelta: {x: 200, y: 40}
+  m_SizeDelta: {x: 125, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8660843588217683411
 CanvasRenderer:
@@ -1004,7 +1004,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 195, y: -125}
-  m_SizeDelta: {x: 200, y: 40}
+  m_SizeDelta: {x: 125, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1725294466220210715
 CanvasRenderer:
@@ -1669,6 +1669,7 @@ MonoBehaviour:
   loseButtons:
   - {fileID: 2302039258245637031}
   - {fileID: 4447803873570697884}
+  endScreenIsPlaying: 0
   lerpTime: []
   waveNumber: {fileID: 4571983155508200838}
   phaseImage: {fileID: 2203578777949723562}
@@ -1719,7 +1720,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -195, y: -125}
-  m_SizeDelta: {x: 200, y: 40}
+  m_SizeDelta: {x: 125, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1725294466522634657
 CanvasRenderer:
@@ -2043,7 +2044,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1951079707721551903}
-  - component: {fileID: 1725294466686282965}
   - component: {fileID: 964884186918365802}
   - component: {fileID: 8085582358439117549}
   m_Layer: 0
@@ -2077,28 +2077,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1725294466686282965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725294466686282967}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 937ecac1378fa4c4ea6eff4dcc0a85d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pener: {fileID: 0}
-  currentPenerSize: 0
-  fraction: 0
-  sex: {fileID: 0}
-  currentSexSize: 0
-  fraction1: 0
-  ass: []
-  currentAssSize: 0
-  fraction2: 0
-  stepSize: 0
 --- !u!222 &964884186918365802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2186,7 +2164,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 694006ba7eed4bb40923869741be5bfa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
-  m_Pitch: 0.2
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -2664,7 +2642,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 65, y: -125}
-  m_SizeDelta: {x: 200, y: 40}
+  m_SizeDelta: {x: 125, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1725294467116709698
 CanvasRenderer:
@@ -4116,7 +4094,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7a5bce421b563614992928f299b96132, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
-  m_Pitch: 0.2
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4969,7 +4947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3042004495436821673
@@ -5141,7 +5119,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -100, y: -125}
-  m_SizeDelta: {x: 200, y: 40}
+  m_SizeDelta: {x: 125, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5195465796144556171
 CanvasRenderer:

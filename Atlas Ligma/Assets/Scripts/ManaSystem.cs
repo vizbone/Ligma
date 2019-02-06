@@ -55,8 +55,8 @@ public class ManaSystem : MonoBehaviour
 	{
 		if (gameState == GameStates.started || gameStateS == GameStates.afterWin)
 		{
-			/*if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
-			if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;*/
+			//if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
+			//if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
 
 			if (Input.GetKeyDown(KeyCode.Escape))
 			{

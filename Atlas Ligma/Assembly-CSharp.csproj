@@ -103,7 +103,6 @@
     <Compile Include="Assets\Scripts\UI\RadialMenu.cs" />
     <Compile Include="Assets\Scripts\UI\RadialMenuSpawner.cs" />
     <Compile Include="Assets\Scripts\UI\UIButtonFunctions.cs" />
-    <Compile Include="Assets\Scripts\UI\WinLose.cs" />
     <Compile Include="Assets\Scripts\WaveSystem.cs" />
     <Compile Include="Assets\water testing\WaterTest.cs" />
     <None Include="Assets\Particle Effects Package\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
