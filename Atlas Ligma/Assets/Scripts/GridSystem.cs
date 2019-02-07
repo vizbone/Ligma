@@ -146,7 +146,17 @@ public class GridSystem : MonoBehaviour {
 	//handles changing of material (if it can place or not)
 	void Material (bool placeability) 
 	{
-		currentBuild.GetComponent<Renderer> ().material = placeability ? buildingMaterials[0] : buildingMaterials[1];
+		Renderer r = currentBuild.GetComponent<Renderer>();
+
+		if (r.materials.Length > 1)
+		{
+			Material[] mats = new Material[2];
+			mats[0] = placeability ? buildingMaterials[0] : buildingMaterials[1];
+			mats[1] = placeability ? buildingMaterials[0] : buildingMaterials[1];
+
+			r.materials = mats;
+		}
+		else r.material = placeability ? buildingMaterials[0] : buildingMaterials[1];
 	}
 
 	//handles placing of building

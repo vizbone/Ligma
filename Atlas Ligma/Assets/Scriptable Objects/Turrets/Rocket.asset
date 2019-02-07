@@ -4,14 +4,15 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc73c06373ea81479d563b4e44b9010, type: 3}
   m_Name: Rocket
   m_EditorClassIdentifier: 
-  buildModel: {fileID: 100000, guid: 3ea9ef62e5a8fc24f9a0e6f6597840a8, type: 3}
+  buildModel: {fileID: 100000, guid: ec33c9193f80ca74c8a10da0a89179c1, type: 3}
   actualTower: {fileID: 1891549614434444, guid: 9cbc4713c1b678248b02fc0acca2328b,
-    type: 2}
+    type: 3}
   cost: 50

@@ -2867,6 +2867,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 205097029}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &205254348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1542209536}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798252793}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &208935213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9304,11 +9320,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Rocket Level 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7072375068067976091, guid: 5105001ef9230104b857ec6fad651dcb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7075440449591262465, guid: 5105001ef9230104b857ec6fad651dcb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9363,16 +9374,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075440449591262465, guid: 5105001ef9230104b857ec6fad651dcb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5400028
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075440449591262465, guid: 5105001ef9230104b857ec6fad651dcb,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5400028
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5105001ef9230104b857ec6fad651dcb, type: 3}
@@ -10770,6 +10771,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: de6d553a57a5f8e408aab46bb46544ad, type: 3}
+--- !u!1 &771773123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1542209536}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771773124}
+  m_Layer: 0
+  m_Name: Townhall (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &771773124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1542209536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771773123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 798252793}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &774584209
 GameObject:
   m_ObjectHideFlags: 0
@@ -10911,12 +10943,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 793268453}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &798252793 stripped
+--- !u!4 &798252793
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4182345681128286, guid: be4d9b3cde48c084f8c5955ac97da6ed,
     type: 3}
   m_PrefabInstance: {fileID: 1542209536}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205254348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 771773124}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &799970382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12739,7 +12780,7 @@ PrefabInstance:
     - target: {fileID: 1725294467811857111, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1725294467811857111, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
@@ -20869,10 +20910,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1702099752774922, guid: be4d9b3cde48c084f8c5955ac97da6ed, type: 3}
-      propertyPath: m_Name
-      value: Townhall
-      objectReference: {fileID: 0}
     - target: {fileID: 4182345681128286, guid: be4d9b3cde48c084f8c5955ac97da6ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.53
@@ -20916,6 +20953,10 @@ PrefabInstance:
     - target: {fileID: 4182345681128286, guid: be4d9b3cde48c084f8c5955ac97da6ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702099752774922, guid: be4d9b3cde48c084f8c5955ac97da6ed, type: 3}
+      propertyPath: m_Name
+      value: Townhall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be4d9b3cde48c084f8c5955ac97da6ed, type: 3}
@@ -22765,11 +22806,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Rocket Level 2 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7072375068067976091, guid: 5105001ef9230104b857ec6fad651dcb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7075440449591262465, guid: 5105001ef9230104b857ec6fad651dcb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22824,20 +22860,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075440449591262465, guid: 5105001ef9230104b857ec6fad651dcb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5400028
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075440449591262465, guid: 5105001ef9230104b857ec6fad651dcb,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.5400028
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5105001ef9230104b857ec6fad651dcb, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5105001ef9230104b857ec6fad651dcb, type: 3}
@@ -41547,16 +41569,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473635756431033230, guid: 05586c38a044cb94e9d0cfe7a2e4aa8b,
-        type: 3}
-      propertyPath: whiteCatapult1.bulletSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473635756431033230, guid: 05586c38a044cb94e9d0cfe7a2e4aa8b,
-        type: 3}
-      propertyPath: whiteCatapult1.fireRate
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05586c38a044cb94e9d0cfe7a2e4aa8b, type: 3}

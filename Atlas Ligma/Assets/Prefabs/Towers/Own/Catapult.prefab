@@ -162,10 +162,14 @@ MonoBehaviour:
   - {fileID: 4300000, guid: 1f5d2069ae555d44f94dcd93768a3725, type: 3}
   baseR: {fileID: 0}
   turretR: {fileID: 0}
+  turretBaseMaterials:
+  - {fileID: 2100000, guid: f619a25ffc1f54f4aa3cd063c9309e77, type: 2}
+  - {fileID: 2100000, guid: 873832be9bccaca4aaa42a278d323c84, type: 2}
+  - {fileID: 2100000, guid: 70814d54531de8841a2f9ebcf6194d88, type: 2}
   turretMaterials:
-  - {fileID: 2100000, guid: c5adfbf166ce9d24a9ea5645f25e177d, type: 3}
-  - {fileID: 2100000, guid: b632be2eb538ba042b1fa905ed353e16, type: 3}
-  - {fileID: 2100000, guid: 1f5d2069ae555d44f94dcd93768a3725, type: 3}
+  - {fileID: 2100000, guid: a8c18b91ee59cc84f9fc116d4ac5aac8, type: 2}
+  - {fileID: 2100000, guid: 138c60676dd55af4a9a6c4913dc32bb3, type: 2}
+  - {fileID: 2100000, guid: 6dae4863365594f488f0944c2aa5a78f, type: 2}
   manaLight: {fileID: 0}
   collider: {fileID: 0}
   enemies: []
@@ -200,6 +204,7 @@ MonoBehaviour:
     title: Destroy
   currentTower: {fileID: 1396634072807330}
   turret: {fileID: 0}
+  sensor: {fileID: 0}
   towerLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -403,11 +408,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8137066384904264943}
     m_Modifications:
-    - target: {fileID: 2754172045996647952, guid: f1264ea9430826c49a4c2fe8ce00f6c6,
-        type: 3}
-      propertyPath: m_Name
-      value: Mana Light
-      objectReference: {fileID: 0}
     - target: {fileID: 2754172045996647959, guid: f1264ea9430826c49a4c2fe8ce00f6c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -472,6 +472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754172045996647952, guid: f1264ea9430826c49a4c2fe8ce00f6c6,
+        type: 3}
+      propertyPath: m_Name
+      value: Mana Light
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1264ea9430826c49a4c2fe8ce00f6c6, type: 3}

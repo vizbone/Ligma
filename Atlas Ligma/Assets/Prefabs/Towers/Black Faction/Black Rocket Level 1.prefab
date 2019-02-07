@@ -86,12 +86,12 @@ PrefabInstance:
         type: 3}
       propertyPath: fireAudio
       value: 
-      objectReference: {fileID: 2134043812871534052}
+      objectReference: {fileID: 0}
     - target: {fileID: 4856632309971966088, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
         type: 3}
       propertyPath: shootingSounds
       value: 
-      objectReference: {fileID: 2134043812871534052}
+      objectReference: {fileID: 0}
     - target: {fileID: 4856722383252118508, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
         type: 3}
       propertyPath: options.Array.data[0].sprite
@@ -145,12 +145,6 @@ PrefabInstance:
 --- !u!1 &4930576021622323328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4825398815583129968, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
-    type: 3}
-  m_PrefabInstance: {fileID: 476165967395105264}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &2134043812871534052 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1947256971990457364, guid: f9fdc58a677a03c40ac2b8ee5cc94261,
     type: 3}
   m_PrefabInstance: {fileID: 476165967395105264}
   m_PrefabAsset: {fileID: 0}

@@ -82,7 +82,7 @@ public class WaveSystem : MonoBehaviour {
 			}
 			else
 			{
-				if (Input.GetKeyDown(KeyCode.Space) && ManaSystem.inst.inTutorial) WaveStarted();
+				if (Input.GetKeyDown(KeyCode.Space) && !ManaSystem.inst.inTutorial) WaveStarted();
 			}
 		}
 	}

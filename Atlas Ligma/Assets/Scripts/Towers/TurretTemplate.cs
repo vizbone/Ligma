@@ -58,6 +58,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	[SerializeField] Mesh[] lvl3Model;
 	[SerializeField] Renderer baseR;
 	[SerializeField] Renderer turretR;
+	[SerializeField] Material[] turretBaseMaterials;
 	[SerializeField] Material[] turretMaterials;
 	[SerializeField] LightingEffect manaLight;
 
@@ -378,7 +379,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			if (this.GetType() == typeof(Cannon))
 			{
 				ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.cannon, audioSource);
-				Particles effects = Instantiate(shootingEffects, transform); //i put the cannon particle here for now until more particles
+				Particles effects = Instantiate(shootingEffects, turretGO.transform); //i put the cannon particle here for now until more particles
 				effects.transform.localPosition = turretValues.firingPos;
 				effects.transform.eulerAngles = Vector3.zero;
 				effects.transform.parent = null;
@@ -465,18 +466,42 @@ public abstract class TurretTemplate : MonoBehaviour
 		switch (lvlIndex)
 		{
 			case 1:
-				baseR.material = turretMaterials[0];
-				turretR.material = turretMaterials[0];
+				baseR.material = turretBaseMaterials[0];
+				if (turretR.materials.Length > 1)
+				{
+					Material[] mat = new Material[2];
+					mat[0] = turretBaseMaterials[0];
+					mat[1] = turretMaterials[0];
+
+					turretR.materials = mat;
+				}
+				else turretR.material = turretMaterials[0];
 				break;
 
 			case 2:
-				baseR.material = turretMaterials[1];
-				turretR.material = turretMaterials[1];
+				baseR.material = turretBaseMaterials[1];
+				if (turretR.materials.Length > 1)
+				{
+					Material[] mat = new Material[2];
+					mat[0] = turretBaseMaterials[1];
+					mat[1] = turretMaterials[1];
+
+					turretR.materials = mat;
+				}
+				else turretR.material = turretMaterials[1];
 				break;
 
 			case 3:
-				baseR.material = turretMaterials[2];
-				turretR.material = turretMaterials[2];
+				baseR.material = turretBaseMaterials[2];
+				if (turretR.materials.Length > 1)
+				{
+					Material[] mat = new Material[2];
+					mat[0] = turretBaseMaterials[2];
+					mat[1] = turretMaterials[2];
+
+					turretR.materials = mat;
+				}
+				else turretR.material = turretMaterials[2];
 				break;
 		}
 	}
