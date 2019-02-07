@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
 	public Action[] options;
 	public GameObject currentTower;
 	public TurretTemplate turret;
-	MeshCollider sensor;
+	public MeshCollider sensor;
 	[SerializeField] LayerMask towerLayer;
 	[SerializeField] RadialMenu menuInst;
 	GridSystem gridSys;

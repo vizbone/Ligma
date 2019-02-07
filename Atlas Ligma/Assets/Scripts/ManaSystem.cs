@@ -13,6 +13,7 @@ public class ManaSystem : MonoBehaviour
 	[Header ("Game State Manager")]
 	public static GameStates gameStateS = GameStates.preStart; //Stores the state of the game
 	public GameStates gameState;
+	public bool inTutorial;
 
 	[Header ("Mana System")]
 	[SerializeField] private int startingMana = 1000; //Amt of mana players will start with. Will differ for each level
@@ -58,12 +59,21 @@ public class ManaSystem : MonoBehaviour
 			//if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
 			//if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
 
-			if (Input.GetKeyDown(KeyCode.Escape))
+			if (!buttonFunctionUI.settingsMenu.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
 			{
-					//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
-					buttonFunctionUI.uiSoundA.Play();
-					gameStateS = GameStates.pause;
-					buttonFunctionUI.settingsMenu.SetActive(true);
+				//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
+				buttonFunctionUI.uiSoundA.Play();
+				gameStateS = GameStates.pause;
+				buttonFunctionUI.settingsMenu.SetActive(true);
+			}
+		}
+		else if (gameState == GameStates.pause)
+		{
+			if (buttonFunctionUI.settingsMenu.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+			{
+				buttonFunctionUI.uiSoundB.Play();
+				gameStateS = GameStates.started;
+				buttonFunctionUI.settingsMenu.SetActive(false);
 			}
 		}
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class WaveSystem : MonoBehaviour {
 	
@@ -49,7 +50,13 @@ public class WaveSystem : MonoBehaviour {
 
 		allPrebuiltTurrets = FindObjectsOfType<TurretTemplate>();
 
-		ManaSystem.inst.gui.EndWaveAppearance(); //Prep Phase Mode
+		//Check if the current Scene is the tutorial level
+		//To ensure that the press start to play is not activated during Tutorial
+		Scene currentScene = SceneManager.GetActiveScene();
+		string currentSceneName = currentScene.name;
+		if (!(currentSceneName == "Level 1")){
+			ManaSystem.inst.gui.EndWaveAppearance(); //Prep Phase Mode
+		}
 	}
 
 	void Update()
@@ -75,7 +82,7 @@ public class WaveSystem : MonoBehaviour {
 			}
 			else
 			{
-				if (Input.GetKeyDown(KeyCode.Space)) WaveStarted();
+				if (Input.GetKeyDown(KeyCode.Space) && ManaSystem.inst.inTutorial) WaveStarted();
 			}
 		}
 	}
