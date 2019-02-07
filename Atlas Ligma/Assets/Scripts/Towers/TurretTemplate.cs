@@ -73,7 +73,7 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	[Header ("For Bullets")]
 	public bool arcTravel;
-	public Bullet bullet;
+	public Bullet[] bullet;
 
 	[Header ("For Events")]
 	[SerializeField] EventsManager eventManager;
@@ -371,9 +371,8 @@ public abstract class TurretTemplate : MonoBehaviour
 		{
 			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : new Vector3(transform.position.x - closestEnemy.transform.position.x, 0, transform.position.z - closestEnemy.transform.position.z).normalized * -1;
 			Vector3 direction2D = new Vector3 (direction.x, 0, direction.z);
-			Bullet currentBullet = Instantiate (bullet, turretGO.transform);
+			Bullet currentBullet = Instantiate (BulletSelect(level), turretGO.transform);
 			currentBullet.transform.localPosition = turretValues.firingPos;
-			currentBullet.transform.eulerAngles = Vector3.zero;
 			currentBullet.transform.parent = null;
 			//print(currentBullet.name);
 			currentBullet.turret = this;
@@ -516,6 +515,26 @@ public abstract class TurretTemplate : MonoBehaviour
 			Destroy(investmentParticle);
 			investmentParticle = null;
 		}
+	}
+
+	Bullet BulletSelect(int lvl)
+	{
+		Bullet bullet = null;
+
+		switch (lvl)
+		{
+			case 1:
+				bullet = this.bullet[0];
+				break;
+			case 2:
+				bullet = this.bullet[1];
+				break;
+			case 3:
+				bullet = this.bullet[2];
+				break;
+		}
+
+		return bullet;
 	}
 
 	/*void OnTriggerStay (Collider other)

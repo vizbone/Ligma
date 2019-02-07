@@ -214,7 +214,10 @@ MonoBehaviour:
   designatedAngle: {x: 0, y: 0, z: 0}
   meshCollider: {fileID: 0}
   arcTravel: 0
-  bullet: {fileID: 114779164487480798, guid: 223d526f9a2a8e4468708021759c3d82, type: 3}
+  bullet:
+  - {fileID: 114779164487480798, guid: 223d526f9a2a8e4468708021759c3d82, type: 3}
+  - {fileID: 114779164487480798, guid: 9bfc2c5efe8aeb445aaae1b694f7e988, type: 3}
+  - {fileID: 114779164487480798, guid: 2718e5bb084131d41b724a3ebab6b460, type: 3}
   eventManager: {fileID: 0}
   audioSource: {fileID: 0}
   shootingEffects: {fileID: 586501335781586706, guid: c27d601a4ac9e214689ecfdd18156808,

@@ -3198,6 +3198,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2088502225}
     m_Modifications:
+    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Black Cannon Level 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5285579597727525790, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3262,11 +3267,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Black Cannon Level 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ad447ccd06b448ad62f47f8ddc7eb, type: 3}
@@ -23275,6 +23275,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2088502225}
     m_Modifications:
+    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Black Cannon Level 2 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 5285579597727525790, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23339,11 +23344,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Black Cannon Level 2 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ad447ccd06b448ad62f47f8ddc7eb, type: 3}
@@ -25956,6 +25956,11 @@ PrefabInstance:
       propertyPath: oriVerticalBorderOffset
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447595, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: myRay
+      value: 
+      objectReference: {fileID: 785916827}
     - target: {fileID: 5420911518988906447, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: cannon.defaultVolume
@@ -26256,11 +26261,6 @@ PrefabInstance:
       propertyPath: manaGain.maxVolume
       value: 0.85
       objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447595, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: myRay
-      value: 
-      objectReference: {fileID: 785916827}
     - target: {fileID: 4631659969608898894, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: m_IsActive

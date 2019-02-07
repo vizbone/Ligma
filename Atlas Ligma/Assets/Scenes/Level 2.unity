@@ -1268,15 +1268,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6706800019388168777, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7109325445170918291, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706800019388168777, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6226825774449984019, guid: 6f7ed187ad762bb4cb4b734d0c1fe5e2,
         type: 3}
@@ -42355,6 +42355,56 @@ PrefabInstance:
       propertyPath: minCamSize
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447597, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: oriHorizontalBorderOffset
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447597, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: oriVerticalBorderOffset
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447595, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: myRay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: selectedEventIds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5420911518988906447, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: cannon.defaultVolume
@@ -42655,50 +42705,10 @@ PrefabInstance:
       propertyPath: manaGain.maxVolume
       value: 0.85
       objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447595, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: myRay
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4631659969608898894, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: events.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: selectedEventIds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: events.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: events.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: events.Array.data[2]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: events.Array.data[3]
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea38348b18524ce4e962142f7d52bbef, type: 3}

@@ -938,17 +938,6 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 7176733185266755862}
-    - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: startingMana
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: audio
-      value: 
-      objectReference: {fileID: 8367767218166074350, guid: f205e48d3edd75e49bd05251bc0762a6,
-        type: 3}
     - target: {fileID: 4631659969495447597, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: horizontalBorderOffset
@@ -967,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 4631659969495447597, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: oriVerticalBorderOffset
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea38348b18524ce4e962142f7d52bbef, type: 3}
@@ -15790,7 +15779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 46b12845355544642bf8f9d0cb373af7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46b12845355544642bf8f9d0cb373af7, type: 3}
       propertyPath: m_LocalPosition.x

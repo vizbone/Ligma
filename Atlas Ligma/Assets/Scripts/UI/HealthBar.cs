@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
 
 	void Start ()
 	{
-		hp = transform.GetChild (1).GetComponent<Image> ();
+		hp = transform.GetChild (2).GetComponent<Image> ();
 		maxHp = ai.maxHp;
 		currentHp = ai.hp;
 	}

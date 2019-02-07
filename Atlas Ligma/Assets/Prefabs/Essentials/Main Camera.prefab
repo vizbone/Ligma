@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   inTutorial: 0
-  startingMana: -10
+  startingMana: 500
   maxMana: 2000
   currentMana: 0
   manaDrop: {fileID: 3490758228446144676, guid: 20f63cb6bfe3ac34599ed809e14a552c,
@@ -123,7 +123,7 @@ MonoBehaviour:
   eventsManager: {fileID: 0}
   audioLibrary: {fileID: 0}
   worldSpaceCanvas: {fileID: 0}
-  audio: {fileID: 0}
+  audio: {fileID: 8367767218166074350, guid: f205e48d3edd75e49bd05251bc0762a6, type: 3}
 --- !u!114 &4631659969495447584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   buildingMaterials:
-  - {fileID: 2100000, guid: 17552edd98053324d81f9e4a0ffc6847, type: 2}
-  - {fileID: 2100000, guid: d78a98576923c0147a1491c616e821f7, type: 2}
+  - {fileID: 2100000, guid: 09d7e7ee1d1a10b448df484a94dd3c25, type: 2}
+  - {fileID: 2100000, guid: f89fe0099260ccd4b9b0359635d99c5b, type: 2}
   towers:
   - {fileID: 11400000, guid: a7a00e11d23c7a74eb293e6a8781d6b5, type: 2}
   - {fileID: 11400000, guid: 9236a80f71e99a2409ee1e7a16188c47, type: 2}
