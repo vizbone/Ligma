@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour
 	public float currentStep;
 	Rigidbody rb;
 
+	public float currentY;
+
 	[Header("Particle Effects")]
 	[SerializeField] protected Particles damageFeedback;
 
@@ -36,7 +38,7 @@ public class Bullet : MonoBehaviour
 		{
 			rb.useGravity = false;
 			currentStep = 0;
-			target = new Vector3(target.x, target.y + 0.5f, target.z);
+			target = new Vector3(target.x, target.y, target.z);
 		}
 	}
 
@@ -54,9 +56,9 @@ public class Bullet : MonoBehaviour
 
 	void ArcTravel()
 	{
-		if (currentStep < 1) MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos, turret.transform.position.y);
-		currentStep = Mathf.Min(currentStep += speed * Time.deltaTime, 1);
-		if (currentStep >= 1) turret.Hit(null, turret.isPrebuilt, gameObject, hitCount);
+		/*if (currentStep < 1) */MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos, currentY);
+		currentStep += speed * Time.deltaTime;
+		//if (currentStep >= 1) turret.Hit(null, turret.isPrebuilt, gameObject, hitCount);
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -90,6 +92,10 @@ public class Bullet : MonoBehaviour
 
 				Instantiate(damageFeedback, other.transform.position, Quaternion.Euler(0, designatedAngle, 0));
 			}
+		} else
+		{
+			turret.Hit (null, turret.isPrebuilt, gameObject, hitCount);
 		}
+
 	}
 }
