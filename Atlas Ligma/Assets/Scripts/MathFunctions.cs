@@ -41,14 +41,15 @@ public class MathFunctions : MonoBehaviour
 		return 0;
 	}
 
-	public static void ParabolicCurve (Vector3 target, float amplitude, float currentStep, Transform yourself, float frequency, Vector3 oriPos, float currentY)
+	public static void ParabolicCurve (Vector3 target, float amplitude, float currentStep, Transform yourself, float frequency, Vector3 oriPos, float currentY, float terrainOffset)
 	{
-		float nextStep = Mathf.Min (currentStep + 2 * Time.deltaTime, 1);
+		float nextStep = currentStep + 2 * Time.deltaTime;
 
-		float x = Mathf.Lerp (oriPos.x, target.x, nextStep);
-		float z = Mathf.Lerp (oriPos.z, target.z, nextStep);
-		float temp = Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x > 0 ? Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x : -(Mathf.Lerp (oriPos.x, target.x, nextStep) - oriPos.x);
-		float y = (amplitude * Mathf.Sin (temp * Mathf.PI * (1 / frequency))) + currentY;
+		float x = (target.x - oriPos.x) * nextStep + oriPos.x;
+		float z = (target.z - oriPos.z) * nextStep + oriPos.z;
+		float temp = (target.x - oriPos.x) * nextStep > 0 ? (target.x - oriPos.x) * nextStep : -((target.x - oriPos.x) * nextStep);
+		float temp1 = Mathf.Abs(Mathf.Asin (currentY / amplitude));
+		float y = (amplitude * Mathf.Sin (temp * Mathf.PI * (1 / frequency) + temp1)) + terrainOffset;
 
 		yourself.position = new Vector3 (x, y, z);
 	}

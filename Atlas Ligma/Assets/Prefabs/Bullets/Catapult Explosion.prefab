@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4804920817667686}
   - component: {fileID: 198224823143054240}
   - component: {fileID: 199920145896332018}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4767,7 +4767,7 @@ GameObject:
   - component: {fileID: 4901630411640162}
   - component: {fileID: 198647156629643938}
   - component: {fileID: 199207462366721344}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: AdditonalSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9545,7 +9545,7 @@ GameObject:
   - component: {fileID: 114307124736076234}
   - component: {fileID: 1184756474322324626}
   - component: {fileID: 1246198450854325789}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Catapult Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14484,7 +14484,7 @@ GameObject:
   - component: {fileID: 4142123446954236}
   - component: {fileID: 198956959353080806}
   - component: {fileID: 199050634868638022}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Embers
   m_TagString: Untagged
   m_Icon: {fileID: 0}

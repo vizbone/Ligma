@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 135514764174064938}
   - component: {fileID: 54773964039670158}
   - component: {fileID: 114223184396069200}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Catapult Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -132,5 +132,6 @@ MonoBehaviour:
   catapult: 0
   oriPos: {x: 0, y: 0, z: 0}
   currentStep: 0
+  currentY: 0
   damageFeedback: {fileID: 664750416770024074, guid: cfbc10ad308e92e42b534c2b9f985b47,
     type: 3}

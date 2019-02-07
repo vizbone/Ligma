@@ -367,7 +367,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		{
 			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : new Vector3(transform.position.x - closestEnemy.transform.position.x, 0, transform.position.z - closestEnemy.transform.position.z).normalized * -1;
 			Vector3 direction2D = new Vector3 (direction.x, 0, direction.z);
-			Bullet currentBullet = Instantiate (bullet, transform);
+			Bullet currentBullet = Instantiate (bullet, turretGO.transform);
 			currentBullet.transform.localPosition = turretValues.firingPos;
 			currentBullet.transform.eulerAngles = Vector3.zero;
 			currentBullet.transform.parent = null;
@@ -396,6 +396,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				currentBullet.target = closestEnemy.transform.position;
 				currentBullet.frequency1 = currentBullet.transform.position.x - currentBullet.target.x > 0 ? currentBullet.transform.position.x - currentBullet.target.x : -(currentBullet.transform.position.x - currentBullet.target.x);
 				currentBullet.catapult = true;
+				currentBullet.currentY = turretValues.firingPos.y;
 
 				currentBullet = null;
 			}
