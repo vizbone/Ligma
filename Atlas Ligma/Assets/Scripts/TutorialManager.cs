@@ -14,6 +14,7 @@ public class TutorialManager : MonoBehaviour
 	[Header("Prebuilt Tutorial Section")]
 	public GameObject Investment1Part;
 	public GameObject Investment2Part;
+	public AudioSource soundA;
 
 	public bool prebuiltSectionCheck;
 	public bool clearToProceed; //freaking hell dude
@@ -62,6 +63,7 @@ public class TutorialManager : MonoBehaviour
 	{
 		if (clearToProceed)
 		{
+			soundA.Play();
 			Investment1Part.SetActive(false);
 			Investment2Part.SetActive(true);
 			clearToProceed = false;
