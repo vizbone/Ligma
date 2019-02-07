@@ -198,7 +198,7 @@ public class GUIOverlay : MonoBehaviour
 		{
 			prepPhaseLerpTime += Time.deltaTime;
 
-			float alpha = MathFunctions.SmoothPingPong(prepPhaseLerpSpeed * prepPhaseLerpTime, 1);
+			float alpha = MathFunctions.SmoothPingPong(prepPhaseLerpTime, 1, prepPhaseLerpSpeed);
 			pressSpaceToStart.color = new Color(pressSpaceToStart.color.r, pressSpaceToStart.color.g, pressSpaceToStart.color.b, alpha);
 		}
 	}

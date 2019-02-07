@@ -20,7 +20,7 @@ public class LightingEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		intensity = MathFunctions.SmoothPingPong(glowSpeed * Time.time, (maxIntensity - minIntensity));
+		intensity = MathFunctions.SmoothPingPong(Time.time, (maxIntensity - minIntensity), glowSpeed);
 		light.intensity = minIntensity + intensity;
     }
 }

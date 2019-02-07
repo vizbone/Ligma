@@ -49,7 +49,7 @@ public class Townhall : MonoBehaviour
 		for (int i = 0; i < subCrystals.Length; i++)
 		{
 			Rotate(subCrystals[i], subCrystalRotateSpeed[i]);
-			BounceUpAndDown(subCrystals[i], subCrystalMaxBounceHeight[i], subCrystalRotateSpeed[i], subCrystalOriHeight[i]);
+			BounceUpAndDown(subCrystals[i], subCrystalMaxBounceHeight[i], subCrystalBounceSpeed[i], subCrystalOriHeight[i]);
 		}
 
 		//Rings and Mananite Holder
@@ -59,7 +59,7 @@ public class Townhall : MonoBehaviour
 
 	void BounceUpAndDown(Transform obj, float maxHeight, float speed, float oriHeight = 0)
 	{
-		float y = MathFunctions.SmoothPingPong(Time.time / speed, maxHeight) + oriHeight;
+		float y = MathFunctions.SmoothPingPong(Time.time, maxHeight, speed) + oriHeight;
 		obj.transform.localPosition = new Vector3(obj.transform.localPosition.x, y, obj.transform.localPosition.z);
 	}
 
