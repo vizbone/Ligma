@@ -78,8 +78,6 @@ public class AIMovement : MonoBehaviour {
 				{
 					Transform[] newPath = new Transform[paths.Length + 1];
 
-					print(newPath.Length);
-
 					for (int i = 0; i < paths.Length; i++)
 					{
 						newPath[i] = paths[i];

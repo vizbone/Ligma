@@ -40,6 +40,8 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 				if (menu.selected.title == "Upgrade" && !disabled) menu.turret.Upgrade ();
 				else if (menu.selected.title == "Destroy")
 				{
+					AudioSource audio = Instantiate (ManaSystem.inst.audio, menu.turret.transform.position, Quaternion.identity);
+					ManaSystem.inst.audioLibrary.PlayAudio (ManaSystem.inst.audioLibrary.destroy, audio);
 					Destroy (menu.turret.gameObject);
 				} 
 				else print ("Invalid Upgrade Title");

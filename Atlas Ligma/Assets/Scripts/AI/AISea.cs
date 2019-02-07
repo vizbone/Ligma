@@ -28,7 +28,7 @@ public class AISea : AITemplate
 
 	protected override void Start () 
 	{
-		timer = 0.1f;
+		//timer = 0.1f;
 		//worldCanvas = GameObject.Find ("World Space Canvas").transform;
 		WaveSystem.enemyListS.Add(this);
 
@@ -57,6 +57,7 @@ public class AISea : AITemplate
 
 		if (enemySpawnRate == 0) enemySpawnRate = 1;
 		time = 1 / enemySpawnRate;
+		base.Start ();
 	}
 
 	protected override void Update()

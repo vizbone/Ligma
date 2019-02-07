@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8747384849072825552}
   - component: {fileID: 8747384849071859216}
   - component: {fileID: 1159764247}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Townhall Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,11 +103,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8747384849073628402}
   - component: {fileID: 7226559342929534051}
+  - component: {fileID: 8139027156816399032}
   - component: {fileID: 5390800635151871330}
   - component: {fileID: 4669283962047272161}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Townhall
-  m_TagString: Untagged
+  m_TagString: Town Hall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +147,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.4671345, y: 13.863693, z: 6.0876617}
   m_Center: {x: 0, y: 7, z: 0}
+--- !u!65 &8139027156816399032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747384849073797330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.0436277, y: 1.7309456, z: 5.5610156}
+  m_Center: {x: 0.06706095, y: 0.3654728, z: -0.124862194}
 --- !u!54 &5390800635151871330
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -210,7 +224,7 @@ GameObject:
   - component: {fileID: 8747384849073628404}
   - component: {fileID: 8747384849072825556}
   - component: {fileID: 8747384849071859220}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +302,7 @@ GameObject:
   - component: {fileID: 8747384849072825558}
   - component: {fileID: 8747384849071859222}
   - component: {fileID: 1159764248}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Mananite Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +393,7 @@ GameObject:
   - component: {fileID: 8747384849073628408}
   - component: {fileID: 8747384849072825560}
   - component: {fileID: 8747384849071859224}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Sub Crystal 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +470,7 @@ GameObject:
   - component: {fileID: 8747384849073628410}
   - component: {fileID: 8747384849072825562}
   - component: {fileID: 8747384849071859226}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Sub Crystal 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +548,7 @@ GameObject:
   - component: {fileID: 8747384849072825564}
   - component: {fileID: 8747384849071859228}
   - component: {fileID: 1159764249}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Main Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +639,7 @@ GameObject:
   - component: {fileID: 8747384849073628414}
   - component: {fileID: 8747384849072825566}
   - component: {fileID: 8747384849071859230}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Sub Crystal 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

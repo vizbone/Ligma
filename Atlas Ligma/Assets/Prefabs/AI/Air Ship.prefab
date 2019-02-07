@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  maxHp: 0
   hp: 0
-  manaDrop: 10
-  defaultMoveSpeed: 0
+  manaDrop: 30
   audioSource: {fileID: 0}
   hpPack: {fileID: 0}
   hpPrefab: {fileID: 9107345785413763961, guid: bb87fb92b2640c948bc19f5160dbc523,

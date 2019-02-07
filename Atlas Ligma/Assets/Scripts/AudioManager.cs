@@ -39,6 +39,12 @@ public class AudioManager : MonoBehaviour
 
 	public SFX rocket;
 	[Space(15)]
+
+	public SFX build;
+	[Space (15)]
+
+	public SFX destroy;
+	[Space (15)]
 	#endregion
 
 	[Header("All Enemy Audio")]
@@ -63,6 +69,7 @@ public class AudioManager : MonoBehaviour
 	[Header("All Misc Sounds")]
 	#region
 	public SFX manaGain;
+	public SFX turretSelect;
 	#endregion
 
 	/// <summary>
@@ -86,7 +93,7 @@ public class AudioManager : MonoBehaviour
 		if (audioToPlay.maxPitch <= audioToPlay.minPitch)
 		{
 			print("Minimum Pitch and Maximum Pitch has Error. Minimum Value is more than or equals to Maximum Value. Switching to Default Pitch");
-			randomisePitch = true;
+			randomisePitch = false;
 		}
 
 		source.volume = randomiseVolume ? Random.Range(audioToPlay.minVolume, audioToPlay.maxVolume) : audioToPlay.defaultVolume;

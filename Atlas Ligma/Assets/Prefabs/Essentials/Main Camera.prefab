@@ -110,12 +110,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
+  inTutorial: 0
   startingMana: -10
   maxMana: 2000
   currentMana: 0
   manaDrop: {fileID: 3490758228446144676, guid: 20f63cb6bfe3ac34599ed809e14a552c,
     type: 3}
-  canvas: {fileID: 0}
   manaGainedSound: {fileID: 4631659969608898880}
   gui: {fileID: 0}
   buttonFunctionUI: {fileID: 0}
@@ -123,6 +123,7 @@ MonoBehaviour:
   eventsManager: {fileID: 0}
   audioLibrary: {fileID: 0}
   worldSpaceCanvas: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!114 &4631659969495447584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,8 +194,6 @@ MonoBehaviour:
   cameraPanSpeed: 0.3
   oriHorizontalBorderOffset: 0
   oriVerticalBorderOffset: 0
-  horizontalBorderOffset: 10
-  verticalBorderOffset: 10
 --- !u!114 &4631659969495447599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +283,8 @@ MonoBehaviour:
   enemyList: []
   allPrebuiltTurrets: []
   em: {fileID: 0}
+  prepPhaseSnapShot: {fileID: 0}
+  battlePhaseSnapShot: {fileID: 0}
 --- !u!114 &4631659969495447585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,99 +342,123 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannon:
     audioClip: {fileID: 8300000, guid: 19752713b2a846e47aa57616b80ed131, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
     defaultPitch: 1
     minPitch: 1
     maxPitch: 1
   catapult:
     audioClip: {fileID: 8300000, guid: 11e592f344fb0ba47b8c05985354379c, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
-    maxPitch: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 0.5
+    minPitch: 0.3
+    maxPitch: 0.6
   catapultExplosion:
     audioClip: {fileID: 8300000, guid: b5e4a35ed5f62154cb9b631fa56455b5, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
-    maxPitch: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 0.5
+    minPitch: 0.55
+    maxPitch: 0.3
   crossbow:
     audioClip: {fileID: 8300000, guid: f92e4a68a283f8f488210e37d42840fa, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
     defaultPitch: 1
     minPitch: 1
     maxPitch: 1
   rocket:
     audioClip: {fileID: 8300000, guid: 449b428ce106ee2488e3486ce699f5aa, type: 3}
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 1
+    minPitch: 1
+    maxPitch: 1
+  build:
+    audioClip: {fileID: 8300000, guid: 970db756176de31469dd63b1051002fd, type: 3}
+    defaultVolume: 0.7
+    minVolume: 0.6
+    maxVolume: 0.8
+    defaultPitch: 0.9
+    minPitch: 0.8
+    maxPitch: 1
+  destroy:
+    audioClip: {fileID: 8300000, guid: 7365056987c99d641af4c0e44da8bd20, type: 3}
     defaultVolume: 1
     minVolume: 1
     maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
+    defaultPitch: 0.9
+    minPitch: 0.8
     maxPitch: 1
   skeletonAttack:
     audioClip: {fileID: 8300000, guid: fdd778655d39c474da7db4d1884e26f9, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
-    maxPitch: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 0.5
+    minPitch: 0.3
+    maxPitch: 0.6
   skeletonDeath:
     audioClip: {fileID: 8300000, guid: 4a5ff79b36b820d4594a75b46002cb83, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
-    maxPitch: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 0.5
+    minPitch: 0.3
+    maxPitch: 0.6
   unloading:
     audioClip: {fileID: 8300000, guid: 96fc942406bbaeb47a16e7d998e0d775, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
-    maxPitch: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 0.5
+    minPitch: 0.3
+    maxPitch: 0.6
   seaEnemyDestroyed:
     audioClip: {fileID: 8300000, guid: 4a5ff79b36b820d4594a75b46002cb83, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
-    maxPitch: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 0.5
+    minPitch: 0.3
+    maxPitch: 0.6
   airShipBomb:
     audioClip: {fileID: 8300000, guid: fe32fddbc644931459b485204e616b0d, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
-    maxPitch: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 0.5
+    minPitch: 0.3
+    maxPitch: 0.55
   airShipDestroyed:
     audioClip: {fileID: 8300000, guid: 4a5ff79b36b820d4594a75b46002cb83, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
+    defaultVolume: 0.5
+    minVolume: 0.3
+    maxVolume: 0.6
+    defaultPitch: 0.5
+    minPitch: 0.3
+    maxPitch: 0.6
+  manaGain:
+    audioClip: {fileID: 8300000, guid: 7626140963863db46903e773a1d28bba, type: 3}
+    defaultVolume: 0.8
+    minVolume: 0.7
+    maxVolume: 0.85
     defaultPitch: 1
     minPitch: 1
     maxPitch: 1
-  manaGain:
-    audioClip: {fileID: 8300000, guid: 7626140963863db46903e773a1d28bba, type: 3}
-    defaultVolume: 1
-    minVolume: 1
-    maxVolume: 1
-    defaultPitch: 1
-    minPitch: 1
+  turretSelect:
+    audioClip: {fileID: 8300000, guid: 349150a87a9f6094f8a25bcbce6a7681, type: 3}
+    defaultVolume: 0.8
+    minVolume: 0.7
+    maxVolume: 0.9
+    defaultPitch: 0.9
+    minPitch: 0.8
     maxPitch: 1
 --- !u!1 &4631659969608898894
 GameObject:

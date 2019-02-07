@@ -14,6 +14,7 @@ public class TutorialManager : MonoBehaviour
 	[Header("Prebuilt Tutorial Section")]
 	public GameObject Investment1Part;
 	public GameObject Investment2Part;
+	public AudioSource soundA;
 
 	public bool prebuiltSectionCheck;
 	public bool clearToProceed; //freaking hell dude
@@ -30,7 +31,7 @@ public class TutorialManager : MonoBehaviour
 		prebuiltSectionCheck = false;
 		clearToProceed = false;
 
-		ManaSystem.inst.inTutorial = false;
+		ManaSystem.inst.inTutorial = true;
 	}
 
 	public void Update()
@@ -62,6 +63,7 @@ public class TutorialManager : MonoBehaviour
 	{
 		if (clearToProceed)
 		{
+			soundA.Play();
 			Investment1Part.SetActive(false);
 			Investment2Part.SetActive(true);
 			clearToProceed = false;
@@ -82,7 +84,7 @@ public class TutorialManager : MonoBehaviour
 	public void PressSpaceToStartIntro()
 	{
 		pressSpaceToStart.SetActive(true);
-		ManaSystem.inst.inTutorial = true;
+		ManaSystem.inst.inTutorial = false;
 		ManaSystem.inst.gui.EndWaveAppearance();
 	}
 }

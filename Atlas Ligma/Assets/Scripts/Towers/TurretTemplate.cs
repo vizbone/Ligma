@@ -144,6 +144,8 @@ public abstract class TurretTemplate : MonoBehaviour
 		
 		//Set cooldown
 		coolDown = 1 / turretValues.fireRate;
+
+		if (faction == Faction.own) ManaSystem.inst.audioLibrary.PlayAudio (ManaSystem.inst.audioLibrary.build, audioSource);
 	}
 
 	protected virtual void Update ()
@@ -164,6 +166,7 @@ public abstract class TurretTemplate : MonoBehaviour
 			float angleDiff = Mathf.Abs(designatedAngle.z - turretGO.transform.eulerAngles.y) % 360; //Compare with y since z rotation checks the euler of y
 			if (angleDiff <= 20) Shoot(arcTravel); //If the angle difference is minimal, then allow to shoot
 		}
+		//if (Input.GetMouseButtonDown(0)) ManaSystem.inst.audioLibrary.PlayAudio (ManaSystem.inst.audioLibrary.build, audioSource); //kevins enjoyment
 	}
 
 	protected abstract void SetValues();

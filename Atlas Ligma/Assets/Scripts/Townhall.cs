@@ -34,7 +34,7 @@ public class Townhall : MonoBehaviour
 
 		for (int i = 0; i < subCrystals.Length; i++)
 		{
-			subCrystalOriHeight[i] = subCrystals[i].transform.position.y;
+			subCrystalOriHeight[i] = subCrystals[i].transform.localPosition.y;
 		}
 	}
 
