@@ -154,7 +154,7 @@ public class GUIOverlay : MonoBehaviour
 
 		yield return new WaitUntil( () => notificationShown == true);
 
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(3);
 
 		uiAnim += HideNotification;
 
@@ -184,7 +184,7 @@ public class GUIOverlay : MonoBehaviour
 		eventNotifLerpTime = Mathf.Min(MathFunctions.SinerpValue(eventNotifLerpTime + eventNotificationSpeed * Time.deltaTime, 1), 1);
 
 		//95 x is displayed, -110 x is not hidden
-		float xPos = Mathf.Lerp(-110, 95, eventNotifLerpTime);
+		float xPos = Mathf.Lerp(-125, 122.5f, eventNotifLerpTime);
 
 		notification.rectTransform.anchoredPosition = new Vector2(xPos, notification.rectTransform.anchoredPosition.y);
 
@@ -201,7 +201,7 @@ public class GUIOverlay : MonoBehaviour
 		eventNotifLerpTime = Mathf.Min(MathFunctions.SinerpValue(eventNotifLerpTime + eventNotificationSpeed * Time.deltaTime, 1), 1);
 
 		//95 x is displayed, -110 x is not hidden
-		float xPos = Mathf.Lerp(95, -110, eventNotifLerpTime);
+		float xPos = Mathf.Lerp(122.5f, -125, eventNotifLerpTime);
 
 		notification.rectTransform.anchoredPosition = new Vector2(xPos, notification.rectTransform.anchoredPosition.y);
 
@@ -215,8 +215,8 @@ public class GUIOverlay : MonoBehaviour
 
 	public void DisplayWin()
 	{
-		lerpTime[0] = Mathf.Min(lerpTime[0] + 1.5f * Time.deltaTime, 1);
-		lerpTime[1] = Mathf.Min(lerpTime[1] + 0.75f * Time.deltaTime, 1);
+		lerpTime[0] = Mathf.Min(lerpTime[0] + 1.5f * Time.fixedDeltaTime, 1);
+		lerpTime[1] = Mathf.Min(lerpTime[1] + 0.75f * Time.fixedDeltaTime, 1);
 
 		float imageLerpTime = MathFunctions.SinerpValue(lerpTime[0], 1);
 		float textLerpTime = MathFunctions.SinerpValue(lerpTime[1], 1);
@@ -239,24 +239,24 @@ public class GUIOverlay : MonoBehaviour
 		float thirdButtonTime = 0;
 		float fourthButtonTime = 0;
 
-		lerpTime[2] = Mathf.Min(lerpTime[2] + 1.25f * Time.deltaTime, 1);
+		lerpTime[2] = Mathf.Min(lerpTime[2] + 1.25f * Time.fixedDeltaTime, 1);
 		firstButtonTime = MathFunctions.SinerpValue(lerpTime[2], 1);
 
 		if (firstButtonTime > 0.8f)
 		{
-			lerpTime[3] = Mathf.Min(lerpTime[3] + 1.25f * Time.deltaTime, 1);
+			lerpTime[3] = Mathf.Min(lerpTime[3] + 1.25f * Time.fixedDeltaTime, 1);
 			secondButtonTime = MathFunctions.SinerpValue(lerpTime[3], 1);
 		}
 
 		if (secondButtonTime > 0.8f)
 		{
-			lerpTime[4] = Mathf.Min(lerpTime[4] + 1.25f * Time.deltaTime, 1);
+			lerpTime[4] = Mathf.Min(lerpTime[4] + 1.25f * Time.fixedDeltaTime, 1);
 			thirdButtonTime = MathFunctions.SinerpValue(lerpTime[4], 1);
 		}
 
 		if (thirdButtonTime > 0.8f)
 		{
-			lerpTime[5] = Mathf.Min(lerpTime[5] + 1.25f * Time.deltaTime, 1);
+			lerpTime[5] = Mathf.Min(lerpTime[5] + 1.25f * Time.fixedDeltaTime, 1);
 			fourthButtonTime = MathFunctions.SinerpValue(lerpTime[5], 1);
 		}
 
@@ -281,8 +281,8 @@ public class GUIOverlay : MonoBehaviour
 
 	public void DisplayLose()
 	{
-		lerpTime[0] = Mathf.Min(lerpTime[0] + 1.5f * Time.deltaTime, 1);
-		lerpTime[1] = Mathf.Min(lerpTime[1] + 0.1f * Time.deltaTime, 1);
+		lerpTime[0] = Mathf.Min(lerpTime[0] + 1.5f * Time.fixedDeltaTime, 1);
+		lerpTime[1] = Mathf.Min(lerpTime[1] + 0.1f * Time.fixedDeltaTime, 1);
 
 		float imageLerpTime = MathFunctions.SinerpValue(lerpTime[0], 1);
 		float textLerpTime = MathFunctions.SinerpValue(lerpTime[1], 1);
@@ -303,12 +303,12 @@ public class GUIOverlay : MonoBehaviour
 		float firstButtonTime = 0;
 		float secondButtonTime = 0;
 
-		lerpTime[2] = Mathf.Min(lerpTime[2] + 1.25f * Time.deltaTime, 1);
+		lerpTime[2] = Mathf.Min(lerpTime[2] + 1.25f * Time.fixedDeltaTime, 1);
 		firstButtonTime = MathFunctions.SinerpValue(lerpTime[2], 1);
 
 		if (firstButtonTime > 0.8f)
 		{
-			lerpTime[3] = Mathf.Min(lerpTime[3] + 1.25f * Time.deltaTime, 1);
+			lerpTime[3] = Mathf.Min(lerpTime[3] + 1.25f * Time.fixedDeltaTime, 1);
 			secondButtonTime = MathFunctions.SinerpValue(lerpTime[3], 1);
 		}
 
@@ -332,10 +332,10 @@ public class GUIOverlay : MonoBehaviour
 		float buttonLerpTime = 0;
 		float imageTextLerpTime = 0;
 
-		lerpTime[0] = Mathf.Min(lerpTime[0] + Time.deltaTime, 1);
+		lerpTime[0] = Mathf.Min(lerpTime[0] + Time.fixedDeltaTime, 1);
 		imageTextLerpTime = MathFunctions.SinerpValue(lerpTime[0], 1);
 
-		lerpTime[1] = Mathf.Min(lerpTime[0] + 2 * Time.deltaTime, 1);
+		lerpTime[1] = Mathf.Min(lerpTime[0] + 2 * Time.fixedDeltaTime, 1);
 		buttonLerpTime = MathFunctions.SinerpValue(lerpTime[1], 1);
 
 		winObj.color = Color.Lerp(winObj.color, Color.clear, imageTextLerpTime);

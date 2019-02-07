@@ -7,8 +7,6 @@ public abstract class AITemplate : MonoBehaviour {
 	public AttackType enemyType;
 	public int hp;
 	public int manaDrop = 10;
-	public Vector3 defaultMoveSpeed;
-	public float defaultAngularSpeed;
 
 	public AudioSource audioSource;
 
@@ -44,7 +42,7 @@ public abstract class AITemplate : MonoBehaviour {
 		//hpPack.ai = null;
 	}
 
-	public void Update ()
+	protected virtual void Update ()
 	{
 		if (timer > 0) timer -= Time.deltaTime;
 		HealthBar ();

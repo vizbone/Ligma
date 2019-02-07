@@ -26,11 +26,8 @@ public class ManaFeedback : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
-		{
-			if (anim != null) anim();
-		}
-    }
+		if (anim != null) anim();
+	}
 
 	public void Appear()
 	{

@@ -64,12 +64,7 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		}
 		else
 		{
-			if (title == "Investment 1")
-			{
-				string temp = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
-				cost.text = temp;
-				print(menu.turret.turretValues.upgradeOrInvestCost[0]);
-			}
+			if (title == "Investment 1") cost.text = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
 			else if (title == "Investment 2") cost.text = menu.turret.turretValues.upgradeOrInvestCost[1].ToString();
 			else if (title == "Investment 3") cost.text = menu.turret.turretValues.upgradeOrInvestCost[2].ToString();
 			else print("Invalid Button");

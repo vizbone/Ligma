@@ -42,20 +42,13 @@ public class Bullet : MonoBehaviour
 
 	void Update ()
 	{
-		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
-		{
-			if (catapult) ArcTravel();
-			else
-			{
-				rb.velocity = velocity;
-				timeElpased += Time.deltaTime;
-
-				if (timeElpased >= lifetime) Destroy(gameObject);
-			}
-		}
+		if (catapult) ArcTravel();
 		else
 		{
-			rb.velocity = Vector3.zero;
+			rb.velocity = velocity;
+			timeElpased += Time.deltaTime;
+
+			if (timeElpased >= lifetime) Destroy(gameObject);
 		}
 	}
 
