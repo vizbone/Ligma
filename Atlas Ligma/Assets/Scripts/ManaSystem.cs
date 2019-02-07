@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GameStates {preStart, started, pause, win, lose, afterWin, gameComplete};
+public enum GameStates {started, pause, win, lose, afterWin, gameComplete};
 
 public class ManaSystem : MonoBehaviour
 {
 	//To Act as Game Manager
 	public static ManaSystem inst;
 
-	[Header ("Game State Manager")]
-	public static GameStates gameStateS = GameStates.preStart; //Stores the state of the game
+	[Header("Game State Manager")]
+	public static GameStates gameStateS;
 	public GameStates gameState;
-	public bool inTutorial;
 
 	[Header ("Mana System")]
 	[SerializeField] private int startingMana = 1000; //Amt of mana players will start with. Will differ for each level
@@ -54,34 +53,22 @@ public class ManaSystem : MonoBehaviour
 
 	void Update()
 	{
-		if (gameState == GameStates.started || gameStateS == GameStates.afterWin)
+		if (gameState == GameStates.started || gameState == GameStates.afterWin)
 		{
+			if (Time.timeScale == 0) Time.timeScale = 1;
 			//if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
 			//if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
 
-			if (!buttonFunctionUI.settingsMenu.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+			if (Input.GetKeyDown(KeyCode.Escape))
 			{
 				//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
 				buttonFunctionUI.uiSoundA.Play();
 				gameStateS = GameStates.pause;
 				buttonFunctionUI.settingsMenu.SetActive(true);
-			}
-		}
-		else if (gameState == GameStates.pause)
-		{
-			if (buttonFunctionUI.settingsMenu.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
-			{
-				buttonFunctionUI.uiSoundB.Play();
-				gameStateS = GameStates.started;
-				buttonFunctionUI.settingsMenu.SetActive(false);
+				Time.timeScale = 0;
 			}
 		}
 
-		Functions ();
-	}
-
-	void Functions ()
-	{
 		UpdateGameState ();
 	}
 
@@ -91,14 +78,23 @@ public class ManaSystem : MonoBehaviour
 		{
 			//Players win the game once their Current Mana is >= Max Mana
 			if (currentMana >= maxMana)
+			{
 				gameStateS = GameStates.win;
+				Time.timeScale = 0;
+			}
 			else if (currentMana <= 0)
+			{
 				gameStateS = GameStates.lose;
+				Time.timeScale = 0;
+			}
 		}
 		else if (gameState == GameStates.afterWin)
 		{
 			if (currentMana <= 0 || waveSystem.allWavesCleared)
+			{
 				gameStateS = GameStates.gameComplete;
+				Time.timeScale = 0;
+			}
 		}
 		/*if (gameState == GameStates.pause) Time.timeScale = 0; //Time scale does not work with animation but mehhh
 		else Time.timeScale = 1;*/

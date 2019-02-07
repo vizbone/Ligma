@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -110, y: 130}
-  m_SizeDelta: {x: 215, y: 115}
+  m_AnchoredPosition: {x: -125, y: 148.5}
+  m_SizeDelta: {x: 250, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6486156964789178039
 CanvasRenderer:
@@ -510,8 +510,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.15, y: 4.5}
-  m_SizeDelta: {x: 121.77, y: 80.15}
+  m_AnchoredPosition: {x: -35.99, y: 4.5}
+  m_SizeDelta: {x: 155.34, y: 111.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &163399313404213486
 CanvasRenderer:
@@ -1682,7 +1682,7 @@ MonoBehaviour:
   notification: {fileID: 8533722814923961615}
   eventText: {fileID: 7003860394673477033}
   eventNotifLerpTime: 0
-  eventNotificationSpeed: 0.0005
+  eventNotificationSpeed: 0.00025
   notificationShown: 0
 --- !u!1 &1725294466522634661
 GameObject:

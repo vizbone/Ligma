@@ -140,6 +140,11 @@ MonoBehaviour:
   investmentLevel: 0
   isPrebuilt: 0
   investOrUpgradeDisabled: 0
+  investmentParticles:
+  - {fileID: 5959060571085327259, guid: ad4dfd9f515a0c643bf42f3c06a8949b, type: 3}
+  - {fileID: 5617131673141566993, guid: fcb333e097691ca43bc22d9b78e79921, type: 3}
+  - {fileID: 5032440966827129668, guid: 4fae490bf8710bd40a5f76036e72d6a7, type: 3}
+  investmentParticle: {fileID: 0}
   turretGO: {fileID: 2723366132196677084}
   baseModel: {fileID: 0}
   turretModel: {fileID: 0}

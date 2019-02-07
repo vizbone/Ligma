@@ -44,6 +44,8 @@ public abstract class TurretTemplate : MonoBehaviour
 	public int investmentLevel; //Stores the Investment Level of the Turrets
 	public bool isPrebuilt = false; //Check if the Turret is a prebuilt turret
 	public bool investOrUpgradeDisabled; //Check if can be invested
+	public GameObject[] investmentParticles;
+	public GameObject investmentParticle;
 
 	[Header("For Model Change")]
 	[SerializeField] GameObject turretGO; //Stores the Game Object where the Mesh is to be the Main Turret Component
@@ -119,6 +121,8 @@ public abstract class TurretTemplate : MonoBehaviour
 		manaLight = GetComponentInChildren<LightingEffect>();
 		manaLight.gameObject.transform.localPosition = turretValues.lightingPos;
 
+		investmentParticle = null;
+
 		//Set Center of Collider Based on the capsule collider's direction
 		/*switch (collider.direction)
 		{
@@ -143,24 +147,21 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	protected virtual void Update ()
 	{
-		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+		//Check for closest Enemy if it is not assigned
+		if (closestEnemy == null) closestEnemy = EnemyToLookAt();
+
+		if (closestEnemy != null)
 		{
-			//Check for closest Enemy if it is not assigned
-			if (closestEnemy == null) closestEnemy = EnemyToLookAt();
+			LookAtEnemy();
+			if (turretGO.transform.rotation != Quaternion.Euler(designatedAngle)) turretGO.transform.rotation = Quaternion.RotateTowards(turretGO.transform.rotation, Quaternion.Euler(designatedAngle), 5f);
+		}
 
-			if (closestEnemy != null)
-			{
-				LookAtEnemy();
-				if (turretGO.transform.rotation != Quaternion.Euler(designatedAngle)) turretGO.transform.rotation = Quaternion.RotateTowards(turretGO.transform.rotation, Quaternion.Euler(designatedAngle), 5f);
-			}
+		coolDown = Mathf.Max(coolDown -= Time.deltaTime, 0);
 
-			coolDown = Mathf.Max(coolDown -= Time.deltaTime, 0);
-
-			if (coolDown <= 0)
-			{
-				float angleDiff = Mathf.Abs(designatedAngle.z - turretGO.transform.eulerAngles.y) % 360; //Compare with y since z rotation checks the euler of y
-				if (angleDiff <= 20) Shoot(arcTravel); //If the angle difference is minimal, then allow to shoot
-			}
+		if (coolDown <= 0)
+		{
+			float angleDiff = Mathf.Abs(designatedAngle.z - turretGO.transform.eulerAngles.y) % 360; //Compare with y since z rotation checks the euler of y
+			if (angleDiff <= 20) Shoot(arcTravel); //If the angle difference is minimal, then allow to shoot
 		}
 	}
 
@@ -236,6 +237,10 @@ public abstract class TurretTemplate : MonoBehaviour
 					newLevel = 1;
 					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc1s;
 					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc1s;
+
+					DestroyInvestmentParticles();
+					investmentParticle = Instantiate(investmentParticles[0], transform);
+					investmentParticle.transform.localRotation = Quaternion.Euler(0, 0, 0);
 				}
 				else print("Not Enough Mana");
 				break;
@@ -246,6 +251,10 @@ public abstract class TurretTemplate : MonoBehaviour
 					newLevel = 2;
 					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc2s;
 					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc2s;
+
+					DestroyInvestmentParticles();
+					investmentParticle = Instantiate(investmentParticles[1], transform);
+					investmentParticle.transform.localRotation = Quaternion.Euler(0, 0, 0);
 				}
 				else print("Not Enough Mana");
 				break;
@@ -256,6 +265,10 @@ public abstract class TurretTemplate : MonoBehaviour
 					newLevel = 3;
 					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc3s;
 					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc3s;
+
+					DestroyInvestmentParticles();
+					investmentParticle = Instantiate(investmentParticles[2], transform);
+					investmentParticle.transform.localRotation = Quaternion.Euler(0, 0, 0);
 				}
 				else print("Not Enough Mana");
 				break;
@@ -354,7 +367,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		{
 			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : new Vector3(transform.position.x - closestEnemy.transform.position.x, 0, transform.position.z - closestEnemy.transform.position.z).normalized * -1;
 			Vector3 direction2D = new Vector3 (direction.x, 0, direction.z);
-			Bullet currentBullet = Instantiate (bullet, transform);
+			Bullet currentBullet = Instantiate (bullet, turretGO.transform);
 			currentBullet.transform.localPosition = turretValues.firingPos;
 			currentBullet.transform.eulerAngles = Vector3.zero;
 			currentBullet.transform.parent = null;
@@ -383,6 +396,7 @@ public abstract class TurretTemplate : MonoBehaviour
 				currentBullet.target = closestEnemy.transform.position;
 				currentBullet.frequency1 = currentBullet.transform.position.x - currentBullet.target.x > 0 ? currentBullet.transform.position.x - currentBullet.target.x : -(currentBullet.transform.position.x - currentBullet.target.x);
 				currentBullet.catapult = true;
+				currentBullet.currentY = turretValues.firingPos.y;
 
 				currentBullet = null;
 			}
@@ -464,6 +478,15 @@ public abstract class TurretTemplate : MonoBehaviour
 				baseR.material = turretMaterials[2];
 				turretR.material = turretMaterials[2];
 				break;
+		}
+	}
+
+	public void DestroyInvestmentParticles()
+	{
+		if (investmentParticle != null)
+		{
+			Destroy(investmentParticle);
+			investmentParticle = null;
 		}
 	}
 

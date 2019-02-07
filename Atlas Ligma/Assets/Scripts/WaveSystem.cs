@@ -132,6 +132,7 @@ public class WaveSystem : MonoBehaviour {
 		{
 			turret.investmentLevel = 0;
 			turret.manaReturnPerc = 0;
+			turret.DestroyInvestmentParticles();
 		}
 	}
 

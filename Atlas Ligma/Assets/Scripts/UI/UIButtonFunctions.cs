@@ -45,6 +45,8 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void BackToMainMenu ()
 	{
+		if (Time.timeScale == 0) Time.timeScale = 1;
+
 		if (ManaSystem.inst != null)
 		{
 			if (!ManaSystem.inst.gui.endScreenIsPlaying)  SceneManager.LoadScene("Main Menu");
@@ -56,6 +58,8 @@ public class UIButtonFunctions : MonoBehaviour {
 	{
 		if (!ManaSystem.inst.gui.endScreenIsPlaying)
 		{
+			if (Time.timeScale == 0) Time.timeScale = 1;
+
 			ManaSystem.gameStateS = GameStates.afterWin;
 			ManaSystem.inst.gui.lerpTime = null;
 			ManaSystem.inst.gui.endScreenIsPlaying = true;
@@ -66,6 +70,8 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void NextLevel (string arg)
 	{
+		if (Time.timeScale == 0) Time.timeScale = 1;
+
 		if (ManaSystem.inst != null)
 		{
 			if (!ManaSystem.inst.gui.endScreenIsPlaying) SceneManager.LoadScene(arg);
@@ -75,7 +81,19 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void Retry ()
 	{
+		if (Time.timeScale == 0) Time.timeScale = 1;
+
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+	}
+
+	public void FromSettingsToGameplay()
+	{
+		if (Time.timeScale == 0) Time.timeScale = 1;
+
+		//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioB");
+		uiSoundB.Play();
+		ManaSystem.gameStateS = GameStates.started;
+		settingsMenu.SetActive(false);
 	}
 
 	public void VolumeBGM(float bgmLvl)
