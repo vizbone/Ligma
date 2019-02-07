@@ -26,6 +26,13 @@ public class AIMovement : MonoBehaviour {
 
 	void Awake () 
 	{
+		townHall = FindObjectOfType<Townhall>().transform;
+
+		path1 = SetLastToTownHall(path1);
+		path2 = SetLastToTownHall(path2);
+		path3 = SetLastToTownHall(path3);
+		path4 = SetLastToTownHall(path4);
+
 		path1DV = new float[path1.Length - 1];
 		path2DV = new float[path2.Length - 1];
 		path3DV = new float[path3.Length - 1];
@@ -54,5 +61,41 @@ public class AIMovement : MonoBehaviour {
 		script.currentDestination = script.currentDestination == 0 ? 1 : 0;
 		if (script.path == Paths.seaPath1) ai.SetDestination (seaPath1[script.currentDestination].position);
 		if (script.path == Paths.seaPath2) ai.SetDestination (seaPath2[script.currentDestination].position);
+	}
+
+	public Transform[] SetLastToTownHall(Transform[] paths)
+	{
+		if (paths.Length != 0)
+		{
+			if (paths[paths.Length - 1] == null)
+			{
+				paths[paths.Length - 1] = townHall;
+			}
+			else
+			{
+				//If not null but last way point is not townhall
+				if (paths[paths.Length - 1].GetComponent<Townhall>() == null)
+				{
+					Transform[] newPath = new Transform[paths.Length + 1];
+
+					print(newPath.Length);
+
+					for (int i = 0; i < paths.Length; i++)
+					{
+						newPath[i] = paths[i];
+					}
+
+					newPath[newPath.Length - 1] = townHall;
+
+					paths = new Transform[newPath.Length];
+
+					for (int i = 0; i < paths.Length; i++)
+					{
+						paths[i] = newPath[i];
+					}
+				}
+			}
+		}
+		return paths;
 	}
 }

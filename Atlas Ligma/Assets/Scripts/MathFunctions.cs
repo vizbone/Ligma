@@ -31,9 +31,9 @@ public class MathFunctions : MonoBehaviour
 	}
 
 	//Stores the result of the Math equation for smooth interpolation of the Ping Pong Function
-	public static float SmoothPingPong(float time, float maxValue, float speed = 1)
+	public static float SmoothPingPong(float time, float maxValue)
 	{
-		return (0.5f * maxValue) * Mathf.Sin(Mathf.PI * speed * time / maxValue) + (0.5f * maxValue);
+		return (0.5f * maxValue) * Mathf.Sin(Mathf.PI * time / maxValue) + (0.5f * maxValue);
 	}
 
 	public static float ResetLerpTime()
