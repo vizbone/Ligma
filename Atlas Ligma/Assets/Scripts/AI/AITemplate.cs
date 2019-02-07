@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class AITemplate : MonoBehaviour {
 
 	public AttackType enemyType;
+	public int maxHp;
 	public int hp;
 	public int manaDrop = 10;
 
@@ -20,7 +21,7 @@ public abstract class AITemplate : MonoBehaviour {
 	{
 		//timer = 0.1f;
 		WaveSystem.enemyListS.Add(this);
-
+		
 		if (enemyType == AttackType.ground)
 		{
 			if (hp == 0) hp = 150;
@@ -32,6 +33,7 @@ public abstract class AITemplate : MonoBehaviour {
 			manaDrop = 70;
 		}
 		//Sea Enemies will be overriding the Start Function
+		maxHp = hp;
 	}
 
 	public abstract float CheckDistance();
@@ -63,7 +65,7 @@ public abstract class AITemplate : MonoBehaviour {
 		} else if (hpPack != null) hpPack.gameObject.SetActive (false);
 
 		float vertOffset = enemyType == AttackType.ground ? 0.6f : enemyType == AttackType.air ? 2f : 0.6f;
-		if (hpPack != null) hpPack.transform.position = transform.position + worldCanvas.transform.up * vertOffset + (worldCanvas.transform.forward * -1) * 5;
+		if (hpPack != null) hpPack.transform.position = transform.position + worldCanvas.transform.up * vertOffset + (worldCanvas.transform.forward * -1) * 10;
 	}
 
 	public void ResetTimer ()

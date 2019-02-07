@@ -46,9 +46,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.3335092
+  m_Height: 2.054853
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5973538, z: 0}
+  m_Center: {x: 0, y: 0.9580257, z: 0}
 --- !u!195 &195257377912052114
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  maxHp: 0
   hp: 150
   manaDrop: 10
   audioSource: {fileID: 0}

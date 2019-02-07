@@ -34,6 +34,9 @@ public class ManaSystem : MonoBehaviour
 	public AudioManager audioLibrary;
 	public Transform worldSpaceCanvas;
 
+	[Header ("Audio Source")]
+	public AudioSource audio;
+
 	private void Awake()
 	{
 		gui = FindObjectOfType<GUIOverlay>();
@@ -60,7 +63,7 @@ public class ManaSystem : MonoBehaviour
 			//if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
 			//if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
 
-			if (buttonFunctionUI.settingsMenu.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+			if (!buttonFunctionUI.settingsMenu.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
 			{
 				//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioA");
 				buttonFunctionUI.uiSoundA.Play();

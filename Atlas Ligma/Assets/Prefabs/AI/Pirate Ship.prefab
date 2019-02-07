@@ -121,7 +121,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1464889855223836}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.25
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -147,9 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
+  maxHp: 0
   hp: 300
-  manaDrop: 10
-  defaultMoveSpeed: 0
+  manaDrop: 100
   audioSource: {fileID: 6380646306625261007}
   hpPack: {fileID: 0}
   hpPrefab: {fileID: 9107345785413763961, guid: bb87fb92b2640c948bc19f5160dbc523,
@@ -160,7 +160,7 @@ MonoBehaviour:
   path: 4
   currentDestination: 0
   enemies: {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490, type: 3}
-  enemyBatchSpawnCount: 1000
+  enemyBatchSpawnCount: 15
   enemySpawnRate: 1
   maxInstances: 1
   instanceCount: 0
@@ -175,8 +175,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.42496628, y: 2.0206242, z: 2.7047105}
-  m_Center: {x: 0.06347566, y: -0.016972164, z: 0.023074225}
+  m_Size: {x: 6.5099716, y: 7.0201235, z: 2.7047105}
+  m_Center: {x: -0.2952156, y: 2.4827776, z: 0.02307427}
 --- !u!1 &1702794626472634275
 GameObject:
   m_ObjectHideFlags: 0

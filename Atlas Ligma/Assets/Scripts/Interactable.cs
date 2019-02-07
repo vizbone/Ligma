@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
 	[SerializeField] LayerMask towerLayer;
 	[SerializeField] RadialMenu menuInst;
 	GridSystem gridSys;
+	AudioSource audioSource;
 
 	public static Interactable inst;
 
@@ -28,6 +29,7 @@ public class Interactable : MonoBehaviour
 		gridSys = FindObjectOfType<GridSystem>();
 		sensor = GetComponent<MeshCollider>();
 		turret = gameObject.GetComponent<TurretTemplate>();
+		audioSource = GetComponentInChildren<AudioSource> ();
 	}
 
 	void Update()
@@ -53,11 +55,13 @@ public class Interactable : MonoBehaviour
 							if (menuInst == null)
 							{
 								menuInst = RadialMenuSpawner.ins.SpawnMenu(this, turret);
+								ManaSystem.inst.audioLibrary.PlayAudio (ManaSystem.inst.audioLibrary.turretSelect, audioSource);
 							}
 							else
 							{
 								if (!menuInst.gameObject.activeInHierarchy)
 								{
+									ManaSystem.inst.audioLibrary.PlayAudio (ManaSystem.inst.audioLibrary.turretSelect, audioSource);
 									menuInst.gameObject.SetActive(true);
 									menuInst.CheckDisabled();
 									menuInst.CheckCost();

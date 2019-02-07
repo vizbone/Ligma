@@ -30,7 +30,7 @@ public class TutorialManager : MonoBehaviour
 		prebuiltSectionCheck = false;
 		clearToProceed = false;
 
-		ManaSystem.inst.inTutorial = false;
+		ManaSystem.inst.inTutorial = true;
 	}
 
 	public void Update()
@@ -82,7 +82,7 @@ public class TutorialManager : MonoBehaviour
 	public void PressSpaceToStartIntro()
 	{
 		pressSpaceToStart.SetActive(true);
-		ManaSystem.inst.inTutorial = true;
+		ManaSystem.inst.inTutorial = false;
 		ManaSystem.inst.gui.EndWaveAppearance();
 	}
 }

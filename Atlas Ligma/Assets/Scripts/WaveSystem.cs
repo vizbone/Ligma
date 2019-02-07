@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -66,6 +67,7 @@ public class WaveSystem : MonoBehaviour {
 			if (!prepPhase)
 			{
 				//Update Enemy List for checking in Inspector
+				enemyListS = enemyListS.Where (AITemplate => AITemplate != null).ToList ();
 				enemyList = enemyListS;
 
 				if (!cLock)

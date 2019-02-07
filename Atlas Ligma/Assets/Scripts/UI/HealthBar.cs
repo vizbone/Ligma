@@ -14,8 +14,8 @@ public class HealthBar : MonoBehaviour
 	void Start ()
 	{
 		hp = transform.GetChild (1).GetComponent<Image> ();
-		maxHp = ai.hp;
-		currentHp = maxHp;
+		maxHp = ai.maxHp;
+		currentHp = ai.hp;
 	}
 
 	void Update ()
@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
 		if (ai != null)
 		{
 			currentHp = ai.hp;
-			hp.fillAmount = (float)currentHp / maxHp;
+			hp.fillAmount = (float) currentHp / maxHp;
 		}
 		else Destroy(gameObject);
 	}

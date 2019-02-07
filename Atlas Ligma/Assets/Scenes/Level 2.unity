@@ -41010,12 +41010,12 @@ PrefabInstance:
     - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: startingMana
-      value: 20000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: maxMana
-      value: 20050
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
