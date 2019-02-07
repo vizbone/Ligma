@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct EventItems
@@ -10,6 +11,7 @@ public struct EventItems
 	public List<TurretTemplate> affectedWhiteTurrets;
 	public List<TurretTemplate> affectedBlackTurrets;
 	public int turnCount; //Turn Count before the Event should be Executed
+	public GameObject chatText;
 
 	/// <summary>
 	/// If -1, Event is Not Activated For Level
@@ -210,6 +212,9 @@ public class EventsManager : MonoBehaviour
 
 		eventLineUp.Add("Over Investments has caused the previously fully invested White Turrets to be more expensive on the next wave");
 
+		string chat = "All Fully Invested White Turrets are now more Expensive for 1 Wave!";
+		eventItems[0].chatText = ManaSystem.inst.gui.AddEventChat(chat);
+
 		//Note: Event End Should Come First Before Execute Event
 		if (eventItems[0].eventExecuted == 1) EventEnd += Event0End;
 	}
@@ -223,6 +228,9 @@ public class EventsManager : MonoBehaviour
 				whiteTurrets.turretValues.upgradeOrInvestCost[i] = (int)(whiteTurrets.turretValues.upgradeOrInvestCost[i] / 1.5f);
 			}
 		}
+
+		Destroy(eventItems[0].chatText);
+		eventItems[0].chatText = null;
 
 		eventItems[0].affectedWhiteTurrets = null;
 		EventEnd -= Event0End;
@@ -260,6 +268,10 @@ public class EventsManager : MonoBehaviour
 			eventItems[1].turnCount = 0; //Reset Turn Count Upon Activation
 
 			eventLineUp.Add("The King of Black is angry at your excessive investments in the White Faction. Investments in Black Turrets are now disabled for the next wave");
+
+			string chat = "All Investments to Black Turrets are now Disabled for 1 Wave!";
+			eventItems[1].chatText = ManaSystem.inst.gui.AddEventChat(chat);
+
 			//Note: Event End Should Come First Before Execute Event
 			EventEnd += Event1End;
 		} 
@@ -272,6 +284,9 @@ public class EventsManager : MonoBehaviour
 		{
 			blackTurrets.investOrUpgradeDisabled = false;
 		}
+
+		Destroy(eventItems[1].chatText);
+		eventItems[1].chatText = null;
 
 		eventItems[1].affectedBlackTurrets = null;
 		EventEnd -= Event1End;
@@ -287,6 +302,10 @@ public class EventsManager : MonoBehaviour
 		}
 
 		eventLineUp.Add("Over Investments in the Black Faction has caused the Black Turrets to overheat. Black Turrets will not be functioning for the next wave");
+
+		string chat = "All Black Turrets are now Disabled due to Overheat for 1 Wave!";
+		eventItems[2].chatText = ManaSystem.inst.gui.AddEventChat(chat);
+
 		//Note: Event End Should Come First Before Execute Event
 		if (eventItems[2].eventExecuted == 1) EventEnd += Event2End;
 	}
@@ -298,6 +317,9 @@ public class EventsManager : MonoBehaviour
 			blackTurrets.investOrUpgradeDisabled = false;
 			blackTurrets.enabled = true;
 		}
+
+		Destroy(eventItems[2].chatText);
+		eventItems[2].chatText = null;
 
 		eventItems[2].affectedBlackTurrets = null;
 		EventEnd -= Event2End;
@@ -332,6 +354,10 @@ public class EventsManager : MonoBehaviour
 				}
 
 				eventLineUp.Add("Over Investments has caused all the Black Turrets to have a 50% decrease in fire rate");
+
+				string chat = "All Black Turrets now have Decreased Fire Rates for 2 Waves!";
+				eventItems[3].chatText = ManaSystem.inst.gui.AddEventChat(chat);
+
 				eventItems[3].eventExecuted = 2; //Set to differentiate that the event has started
 				eventItems[3].turnCount = 0; //Reset Turn Count Upon Activation
 			} 
@@ -360,6 +386,9 @@ public class EventsManager : MonoBehaviour
 			{
 				blackTurrets.turretValues.fireRate /= 0.5f;
 			}
+
+			Destroy(eventItems[3].chatText);
+			eventItems[3].chatText = null;
 
 			eventItems[3].affectedBlackTurrets = null;
 			EventEnd -= Event3End;

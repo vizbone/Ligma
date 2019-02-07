@@ -41,6 +41,14 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] float eventNotificationSpeed;
 	[SerializeField] bool notificationShown;
 
+	[Header("Events Chat Box")]
+	[SerializeField] RectTransform notificationChatBox;
+	[SerializeField] GameObject chatLayout;
+	[SerializeField] Text chatText; //Stores the Prefab
+	[SerializeField] float currentChatStep;
+	[SerializeField] float chatSpeed;
+	[SerializeField] bool show;
+
 	public System.Action uiAnim;
 
 	// Start is called before the first frame update
@@ -48,6 +56,7 @@ public class GUIOverlay : MonoBehaviour
     {
 		SetWinLoseObj();
 		endScreenIsPlaying = false;
+		show = false;
 
 		winObj.gameObject.SetActive(false);
 		loseObj.gameObject.SetActive(false);
@@ -64,6 +73,13 @@ public class GUIOverlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (Input.GetKeyDown(KeyCode.Tab))
+		{
+			uiAnim -= ShowHideChatBox;
+			show = !show;
+			uiAnim += ShowHideChatBox;
+		}
+
 		CheckWinLose();
 		currentManaDisplay.text = ManaSystem.inst.currentMana.ToString() + "/" + "2000";
 		manaSlider.value = ManaSystem.inst.currentMana;
@@ -146,6 +162,14 @@ public class GUIOverlay : MonoBehaviour
 		if (ManaSystem.inst.eventsManager.eventLineUp.Count != 0) StartCoroutine(NotificationChecks());
 	}
 
+	public GameObject AddEventChat(string intendedText)
+	{
+		Text chat = Instantiate(chatText, chatLayout.transform);
+		chat.text = "Wave " + (ManaSystem.inst.waveSystem.currentWave + 1) + ": " + intendedText;
+
+		return chat.gameObject;
+	}
+
 	private IEnumerator NotificationChecks()
 	{
 		eventText.text = ManaSystem.inst.eventsManager.eventLineUp[0];
@@ -210,6 +234,40 @@ public class GUIOverlay : MonoBehaviour
 			notificationShown = false;
 			eventNotifLerpTime = 0;
 			uiAnim -= HideNotification;
+		}
+	}
+
+	void ShowHideChatBox()
+	{
+		if (show)
+		{
+			currentChatStep = Mathf.Min(MathFunctions.SinerpValue(currentChatStep + chatSpeed * Time.deltaTime, 1), 1);
+		}
+		else
+		{
+			//When it goes to 2, it curves down
+			currentChatStep = Mathf.Max(MathFunctions.SinerpValue(currentChatStep + chatSpeed * Time.deltaTime, 2), 0);
+		}
+
+		float xPos = Mathf.Lerp(520, 290, currentChatStep);
+
+		notificationChatBox.anchoredPosition = new Vector2(xPos, notificationChatBox.anchoredPosition.y);
+
+		if (show)
+		{
+			if (currentChatStep > 0.98f)
+			{
+				notificationChatBox.anchoredPosition = new Vector2(290, notificationChatBox.anchoredPosition.y);
+				uiAnim -= ShowHideChatBox;
+			}
+		}
+		else
+		{
+			if (currentChatStep < 0.02f)
+			{
+				notificationChatBox.anchoredPosition = new Vector2(520, notificationChatBox.anchoredPosition.y);
+				uiAnim -= ShowHideChatBox;
+			}
 		}
 	}
 

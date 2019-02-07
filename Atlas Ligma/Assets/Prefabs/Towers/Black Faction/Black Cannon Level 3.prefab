@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Black Cannon Level 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5285579597727525790, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,11 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5282029018036920354, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Black Cannon Level 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5277434907871281050, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
         type: 3}
       propertyPath: m_Mesh
@@ -113,5 +113,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300002, guid: 9d6d2c11c13f05249b29493ad5380467, type: 3}
+    - target: {fileID: 4283266848297346201, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4283266848297346201, guid: 709ad447ccd06b448ad62f47f8ddc7eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709ad447ccd06b448ad62f47f8ddc7eb, type: 3}
