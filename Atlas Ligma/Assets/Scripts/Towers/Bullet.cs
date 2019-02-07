@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour
 		hitCount = 0;
 		lifetime = 5;
 		oriPos = transform.position;
+		oriPos = new Vector3 (oriPos.x, oriPos.y - currentY, oriPos.z);
 
 		if (catapult)
 		{
@@ -56,7 +57,7 @@ public class Bullet : MonoBehaviour
 
 	void ArcTravel()
 	{
-		/*if (currentStep < 1) */MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos, currentY);
+		/*if (currentStep < 1) */MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos, currentY, oriPos.y);
 		currentStep += speed * Time.deltaTime;
 		//if (currentStep >= 1) turret.Hit(null, turret.isPrebuilt, gameObject, hitCount);
 	}
@@ -92,10 +93,10 @@ public class Bullet : MonoBehaviour
 
 				Instantiate(damageFeedback, other.transform.position, Quaternion.Euler(0, designatedAngle, 0));
 			}
-		} else
+		} 
+		else
 		{
-			turret.Hit (null, turret.isPrebuilt, gameObject, hitCount);
+			if (catapult) turret.Hit (null, turret.isPrebuilt, gameObject, hitCount);
 		}
-
 	}
 }

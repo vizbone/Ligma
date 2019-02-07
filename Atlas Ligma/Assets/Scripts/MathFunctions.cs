@@ -31,9 +31,9 @@ public class MathFunctions : MonoBehaviour
 	}
 
 	//Stores the result of the Math equation for smooth interpolation of the Ping Pong Function
-	public static float SmoothPingPong(float time, float maxValue, float speed = 1)
+	public static float SmoothPingPong(float time, float maxValue)
 	{
-		return (0.5f * maxValue) * Mathf.Sin(Mathf.PI * speed * time / maxValue) + (0.5f * maxValue);
+		return (0.5f * maxValue) * Mathf.Sin(Mathf.PI * time / maxValue) + (0.5f * maxValue);
 	}
 
 	public static float ResetLerpTime()
@@ -41,14 +41,15 @@ public class MathFunctions : MonoBehaviour
 		return 0;
 	}
 
-	public static void ParabolicCurve (Vector3 target, float amplitude, float currentStep, Transform yourself, float frequency, Vector3 oriPos, float currentY)
+	public static void ParabolicCurve (Vector3 target, float amplitude, float currentStep, Transform yourself, float frequency, Vector3 oriPos, float currentY, float terrainOffset)
 	{
 		float nextStep = currentStep + 2 * Time.deltaTime;
 
 		float x = (target.x - oriPos.x) * nextStep + oriPos.x;
 		float z = (target.z - oriPos.z) * nextStep + oriPos.z;
 		float temp = (target.x - oriPos.x) * nextStep > 0 ? (target.x - oriPos.x) * nextStep : -((target.x - oriPos.x) * nextStep);
-		float y = (amplitude * Mathf.Sin (temp * Mathf.PI * (1 / frequency))) + currentY;
+		float temp1 = Mathf.Abs(Mathf.Asin (currentY / amplitude));
+		float y = (amplitude * Mathf.Sin (temp * Mathf.PI * (1 / frequency) + temp1)) + terrainOffset;
 
 		yourself.position = new Vector3 (x, y, z);
 	}
