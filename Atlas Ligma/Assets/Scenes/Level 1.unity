@@ -6686,7 +6686,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: However, if you don't invest in them, you will not get any mana from each
-    prebuilt kill
+    prebuilt kill.
 --- !u!222 &623948492
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10812,7 +10812,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click on any prebuilt, you will notice that there are 3 Investment types
+  m_Text: Click on any prebuilt turrets, and you will notice that there are 3 Investment
+    types.
 --- !u!222 &898257806
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21372,7 +21373,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: The more mana you invest, the higher % of mana you get from each prebuilt
-    kill
+    kill.
 --- !u!222 &1733486721
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25318,6 +25319,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1725294466482488964, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 534669904}
     - target: {fileID: 1725294466482488967, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: masterMixer
@@ -25359,6 +25365,16 @@ PrefabInstance:
       propertyPath: m_Pitch
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1725294466302561338, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725294466099319851, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4940042756270287514, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_RootOrder
@@ -25394,21 +25410,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1725294466099319851, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1725294466302561338, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1725294466482488964, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 534669904}
     - target: {fileID: 1725294466341407884, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_IsActive
@@ -25548,21 +25549,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 12.6074095
       objectReference: {fileID: 0}
-    - target: {fileID: 2964171518323502760, guid: ded10eb24e11a0c43a53785d747e5a06,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2964171518323502760, guid: ded10eb24e11a0c43a53785d747e5a06,
-        type: 3}
-      propertyPath: m_LightProbeUsage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2964171518323502760, guid: ded10eb24e11a0c43a53785d747e5a06,
-        type: 3}
-      propertyPath: m_ReflectionProbeUsage
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2964171518323502761, guid: ded10eb24e11a0c43a53785d747e5a06,
         type: 3}
       propertyPath: m_Size.z
@@ -25642,6 +25628,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: -0.014571446
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964171518323502760, guid: ded10eb24e11a0c43a53785d747e5a06,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964171518323502760, guid: ded10eb24e11a0c43a53785d747e5a06,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964171518323502760, guid: ded10eb24e11a0c43a53785d747e5a06,
+        type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded10eb24e11a0c43a53785d747e5a06, type: 3}
@@ -27468,11 +27469,6 @@ PrefabInstance:
       propertyPath: oriVerticalBorderOffset
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447593, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447595, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: myRay
@@ -27841,6 +27837,11 @@ PrefabInstance:
     - target: {fileID: 4631659969608898894, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447593, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: orthographic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
