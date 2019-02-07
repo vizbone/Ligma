@@ -86,16 +86,6 @@ public class UIButtonFunctions : MonoBehaviour {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 	}
 
-	public void FromSettingsToGameplay()
-	{
-		if (Time.timeScale == 0) Time.timeScale = 1;
-
-		//FindObjectOfType<AudioManager>().AudioToPlay("MenuAudioB");
-		uiSoundB.Play();
-		ManaSystem.gameStateS = GameStates.started;
-		settingsMenu.SetActive(false);
-	}
-
 	public void VolumeBGM(float bgmLvl)
 	{
 		masterMixer.SetFloat("bgmVol", Mathf.Log(bgmLvl) * 20);
