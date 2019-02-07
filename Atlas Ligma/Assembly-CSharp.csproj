@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\Towers\SupportTurret.cs" />
     <Compile Include="Assets\Scripts\Towers\TurretTemplate.cs" />
     <Compile Include="Assets\Scripts\Towers\TurretValueSettings.cs" />
+    <Compile Include="Assets\Scripts\Townhall.cs" />
     <Compile Include="Assets\Scripts\UI\GUIOverlay.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
