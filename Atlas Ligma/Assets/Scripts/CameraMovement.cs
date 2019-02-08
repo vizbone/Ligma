@@ -48,9 +48,12 @@ public class CameraMovement : MonoBehaviour
 
 	void CamFunctions () 
 	{
-		CameraZoom ();
-		CameraMove ();
-		BorderOffset ();
+		if (!TutorialManager.inst.tutorialCameraLock)
+		{
+			CameraZoom();
+			CameraMove();
+			BorderOffset();
+		}
 	}
 
 	void BorderOffset ()

@@ -15,14 +15,25 @@ public class TutorialManager : MonoBehaviour
 	public GameObject Investment1Part;
 	public GameObject Investment2Part;
 	public AudioSource soundA;
+	public GameObject nextButton;
+	public GameObject buttonActive;
 
 	public bool prebuiltSectionCheck;
 	public bool clearToProceed; //freaking hell dude
+	public bool tutorialCameraLock;
+	public Transform arrowButton;
+	float currentTime;
+	float oriY;
+
+	public static TutorialManager inst;
 
 	[SerializeField] LayerMask towerLayer;
 
 	private void Start()
 	{
+		oriY = arrowButton.transform.position.y;
+		currentTime = 0;
+		inst = this;
 		pressSpaceToStart.SetActive(false);
 		prepStartPhase.SetActive(false);
 		waveNumber.SetActive(false);
@@ -30,6 +41,7 @@ public class TutorialManager : MonoBehaviour
 
 		prebuiltSectionCheck = false;
 		clearToProceed = false;
+		tutorialCameraLock = true;
 
 		ManaSystem.inst.inTutorial = true;
 	}
@@ -47,11 +59,14 @@ public class TutorialManager : MonoBehaviour
 			{
 				if (hit.collider != null)
 				{
-					print(hit.collider.gameObject.tag);
+					nextButton.SetActive(true);
+					buttonActive.SetActive(true);
 					clearToProceed = true;
 				}
 			}
 		}
+
+		ArrowBounce();
 	}
 
 	public void CheckToAdvanceToPrebuiltSection()
@@ -70,6 +85,11 @@ public class TutorialManager : MonoBehaviour
 		}
 	}
 
+	public void TutorialCameraUnlock()
+	{
+		tutorialCameraLock = false;
+	}
+
 	public void BuildUIIntro()
 	{
 		buildUI.SetActive(true);
@@ -86,5 +106,13 @@ public class TutorialManager : MonoBehaviour
 		pressSpaceToStart.SetActive(true);
 		ManaSystem.inst.inTutorial = false;
 		ManaSystem.inst.gui.EndWaveAppearance();
+	}
+
+	public void ArrowBounce()
+	{
+		currentTime += Time.deltaTime;
+		float lerpMovement = MathFunctions.SmoothPingPong(currentTime, 10.0f, 2.0f);
+
+		arrowButton.transform.position = new Vector3(arrowButton.transform.position.x, oriY + lerpMovement, arrowButton.transform.position.z);
 	}
 }
