@@ -73,6 +73,11 @@ public class MainMenu : MonoBehaviour
 		mainMenu.SetActive(true);
 	}
 
+	public void Exit ()
+	{
+		Application.Quit ();
+	}
+
 	public void CreditsToMainMenu()
 	{
 		creditsScreen.SetActive(false);
