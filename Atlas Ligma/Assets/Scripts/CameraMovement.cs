@@ -25,9 +25,11 @@ public class CameraMovement : MonoBehaviour
 	float verticalOffset;
 
 	Vector3 oriPos;
+	bool lvl1;
 
 	void Start ()
 	{
+		lvl1 = FindObjectOfType<TutorialManager> () != null ? true : false;
 		cam = GetComponent<Camera>();
 		cam.orthographicSize = startingCamSize;
 		screenSize = new Vector2 (Screen.width, Screen.height);
@@ -48,7 +50,15 @@ public class CameraMovement : MonoBehaviour
 
 	void CamFunctions () 
 	{
-		if (!TutorialManager.inst.tutorialCameraLock)
+		if (lvl1)
+		{
+			if (!TutorialManager.inst.tutorialCameraLock)
+			{
+				CameraZoom();
+				CameraMove();
+				BorderOffset();
+			}
+		} else
 		{
 			CameraZoom();
 			CameraMove();

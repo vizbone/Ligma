@@ -28,7 +28,7 @@ public class GridSystem : MonoBehaviour {
 	{
 		cam = GetComponent<Camera> ();
 		manaSys = GetComponent<ManaSystem> ();
-		myRay = ManaSystem.inst.worldSpaceCanvas.GetComponent<GraphicRaycaster>();
+		myRay = ManaSystem.inst.gui.GetComponent<GraphicRaycaster>();
 		//myRay = FindObjectOfType<GraphicRaycaster>(); Manually Assign in Inspector
 		buildMode = false;
 		buildIndex = 0;
@@ -99,12 +99,12 @@ public class GridSystem : MonoBehaviour {
 
 				bool canPlace = false;
 
-				//if (results.Count > 0) canPlace = false;
 				canPlace = !isObjectHere(buildPos) && towers[buildIndex].cost < manaSys.currentMana ? true : false;
+				if (results.Count > 0) canPlace = false;
 
 				Material(canPlace);
 				
-				if (Input.GetMouseButtonDown (0) && canPlace) //&& !EventSystem.current.IsPointerOverGameObject())
+				if (Input.GetMouseButtonDown (0) && canPlace && !EventSystem.current.IsPointerOverGameObject())
 				{
 					Build (buildPos);
 				}
