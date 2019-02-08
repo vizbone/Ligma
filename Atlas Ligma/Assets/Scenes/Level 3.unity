@@ -6775,7 +6775,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 3, y: 0.5, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &526458820
 PrefabInstance:
@@ -12464,7 +12464,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1023590674
 PrefabInstance:
@@ -15255,7 +15255,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1339188111
 PrefabInstance:
@@ -23085,7 +23085,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 3, y: 0.5, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2027466744
 PrefabInstance:
@@ -25961,6 +25961,26 @@ PrefabInstance:
       propertyPath: myRay
       value: 
       objectReference: {fileID: 785916827}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420911518988906447, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: cannon.defaultVolume

@@ -84,9 +84,9 @@ MonoBehaviour:
   path: 4
   currentDestination: 0
   enemies: {fileID: 1709179411151454, guid: 280a4fed9f58e83469ae2f9c9934d490, type: 3}
-  enemyBatchSpawnCount: 5
+  enemyBatchSpawnCount: 10
   enemySpawnRate: 2
-  maxInstances: 10
+  maxInstances: 3
   instanceCount: 0
 --- !u!65 &65879511382949578
 BoxCollider:

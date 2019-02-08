@@ -958,6 +958,36 @@ PrefabInstance:
       propertyPath: oriVerticalBorderOffset
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea38348b18524ce4e962142f7d52bbef, type: 3}
 --- !u!1001 &13229084
@@ -12181,7 +12211,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 2, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &532483822
 PrefabInstance:
@@ -18605,7 +18635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &852262017
 Light:
   m_ObjectHideFlags: 0
@@ -21829,7 +21859,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1022395214
 PrefabInstance:
@@ -27485,7 +27515,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1331077235
 PrefabInstance:
@@ -41709,7 +41739,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 2, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2027257305
 PrefabInstance:

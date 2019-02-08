@@ -8793,7 +8793,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 2, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &526129016
 PrefabInstance:
@@ -17265,7 +17265,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1026978766
 PrefabInstance:
@@ -21536,7 +21536,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1331182557
 PrefabInstance:
@@ -31747,7 +31747,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 2, y: 0.5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2030004523 stripped
 GameObject:
@@ -33112,7 +33112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2135307049
 Light:
   m_ObjectHideFlags: 0
@@ -34498,11 +34498,41 @@ PrefabInstance:
       propertyPath: oriVerticalBorderOffset
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4631659969608898880, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969608898880, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447595, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: myRay
       value: 
       objectReference: {fileID: 785916827}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: events.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420911518988906447, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: cannon.defaultVolume
@@ -34802,16 +34832,6 @@ PrefabInstance:
         type: 3}
       propertyPath: manaGain.maxVolume
       value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969608898880, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969608898880, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: m_Pitch
-      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969608898894, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
