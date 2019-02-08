@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Audios.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
-    <Compile Include="Assets\Scripts\Custom Inspectors\EventsManagerEditor.cs" />
     <Compile Include="Assets\Scripts\Despacito.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EnemySpawnTemplate.cs" />
