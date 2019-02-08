@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCrystal: {fileID: 8747384849073628412}
-  mainCrystalBounceSpeed: 1.25
+  mainCrystalBounceSpeed: 0.9
   mainCrystalMaxBounceHeight: 2
   mainCrystalRotateSpeed: 30
   subCrystals:
@@ -198,9 +198,9 @@ MonoBehaviour:
   - {fileID: 8747384849073628410}
   subCrystalOriHeight: []
   subCrystalBounceSpeed:
-  - 1
-  - 1
-  - 1
+  - 0.75
+  - 0.5
+  - 0.6
   subCrystalMaxBounceHeight:
   - 1.3
   - 1.5

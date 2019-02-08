@@ -84,4 +84,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxIntensity: 7
   minIntensity: 3
-  glowSpeed: 4
+  glowSpeed: 0.75
