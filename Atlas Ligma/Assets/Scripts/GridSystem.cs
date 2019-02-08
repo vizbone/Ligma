@@ -104,7 +104,7 @@ public class GridSystem : MonoBehaviour {
 
 				Material(canPlace);
 				
-				if (Input.GetMouseButtonDown (0) && canPlace && !EventSystem.current.IsPointerOverGameObject())
+				if (Input.GetMouseButtonDown (0) && canPlace && EventSystem.current.IsPointerOverGameObject())
 				{
 					Build (buildPos);
 				}
