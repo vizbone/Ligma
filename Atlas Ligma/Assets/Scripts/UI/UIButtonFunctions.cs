@@ -25,6 +25,8 @@ public class UIButtonFunctions : MonoBehaviour {
 	public Slider bgmSlider;
 	public Slider sfxSlider;
 
+	public Toggle fastFoward;
+
 	[Header("Time Scale")]
 	[SerializeField] int timeScale;
 
@@ -35,6 +37,8 @@ public class UIButtonFunctions : MonoBehaviour {
 			manaSys = FindObjectOfType<ManaSystem>();
 			gridSys = FindObjectOfType<GridSystem>();
 			timeScale = PlayerPrefs.GetInt("Time Scale", 1);
+			if (timeScale == 1) fastFoward.isOn = false;
+			else fastFoward.isOn = true;
 			Time.timeScale = timeScale;
 		}
 		else Time.timeScale = 1;
@@ -100,21 +104,15 @@ public class UIButtonFunctions : MonoBehaviour {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 	}
 
-	public void FastFoward()
+	public void FastFoward(bool isOn)
 	{
-		switch (timeScale)
-		{
-			case 0:
-				return;
-			case 1:
-				timeScale = 2;
-				break;
-			case 2:
-				timeScale = 1;
-				break;
-		}
+		if (isOn) timeScale = 2;
+		else timeScale = 1;
 
 		PlayerPrefs.SetInt("Time Scale", timeScale);
+
+		if (Time.timeScale == 0) return;
+
 		Time.timeScale = timeScale;
 	}
 

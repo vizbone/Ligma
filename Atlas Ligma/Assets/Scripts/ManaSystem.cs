@@ -64,7 +64,7 @@ public class ManaSystem : MonoBehaviour
 	{
 		if (gameState == GameStates.started || gameState == GameStates.afterWin)
 		{
-			if (Time.timeScale == 0) Time.timeScale = 1;
+			if (Time.timeScale == 0) Time.timeScale = PlayerPrefs.GetInt("Time Scale", 1);
 			//if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
 			//if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
 
@@ -81,7 +81,7 @@ public class ManaSystem : MonoBehaviour
 		{
 			if (buttonFunctionUI.settingsMenu.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
 			{
-				if (Time.timeScale == 0) Time.timeScale = 1;
+				if (Time.timeScale == 0) Time.timeScale = PlayerPrefs.GetInt("Time Scale", 1);
 				buttonFunctionUI.uiSoundB.Play();
 				ManaSystem.gameStateS = GameStates.started;
 				buttonFunctionUI.settingsMenu.SetActive(false);

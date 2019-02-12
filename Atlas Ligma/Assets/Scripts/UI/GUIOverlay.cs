@@ -23,6 +23,9 @@ public class GUIOverlay : MonoBehaviour
 
 	public float[] lerpTime; //0 is for Image, 1 is for Text, subsequent is for Buttons
 
+	[Header("Enemy and Wave GUI")]
+	public Text enemiesLeft;
+
 	[Header("Prep Phase GUI")]
 	[SerializeField] Text waveNumber;
 	[SerializeField] Image phaseImage;
@@ -30,6 +33,9 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] Text pressSpaceToStart;
 	[SerializeField] float prepPhaseLerpTime;
 	[SerializeField] float prepPhaseLerpSpeed; //default value is 1
+	public Image changePhaseImg;
+	[SerializeField] float[] changePhaseLerpTime; //3 Sections. 1 - Start when sliding in, 2 when Img is in the Center, 3 when Img is supposed to disappear
+	[SerializeField] float[] changePhaseLerpSpeed;
 
 	[Header("Events Notification")]
 	[SerializeField] Image notification;
@@ -65,6 +71,13 @@ public class GUIOverlay : MonoBehaviour
 		phaseImage.sprite = phasesSprites[0];
 
 		if (prepPhaseLerpSpeed <= 0) prepPhaseLerpSpeed = 1;
+
+		changePhaseLerpTime = new float[3];
+		for (int i = 0; i < changePhaseLerpSpeed.Length; i++)
+		{
+			if (changePhaseLerpSpeed[i] <= 0) changePhaseLerpSpeed[i] = 1;
+		}
+
 		if (eventNotificationSpeed <= 0) eventNotificationSpeed = 0.05f;
 
 		notificationShown = false;
@@ -146,6 +159,10 @@ public class GUIOverlay : MonoBehaviour
 		pressSpaceToStart.gameObject.SetActive(false);
 		uiAnim -= FadeInAndOut;
 		prepPhaseLerpTime = 0;
+
+		uiAnim -= DisplayWaveStartEnd;
+		ResetStartEndWaveAnim();
+		uiAnim += DisplayWaveStartEnd;
 	}
 
 	/// <summary>
@@ -156,6 +173,22 @@ public class GUIOverlay : MonoBehaviour
 		phaseImage.sprite = phasesSprites[0];
 		pressSpaceToStart.gameObject.SetActive(true);
 		uiAnim += FadeInAndOut;
+
+		uiAnim -= DisplayWaveStartEnd;
+		ResetStartEndWaveAnim();
+		uiAnim += DisplayWaveStartEnd;
+	}
+
+	public void ResetStartEndWaveAnim()
+	{
+		for (int i = 0; i < changePhaseLerpTime.Length; i++)
+		{
+			changePhaseLerpTime[i] = 0;
+		}
+
+		changePhaseImg.rectTransform.anchoredPosition = new Vector2(-725, 0);
+
+		changePhaseImg.sprite = ManaSystem.inst.waveSystem.prepPhase ? phasesSprites[0] : phasesSprites[1];
 	}
 
 	public void CheckEventNotifications()
@@ -201,6 +234,40 @@ public class GUIOverlay : MonoBehaviour
 
 			float alpha = MathFunctions.SmoothPingPong(prepPhaseLerpTime, 1, prepPhaseLerpSpeed);
 			pressSpaceToStart.color = new Color(pressSpaceToStart.color.r, pressSpaceToStart.color.g, pressSpaceToStart.color.b, alpha);
+		}
+	}
+
+	public void DisplayWaveStartEnd()
+	{
+		//Phase 1
+		if (changePhaseLerpTime[0] < 0.98f)
+		{
+			changePhaseLerpTime[0] = Mathf.Min(MathFunctions.SinerpValue(changePhaseLerpTime[0] + changePhaseLerpSpeed[0] * Time.deltaTime, 1), 1);
+			float xPos = Mathf.Lerp(-725, 0, changePhaseLerpTime[0]);
+			changePhaseImg.rectTransform.anchoredPosition = new Vector2(xPos, changePhaseImg.rectTransform.anchoredPosition.y);
+		}
+		else
+		{
+			//Phase 2
+			if (changePhaseLerpTime[1] < 0.98f)
+			{
+				changePhaseLerpTime[1] = Mathf.Min(changePhaseLerpTime[1] + changePhaseLerpSpeed[1] * Time.deltaTime, 1);
+				float xPos = Mathf.Lerp(0, 25, changePhaseLerpTime[1]);
+				changePhaseImg.rectTransform.anchoredPosition = new Vector2(xPos, changePhaseImg.rectTransform.anchoredPosition.y);
+			}
+			//Phase 3
+			else
+			{
+				changePhaseLerpTime[2] = Mathf.Min(MathFunctions.SinerpValue(changePhaseLerpTime[2] + changePhaseLerpSpeed[0] * Time.deltaTime, 1), 1);
+				float xPos = Mathf.Lerp(25, 725, changePhaseLerpTime[2]);
+				changePhaseImg.rectTransform.anchoredPosition = new Vector2(xPos, changePhaseImg.rectTransform.anchoredPosition.y);
+
+				if (changePhaseLerpTime[2] > 0.98f)
+				{
+					uiAnim -= DisplayWaveStartEnd;
+					ResetStartEndWaveAnim();
+				}
+			}
 		}
 	}
 

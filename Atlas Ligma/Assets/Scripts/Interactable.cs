@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Interactable : MonoBehaviour
 {
@@ -26,6 +28,7 @@ public class Interactable : MonoBehaviour
 	[Header("Systems and Managers")]
 	GridSystem gridSys;
 	GUIOverlay gui;
+	GraphicRaycaster worldSpaceRaycaster;
 
 	[Header("Audio")]
 	AudioSource audioSource;
@@ -42,6 +45,7 @@ public class Interactable : MonoBehaviour
 		audioSource = GetComponentInChildren<AudioSource> ();
 
 		gui = ManaSystem.inst.gui;
+		worldSpaceRaycaster = ManaSystem.inst.worldSpaceCanvas.GetComponent<GraphicRaycaster>();
 	}
 
 	void Update()
@@ -50,6 +54,14 @@ public class Interactable : MonoBehaviour
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
+				//Prevent Interactable from spawning Buttons if they are already hovering over a Button (START)
+				List<RaycastResult> results = new List<RaycastResult>();
+				PointerEventData data = new PointerEventData(null);
+				data.position = Input.mousePosition;
+				worldSpaceRaycaster.Raycast(data, results);
+
+				if (results.Count > 0) return; //Prevent Interactable from spawning Buttons if they are already hovering over a Button (END)
+				
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				RaycastHit hit;
 

@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class OwnProjector : MonoBehaviour {
 
+	[Header("Systems and Managers")]
 	[SerializeField] GridSystem gridSys;
+	[SerializeField] GraphicRaycaster worldSpaceRaycaster;
 
+	[Header("Projector")]
 	public Projector projector;
 	[SerializeField] bool selected;
 	[SerializeField] LayerMask towerLayer;
@@ -14,7 +19,8 @@ public class OwnProjector : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		gridSys = FindObjectOfType<GridSystem>();
+		gridSys = ManaSystem.inst.gridSystem;
+		worldSpaceRaycaster = ManaSystem.inst.worldSpaceCanvas.GetComponent<GraphicRaycaster>();
 
 		transform.rotation = Quaternion.Euler(90, 0, 0);
 		projector = GetComponent<Projector>();
@@ -28,8 +34,8 @@ public class OwnProjector : MonoBehaviour {
 	{
 		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
-			//Calculate field of view
-			SelectTurret();
+			if (gridSys.buildMode) return;//CastBuildRange();
+			else SelectTurret(); //Calculate field of view
 		}
 	}
 
@@ -38,9 +44,17 @@ public class OwnProjector : MonoBehaviour {
 		//When player click, check if player is clicking on a turret
 		if (Input.GetMouseButtonDown (0))
 		{
+			//Prevent Interactable from spawning Buttons if they are already hovering over a Button (START)
+			List<RaycastResult> results = new List<RaycastResult>();
+			PointerEventData data = new PointerEventData(null);
+			data.position = Input.mousePosition;
+			worldSpaceRaycaster.Raycast(data, results);
+
+			if (results.Count > 0) return; //Prevent Interactable from spawning Buttons if they are already hovering over a Button (END)
+
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
-			
+
 			//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
 			bool hasTower = Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, towerLayer, QueryTriggerInteraction.Ignore);
 			selected = hasTower;
@@ -55,6 +69,7 @@ public class OwnProjector : MonoBehaviour {
 				{
 					Vector3 turretPos = new Vector3(hit.collider.transform.position.x, transform.position.y, hit.collider.transform.position.z);
 					transform.position = turretPos;
+					// * by local scale in case of any scaling errors from exported turrets
 					projector.orthographicSize = CalculateProjectorRadius(hit.collider.gameObject.GetComponent<CapsuleCollider>().radius * hit.collider.transform.localScale.x);
 					projector.enabled = true;
 					//print (projector.orthographicSize);
@@ -66,11 +81,12 @@ public class OwnProjector : MonoBehaviour {
 				projector.enabled = false;
 			}
 		}
-		/*else
-		{
-			projector.enabled = false;
-		}*/
 	}
+
+	/*void CastBuildRange()
+	{
+		CalculateProjectorRadius((turretValues.range / 2) / gameObject.transform.localScale.x);
+	}*/
 
 	float CalculateProjectorRadius(float turretRadius)
 	{
