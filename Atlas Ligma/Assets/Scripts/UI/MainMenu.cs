@@ -13,6 +13,9 @@ public class MainMenu : MonoBehaviour
 	public Sprite[] loadingImages;
 	public int currentLoadingImage;
 
+	public Button[] butt;
+	public bool deletePref;
+
 	#region Fade
 	//Fades
 	public Image title;
@@ -34,10 +37,17 @@ public class MainMenu : MonoBehaviour
 
 	#endregion
 
-	public void Start()
+	public void Start ()
 	{
 		currentImage.sprite = loadingImages[0];
 		fadeFinish = false; //MainToLevel
+		/*for (int i = 0; i < butt.Length; i++)
+		{
+			int temp = i + 1;
+			if (PlayerPrefs.GetString ("Level " + temp, "false") != "true" && temp != 1) butt[i].interactable = false;
+		}*/
+		if (deletePref) PlayerPrefs.DeleteAll ();
+		for (int i = PlayerPrefs.GetInt ("LevelUnlock", 1); i < butt.Length; i++) butt[i].interactable = false;
 	}
 
 	public void Update()

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class AISea : AITemplate
 {
-	public enum SeaEnemy { ship, boat };
+	public enum SeaEnemy {ship, boat};
 	[SerializeField] SeaEnemy whichType;
 
 	public AIMovement.Paths path;
@@ -24,7 +24,7 @@ public class AISea : AITemplate
 	bool cLock;
 	bool firstTime;
 
-	int currentEnemySpawnCount;
+	public int currentEnemySpawnCount;
 
 	protected override void Start () 
 	{

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum GameStates {started, pause, win, lose, afterWin, gameComplete};
 
@@ -33,6 +34,8 @@ public class ManaSystem : MonoBehaviour
 	public EventsManager eventsManager;
 	public AudioManager audioLibrary;
 	public Transform worldSpaceCanvas;
+	public TutorialManager tutorial;
+	public GridSystem gridSystem;
 
 	[Header ("Audio Source")]
 	public AudioSource audio;
@@ -49,10 +52,12 @@ public class ManaSystem : MonoBehaviour
 		gameState = gameStateS;
 		currentMana = startingMana;
 
+		gridSystem = GetComponent<GridSystem> ();
 		waveSystem = GetComponent<WaveSystem>();
 		eventsManager = GetComponent<EventsManager>();
 		audioLibrary = GetComponent<AudioManager>();
 		worldSpaceCanvas = GameObject.Find("World Space Canvas").transform;
+		if (SceneManager.GetActiveScene ().name == "Level 1") tutorial = FindObjectOfType<TutorialManager> ();
 	}
 
 	void Update()
@@ -94,6 +99,18 @@ public class ManaSystem : MonoBehaviour
 			if (currentMana >= maxMana)
 			{
 				gameStateS = GameStates.win;
+				/*string[] lvlName = SceneManager.GetActiveScene ().name.Split (' ');
+				int temp2 = 0;
+				int.TryParse (lvlName[1], out temp2);
+				temp2++;
+				string tempStringFinal = temp2.ToString ();
+				PlayerPrefs.SetString (tempStringFinal, "true");*/
+				string[] lvlName = SceneManager.GetActiveScene ().name.Split (' ');
+				int temp2 = 0;
+				int.TryParse (lvlName[1], out temp2);
+				temp2++;
+				if (PlayerPrefs.GetInt ("LevelUnlock", 1) < temp2) PlayerPrefs.SetInt ("LevelUnlock", temp2);
+
 				Time.timeScale = 0;
 			}
 			else if (currentMana <= 0)

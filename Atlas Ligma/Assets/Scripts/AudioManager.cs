@@ -86,13 +86,13 @@ public class AudioManager : MonoBehaviour
 
 		if (audioToPlay.maxVolume <= audioToPlay.minVolume)
 		{
-			print("Minimum Volume and Maximum Volume has Error. Minimum Value is more than or equals to Maximum Value. Switching to Default Volume");
+			//print("Minimum Volume and Maximum Volume has Error. Minimum Value is more than or equals to Maximum Value. Switching to Default Volume");
 			randomiseVolume = false;
 		}
 
 		if (audioToPlay.maxPitch <= audioToPlay.minPitch)
 		{
-			print("Minimum Pitch and Maximum Pitch has Error. Minimum Value is more than or equals to Maximum Value. Switching to Default Pitch");
+			//print("Minimum Pitch and Maximum Pitch has Error. Minimum Value is more than or equals to Maximum Value. Switching to Default Pitch");
 			randomisePitch = false;
 		}
 

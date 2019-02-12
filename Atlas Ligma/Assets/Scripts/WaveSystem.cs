@@ -164,8 +164,9 @@ public class WaveSystem : MonoBehaviour {
 			Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
 		}*/
 
-		enemy.GetComponent<AITemplate>().worldCanvas = ManaSystem.inst.worldSpaceCanvas;
-
+		AITemplate ai = enemy.GetComponent<AITemplate> ();
+		ai.worldCanvas = ManaSystem.inst.worldSpaceCanvas;
+		ai.hp += (int) (25 * Mathf.Floor (currentWave / 2));
 		yield return new WaitForSeconds(wave[0].enemy[0].interval);
 
 		cLock = false;

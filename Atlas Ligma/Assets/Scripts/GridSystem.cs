@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GridSystem : MonoBehaviour {
 
@@ -24,11 +25,23 @@ public class GridSystem : MonoBehaviour {
 
 	public GraphicRaycaster myRay;
 
+	UIButtonFunctions uiButton;
+	TutorialManager tut;
+
+	bool rocketLock;
+	public bool buildLock;
+
 	void Start () 
 	{
 		cam = GetComponent<Camera> ();
 		manaSys = GetComponent<ManaSystem> ();
 		myRay = ManaSystem.inst.gui.GetComponent<GraphicRaycaster>();
+		uiButton = manaSys.buttonFunctionUI;
+		if (SceneManager.GetActiveScene ().name == "Level 1") tut = manaSys.tutorial;
+
+		rocketLock = SceneManager.GetActiveScene ().name == "Level 1" ? true : false;
+		buildLock = SceneManager.GetActiveScene ().name == "Level 1" ? true : false;
+
 		//myRay = FindObjectOfType<GraphicRaycaster>(); Manually Assign in Inspector
 		buildMode = false;
 		buildIndex = 0;
@@ -43,6 +56,17 @@ public class GridSystem : MonoBehaviour {
 	{
 		//BuildSwitchAndPreview();
 		Cast();
+		Shortcut ();
+	}
+
+	void Shortcut ()
+	{
+		if (!buildLock) {
+			if (Input.GetKeyDown (key: KeyCode.Alpha1)) uiButton.CrossbowBuild ();
+			else if (Input.GetKeyDown (key: KeyCode.Alpha2)) uiButton.CannonBuild ();
+			else if (Input.GetKeyDown (key: KeyCode.Alpha3)) uiButton.CatapultBuild ();
+			else if (Input.GetKeyDown (key: KeyCode.Alpha4) && !rocketLock) uiButton.RocketsBuild ();
+		}
 	}
 
 	//handles the building previews and switching the mode on and off

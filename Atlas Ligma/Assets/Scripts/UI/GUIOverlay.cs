@@ -68,6 +68,7 @@ public class GUIOverlay : MonoBehaviour
 		if (eventNotificationSpeed <= 0) eventNotificationSpeed = 0.05f;
 
 		notificationShown = false;
+		manaSlider.maxValue = ManaSystem.inst.maxMana;
 	}
 
     // Update is called once per frame
@@ -81,7 +82,7 @@ public class GUIOverlay : MonoBehaviour
 		}
 
 		CheckWinLose();
-		currentManaDisplay.text = ManaSystem.inst.currentMana.ToString() + "/" + "2000";
+		currentManaDisplay.text = ManaSystem.inst.currentMana.ToString () + "/" + ManaSystem.inst.maxMana;
 		manaSlider.value = ManaSystem.inst.currentMana;
 		if (uiAnim != null) uiAnim();
 	}

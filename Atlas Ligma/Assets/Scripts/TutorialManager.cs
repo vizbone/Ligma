@@ -93,6 +93,7 @@ public class TutorialManager : MonoBehaviour
 	public void BuildUIIntro()
 	{
 		buildUI.SetActive(true);
+		ManaSystem.inst.gridSystem.buildLock = false;
 	}
 
 	public void WaveNumberIntro()

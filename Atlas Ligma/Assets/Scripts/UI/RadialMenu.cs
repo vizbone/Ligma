@@ -72,7 +72,7 @@ public class RadialMenu : MonoBehaviour
 		for (int i = 0; i < buttons.Count; i++)
 		{
 			buttons[i].CheckCost();
-			print("Cost Checked");
+			//print("Cost Checked");
 		}
 	}
 }

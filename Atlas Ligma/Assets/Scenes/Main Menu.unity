@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 195919538}
   - component: {fileID: 195919537}
   m_Layer: 5
-  m_Name: Start Game
+  m_Name: Start Game 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2804,6 +2804,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a70f8e57bd55083449560ed660602d56, type: 3}
   - {fileID: 21300000, guid: e9ebff4818ce62544a9a3a89aefa5cd4, type: 3}
   currentLoadingImage: 0
+  butt:
+  - {fileID: 1061275277}
+  - {fileID: 195919537}
+  - {fileID: 1029532804}
+  - {fileID: 1956641718}
+  - {fileID: 1474813345}
+  deletePref: 0
   title: {fileID: 1467170458}
   start: {fileID: 1909865628}
   settings: {fileID: 896648059}
@@ -3024,7 +3031,7 @@ GameObject:
   - component: {fileID: 1029532805}
   - component: {fileID: 1029532804}
   m_Layer: 5
-  m_Name: Start Game
+  m_Name: Start Game 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3302,7 +3309,7 @@ GameObject:
   - component: {fileID: 1061275278}
   - component: {fileID: 1061275277}
   m_Layer: 5
-  m_Name: Start Game
+  m_Name: Start Game 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4432,7 +4439,7 @@ GameObject:
   - component: {fileID: 1474813346}
   - component: {fileID: 1474813345}
   m_Layer: 5
-  m_Name: Start Game
+  m_Name: Start Game 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6005,7 +6012,7 @@ GameObject:
   - component: {fileID: 1956641719}
   - component: {fileID: 1956641718}
   m_Layer: 5
-  m_Name: Start Game
+  m_Name: Start Game 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
