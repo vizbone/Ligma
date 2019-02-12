@@ -104,6 +104,8 @@ public class TutorialManager : MonoBehaviour
 	public void PressSpaceToStartIntro()
 	{
 		pressSpaceToStart.SetActive(true);
+		clearToProceed = false;
+		prebuiltSectionCheck = false;
 		ManaSystem.inst.inTutorial = false;
 		ManaSystem.inst.gui.EndWaveAppearance();
 	}

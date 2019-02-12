@@ -98,12 +98,14 @@
     <Compile Include="Assets\Scripts\Towers\TurretValueSettings.cs" />
     <Compile Include="Assets\Scripts\Townhall.cs" />
     <Compile Include="Assets\Scripts\TutorialManager.cs" />
+    <Compile Include="Assets\Scripts\UI\BuildButton.cs" />
     <Compile Include="Assets\Scripts\UI\GUIOverlay.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\RadialButton.cs" />
     <Compile Include="Assets\Scripts\UI\RadialMenu.cs" />
     <Compile Include="Assets\Scripts\UI\RadialMenuSpawner.cs" />
+    <Compile Include="Assets\Scripts\UI\TurretInfo.cs" />
     <Compile Include="Assets\Scripts\UI\UIButtonFunctions.cs" />
     <Compile Include="Assets\Scripts\WaveSystem.cs" />
     <Compile Include="Assets\water testing\WaterTest.cs" />

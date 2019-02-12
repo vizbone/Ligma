@@ -46,6 +46,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	public bool investOrUpgradeDisabled; //Check if can be invested
 	public GameObject[] investmentParticles;
 	public GameObject investmentParticle;
+	public System.Type turretType;
 
 	[Header("For Model Change")]
 	[SerializeField] GameObject turretGO; //Stores the Game Object where the Mesh is to be the Main Turret Component
@@ -86,20 +87,22 @@ public abstract class TurretTemplate : MonoBehaviour
 
 	protected virtual void Start ()
 	{
+		turretType = this.GetType();
+
 		level = isPrebuilt ? this.level : 1; //All Self Built Turrets are Level 1. PREBUILT TURRET LEVELS SHOULD BE SET IN THE PREFAB ITSELF
 		investmentLevel = 0;
 		manaReturnPerc = isPrebuilt ? 0 : 1; //If is prebuilt, Player should not be gaining any mana at the start.
+
 		manaSys = FindObjectOfType<ManaSystem> ();
 		meshCollider = GetComponent<MeshCollider> ();
 
 		audioSource = GetComponentInChildren<AudioSource>(); //For now use Get Component in Children because the Prefabs are messy
 
 		//Check if its bullets should travel in an arc
-		if (this.GetType() == typeof(Catapult)) arcTravel = true;
+		if (turretType == typeof(Catapult)) arcTravel = true;
 
 		xRotation = transform.eulerAngles.x;
 
-		//Remove once reached finalised stage
 		baseR = GetComponent<Renderer>();
 		turretR = turretGO.GetComponent<Renderer>();
 		ChangeMaterial (level);
@@ -217,6 +220,9 @@ public abstract class TurretTemplate : MonoBehaviour
 		ChangeMaterial (level);
 		//Add Changes to Stats as well
 		UpgradeStats ();
+
+		ManaSystem.inst.gui.turretInfo.UpdateTurretInfo(this);
+
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
 
 		manaLight.gameObject.transform.localPosition = turretValues.lightingPos;
@@ -378,18 +384,18 @@ public abstract class TurretTemplate : MonoBehaviour
 			currentBullet.turret = this;
 
 			//For Audio
-			if (this.GetType() == typeof(Cannon))
+			if (turretType == typeof(Cannon))
 			{
 				ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.cannon, audioSource);
-				Particles effects = Instantiate(shootingEffects, turretGO.transform); //i put the cannon particle here for now until more particles
+				Particles effects = Instantiate(shootingEffects, turretGO.transform);
 				effects.transform.localPosition = turretValues.firingPos;
 				effects.transform.eulerAngles = Vector3.zero;
 				effects.transform.parent = null;
 				//print (turretValues.firingPos);
 			}
-			else if (this.GetType() == typeof(Catapult)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.catapult, audioSource);
-			else if (this.GetType() == typeof(Crossbow)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.crossbow, audioSource);
-			else if (this.GetType() == typeof(Rockets)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.rocket, audioSource);
+			else if (turretType == typeof(Catapult)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.catapult, audioSource);
+			else if (turretType == typeof(Crossbow)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.crossbow, audioSource);
+			else if (turretType == typeof(Rockets)) ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.rocket, audioSource);
 			else print("Error in Getting Correct Audio Source");
 
 			if (arcTravel)
@@ -536,12 +542,6 @@ public abstract class TurretTemplate : MonoBehaviour
 
 		return bullet;
 	}
-
-	/*void OnTriggerStay (Collider other)
-	{
-		if (other.tag == "AI" && !enemies.Contains(other.GetComponent<AI>())) enemies.Add(other.GetComponent<AI>());
-		//print("Working");
-	}*/
 
 	private void OnTriggerEnter (Collider other)
 	{

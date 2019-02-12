@@ -11,13 +11,23 @@ public class Interactable : MonoBehaviour
 		public string title;
 	}
 
+	[Header("Button Option Configuration")]
 	public Action[] options;
+
+	[Header("Turret Detection")]
 	public GameObject currentTower;
 	public TurretTemplate turret;
 	public MeshCollider sensor;
 	[SerializeField] LayerMask towerLayer;
+
+	[Header("Menu Instance and Info Instance")]
 	[SerializeField] RadialMenu menuInst;
+
+	[Header("Systems and Managers")]
 	GridSystem gridSys;
+	GUIOverlay gui;
+
+	[Header("Audio")]
 	AudioSource audioSource;
 
 	public static Interactable inst;
@@ -30,6 +40,8 @@ public class Interactable : MonoBehaviour
 		sensor = GetComponent<MeshCollider>();
 		turret = gameObject.GetComponent<TurretTemplate>();
 		audioSource = GetComponentInChildren<AudioSource> ();
+
+		gui = ManaSystem.inst.gui;
 	}
 
 	void Update()
@@ -80,6 +92,28 @@ public class Interactable : MonoBehaviour
 			else if (Input.GetMouseButtonUp(0))
 			{
 				inst = null;
+			}
+
+			//For Spawning of Turret Information
+			if (menuInst != null && menuInst.gameObject.activeInHierarchy)
+			{
+				//Do a second raycast to see if mouse is still hovering above the turret
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				RaycastHit hit;
+
+				//QueryTriggerInteraction Ignore to prevent clicking on collider that makes up the turrets range.
+				bool hasTower = sensor.Raycast(ray, out hit, Mathf.Infinity);
+
+				if (hasTower && !gridSys.buildMode)
+				{
+					gui.turretInfo.gameObject.SetActive(true);
+					gui.turretInfo.UpdateTurretInfo(turret);
+				}
+				else
+				{
+					gui.turretInfo.gameObject.SetActive(false);
+					gui.turretInfo.UpdateTurretInfo(turret);
+				}
 			}
 		}
 	}

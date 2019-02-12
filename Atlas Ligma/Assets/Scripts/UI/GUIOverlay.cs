@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-//NEED TO ENSURE BUTTON IS UNITNERACTABLE WHEN DISPLAYING ANIMATIONS
-
 public class GUIOverlay : MonoBehaviour
 {
 	[Header("Mana")]
@@ -48,6 +45,9 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] float currentChatStep;
 	[SerializeField] float chatSpeed;
 	[SerializeField] bool show;
+
+	[Header("Turret Button Information")]
+	public TurretInfo turretInfo;
 
 	public System.Action uiAnim;
 
