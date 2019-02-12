@@ -15,4 +15,4 @@ MonoBehaviour:
   buildModel: {fileID: 100000, guid: 401969e79eecc954db678f2d9a662031, type: 3}
   actualTower: {fileID: 1614154539434564, guid: 514be0f0886cf0f4c9b89019052dcf04,
     type: 3}
-  cost: 125
+  cost: 150

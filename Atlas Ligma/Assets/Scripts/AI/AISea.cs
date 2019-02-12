@@ -46,7 +46,7 @@ public class AISea : AITemplate
 
 		ai = FindObjectOfType<AIMovement> ();
 		agent = GetComponent<NavMeshAgent> ();
-		townHall = GameObject.Find ("Townhall").transform;
+		townHall = ManaSystem.inst.townHall;
 
 		cLock = false;
 		currentDestination = 0;
