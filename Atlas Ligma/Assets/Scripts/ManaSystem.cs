@@ -36,6 +36,7 @@ public class ManaSystem : MonoBehaviour
 	public Transform worldSpaceCanvas;
 	public TutorialManager tutorial;
 	public GridSystem gridSystem;
+	public Transform townHall;
 
 	[Header ("Audio Source")]
 	public AudioSource audio;
@@ -57,6 +58,7 @@ public class ManaSystem : MonoBehaviour
 		eventsManager = GetComponent<EventsManager>();
 		audioLibrary = GetComponent<AudioManager>();
 		worldSpaceCanvas = GameObject.Find("World Space Canvas").transform;
+		townHall = GameObject.Find ("Townhall").transform;
 		if (SceneManager.GetActiveScene ().name == "Level 1") tutorial = FindObjectOfType<TutorialManager> ();
 	}
 

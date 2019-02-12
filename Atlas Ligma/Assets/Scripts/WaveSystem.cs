@@ -34,6 +34,10 @@ public class WaveSystem : MonoBehaviour {
 
 	[Header("For Events")]
 	[SerializeField] EventsManager em;
+	public bool endless;
+	public EnemySpawnTemplate[] airEnemies;
+	public EnemySpawnTemplate[] groundEnemies;
+	public EnemySpawnTemplate[] shipEnemies;
 
 	[Header("For AudioMixerSnapShot System")]
 	[SerializeField] AudioMixerSnapshot prepPhaseSnapShot;
@@ -66,20 +70,26 @@ public class WaveSystem : MonoBehaviour {
 		{
 			if (!prepPhase)
 			{
-				//Update Enemy List for checking in Inspector
-				enemyListS = enemyListS.Where (AITemplate => AITemplate != null).ToList ();
-				enemyList = enemyListS;
-
-				if (!cLock)
+				if (!endless)
 				{
-					enemySpawnIndex = Mathf.Min(++enemySpawnIndex, wave[currentWave].enemy.Length);
+					//Update Enemy List for checking in Inspector
+					enemyListS = enemyListS.Where (AITemplate => AITemplate != null).ToList ();
+					enemyList = enemyListS;
 
-					//Only if Reached Last Enemy
-					if (enemySpawnIndex == wave[currentWave].enemy.Length)
+					if (!cLock)
 					{
-						if (enemyList.Count == 0) WaveEnded(); //Wait for Last Enemy to Die to end the Wave
+						enemySpawnIndex = Mathf.Min (++enemySpawnIndex, wave[currentWave].enemy.Length);
+
+						//Only if Reached Last Enemy
+						if (enemySpawnIndex == wave[currentWave].enemy.Length)
+						{
+							if (enemyList.Count == 0) WaveEnded (); //Wait for Last Enemy to Die to end the Wave
+						} else StartCoroutine (SpawnClock (false));
 					}
-					else StartCoroutine(SpawnClock());
+				} 
+				else
+				{
+					if (!cLock) StartCoroutine (SpawnClock (true));
 				}
 			}
 			else
@@ -138,27 +148,58 @@ public class WaveSystem : MonoBehaviour {
 		}
 	}
 
-	IEnumerator SpawnClock()
+	IEnumerator SpawnClock (bool endless)
 	{
 		cLock = true;
-
+		float interval = 0;
 		GameObject enemy = null;
-
-		if (wave[currentWave].enemy[enemySpawnIndex].type == AttackType.sea)
+		if (!endless)
 		{
-			int result = Random.Range (2, 4);
+			if (wave[currentWave].enemy[enemySpawnIndex].type == AttackType.sea)
+			{
+				int result = Random.Range (2, 4);
 
-			enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[result].position, Quaternion.identity);
+				enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[result].position, Quaternion.identity);
 
-			if (result == 2) enemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath1;
-			else enemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath2;
+				if (result == 2) enemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath1;
+				else enemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath2;
+			} 
+			else if (wave[currentWave].enemy[enemySpawnIndex].type == AttackType.air)
+			{
+				enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (4, 7)].position, Quaternion.identity);
+			} 
+			else enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
 		}
-		else if (wave[currentWave].enemy[enemySpawnIndex].type == AttackType.air)
+		else
 		{
-			enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range(4, 7)].position, Quaternion.identity);
-		}
-		else enemy = Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
+			int random = Random.Range (0, 3);
+			
+			if (random == 0)
+			{
+				//air
+				int random2 = Random.Range (0, airEnemies.Length);
+				enemy = Instantiate (airEnemies[random2].typeOfEnemy, spawnPos[Random.Range (4, 7)].position, Quaternion.identity);
+				interval = airEnemies[random2].interval;
+			}
+			else if (random == 1)
+			{
+				//ground
+				int random2 = Random.Range (0, groundEnemies.Length);
+				enemy = Instantiate (groundEnemies[random2].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
+				interval = groundEnemies[random2].interval;
+			} 
+			else if (random == 2)
+			{
+				//ship
+				int result = Random.Range (2, 4);
+				int random2 = Random.Range (0, shipEnemies.Length);
+				enemy = Instantiate (shipEnemies[random2].typeOfEnemy, spawnPos[result].position, Quaternion.identity);
+				interval = shipEnemies[random2].interval;
 
+				if (result == 2) enemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath1;
+				else enemy.GetComponent<AISea> ().path = AIMovement.Paths.seaPath2;
+			}
+		}
 		/*for (int i = 0; i <= 30; i++)
 		{
 			Instantiate (wave[currentWave].enemy[enemySpawnIndex].typeOfEnemy, spawnPos[Random.Range (0, 2)].position, Quaternion.identity);
@@ -166,8 +207,10 @@ public class WaveSystem : MonoBehaviour {
 
 		AITemplate ai = enemy.GetComponent<AITemplate> ();
 		ai.worldCanvas = ManaSystem.inst.worldSpaceCanvas;
-		ai.hp += (int) (25 * Mathf.Floor (currentWave / 2));
-		yield return new WaitForSeconds(wave[0].enemy[0].interval);
+		if (!endless) ai.hp += (int) (25 * Mathf.Floor (currentWave / 2));
+
+		if (!endless) yield return new WaitForSeconds(wave[currentWave].enemy[enemySpawnIndex].interval);
+		else yield return new WaitForSeconds (interval);
 
 		cLock = false;
 	}

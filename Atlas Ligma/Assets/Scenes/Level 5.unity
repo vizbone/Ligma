@@ -252,6 +252,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
+      propertyPath: enemyTypeList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: airEnemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: groundEnemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: shipEnemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
       propertyPath: prepPhaseSnapShot
       value: 
       objectReference: {fileID: 24500006, guid: f3eb1d3a03bbb434da1fade3429f5b85,
@@ -813,6 +833,65 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313,
         type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: enemyTypeList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313,
+        type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: enemyTypeList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e882ba17852e9134589198bada5efb10,
+        type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: enemyTypeList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 36d926e98dd516b42856fd0b5eb1e67e,
+        type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: enemyTypeList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 36d926e98dd516b42856fd0b5eb1e67e,
+        type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: airEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: cb0095565fbc02746b3e216c15cbc313,
+        type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: groundEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ca7d1cfd97b702d44b9cb67ae7cd20e8,
+        type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: groundEnemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c56d7fd51a0651f4aa07fb6dbc6da8df,
+        type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: endless
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: shipEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e882ba17852e9134589198bada5efb10,
+        type: 2}
+    - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: shipEnemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 36d926e98dd516b42856fd0b5eb1e67e,
+        type: 2}
     - target: {fileID: 4631659969495447586, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -941,7 +1020,12 @@ PrefabInstance:
     - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: maxMana
-      value: 5000
+      value: 999999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: startingMana
+      value: 250000
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447597, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
@@ -44573,16 +44657,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473635756431033230, guid: 05586c38a044cb94e9d0cfe7a2e4aa8b,
-        type: 3}
-      propertyPath: crossbow1.upgradeOrInvestCost.Array.data[0]
-      value: 225
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473635756431033230, guid: 05586c38a044cb94e9d0cfe7a2e4aa8b,
-        type: 3}
-      propertyPath: crossbow2.upgradeOrInvestCost.Array.data[0]
-      value: 350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05586c38a044cb94e9d0cfe7a2e4aa8b, type: 3}
