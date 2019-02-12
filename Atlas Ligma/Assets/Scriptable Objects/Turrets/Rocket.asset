@@ -15,4 +15,5 @@ MonoBehaviour:
   buildModel: {fileID: 100000, guid: ec33c9193f80ca74c8a10da0a89179c1, type: 3}
   actualTower: {fileID: 1891549614434444, guid: 9cbc4713c1b678248b02fc0acca2328b,
     type: 3}
+  type: Rocket
   cost: 50

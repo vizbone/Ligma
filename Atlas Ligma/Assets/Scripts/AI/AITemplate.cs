@@ -42,6 +42,21 @@ public abstract class AITemplate : MonoBehaviour {
 	{
 		WaveSystem.enemyListS.Remove(this);
 		//hpPack.ai = null;
+
+		switch (enemyType)
+		{
+			case AttackType.ground:
+				ManaSystem.inst.gui.enemiesLeft[0]--;
+				break;
+			case AttackType.air:
+				ManaSystem.inst.gui.enemiesLeft[1]--;
+				break;
+			case AttackType.sea:
+				ManaSystem.inst.gui.enemiesLeft[2]--;
+				break;
+		}
+
+		ManaSystem.inst.gui.enemiesLeft[3]--;
 	}
 
 	protected virtual void Update ()

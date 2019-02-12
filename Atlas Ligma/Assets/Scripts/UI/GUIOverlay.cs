@@ -24,7 +24,8 @@ public class GUIOverlay : MonoBehaviour
 	public float[] lerpTime; //0 is for Image, 1 is for Text, subsequent is for Buttons
 
 	[Header("Enemy and Wave GUI")]
-	public Text enemiesLeft;
+	public int[] enemiesLeft;
+	[SerializeField] Text[] enemiesLeftTxt;
 
 	[Header("Prep Phase GUI")]
 	[SerializeField] Text waveNumber;
@@ -93,6 +94,8 @@ public class GUIOverlay : MonoBehaviour
 			show = !show;
 			uiAnim += ShowHideChatBox;
 		}
+
+		if (!ManaSystem.inst.waveSystem.prepPhase) UpdateEnemyLeft();
 
 		CheckWinLose();
 		currentManaDisplay.text = ManaSystem.inst.currentMana.ToString () + "/" + ManaSystem.inst.maxMana;
@@ -177,6 +180,39 @@ public class GUIOverlay : MonoBehaviour
 		uiAnim -= DisplayWaveStartEnd;
 		ResetStartEndWaveAnim();
 		uiAnim += DisplayWaveStartEnd;
+
+		SetEnemyLeft();
+	}
+
+	public void SetEnemyLeft()
+	{
+		if (ManaSystem.inst.gameState != GameStates.gameComplete)
+		{
+			enemiesLeft = new int[4];
+
+			for (int i = 0; i < ManaSystem.inst.waveSystem.wave[ManaSystem.inst.waveSystem.currentWave].enemy.Length; i++)
+			{
+				if (ManaSystem.inst.waveSystem.wave[ManaSystem.inst.waveSystem.currentWave].enemy[i].type == AttackType.ground) enemiesLeft[0]++;
+				else if (ManaSystem.inst.waveSystem.wave[ManaSystem.inst.waveSystem.currentWave].enemy[i].type == AttackType.air) enemiesLeft[1]++;
+				else if (ManaSystem.inst.waveSystem.wave[ManaSystem.inst.waveSystem.currentWave].enemy[i].type == AttackType.sea) enemiesLeft[2]++;
+				else print("Invalid is Invalid.");
+
+				enemiesLeft[3]++;
+			}
+
+			enemiesLeftTxt[0].text = "x" + enemiesLeft[0].ToString();
+			enemiesLeftTxt[1].text = "x" + enemiesLeft[1].ToString();
+			enemiesLeftTxt[2].text = "x" + enemiesLeft[2].ToString();
+			enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();
+		}
+	}
+
+	public void UpdateEnemyLeft()
+	{
+		enemiesLeftTxt[0].text = "x" + enemiesLeft[0].ToString();
+		enemiesLeftTxt[1].text = "x" + enemiesLeft[1].ToString();
+		enemiesLeftTxt[2].text = "x" + enemiesLeft[2].ToString();
+		enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();
 	}
 
 	public void ResetStartEndWaveAnim()

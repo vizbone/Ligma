@@ -78,6 +78,7 @@ public class AISea : AITemplate
 		cLock = true;
 
 		GameObject enemy = Instantiate (enemies, path == AIMovement.Paths.seaPath1 ? ai.seaPath1Spawn.transform.position : ai.seaPath2Spawn.transform.position, Quaternion.identity);
+		ManaSystem.inst.gui.enemiesLeft[0]++;
 		enemy.GetComponent<AITemplate>().worldCanvas = ManaSystem.inst.worldSpaceCanvas;
 		currentEnemySpawnCount++;
 		if (currentEnemySpawnCount >= enemyBatchSpawnCount)

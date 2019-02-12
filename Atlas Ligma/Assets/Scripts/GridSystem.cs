@@ -42,7 +42,6 @@ public class GridSystem : MonoBehaviour {
 		rocketLock = SceneManager.GetActiveScene ().name == "Level 1" ? true : false;
 		buildLock = SceneManager.GetActiveScene ().name == "Level 1" ? true : false;
 
-		//myRay = FindObjectOfType<GraphicRaycaster>(); Manually Assign in Inspector
 		buildMode = false;
 		buildIndex = 0;
 	}
@@ -113,7 +112,8 @@ public class GridSystem : MonoBehaviour {
 			if (hit.collider != null)
 			{
 				buildPos = new Vector3 (hit.point.x - Mathf.Repeat (hit.point.x, gridSize) + gridSize * 0.5f, hit.point.y, hit.point.z - Mathf.Repeat (hit.point.z, gridSize) + gridSize * 0.5f) + offset;
-				currentBuild.transform.position = buildPos;
+				if (currentBuild != null) currentBuild.transform.position = buildPos;
+				else return;
 
 				//Check for any UI Elements hovered over
 				List<RaycastResult> results = new List<RaycastResult>();

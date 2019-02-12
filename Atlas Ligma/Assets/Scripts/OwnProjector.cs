@@ -34,7 +34,7 @@ public class OwnProjector : MonoBehaviour {
 	{
 		if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
 		{
-			if (gridSys.buildMode) return;//CastBuildRange();
+			if (gridSys.buildMode) CastBuildProjection(gridSys.buildIndex);
 			else SelectTurret(); //Calculate field of view
 		}
 	}
@@ -59,7 +59,7 @@ public class OwnProjector : MonoBehaviour {
 			bool hasTower = Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, towerLayer, QueryTriggerInteraction.Ignore);
 			selected = hasTower;
 
-			if (hasTower && !gridSys.buildMode)
+			if (hasTower)
 			{
 				//print(hit.collider.name);
 				//print(hit.collider.gameObject.layer);
@@ -83,10 +83,42 @@ public class OwnProjector : MonoBehaviour {
 		}
 	}
 
-	/*void CastBuildRange()
+	void CastBuildProjection(int buildIndex)
 	{
-		CalculateProjectorRadius((turretValues.range / 2) / gameObject.transform.localScale.x);
-	}*/
+		float turretRadius = 0;
+		switch (buildIndex)
+		{
+			case 0:
+				turretRadius = TurretValueSettings.crossbow1s.range;
+				break;
+			case 1:
+				turretRadius = TurretValueSettings.cannon1s.range;
+				break;
+			case 2:
+				turretRadius = TurretValueSettings.catapult1s.range;
+				break;
+			case 3:
+				turretRadius = TurretValueSettings.rocket1s.range;
+				break;
+		}
+
+		turretRadius = (turretRadius / 2);
+		projector.orthographicSize = CalculateProjectorRadius(turretRadius);
+
+		projector.enabled = true;
+
+		if (gridSys.currentBuild != null)
+		{
+			Vector3 projectorPos = new Vector3(gridSys.currentBuild.transform.position.x, transform.position.y, gridSys.currentBuild.transform.position.z);
+			transform.position = projectorPos;
+		}
+		else projector.enabled = false;
+	}
+
+	public void CancelBuildProjection()
+	{
+		projector.enabled = false;
+	}
 
 	float CalculateProjectorRadius(float turretRadius)
 	{

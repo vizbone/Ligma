@@ -123,6 +123,9 @@ MonoBehaviour:
   eventsManager: {fileID: 0}
   audioLibrary: {fileID: 0}
   worldSpaceCanvas: {fileID: 0}
+  tutorial: {fileID: 0}
+  gridSystem: {fileID: 0}
+  townHall: {fileID: 0}
   audio: {fileID: 8367767218166074350, guid: f205e48d3edd75e49bd05251bc0762a6, type: 3}
 --- !u!114 &4631659969495447584
 MonoBehaviour:
@@ -163,8 +166,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9236a80f71e99a2409ee1e7a16188c47, type: 2}
   - {fileID: 11400000, guid: 6c4065307d976b840b3b7f61aec625f0, type: 2}
   - {fileID: 11400000, guid: e23b350f1ba25384985a4401246b2ea2, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   ignoreLayersForBuilding:
     serializedVersion: 2
     m_Bits: 125751
@@ -175,6 +176,7 @@ MonoBehaviour:
   buildMode: 0
   canBuild: 0
   myRay: {fileID: 0}
+  buildLock: 0
 --- !u!114 &4631659969495447597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +285,10 @@ MonoBehaviour:
   enemyList: []
   allPrebuiltTurrets: []
   em: {fileID: 0}
+  endless: 0
+  airEnemies: []
+  groundEnemies: []
+  shipEnemies: []
   prepPhaseSnapShot: {fileID: 0}
   battlePhaseSnapShot: {fileID: 0}
 --- !u!114 &4631659969495447585

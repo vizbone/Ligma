@@ -158,6 +158,7 @@ public class UIButtonFunctions : MonoBehaviour {
 		if (currentBuild != null)
 		{
 			Destroy(currentBuild);
+			manaSys.projector.CancelBuildProjection();
 			currentBuild = null;
 		}
 	}

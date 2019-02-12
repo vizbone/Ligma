@@ -15,4 +15,5 @@ MonoBehaviour:
   buildModel: {fileID: 100000, guid: c5adfbf166ce9d24a9ea5645f25e177d, type: 3}
   actualTower: {fileID: 1396634072807330, guid: 04952f9e8a4c3d84693a2067dfdecabb,
     type: 3}
+  type: Catapult
   cost: 50
