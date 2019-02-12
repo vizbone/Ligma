@@ -10,26 +10,40 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public GameObject settingsMenu;
 
+	[Header("Systems and Managers")]
 	ManaSystem manaSys;
 	GridSystem gridSys;
 
 	public GameObject currentBuild;
 
+	[Header ("Sounds")]
 	public AudioMixer masterMixer;
 	public AudioSource uiSoundA;
 	public AudioSource uiSoundB;
 
+	public Slider masterSlider;
 	public Slider bgmSlider;
 	public Slider sfxSlider;
 
+	[Header("Time Scale")]
+	[SerializeField] int timeScale;
+
 	private void Start()
 	{
-		manaSys = FindObjectOfType<ManaSystem>();
-		gridSys = FindObjectOfType<GridSystem>();
+		if (ManaSystem.inst != null)
+		{
+			manaSys = FindObjectOfType<ManaSystem>();
+			gridSys = FindObjectOfType<GridSystem>();
+			timeScale = PlayerPrefs.GetInt("Time Scale", 1);
+			Time.timeScale = timeScale;
+		}
+		else Time.timeScale = 1;
 
 		//Load the Saved Values throughout scenes
+		//masterSlider.value = PlayerPrefs.GetFloat("masterSavedVol", 0.3f);
 		bgmSlider.value = PlayerPrefs.GetFloat("bgmSavedVol", 0.3f);
 		sfxSlider.value = PlayerPrefs.GetFloat("sfxSavedVol", 0.3f);
+		//masterMixer.SetFloat("masterVol", Mathf.Log(masterSlider.value) * 20);
 		masterMixer.SetFloat("bgmVol", Mathf.Log(bgmSlider.value) * 20);
 		masterMixer.SetFloat("sfxVol", Mathf.Log(sfxSlider.value) * 20);
 	}
@@ -45,7 +59,7 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void BackToMainMenu ()
 	{
-		if (Time.timeScale == 0) Time.timeScale = 1;
+		if (Time.timeScale != 1) Time.timeScale = 1;
 
 		if (ManaSystem.inst != null)
 		{
@@ -58,7 +72,7 @@ public class UIButtonFunctions : MonoBehaviour {
 	{
 		if (!ManaSystem.inst.gui.endScreenIsPlaying)
 		{
-			if (Time.timeScale == 0) Time.timeScale = 1;
+			if (Time.timeScale == 0) Time.timeScale = timeScale;
 
 			ManaSystem.gameStateS = GameStates.afterWin;
 			ManaSystem.inst.gui.lerpTime = null;
@@ -70,7 +84,7 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void NextLevel (string arg)
 	{
-		if (Time.timeScale == 0) Time.timeScale = 1;
+		if (Time.timeScale == 0) Time.timeScale = timeScale;
 
 		if (ManaSystem.inst != null)
 		{
@@ -81,9 +95,33 @@ public class UIButtonFunctions : MonoBehaviour {
 
 	public void Retry ()
 	{
-		if (Time.timeScale == 0) Time.timeScale = 1;
+		if (Time.timeScale == 0) Time.timeScale = timeScale;
 
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+	}
+
+	public void FastFoward()
+	{
+		switch (timeScale)
+		{
+			case 0:
+				return;
+			case 1:
+				timeScale = 2;
+				break;
+			case 2:
+				timeScale = 1;
+				break;
+		}
+
+		PlayerPrefs.SetInt("Time Scale", timeScale);
+		Time.timeScale = timeScale;
+	}
+
+	public void VolumeMaster(float masterLvl)
+	{
+		masterMixer.SetFloat("masterVol", Mathf.Log(masterLvl) * 20);
+		PlayerPrefs.SetFloat("masterSavedVol", masterLvl);
 	}
 
 	public void VolumeBGM(float bgmLvl)

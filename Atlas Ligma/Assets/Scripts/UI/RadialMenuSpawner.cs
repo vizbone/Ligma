@@ -5,7 +5,10 @@ using UnityEngine;
 public class RadialMenuSpawner : MonoBehaviour {
 
 	public static RadialMenuSpawner ins;
+
+	[Header("Prefabs For Spawning")]
 	public RadialMenu menuPrefab;
+	public TurretInfo turretInfoPrefab;
 
 	void Awake()
 	{

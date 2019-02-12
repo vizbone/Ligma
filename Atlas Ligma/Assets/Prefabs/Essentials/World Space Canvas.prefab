@@ -113,3 +113,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPrefab: {fileID: 114774445097616514, guid: e8880f19d39fb144f8ff642ce286a9ff,
     type: 3}
+  turretInfoPrefab: {fileID: 319098831332423295, guid: 8295607a82311124788db4a48d5a41d2,
+    type: 3}
