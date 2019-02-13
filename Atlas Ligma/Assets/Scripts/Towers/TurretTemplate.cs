@@ -159,7 +159,13 @@ public abstract class TurretTemplate : MonoBehaviour
 		if (closestEnemy != null)
 		{
 			LookAtEnemy();
-			if (turretGO.transform.rotation != Quaternion.Euler(designatedAngle)) turretGO.transform.rotation = Quaternion.RotateTowards(turretGO.transform.rotation, Quaternion.Euler(designatedAngle), 5f);
+			if (turretGO.transform.rotation != Quaternion.Euler(designatedAngle))
+			{
+				if (ManaSystem.gameStateS == GameStates.started || ManaSystem.gameStateS == GameStates.afterWin)
+				{
+					turretGO.transform.rotation = Quaternion.RotateTowards(turretGO.transform.rotation, Quaternion.Euler(designatedAngle), 5f);
+				}
+			}
 		}
 
 		coolDown = Mathf.Max(coolDown -= Time.deltaTime, 0);
@@ -181,7 +187,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	{
 		int cost = turretValues.upgradeOrInvestCost[0];
 
-		if (manaSys.currentMana > cost) manaSys.ManaMinus (cost, transform.position, 2);
+		if (manaSys.currentMana > cost) manaSys.ManaMinus (cost, transform.position, 5);
 		else
 		{
 			print ("Not Enough Mana");
@@ -243,7 +249,6 @@ public abstract class TurretTemplate : MonoBehaviour
 			case 1:
 				if (manaSys.currentMana > turretValues.upgradeOrInvestCost[0])
 				{
-					cost = turretValues.upgradeOrInvestCost[0];
 					newLevel = 1;
 					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc1s;
 					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc1s;
@@ -257,7 +262,6 @@ public abstract class TurretTemplate : MonoBehaviour
 			case 2:
 				if (manaSys.currentMana > turretValues.upgradeOrInvestCost[1])
 				{
-					cost = turretValues.upgradeOrInvestCost[1];
 					newLevel = 2;
 					if (faction == Faction.black) newPerc = TurretValueSettings.blackInvestPerc2s;
 					else if (faction == Faction.white) newPerc = TurretValueSettings.whiteInvestPerc2s;
@@ -286,10 +290,12 @@ public abstract class TurretTemplate : MonoBehaviour
 				print("Invalid Investment Level");
 				break;
 		}
+		cost = turretValues.upgradeOrInvestCost[investLevel - investmentLevel - 1];
 
-		manaSys.ManaMinus(cost, transform.position, 2);
+		manaSys.ManaMinus(cost, transform.position, 5);
 		investmentLevel = newLevel;
 		manaReturnPerc = newPerc;
+
 	}
 
 	public void ResetManaReturnPerc()

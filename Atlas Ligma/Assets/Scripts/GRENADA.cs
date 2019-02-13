@@ -39,7 +39,7 @@ public class GRENADA : MonoBehaviour
 
 	void OnCollisionEnter(Collision other)
 	{
-		ManaSystem.inst.ManaMinus(FORTHEMOTHERLAND, other.collider.transform.position, 1);
+		ManaSystem.inst.ManaMinus(FORTHEMOTHERLAND, other.collider.transform.position, 5);
 		Instantiate(enemyExplosion, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}

@@ -106,7 +106,6 @@ public class WaveSystem : MonoBehaviour {
 
 		//BGM Transition from PrepPhase to BattlePhase
 		battlePhaseSnapShot.TransitionTo(1.0f);
-
 		ManaSystem.inst.gui.StartWaveAppearance();
 	}
 

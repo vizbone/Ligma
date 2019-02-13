@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossbow1:
     dmg: 10
-    fireRate: 0.8
+    fireRate: 1
     bulletSpeed: 50
     range: 20
     upgradeOrInvestCost: fa000000
@@ -54,7 +54,7 @@ MonoBehaviour:
     lightingPos: {x: 0, y: 0.55, z: 1.05}
   crossbow2:
     dmg: 13
-    fireRate: 0.9
+    fireRate: 1.5
     bulletSpeed: 50
     range: 20
     upgradeOrInvestCost: 90010000
@@ -62,8 +62,8 @@ MonoBehaviour:
     firingPos: {x: 0, y: -1.2, z: 1.3}
     lightingPos: {x: 0, y: 0.9, z: 1.25}
   crossbow3:
-    dmg: 16
-    fireRate: 1
+    dmg: 21
+    fireRate: 2
     bulletSpeed: 50
     range: 20
     upgradeOrInvestCost: 
@@ -71,47 +71,47 @@ MonoBehaviour:
     firingPos: {x: 0, y: -1.6, z: 1.55}
     lightingPos: {x: 0, y: 1.1, z: 1.45}
   blackCrossbow1:
-    dmg: 14
+    dmg: 18
     fireRate: 1
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -0.55, z: 1.1}
     lightingPos: {x: 0, y: 0.55, z: 1.05}
   blackCrossbow2:
-    dmg: 10
-    fireRate: 0.9
+    dmg: 24
+    fireRate: 1.5
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.2, z: 1.3}
     lightingPos: {x: 0, y: 0.9, z: 1.25}
   blackCrossbow3:
-    dmg: 12
-    fireRate: 1.2
+    dmg: 30
+    fireRate: 2
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.6, z: 1.55}
     lightingPos: {x: 0, y: 1.1, z: 1.45}
   whiteCrossbow1:
     dmg: 8
-    fireRate: 0.6
+    fireRate: 0.8
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -0.55, z: 1.1}
     lightingPos: {x: 0, y: 0.55, z: 1.05}
   whiteCrossbow2:
     dmg: 10
-    fireRate: 0.9
+    fireRate: 1
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.2, z: 1.3}
     lightingPos: {x: 0, y: 0.9, z: 1.25}
@@ -120,7 +120,7 @@ MonoBehaviour:
     fireRate: 1.2
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 000000000100000002000000
     firingPos: {x: 0, y: -1.6, z: 1.55}
     lightingPos: {x: 0, y: 1.1, z: 1.45}
@@ -156,7 +156,7 @@ MonoBehaviour:
     fireRate: 0.2
     bulletSpeed: 3
     range: 15
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 0.95, z: 1.3}
     lightingPos: {x: 0, y: 0, z: 0.65}
@@ -165,7 +165,7 @@ MonoBehaviour:
     fireRate: 0.5
     bulletSpeed: 5
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.1, z: 1.95}
     lightingPos: {x: 0, y: 0, z: 1.25}
@@ -174,7 +174,7 @@ MonoBehaviour:
     fireRate: 0.8
     bulletSpeed: 7
     range: 25
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.3, z: 2.5}
     lightingPos: {x: 0, y: 0, z: 1.45}
@@ -183,7 +183,7 @@ MonoBehaviour:
     fireRate: 0.2
     bulletSpeed: 3
     range: 15
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 0.95, z: 1.3}
     lightingPos: {x: 0, y: 0, z: 0.65}
@@ -192,7 +192,7 @@ MonoBehaviour:
     fireRate: 0.5
     bulletSpeed: 5
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.1, z: 1.95}
     lightingPos: {x: 0, y: 0, z: 1.25}
@@ -201,7 +201,7 @@ MonoBehaviour:
     fireRate: 0.8
     bulletSpeed: 7
     range: 25
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: 1.3, z: 2.5}
     lightingPos: {x: 0, y: 0, z: 1.45}
@@ -237,7 +237,7 @@ MonoBehaviour:
     fireRate: 0.8
     bulletSpeed: 10
     range: 15
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -0.7, z: 1}
     lightingPos: {x: 0, y: 0.6, z: 1.025}
@@ -246,7 +246,7 @@ MonoBehaviour:
     fireRate: 1.2
     bulletSpeed: 10
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1, z: 1.15}
     lightingPos: {x: 0, y: 0.945, z: 1.15}
@@ -255,7 +255,7 @@ MonoBehaviour:
     fireRate: 1.6
     bulletSpeed: 10
     range: 25
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1.3, z: 1.3}
     lightingPos: {x: 0, y: 1.15, z: 1.325}
@@ -264,7 +264,7 @@ MonoBehaviour:
     fireRate: 0.8
     bulletSpeed: 10
     range: 15
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -0.7, z: 1}
     lightingPos: {x: 0, y: 0.6, z: 1.025}
@@ -273,7 +273,7 @@ MonoBehaviour:
     fireRate: 1.2
     bulletSpeed: 10
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1, z: 1.15}
     lightingPos: {x: 0, y: 0.945, z: 1.15}
@@ -282,7 +282,7 @@ MonoBehaviour:
     fireRate: 1.6
     bulletSpeed: 10
     range: 25
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 0000000002000000
     firingPos: {x: 0, y: -1.3, z: 1.3}
     lightingPos: {x: 0, y: 1.15, z: 1.325}
@@ -318,7 +318,7 @@ MonoBehaviour:
     fireRate: 1.5
     bulletSpeed: 50
     range: 15
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
     firingPos: {x: 0, y: -0.65, z: 1.45}
     lightingPos: {x: 0, y: 0, z: 0.75}
@@ -327,7 +327,7 @@ MonoBehaviour:
     fireRate: 1.8
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
     firingPos: {x: 0, y: -0.85, z: 1.75}
     lightingPos: {x: 0, y: 0, z: 0.65}
@@ -336,7 +336,7 @@ MonoBehaviour:
     fireRate: 2
     bulletSpeed: 50
     range: 25
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
     firingPos: {x: 0, y: -0.95, z: 2.1}
     lightingPos: {x: 0, y: 0, z: 0.75}
@@ -345,7 +345,7 @@ MonoBehaviour:
     fireRate: 1.5
     bulletSpeed: 30
     range: 15
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
     firingPos: {x: 0, y: -0.65, z: 1.45}
     lightingPos: {x: 0, y: 0, z: 0.75}
@@ -354,7 +354,7 @@ MonoBehaviour:
     fireRate: 1.8
     bulletSpeed: 50
     range: 20
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
     firingPos: {x: 0, y: -0.85, z: 1.75}
     lightingPos: {x: 0, y: 0, z: 0.65}
@@ -363,7 +363,7 @@ MonoBehaviour:
     fireRate: 2
     bulletSpeed: 50
     range: 25
-    upgradeOrInvestCost: c80000005e010000f4010000
+    upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
     firingPos: {x: 0, y: -0.95, z: 2.1}
     lightingPos: {x: 0, y: 0, z: 0.75}

@@ -11,7 +11,7 @@ public class OwnProjector : MonoBehaviour {
 	[SerializeField] GraphicRaycaster worldSpaceRaycaster;
 
 	[Header("Projector")]
-	public Projector projector;
+	[SerializeField] MeshRenderer projector;
 	[SerializeField] bool selected;
 	[SerializeField] LayerMask towerLayer;
 	[SerializeField] float radiusAspectRatio = 0.9304f; //Aspect ratio of Circle : Canvas //Aspect Ratio of Circle Texture is 0.9304
@@ -22,10 +22,8 @@ public class OwnProjector : MonoBehaviour {
 		gridSys = ManaSystem.inst.gridSystem;
 		worldSpaceRaycaster = ManaSystem.inst.worldSpaceCanvas.GetComponent<GraphicRaycaster>();
 
-		transform.rotation = Quaternion.Euler(90, 0, 0);
-		projector = GetComponent<Projector>();
+		projector = GetComponent<MeshRenderer>();
 		radiusAspectRatio = 0.9304f;
-		projector.orthographic = true; //Use orthographic view
 		projector.enabled = false;
 	}
 	
@@ -67,10 +65,10 @@ public class OwnProjector : MonoBehaviour {
 
 				if (hit.collider != null)
 				{
-					Vector3 turretPos = new Vector3(hit.collider.transform.position.x, transform.position.y, hit.collider.transform.position.z);
+					Vector3 turretPos = new Vector3(hit.collider.transform.position.x, hit.collider.transform.position.y + 0.1f, hit.collider.transform.position.z);
 					transform.position = turretPos;
 					// * by local scale in case of any scaling errors from exported turrets
-					projector.orthographicSize = CalculateProjectorRadius(hit.collider.gameObject.GetComponent<CapsuleCollider>().radius * hit.collider.transform.localScale.x);
+					transform.localScale = CalculateProjectorRadius(hit.collider.gameObject.GetComponent<CapsuleCollider>().radius * 2 * hit.collider.transform.localScale.x)/10 * Vector3.one;
 					projector.enabled = true;
 					//print (projector.orthographicSize);
 				}
@@ -102,14 +100,13 @@ public class OwnProjector : MonoBehaviour {
 				break;
 		}
 
-		turretRadius = (turretRadius / 2);
-		projector.orthographicSize = CalculateProjectorRadius(turretRadius);
+		projector.transform.localScale = Vector3.one * CalculateProjectorRadius(turretRadius)/10;
 
 		projector.enabled = true;
 
 		if (gridSys.currentBuild != null)
 		{
-			Vector3 projectorPos = new Vector3(gridSys.currentBuild.transform.position.x, transform.position.y, gridSys.currentBuild.transform.position.z);
+			Vector3 projectorPos = new Vector3(gridSys.currentBuild.transform.position.x, gridSys.currentBuild.transform.position.y + 0.1f, gridSys.currentBuild.transform.position.z);
 			transform.position = projectorPos;
 		}
 		else projector.enabled = false;

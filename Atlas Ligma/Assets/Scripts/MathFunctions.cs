@@ -43,7 +43,7 @@ public class MathFunctions : MonoBehaviour
 
 	public static void ParabolicCurve (Vector3 target, float amplitude, float currentStep, Transform yourself, float frequency, Vector3 oriPos, float currentY, float terrainOffset)
 	{
-		float nextStep = currentStep + 2 * Time.deltaTime;
+		float nextStep = currentStep + Time.deltaTime;
 
 		float x = (target.x - oriPos.x) * nextStep + oriPos.x;
 		float z = (target.z - oriPos.z) * nextStep + oriPos.z;

@@ -49,9 +49,21 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 			}
 			else
 			{
-				if (menu.selected.title == "Investment 1" && !disabled) menu.turret.Invest(1);
-				else if (menu.selected.title == "Investment 2" && !disabled) menu.turret.Invest(2);
-				else if (menu.selected.title == "Investment 3" && !disabled) menu.turret.Invest(3);
+				if (menu.selected.title == "Investment 1" && !disabled)
+				{
+					menu.turret.Invest(1);
+					CheckCost();
+				}
+				else if (menu.selected.title == "Investment 2" && !disabled)
+				{
+					menu.turret.Invest(2);
+					CheckCost();
+				}
+				else if (menu.selected.title == "Investment 3" && !disabled)
+				{
+					menu.turret.Invest(3);
+					CheckCost();
+				}
 				else print("Invalid Upgrade Title");
 			}
 		}
@@ -66,9 +78,27 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 		}
 		else
 		{
-			if (title == "Investment 1") cost.text = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
-			else if (title == "Investment 2") cost.text = menu.turret.turretValues.upgradeOrInvestCost[1].ToString();
-			else if (title == "Investment 3") cost.text = menu.turret.turretValues.upgradeOrInvestCost[2].ToString();
+			if (title == "Investment 1")
+			{
+				if (menu.turret.investmentLevel == 0) cost.text = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
+				else cost.text = "0";
+			}
+			else if (title == "Investment 2")
+			{
+				if (menu.turret.investmentLevel != 0)
+				{
+					cost.text = (Mathf.Max(menu.turret.turretValues.upgradeOrInvestCost[1] - menu.turret.turretValues.upgradeOrInvestCost[menu.turret.investmentLevel - 1], 0)).ToString();
+				}
+				else cost.text = menu.turret.turretValues.upgradeOrInvestCost[1].ToString();
+			}
+			else if (title == "Investment 3")
+			{
+				if (menu.turret.investmentLevel != 0)
+				{
+					cost.text = (menu.turret.turretValues.upgradeOrInvestCost[2] - menu.turret.turretValues.upgradeOrInvestCost[menu.turret.investmentLevel - 1]).ToString();
+				}
+				else cost.text = menu.turret.turretValues.upgradeOrInvestCost[2].ToString();
+			} 
 			else print("Invalid Button");
 		}
 	}

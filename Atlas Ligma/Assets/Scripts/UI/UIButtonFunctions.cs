@@ -111,7 +111,11 @@ public class UIButtonFunctions : MonoBehaviour {
 
 		PlayerPrefs.SetInt("Time Scale", timeScale);
 
+		//print("Kevin loves trap");
+
 		if (Time.timeScale == 0) return;
+
+		//print("Nigel loves lolis");
 
 		Time.timeScale = timeScale;
 	}

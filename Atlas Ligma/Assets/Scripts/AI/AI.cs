@@ -111,7 +111,7 @@ public class AI : AITemplate {
 		if (other.gameObject.tag == "Town Hall" && enemyType == AttackType.ground)
 		{
 			//ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.skeletonAttack, audioSource);
-			ManaSystem.inst.ManaMinus (dmg, transform.position, 0);
+			ManaSystem.inst.ManaMinus (dmg, transform.position, 5);
 			Destroy (gameObject);
 		}
 	}

@@ -88,6 +88,7 @@ MonoBehaviour:
   enemySpawnRate: 2
   maxInstances: 3
   instanceCount: 0
+  currentEnemySpawnCount: 0
 --- !u!65 &65879511382949578
 BoxCollider:
   m_ObjectHideFlags: 0

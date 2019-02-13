@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eaa6cb802fe28241a163e0dce59e411, type: 3}
+  m_Name: GroundEnemy Fast AS FUCK
+  m_EditorClassIdentifier: 
+  type: 0
+  typeOfEnemy: {fileID: 1709179411151454, guid: 52c933a9365d27f49a698b0be2f8a66f,
+    type: 3}
+  interval: 0

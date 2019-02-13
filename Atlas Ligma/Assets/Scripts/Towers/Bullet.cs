@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody>();
 		hitCount = 0;
-		lifetime = 5;
+		lifetime = 50;
 		oriPos = transform.position;
 		oriPos = new Vector3 (oriPos.x, oriPos.y - currentY, oriPos.z);
 

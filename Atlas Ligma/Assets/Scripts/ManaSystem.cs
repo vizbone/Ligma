@@ -72,7 +72,11 @@ public class ManaSystem : MonoBehaviour
 	{
 		if (gameState == GameStates.started || gameState == GameStates.afterWin)
 		{
-			if (Time.timeScale == 0) Time.timeScale = PlayerPrefs.GetInt("Time Scale", 1);
+			if (Time.timeScale == 0)
+			{
+				Time.timeScale = PlayerPrefs.GetInt("Time Scale", 1);
+				print("IDK what is wrong");
+			}
 			//if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
 			//if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
 
