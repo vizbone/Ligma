@@ -70,6 +70,7 @@ public class AudioManager : MonoBehaviour
 	#region
 	public SFX manaGain;
 	public SFX turretSelect;
+	public SFX siren;
 	#endregion
 
 	/// <summary>

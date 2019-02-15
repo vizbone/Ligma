@@ -24,6 +24,10 @@ public class GUIOverlay : MonoBehaviour
 	public float[] lerpTime; //0 is for Image, 1 is for Text, subsequent is for Buttons
 
 	[Header("Enemy and Wave GUI")]
+	[SerializeField] RectTransform enemyLeftHolder;
+	[SerializeField] float enemyLeftLerpSpeed;
+	[SerializeField] float enemyLeftCurrentStep;
+	[SerializeField] bool showEnemyLeft;
 	public int[] enemiesLeft;
 	[SerializeField] Text[] enemiesLeftTxt;
 
@@ -53,6 +57,8 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] float chatSpeed;
 	[SerializeField] bool show;
 
+	[Header("Enemies Left")]
+
 	[Header("Turret Button Information")]
 	public TurretInfo turretInfo;
 
@@ -79,8 +85,6 @@ public class GUIOverlay : MonoBehaviour
 			if (changePhaseLerpSpeed[i] <= 0) changePhaseLerpSpeed[i] = 1;
 		}
 
-		if (eventNotificationSpeed <= 0) eventNotificationSpeed = 0.05f;
-
 		notificationShown = false;
 		manaSlider.maxValue = ManaSystem.inst.maxMana;
 	}
@@ -93,6 +97,13 @@ public class GUIOverlay : MonoBehaviour
 			uiAnim -= ShowHideChatBox;
 			show = !show;
 			uiAnim += ShowHideChatBox;
+		}
+
+		if (Input.GetKeyDown(KeyCode.LeftShift))
+		{
+			uiAnim -= ShowHideEnemyLeft;
+			showEnemyLeft = !showEnemyLeft;
+			uiAnim += ShowHideEnemyLeft;
 		}
 
 		if (!ManaSystem.inst.waveSystem.prepPhase) UpdateEnemyLeft();
@@ -371,6 +382,40 @@ public class GUIOverlay : MonoBehaviour
 			{
 				notificationChatBox.anchoredPosition = new Vector2(520, notificationChatBox.anchoredPosition.y);
 				uiAnim -= ShowHideChatBox;
+			}
+		}
+	}
+
+	void ShowHideEnemyLeft()
+	{
+		if (showEnemyLeft)
+		{
+			enemyLeftCurrentStep = Mathf.Min(MathFunctions.SinerpValue(enemyLeftCurrentStep + enemyLeftLerpSpeed * Time.deltaTime, 1), 1);
+		}
+		else
+		{
+			//When it goes to 2, it curves down
+			enemyLeftCurrentStep = Mathf.Max(MathFunctions.SinerpValue(enemyLeftCurrentStep + enemyLeftLerpSpeed * Time.deltaTime, 2), 0);
+		}
+
+		float xPos = Mathf.Lerp(-72.5f, 70, enemyLeftCurrentStep);
+
+		enemyLeftHolder.anchoredPosition = new Vector2(xPos, enemyLeftHolder.anchoredPosition.y);
+
+		if (showEnemyLeft)
+		{
+			if (enemyLeftCurrentStep > 0.98f)
+			{
+				enemyLeftHolder.anchoredPosition = new Vector2(70, enemyLeftHolder.anchoredPosition.y);
+				uiAnim -= ShowHideEnemyLeft;
+			}
+		}
+		else
+		{
+			if (enemyLeftCurrentStep < 0.02f)
+			{
+				enemyLeftHolder.anchoredPosition = new Vector2(-72.5f, enemyLeftHolder.anchoredPosition.y);
+				uiAnim -= ShowHideEnemyLeft;
 			}
 		}
 	}

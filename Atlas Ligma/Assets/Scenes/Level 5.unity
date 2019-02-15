@@ -878,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: endless
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
@@ -1020,12 +1020,12 @@ PrefabInstance:
     - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: maxMana
-      value: 999999999
+      value: 12565
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: startingMana
-      value: 250000
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447597, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
