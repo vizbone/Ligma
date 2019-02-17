@@ -15,10 +15,13 @@ public class ManaGlowEffect : MonoBehaviour
 	public float currentBlueTime;
 	public float currentRedTime;
 
+	AudioSource siren;
+
 	private void Start()
 	{
 		blueGlow.SetActive(false);
 		redGlow.SetActive(false);
+		siren = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -34,6 +37,7 @@ public class ManaGlowEffect : MonoBehaviour
 		{
 			redGlow.SetActive(true);
 			GlowRedPingPong();
+			ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.siren, siren, false, false);
 		} else redGlow.SetActive(false);
 	}
 

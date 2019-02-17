@@ -210,9 +210,9 @@ public class EventsManager : MonoBehaviour
 			}
 		}
 
-		eventLineUp.Add("Over Investments has caused the previously fully invested White Turrets to be more expensive on the next wave");
+		eventLineUp.Add("Over Investments has caused the previously fully invested Blue Turrets to be more expensive on the next wave");
 
-		string chat = "All Fully Invested White Turrets are now more Expensive for 1 Wave!";
+		string chat = "All Fully Invested Blue Turrets are now more Expensive for 1 Wave!";
 		eventItems[0].chatText = ManaSystem.inst.gui.AddEventChat(chat);
 
 		//Note: Event End Should Come First Before Execute Event
@@ -267,9 +267,9 @@ public class EventsManager : MonoBehaviour
 			eventItems[1].eventExecuted = 2; //Set to differentiate that the event has started
 			eventItems[1].turnCount = 0; //Reset Turn Count Upon Activation
 
-			eventLineUp.Add("The King of Black is angry at your excessive investments in the White Faction. Investments in Black Turrets are now disabled for the next wave");
+			eventLineUp.Add("The King of Red is angry at your excessive investments in the Blue Faction. Investments in Red Turrets are now disabled for the next wave");
 
-			string chat = "All Investments to Black Turrets are now Disabled for 1 Wave!";
+			string chat = "All Investments to Red Turrets are now Disabled for 1 Wave!";
 			eventItems[1].chatText = ManaSystem.inst.gui.AddEventChat(chat);
 
 			//Note: Event End Should Come First Before Execute Event
@@ -301,9 +301,9 @@ public class EventsManager : MonoBehaviour
 			blackTurrets.enabled = false;
 		}
 
-		eventLineUp.Add("Over Investments in the Black Faction has caused the Black Turrets to overheat. Black Turrets will not be functioning for the next wave");
+		eventLineUp.Add("Over Investments in the Red Faction has caused the Black Turrets to overheat. Red Turrets will not be functioning for the next wave");
 
-		string chat = "All Black Turrets are now Disabled due to Overheat for 1 Wave!";
+		string chat = "All Red Turrets are now Disabled due to Overheat for 1 Wave!";
 		eventItems[2].chatText = ManaSystem.inst.gui.AddEventChat(chat);
 
 		//Note: Event End Should Come First Before Execute Event
@@ -353,9 +353,9 @@ public class EventsManager : MonoBehaviour
 					blackTurrets.turretValues.fireRate *= 0.5f;
 				}
 
-				eventLineUp.Add("Over Investments has caused all the Black Turrets to have a 50% decrease in fire rate");
+				eventLineUp.Add("Over Investments has caused all the Red Turrets to have a 50% decrease in fire rate");
 
-				string chat = "All Black Turrets now have Decreased Fire Rates for 2 Waves!";
+				string chat = "All Red Turrets now have Decreased Fire Rates for 2 Waves!";
 				eventItems[3].chatText = ManaSystem.inst.gui.AddEventChat(chat);
 
 				eventItems[3].eventExecuted = 2; //Set to differentiate that the event has started

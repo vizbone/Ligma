@@ -42,10 +42,10 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 				{
 					AudioSource audio = Instantiate (ManaSystem.inst.audio, menu.turret.transform.position, Quaternion.identity);
 					ManaSystem.inst.audioLibrary.PlayAudio (ManaSystem.inst.audioLibrary.destroy, audio);
+					Destroy (menu.gameObject);
 					Destroy (menu.turret.gameObject);
 				} 
 				else print ("Invalid Upgrade Title");
-				menu.gameObject.SetActive(false);
 			}
 			else
 			{

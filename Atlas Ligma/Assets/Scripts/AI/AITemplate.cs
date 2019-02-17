@@ -43,7 +43,7 @@ public abstract class AITemplate : MonoBehaviour {
 		WaveSystem.enemyListS.Remove(this);
 		//hpPack.ai = null;
 
-		switch (enemyType)
+		/*switch (enemyType)
 		{
 			case AttackType.ground:
 				ManaSystem.inst.gui.enemiesLeft[0]--;
@@ -56,7 +56,9 @@ public abstract class AITemplate : MonoBehaviour {
 				break;
 		}
 
-		ManaSystem.inst.gui.enemiesLeft[3]--;
+		ManaSystem.inst.gui.enemiesLeft[3]--;*/
+
+		ManaSystem.inst.gui.enemiesLeft--;
 	}
 
 	protected virtual void Update ()

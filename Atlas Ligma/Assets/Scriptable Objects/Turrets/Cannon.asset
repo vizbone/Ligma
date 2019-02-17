@@ -15,5 +15,4 @@ MonoBehaviour:
   buildModel: {fileID: 100000, guid: 119bb8d6387074540a924a59350f5434, type: 3}
   actualTower: {fileID: 1706804124858018, guid: ee47aa28bf69cd14f9574fac0f158117,
     type: 3}
-  type: Cannon
-  cost: 50
+  cost: 200

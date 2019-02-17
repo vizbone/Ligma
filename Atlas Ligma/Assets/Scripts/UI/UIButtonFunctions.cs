@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
+using System.Diagnostics;
+
 public class UIButtonFunctions : MonoBehaviour {
 
 	public GameObject settingsMenu;
@@ -67,9 +69,9 @@ public class UIButtonFunctions : MonoBehaviour {
 
 		if (ManaSystem.inst != null)
 		{
-			if (!ManaSystem.inst.gui.endScreenIsPlaying)  SceneManager.LoadScene("Main Menu");
+			if (!ManaSystem.inst.gui.endScreenIsPlaying) LoadingScreen.LoadSceneStatic("Main Menu");
 		}
-		else SceneManager.LoadScene("Main Menu");
+		else LoadingScreen.LoadSceneStatic("Main Menu");
 	}
 	
 	public void Continue ()
@@ -92,16 +94,16 @@ public class UIButtonFunctions : MonoBehaviour {
 
 		if (ManaSystem.inst != null)
 		{
-			if (!ManaSystem.inst.gui.endScreenIsPlaying) SceneManager.LoadScene(arg);
+			if (!ManaSystem.inst.gui.endScreenIsPlaying) LoadingScreen.LoadSceneStatic(arg);
 		}
-		else SceneManager.LoadScene(arg);
+		else LoadingScreen.LoadSceneStatic(arg);
 	}
 
 	public void Retry ()
 	{
 		if (Time.timeScale == 0) Time.timeScale = timeScale;
 
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+		LoadingScreen.LoadSceneStatic(SceneManager.GetActiveScene().name);
 	}
 
 	public void FastFoward(bool isOn)
@@ -111,11 +113,7 @@ public class UIButtonFunctions : MonoBehaviour {
 
 		PlayerPrefs.SetInt("Time Scale", timeScale);
 
-		//print("Kevin loves trap");
-
 		if (Time.timeScale == 0) return;
-
-		//print("Nigel loves lolis");
 
 		Time.timeScale = timeScale;
 	}

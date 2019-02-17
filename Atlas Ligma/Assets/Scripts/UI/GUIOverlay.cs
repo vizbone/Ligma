@@ -24,8 +24,14 @@ public class GUIOverlay : MonoBehaviour
 	public float[] lerpTime; //0 is for Image, 1 is for Text, subsequent is for Buttons
 
 	[Header("Enemy and Wave GUI")]
-	public int[] enemiesLeft;
-	[SerializeField] Text[] enemiesLeftTxt;
+	/*For Enemy Left START --------------------------------
+	[SerializeField] RectTransform enemyLeftHolder;
+	[SerializeField] float enemyLeftLerpSpeed;
+	[SerializeField] float enemyLeftCurrentStep;
+	[SerializeField] bool showEnemyLeft;
+	//For Enemy Left END ----------------------------------*/
+	public int/*[]*/ enemiesLeft;
+	[SerializeField] Text/*[]*/ enemiesLeftTxt;
 
 	[Header("Prep Phase GUI")]
 	[SerializeField] Text waveNumber;
@@ -53,6 +59,8 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] float chatSpeed;
 	[SerializeField] bool show;
 
+	[Header("Enemies Left")]
+
 	[Header("Turret Button Information")]
 	public TurretInfo turretInfo;
 
@@ -78,8 +86,6 @@ public class GUIOverlay : MonoBehaviour
 		{
 			if (changePhaseLerpSpeed[i] <= 0) changePhaseLerpSpeed[i] = 1;
 		}
-
-		if (eventNotificationSpeed <= 0) eventNotificationSpeed = 0.05f;
 
 		notificationShown = false;
 		manaSlider.maxValue = ManaSystem.inst.maxMana;
@@ -188,7 +194,7 @@ public class GUIOverlay : MonoBehaviour
 	{
 		if (ManaSystem.inst.gameState != GameStates.gameComplete)
 		{
-			enemiesLeft = new int[4];
+			/*enemiesLeft = new int[4];
 
 			for (int i = 0; i < ManaSystem.inst.waveSystem.wave[ManaSystem.inst.waveSystem.currentWave].enemy.Length; i++)
 			{
@@ -203,16 +209,22 @@ public class GUIOverlay : MonoBehaviour
 			enemiesLeftTxt[0].text = "x" + enemiesLeft[0].ToString();
 			enemiesLeftTxt[1].text = "x" + enemiesLeft[1].ToString();
 			enemiesLeftTxt[2].text = "x" + enemiesLeft[2].ToString();
-			enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();
+			enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();*/
+
+			enemiesLeft = ManaSystem.inst.waveSystem.wave[ManaSystem.inst.waveSystem.currentWave].enemy.Length;
+
+			enemiesLeftTxt.text = "x" + enemiesLeft.ToString();
 		}
 	}
 
 	public void UpdateEnemyLeft()
 	{
-		enemiesLeftTxt[0].text = "x" + enemiesLeft[0].ToString();
+		/*enemiesLeftTxt[0].text = "x" + enemiesLeft[0].ToString();
 		enemiesLeftTxt[1].text = "x" + enemiesLeft[1].ToString();
 		enemiesLeftTxt[2].text = "x" + enemiesLeft[2].ToString();
-		enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();
+		enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();*/
+
+		enemiesLeftTxt.text = "x" + enemiesLeft.ToString();
 	}
 
 	public void ResetStartEndWaveAnim()
@@ -374,6 +386,40 @@ public class GUIOverlay : MonoBehaviour
 			}
 		}
 	}
+
+	/*void ShowHideEnemyLeft()
+	{
+		if (showEnemyLeft)
+		{
+			enemyLeftCurrentStep = Mathf.Min(MathFunctions.SinerpValue(enemyLeftCurrentStep + enemyLeftLerpSpeed * Time.deltaTime, 1), 1);
+		}
+		else
+		{
+			//When it goes to 2, it curves down
+			enemyLeftCurrentStep = Mathf.Max(MathFunctions.SinerpValue(enemyLeftCurrentStep + enemyLeftLerpSpeed * Time.deltaTime, 2), 0);
+		}
+
+		float xPos = Mathf.Lerp(-72.5f, 70, enemyLeftCurrentStep);
+
+		enemyLeftHolder.anchoredPosition = new Vector2(xPos, enemyLeftHolder.anchoredPosition.y);
+
+		if (showEnemyLeft)
+		{
+			if (enemyLeftCurrentStep > 0.98f)
+			{
+				enemyLeftHolder.anchoredPosition = new Vector2(70, enemyLeftHolder.anchoredPosition.y);
+				uiAnim -= ShowHideEnemyLeft;
+			}
+		}
+		else
+		{
+			if (enemyLeftCurrentStep < 0.02f)
+			{
+				enemyLeftHolder.anchoredPosition = new Vector2(-72.5f, enemyLeftHolder.anchoredPosition.y);
+				uiAnim -= ShowHideEnemyLeft;
+			}
+		}
+	}*/
 
 	public void DisplayWin()
 	{

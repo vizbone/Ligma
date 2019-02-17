@@ -59,6 +59,7 @@ public class Bullet : MonoBehaviour
 	{
 		/*if (currentStep < 1) */MathFunctions.ParabolicCurve(target, amplitude, currentStep, transform, frequency1, oriPos, currentY, oriPos.y);
 		currentStep += speed * Time.deltaTime;
+		if (transform.position.y - currentY <= 0) if (catapult) turret.Hit (null, turret.isPrebuilt, gameObject, hitCount);
 		//if (currentStep >= 1) turret.Hit(null, turret.isPrebuilt, gameObject, hitCount);
 	}
 

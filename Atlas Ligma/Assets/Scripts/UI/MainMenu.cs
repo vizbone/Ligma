@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 	public GameObject loadingScreen;
 	public GameObject creditsScreen;
 	public Image currentImage;
-	public Sprite[] loadingImages;
+	//public Sprite[] loadingImages;
 	public int currentLoadingImage;
 
 	public Button[] butt;
@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
 
 	public void Start ()
 	{
-		currentImage.sprite = loadingImages[0];
+		//currentImage.sprite = loadingImages[0];
 		fadeFinish = false; //MainToLevel
 		/*for (int i = 0; i < butt.Length; i++)
 		{
@@ -57,8 +57,10 @@ public class MainMenu : MonoBehaviour
 
 	public void LoadScreen(int sceneNumber)
 	{
-		StartCoroutine(LoadAsync(sceneNumber));
-		InvokeRepeating("ChangeLoadingImage", 0f, 0.5f);
+		/*StartCoroutine(LoadAsync(sceneNumber));
+		InvokeRepeating("ChangeLoadingImage", 0f, 0.5f);*/
+
+		LoadingScreen.LoadSceneStatic(sceneNumber);
 	}
 
 	public void MainToLevelSelectFade()
@@ -199,7 +201,7 @@ public class MainMenu : MonoBehaviour
 	void ChangeLoadingImage()
 	{
 		currentLoadingImage++;
-		currentImage.sprite = loadingImages[currentLoadingImage];
+		//currentImage.sprite = loadingImages[currentLoadingImage];
 		currentImage.preserveAspect = true;
 
 		if (currentLoadingImage == 2)
