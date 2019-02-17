@@ -24,12 +24,14 @@ public class GUIOverlay : MonoBehaviour
 	public float[] lerpTime; //0 is for Image, 1 is for Text, subsequent is for Buttons
 
 	[Header("Enemy and Wave GUI")]
+	/*For Enemy Left START --------------------------------
 	[SerializeField] RectTransform enemyLeftHolder;
 	[SerializeField] float enemyLeftLerpSpeed;
 	[SerializeField] float enemyLeftCurrentStep;
 	[SerializeField] bool showEnemyLeft;
-	public int[] enemiesLeft;
-	[SerializeField] Text[] enemiesLeftTxt;
+	//For Enemy Left END ----------------------------------*/
+	public int/*[]*/ enemiesLeft;
+	[SerializeField] Text/*[]*/ enemiesLeftTxt;
 
 	[Header("Prep Phase GUI")]
 	[SerializeField] Text waveNumber;
@@ -97,13 +99,6 @@ public class GUIOverlay : MonoBehaviour
 			uiAnim -= ShowHideChatBox;
 			show = !show;
 			uiAnim += ShowHideChatBox;
-		}
-
-		if (Input.GetKeyDown(KeyCode.LeftShift))
-		{
-			uiAnim -= ShowHideEnemyLeft;
-			showEnemyLeft = !showEnemyLeft;
-			uiAnim += ShowHideEnemyLeft;
 		}
 
 		if (!ManaSystem.inst.waveSystem.prepPhase) UpdateEnemyLeft();
@@ -199,7 +194,7 @@ public class GUIOverlay : MonoBehaviour
 	{
 		if (ManaSystem.inst.gameState != GameStates.gameComplete)
 		{
-			enemiesLeft = new int[4];
+			/*enemiesLeft = new int[4];
 
 			for (int i = 0; i < ManaSystem.inst.waveSystem.wave[ManaSystem.inst.waveSystem.currentWave].enemy.Length; i++)
 			{
@@ -214,16 +209,22 @@ public class GUIOverlay : MonoBehaviour
 			enemiesLeftTxt[0].text = "x" + enemiesLeft[0].ToString();
 			enemiesLeftTxt[1].text = "x" + enemiesLeft[1].ToString();
 			enemiesLeftTxt[2].text = "x" + enemiesLeft[2].ToString();
-			enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();
+			enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();*/
+
+			enemiesLeft = ManaSystem.inst.waveSystem.wave[ManaSystem.inst.waveSystem.currentWave].enemy.Length;
+
+			enemiesLeftTxt.text = "x" + enemiesLeft.ToString();
 		}
 	}
 
 	public void UpdateEnemyLeft()
 	{
-		enemiesLeftTxt[0].text = "x" + enemiesLeft[0].ToString();
+		/*enemiesLeftTxt[0].text = "x" + enemiesLeft[0].ToString();
 		enemiesLeftTxt[1].text = "x" + enemiesLeft[1].ToString();
 		enemiesLeftTxt[2].text = "x" + enemiesLeft[2].ToString();
-		enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();
+		enemiesLeftTxt[3].text = "x" + enemiesLeft[3].ToString();*/
+
+		enemiesLeftTxt.text = "x" + enemiesLeft.ToString();
 	}
 
 	public void ResetStartEndWaveAnim()
@@ -386,7 +387,7 @@ public class GUIOverlay : MonoBehaviour
 		}
 	}
 
-	void ShowHideEnemyLeft()
+	/*void ShowHideEnemyLeft()
 	{
 		if (showEnemyLeft)
 		{
@@ -418,7 +419,7 @@ public class GUIOverlay : MonoBehaviour
 				uiAnim -= ShowHideEnemyLeft;
 			}
 		}
-	}
+	}*/
 
 	public void DisplayWin()
 	{

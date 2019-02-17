@@ -69,9 +69,9 @@ public class UIButtonFunctions : MonoBehaviour {
 
 		if (ManaSystem.inst != null)
 		{
-			if (!ManaSystem.inst.gui.endScreenIsPlaying)  SceneManager.LoadScene("Main Menu");
+			if (!ManaSystem.inst.gui.endScreenIsPlaying) LoadingScreen.LoadSceneStatic("Main Menu");
 		}
-		else SceneManager.LoadScene("Main Menu");
+		else LoadingScreen.LoadSceneStatic("Main Menu");
 	}
 	
 	public void Continue ()
@@ -94,16 +94,16 @@ public class UIButtonFunctions : MonoBehaviour {
 
 		if (ManaSystem.inst != null)
 		{
-			if (!ManaSystem.inst.gui.endScreenIsPlaying) SceneManager.LoadScene(arg);
+			if (!ManaSystem.inst.gui.endScreenIsPlaying) LoadingScreen.LoadSceneStatic(arg);
 		}
-		else SceneManager.LoadScene(arg);
+		else LoadingScreen.LoadSceneStatic(arg);
 	}
 
 	public void Retry ()
 	{
 		if (Time.timeScale == 0) Time.timeScale = timeScale;
 
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+		LoadingScreen.LoadSceneStatic(SceneManager.GetActiveScene().name);
 	}
 
 	public void FastFoward(bool isOn)

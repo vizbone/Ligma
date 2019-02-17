@@ -13,6 +13,7 @@ public class OwnProjector : MonoBehaviour {
 	[Header("Projector")]
 	[SerializeField] MeshRenderer projector;
 	[SerializeField] bool selected;
+	[SerializeField] GameObject currentTower;
 	[SerializeField] LayerMask towerLayer;
 	[SerializeField] float radiusAspectRatio = 0.9304f; //Aspect ratio of Circle : Canvas //Aspect Ratio of Circle Texture is 0.9304
 
@@ -34,6 +35,8 @@ public class OwnProjector : MonoBehaviour {
 		{
 			if (gridSys.buildMode) CastBuildProjection(gridSys.buildIndex);
 			else SelectTurret(); //Calculate field of view
+
+			if (currentTower == null) projector.enabled = false;
 		}
 	}
 
@@ -65,6 +68,7 @@ public class OwnProjector : MonoBehaviour {
 
 				if (hit.collider != null)
 				{
+					currentTower = hit.collider.gameObject;
 					Vector3 turretPos = new Vector3(hit.collider.transform.position.x, hit.collider.transform.position.y + 0.1f, hit.collider.transform.position.z);
 					transform.position = turretPos;
 					// * by local scale in case of any scaling errors from exported turrets
@@ -76,6 +80,7 @@ public class OwnProjector : MonoBehaviour {
 			else
 			{
 				//print("No Object");
+				currentTower = null;
 				projector.enabled = false;
 			}
 		}
@@ -102,6 +107,7 @@ public class OwnProjector : MonoBehaviour {
 
 		projector.transform.localScale = Vector3.one * CalculateProjectorRadius(turretRadius)/10;
 
+		currentTower = gridSys.currentBuild;
 		projector.enabled = true;
 
 		if (gridSys.currentBuild != null)

@@ -26,18 +26,18 @@ fn DialogCallback =
 pluginManager.loadClass FBXIMP;
 pluginManager.loadClass FBXEXP;
 
-openLog "D:/Unity Projects/GitHub/Ligma/Ligma/Atlas Ligma/Temp/3dsMax.log" mode:"w"
+openLog "C:/Users/KGZ/Desktop/DGDD/GDDS/LIGMAT~1/Ligma/ATLASL~1/Temp/3dsMax.log" mode:"w"
 print "Start of log file."; flushLog();
 while true do
 (	
-	if ( fileExists "D:/Unity Projects/GitHub/Ligma/Ligma/Atlas Ligma/Temp/MaxCommandPipe" ) then
+	if ( fileExists "C:/Users/KGZ/Desktop/DGDD/GDDS/LIGMAT~1/Ligma/ATLASL~1/Temp/MaxCommandPipe" ) then
 	(
 		exportNormals = false;
 		exportTangents = false;
 		bakeAnimations = false;
 		useFileUnits = false;
 	
-		waitpipe = (openFile "D:/Unity Projects/GitHub/Ligma/Ligma/Atlas Ligma/Temp/MaxCommandPipe" mode:"r");
+		waitpipe = (openFile "C:/Users/KGZ/Desktop/DGDD/GDDS/LIGMAT~1/Ligma/ATLASL~1/Temp/MaxCommandPipe" mode:"r");
 		filename = (readLine waitpipe);
 		fbxFilename = (readline waitpipe);
 		
@@ -154,7 +154,7 @@ while true do
 					print "After fbx export"; flushLog();
 				)
 
-				deleteFile "D:/Unity Projects/GitHub/Ligma/Ligma/Atlas Ligma/Temp/MaxCommandPipe";
+				deleteFile "C:/Users/KGZ/Desktop/DGDD/GDDS/LIGMAT~1/Ligma/ATLASL~1/Temp/MaxCommandPipe";
 				print "Finished max loading and fbx conversion"; flushLog();
 			) -- with defaultAction
 		)
