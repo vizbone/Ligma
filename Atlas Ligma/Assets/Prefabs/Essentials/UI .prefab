@@ -6319,7 +6319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 112.5, y: 21.900024}
+  m_AnchoredPosition: {x: 112.5, y: 21.899902}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8300752452227811508
@@ -6363,7 +6363,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: x30
 --- !u!114 &2100874210601770638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6660,6 +6660,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2035030876394000828, guid: 8295607a82311124788db4a48d5a41d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6764,6 +6774,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244710185822614747, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523954137373986664, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8295607a82311124788db4a48d5a41d2, type: 3}

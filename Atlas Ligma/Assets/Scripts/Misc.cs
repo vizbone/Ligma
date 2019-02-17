@@ -19,9 +19,9 @@ public class Misc : MonoBehaviour {
 				if (i2 != i) Physics.IgnoreLayerCollision(i2, i);
 			}
 		}
-		for (int i = 0; i < 20; i++)
+		for (int i = 1; i < 20; i++)
 		{
-			if ((i < 13 || i > 16) && i != 0 && i != 11)
+			if ((i < 13 || i > 16) && i != 11)
 			{
 				Physics.IgnoreLayerCollision (i, 19);
 			}

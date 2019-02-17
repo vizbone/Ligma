@@ -93,7 +93,7 @@ public class Catapult : TurretTemplate
 				if (enemy.hp <= 0)
 				{
 					int addedMana = (int)(enemy.manaDrop * manaReturnPerc);
-					manaSys.ManaAdd(addedMana, transform.position, 5);
+					manaSys.ManaAdd(addedMana, transform.position, 10);
 
 					AudioSource source = enemy.GetComponent<AudioSource>();
 					ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.skeletonDeath, audioSource);
