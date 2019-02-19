@@ -878,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: endless
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
@@ -1020,12 +1020,12 @@ PrefabInstance:
     - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: maxMana
-      value: 999999999
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447596, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: startingMana
-      value: 250000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447597, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
@@ -1055,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447587, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
@@ -3229,6 +3229,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.84511805, y: 0.6077203, z: 0.8100287}
   m_Center: {x: -0.0000019818544, y: 0.30397043, z: -0.00000001490116}
+--- !u!4 &89301261 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8747384849073628402, guid: 25693be38fc02be49b182d202d5ed669,
+    type: 3}
+  m_PrefabInstance: {fileID: 1221313265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &89898909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7658,7 +7664,7 @@ GameObject:
   - component: {fileID: 333835952}
   - component: {fileID: 333835951}
   m_Layer: 14
-  m_Name: 4 (8)
+  m_Name: 12
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8247,7 +8253,7 @@ GameObject:
   - component: {fileID: 359862757}
   - component: {fileID: 359862756}
   m_Layer: 13
-  m_Name: 4 (9)
+  m_Name: 13
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10557,28 +10563,55 @@ MonoBehaviour:
   - {fileID: 359059145}
   - {fileID: 406725838}
   - {fileID: 1130839636}
-  - {fileID: 0}
+  - {fileID: 686849146}
+  - {fileID: 1830711130}
+  - {fileID: 814557579}
+  - {fileID: 1048135527}
+  - {fileID: 1018946102}
+  - {fileID: 1408344920}
+  - {fileID: 504758659}
+  - {fileID: 359862755}
+  - {fileID: 832290550}
+  - {fileID: 89301261}
   path2:
   - {fileID: 1290054179}
   - {fileID: 1133096222}
   - {fileID: 134493213}
   - {fileID: 1484172425}
   - {fileID: 517496259}
-  - {fileID: 0}
+  - {fileID: 1758991264}
+  - {fileID: 454005425}
+  - {fileID: 514329905}
+  - {fileID: 1745420089}
+  - {fileID: 881716834}
+  - {fileID: 2016031943}
+  - {fileID: 1146895488}
+  - {fileID: 333835950}
+  - {fileID: 89301261}
   path3:
   - {fileID: 1745975904}
   - {fileID: 1057868992}
   - {fileID: 1693248214}
   - {fileID: 1474178169}
   - {fileID: 1991756186}
-  - {fileID: 0}
+  - {fileID: 1424613154}
+  - {fileID: 1224990999}
+  - {fileID: 1039005668}
+  - {fileID: 838027950}
+  - {fileID: 1090270557}
+  - {fileID: 89301261}
   path4:
   - {fileID: 2023633675}
   - {fileID: 762950839}
   - {fileID: 854349282}
   - {fileID: 90961657}
   - {fileID: 961937562}
-  - {fileID: 0}
+  - {fileID: 875554074}
+  - {fileID: 1323701890}
+  - {fileID: 1430921202}
+  - {fileID: 2104742010}
+  - {fileID: 803480717}
+  - {fileID: 89301261}
   seaPath1:
   - {fileID: 525034354}
   - {fileID: 1329751366}
@@ -10587,7 +10620,7 @@ MonoBehaviour:
   - {fileID: 1022203547}
   seaPath1Spawn: {fileID: 144277891}
   seaPath2Spawn: {fileID: 774584210}
-  townHall: {fileID: 0}
+  townHall: {fileID: 89301261}
   path1DV: []
   path2DV: []
   path3DV: []
@@ -10643,7 +10676,7 @@ GameObject:
   - component: {fileID: 454005427}
   - component: {fileID: 454005426}
   m_Layer: 14
-  m_Name: 4 (2)
+  m_Name: 6
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11663,7 +11696,7 @@ GameObject:
   - component: {fileID: 504758661}
   - component: {fileID: 504758660}
   m_Layer: 13
-  m_Name: 4 (8)
+  m_Name: 12
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11842,7 +11875,7 @@ GameObject:
   - component: {fileID: 514329907}
   - component: {fileID: 514329906}
   m_Layer: 14
-  m_Name: 4 (3)
+  m_Name: 7
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15871,7 +15904,7 @@ GameObject:
   - component: {fileID: 686849148}
   - component: {fileID: 686849147}
   m_Layer: 13
-  m_Name: 4 (1)
+  m_Name: 5
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18809,7 +18842,7 @@ GameObject:
   - component: {fileID: 803480719}
   - component: {fileID: 803480718}
   m_Layer: 16
-  m_Name: 4 (5)
+  m_Name: 9
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19009,7 +19042,7 @@ GameObject:
   - component: {fileID: 814557581}
   - component: {fileID: 814557580}
   m_Layer: 13
-  m_Name: 4 (4)
+  m_Name: 8
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19621,7 +19654,7 @@ GameObject:
   - component: {fileID: 832290552}
   - component: {fileID: 832290551}
   m_Layer: 13
-  m_Name: 4 (10)
+  m_Name: 14
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19753,7 +19786,7 @@ GameObject:
   - component: {fileID: 838027952}
   - component: {fileID: 838027951}
   m_Layer: 15
-  m_Name: 4 (4)
+  m_Name: 8
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19955,7 +19988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &852262017
 Light:
   m_ObjectHideFlags: 0
@@ -20369,7 +20402,7 @@ GameObject:
   - component: {fileID: 875554076}
   - component: {fileID: 875554075}
   m_Layer: 16
-  m_Name: 4 (1)
+  m_Name: 5
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20571,7 +20604,7 @@ GameObject:
   - component: {fileID: 881716836}
   - component: {fileID: 881716835}
   m_Layer: 14
-  m_Name: 4 (5)
+  m_Name: 9
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23013,7 +23046,7 @@ GameObject:
   - component: {fileID: 1018946104}
   - component: {fileID: 1018946103}
   m_Layer: 13
-  m_Name: 4 (6)
+  m_Name: 10
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23659,7 +23692,7 @@ GameObject:
   - component: {fileID: 1039005670}
   - component: {fileID: 1039005669}
   m_Layer: 15
-  m_Name: 4 (3)
+  m_Name: 7
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23821,7 +23854,7 @@ GameObject:
   - component: {fileID: 1048135529}
   - component: {fileID: 1048135528}
   m_Layer: 13
-  m_Name: 4 (5)
+  m_Name: 9
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24471,7 +24504,7 @@ GameObject:
   - component: {fileID: 1090270559}
   - component: {fileID: 1090270558}
   m_Layer: 15
-  m_Name: 4 (5)
+  m_Name: 9
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24793,7 +24826,7 @@ GameObject:
   - component: {fileID: 1101769404}
   - component: {fileID: 1101769403}
   m_Layer: 13
-  m_Name: 4 (3)
+  m_Name: 7
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26236,7 +26269,7 @@ GameObject:
   - component: {fileID: 1146895490}
   - component: {fileID: 1146895489}
   m_Layer: 14
-  m_Name: 4 (7)
+  m_Name: 11
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27519,7 +27552,7 @@ GameObject:
   - component: {fileID: 1224991001}
   - component: {fileID: 1224991000}
   m_Layer: 15
-  m_Name: 4 (2)
+  m_Name: 6
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29597,7 +29630,7 @@ GameObject:
   - component: {fileID: 1323701892}
   - component: {fileID: 1323701891}
   m_Layer: 16
-  m_Name: 4 (2)
+  m_Name: 6
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31629,7 +31662,7 @@ GameObject:
   - component: {fileID: 1408344922}
   - component: {fileID: 1408344921}
   m_Layer: 13
-  m_Name: 4 (7)
+  m_Name: 11
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31988,7 +32021,7 @@ GameObject:
   - component: {fileID: 1424613156}
   - component: {fileID: 1424613155}
   m_Layer: 15
-  m_Name: 4 (1)
+  m_Name: 5
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32175,7 +32208,7 @@ GameObject:
   - component: {fileID: 1430921204}
   - component: {fileID: 1430921203}
   m_Layer: 16
-  m_Name: 4 (3)
+  m_Name: 7
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36618,6 +36651,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1725294466699061593, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1725294467811857111, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36728,86 +36766,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649962025566820098, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649962025566820098, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649962025566820098, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6649962025566820098, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408103367339090545, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408103367339090545, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408103367339090545, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6408103367339090545, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5692712618413661712, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5692712618413661712, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5692712618413661712, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5692712618413661712, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5740613181524640101, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -36888,10 +36846,85 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1725294466220210717, guid: e921ef9028bd36e418150b73d46ce86b,
+    - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Main Menu
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475218732919263466, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649962025566820098, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649962025566820098, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649962025566820098, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649962025566820098, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408103367339090545, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408103367339090545, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408103367339090545, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408103367339090545, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692712618413661712, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692712618413661712, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692712618413661712, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692712618413661712, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1725294466482488967, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
@@ -36923,11 +36956,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1725294466699061593, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_Pitch
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1725294467981894299, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
@@ -36968,6 +36996,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725294466220210717, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 1725294467250317557, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
@@ -38778,7 +38811,7 @@ GameObject:
   - component: {fileID: 1745420091}
   - component: {fileID: 1745420090}
   m_Layer: 14
-  m_Name: 4 (4)
+  m_Name: 8
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39344,7 +39377,7 @@ GameObject:
   - component: {fileID: 1758991266}
   - component: {fileID: 1758991265}
   m_Layer: 14
-  m_Name: 4 (1)
+  m_Name: 5
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40625,7 +40658,7 @@ GameObject:
   - component: {fileID: 1830711132}
   - component: {fileID: 1830711131}
   m_Layer: 13
-  m_Name: 4 (2)
+  m_Name: 6
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43645,7 +43678,7 @@ GameObject:
   - component: {fileID: 2016031945}
   - component: {fileID: 2016031944}
   m_Layer: 14
-  m_Name: 4 (6)
+  m_Name: 10
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45794,7 +45827,7 @@ GameObject:
   - component: {fileID: 2104742012}
   - component: {fileID: 2104742011}
   m_Layer: 16
-  m_Name: 4 (4)
+  m_Name: 8
   m_TagString: Waypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
