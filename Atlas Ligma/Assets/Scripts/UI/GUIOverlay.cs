@@ -41,6 +41,7 @@ public class GUIOverlay : MonoBehaviour
 	[SerializeField] float prepPhaseLerpTime;
 	[SerializeField] float prepPhaseLerpSpeed; //default value is 1
 	public Image changePhaseImg;
+	public GameObject investmentIsReset;
 	[SerializeField] float[] changePhaseLerpTime; //3 Sections. 1 - Start when sliding in, 2 when Img is in the Center, 3 when Img is supposed to disappear
 	[SerializeField] float[] changePhaseLerpSpeed;
 
@@ -63,6 +64,10 @@ public class GUIOverlay : MonoBehaviour
 
 	[Header("Turret Button Information")]
 	public TurretInfo turretInfo;
+
+	[Header("Win/Lose Music")]
+	public AudioSource winMusic;
+	public AudioSource loseMusic;
 
 	public System.Action uiAnim;
 
@@ -114,6 +119,7 @@ public class GUIOverlay : MonoBehaviour
 		if (ManaSystem.inst.gameState == GameStates.win && !winObj.gameObject.activeInHierarchy)
 		{
 			lerpTime = new float[6];
+			winMusic.Play();
 			winObj.gameObject.SetActive(true);
 			endScreenIsPlaying = true;
 			uiAnim += DisplayWin;
@@ -121,6 +127,7 @@ public class GUIOverlay : MonoBehaviour
 		else if (ManaSystem.inst.gameState == GameStates.lose && !loseObj.gameObject.activeInHierarchy)
 		{
 			lerpTime = new float[4];
+			loseMusic.Play();
 			loseObj.gameObject.SetActive(true);
 			endScreenIsPlaying = true;
 			uiAnim += DisplayLose;
@@ -128,6 +135,7 @@ public class GUIOverlay : MonoBehaviour
 		else if (ManaSystem.inst.gameState == GameStates.gameComplete && !winObj.gameObject.activeInHierarchy)
 		{
 			lerpTime = new float[6];
+			winMusic.Play();
 			winObj.gameObject.SetActive(true);
 			continueButton.interactable = false;
 			endScreenIsPlaying = true;
@@ -237,6 +245,9 @@ public class GUIOverlay : MonoBehaviour
 		changePhaseImg.rectTransform.anchoredPosition = new Vector2(-725, 0);
 
 		changePhaseImg.sprite = ManaSystem.inst.waveSystem.prepPhase ? phasesSprites[0] : phasesSprites[1];
+
+		if (ManaSystem.inst.waveSystem.prepPhase) investmentIsReset.SetActive(true);
+		else investmentIsReset.SetActive(false);
 	}
 
 	public void CheckEventNotifications()

@@ -78,7 +78,7 @@ public class ManaSystem : MonoBehaviour
 				print("IDK what is wrong");
 			}
 			//if (Input.GetKeyDown(KeyCode.L)) gameStateS = GameStates.lose;
-			//if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
+			if (Input.GetKeyDown(KeyCode.O)) gameStateS = GameStates.win;
 
 			if (!buttonFunctionUI.settingsMenu.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
 			{
