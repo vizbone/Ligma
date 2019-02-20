@@ -27077,6 +27077,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1725294466686282967, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725294466482488966, guid: e921ef9028bd36e418150b73d46ce86b,
+        type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1725294466699061593, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_Pitch
@@ -27413,22 +27423,12 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 1725294466482488966, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_IgnoreReversedGraphics
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1725294466220210719, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1725294466341407884, guid: e921ef9028bd36e418150b73d46ce86b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1725294466686282967, guid: e921ef9028bd36e418150b73d46ce86b,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -27804,6 +27804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGMs
       objectReference: {fileID: 0}
+    - target: {fileID: 839271589, guid: a11ddf325085f7f43a089fd2dfc3cd12, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4601123080004532578, guid: a11ddf325085f7f43a089fd2dfc3cd12,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27859,10 +27863,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 839271589, guid: a11ddf325085f7f43a089fd2dfc3cd12, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a11ddf325085f7f43a089fd2dfc3cd12, type: 3}
 --- !u!1001 &4631659969961415289
@@ -27876,6 +27876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631659969495447593, guid: ea38348b18524ce4e962142f7d52bbef,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447599, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}
@@ -29550,11 +29555,6 @@ PrefabInstance:
         type: 3}
       propertyPath: events.Array.data[1]
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631659969495447593, guid: ea38348b18524ce4e962142f7d52bbef,
-        type: 3}
-      propertyPath: orthographic
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4631659969495447595, guid: ea38348b18524ce4e962142f7d52bbef,
         type: 3}

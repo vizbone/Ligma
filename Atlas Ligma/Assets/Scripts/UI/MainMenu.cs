@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
 
 	public Button[] butt;
 	public bool deletePref;
+	public bool unlockAll;
 
 	#region Fade
 	//Fades
@@ -47,6 +48,7 @@ public class MainMenu : MonoBehaviour
 			if (PlayerPrefs.GetString ("Level " + temp, "false") != "true" && temp != 1) butt[i].interactable = false;
 		}*/
 		if (deletePref) PlayerPrefs.DeleteAll ();
+		if (unlockAll) PlayerPrefs.SetInt ("LevelUnlock", 100);
 		for (int i = PlayerPrefs.GetInt ("LevelUnlock", 1); i < butt.Length; i++) butt[i].interactable = false;
 	}
 
