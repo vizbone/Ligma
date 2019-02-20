@@ -121,7 +121,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1464889855223836}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 1
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -164,6 +164,7 @@ MonoBehaviour:
   enemySpawnRate: 1
   maxInstances: 1
   instanceCount: 0
+  currentEnemySpawnCount: 0
 --- !u!65 &65006958825820156
 BoxCollider:
   m_ObjectHideFlags: 0
