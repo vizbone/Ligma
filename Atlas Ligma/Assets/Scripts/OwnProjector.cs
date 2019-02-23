@@ -9,6 +9,7 @@ public class OwnProjector : MonoBehaviour {
 	[Header("Systems and Managers")]
 	[SerializeField] GridSystem gridSys;
 	[SerializeField] GraphicRaycaster worldSpaceRaycaster;
+	[SerializeField] GraphicRaycaster tutorialRaycaster;
 
 	[Header("Projector")]
 	[SerializeField] MeshRenderer projector;
@@ -22,6 +23,7 @@ public class OwnProjector : MonoBehaviour {
 	{
 		gridSys = ManaSystem.inst.gridSystem;
 		worldSpaceRaycaster = ManaSystem.inst.worldSpaceCanvas.GetComponent<GraphicRaycaster>();
+		if (ManaSystem.inst.tutorialCanvasRC != null) tutorialRaycaster = ManaSystem.inst.tutorialCanvasRC;
 
 		projector = GetComponent<MeshRenderer>();
 		radiusAspectRatio = 0.9304f;
@@ -49,9 +51,17 @@ public class OwnProjector : MonoBehaviour {
 			List<RaycastResult> results = new List<RaycastResult>();
 			PointerEventData data = new PointerEventData(null);
 			data.position = Input.mousePosition;
+
+			if (tutorialRaycaster != null)
+			{
+				tutorialRaycaster.Raycast(data, results);
+				if (results.Count > 0) return; //Prevent Interactable from spawning Buttons if they are already hovering over a Button (END)
+			}
+
 			worldSpaceRaycaster.Raycast(data, results);
 
 			if (results.Count > 0) return; //Prevent Interactable from spawning Buttons if they are already hovering over a Button (END)
+
 
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;

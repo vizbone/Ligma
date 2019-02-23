@@ -4745,8 +4745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71.3, y: 0}
-  m_SizeDelta: {x: 35, y: 35}
+  m_AnchoredPosition: {x: -74.6, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1081807010910058872
 CanvasRenderer:
@@ -5204,7 +5204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -57.2}
+  m_AnchoredPosition: {x: 0, y: -46.5}
   m_SizeDelta: {x: 465.9, y: 50.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2895906967868593460
@@ -5248,7 +5248,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Investment in Prebuilts have been reset
+  m_Text: 'Investment in Prebuilts have been reset!
 
 '
 --- !u!114 &1684093034931201307
@@ -5263,8 +5263,8 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 1.5, y: -1}
+  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &3781870468169523549
 GameObject:
@@ -6458,7 +6458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 112.5, y: 21.900024}
+  m_AnchoredPosition: {x: 121, y: 35.19995}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8300752452227811508
@@ -7065,11 +7065,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 2035030876394000828, guid: 8295607a82311124788db4a48d5a41d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7180,6 +7175,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8295607a82311124788db4a48d5a41d2, type: 3}
 --- !u!114 &2124716490392378774 stripped
@@ -7216,41 +7216,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 199
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: A turret that can attack at rapid speeds but deal lower damage.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8796870330226071573, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: Crossbow Lvl 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3722636473835530515, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Dmg: ???'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6170125078837872642, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Fire Rate: ???'
       objectReference: {fileID: 0}
     - target: {fileID: 2035030876394000828, guid: 8295607a82311124788db4a48d5a41d2,
         type: 3}
@@ -7371,6 +7336,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: A turret that can attack at rapid speeds but deal lower damage.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796870330226071573, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: Crossbow Lvl 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722636473835530515, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Dmg: ???'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170125078837872642, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Fire Rate: ???'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8295607a82311124788db4a48d5a41d2, type: 3}
@@ -7409,41 +7409,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 199
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: A turret that shoots explosives at enemies, dealing AOE damage.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8796870330226071573, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: Catapult Lvl 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3722636473835530515, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Dmg: ???'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6170125078837872642, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Fire Rate: ???'
-      objectReference: {fileID: 0}
     - target: {fileID: 2035030876394000828, guid: 8295607a82311124788db4a48d5a41d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7564,6 +7529,41 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: A turret that shoots explosives at enemies, dealing AOE damage.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796870330226071573, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: Catapult Lvl 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722636473835530515, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Dmg: ???'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170125078837872642, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Fire Rate: ???'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8295607a82311124788db4a48d5a41d2, type: 3}
 --- !u!224 &2526406291601943350 stripped
@@ -7600,41 +7600,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 199
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: A turret that exclusively attacks air enemies but at a higher efficiency.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8796870330226071573, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: Rocket Lvl 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3722636473835530515, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Dmg: ???'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6170125078837872642, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Fire Rate: ???'
       objectReference: {fileID: 0}
     - target: {fileID: 2035030876394000828, guid: 8295607a82311124788db4a48d5a41d2,
         type: 3}
@@ -7756,6 +7721,41 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: A turret that exclusively attacks air enemies but at a higher efficiency.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796870330226071573, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: Rocket Lvl 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722636473835530515, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Dmg: ???'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170125078837872642, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Fire Rate: ???'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8295607a82311124788db4a48d5a41d2, type: 3}
 --- !u!224 &5847431377875598977 stripped
@@ -7792,36 +7792,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 199
-      objectReference: {fileID: 0}
-    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: A powerful turret that shoots piercing bullets!
-      objectReference: {fileID: 0}
-    - target: {fileID: 3722636473835530515, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Dmg: ???'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6170125078837872642, guid: 8295607a82311124788db4a48d5a41d2,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Fire Rate: ???'
       objectReference: {fileID: 0}
     - target: {fileID: 2035030876394000828, guid: 8295607a82311124788db4a48d5a41d2,
         type: 3}
@@ -7942,6 +7912,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077157015807447886, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: A powerful turret that shoots piercing bullets!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722636473835530515, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Dmg: ???'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170125078837872642, guid: 8295607a82311124788db4a48d5a41d2,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Fire Rate: ???'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8295607a82311124788db4a48d5a41d2, type: 3}

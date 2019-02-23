@@ -34,9 +34,12 @@ public class ManaSystem : MonoBehaviour
 	public EventsManager eventsManager;
 	public AudioManager audioLibrary;
 	public Transform worldSpaceCanvas;
-	public TutorialManager tutorial;
 	public GridSystem gridSystem;
 	public Transform townHall;
+
+	[Header("Tutorial Specific")]
+	public GraphicRaycaster tutorialCanvasRC;
+	public TutorialManager tutorial;
 
 	[Header("Projector")]
 	public OwnProjector projector;
@@ -65,7 +68,16 @@ public class ManaSystem : MonoBehaviour
 
 		projector = FindObjectOfType<OwnProjector>();
 
-		if (SceneManager.GetActiveScene ().name == "Level 1") tutorial = FindObjectOfType<TutorialManager> ();
+		if (SceneManager.GetActiveScene().name == "Level 1")
+		{
+			tutorial = FindObjectOfType<TutorialManager>();
+			tutorialCanvasRC = tutorial.GetComponentInParent<GraphicRaycaster>();
+		}
+		else
+		{
+			tutorial = null;
+			tutorialCanvasRC = null;
+		}
 	}
 
 	void Update()

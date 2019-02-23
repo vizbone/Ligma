@@ -37,7 +37,10 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 			if (menu.turret.faction == Faction.own)
 			{
-				if (menu.selected.title == "Upgrade" && !disabled) menu.turret.Upgrade ();
+				if (menu.selected.title == "Upgrade" && !disabled)
+				{
+					menu.turret.Upgrade();
+				}
 				else if (menu.selected.title == "Destroy")
 				{
 					AudioSource audio = Instantiate (ManaSystem.inst.audio, menu.turret.transform.position, Quaternion.identity);
@@ -73,7 +76,11 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	{
 		if (menu.turret.faction == Faction.own)
 		{
-			if (title == "Upgrade" && menu.turret.level < 3) cost.text = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
+			if (title == "Upgrade")
+			{
+				if (menu.turret.level < 3) cost.text = menu.turret.turretValues.upgradeOrInvestCost[0].ToString();
+				else cost.text = "Max Lvl";
+			}
 			else cost.text = "";
 		}
 		else
@@ -133,11 +140,20 @@ public class RadialButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 				}
 				else if (title == "Investment 2")
 				{
-					disabled = ManaSystem.inst.currentMana <= menu.turret.turretValues.upgradeOrInvestCost[1] || menu.turret.investmentLevel >= 2 ? true : false;
+					if (menu.turret.investmentLevel != 0)
+					{
+						disabled = ManaSystem.inst.currentMana <= menu.turret.turretValues.upgradeOrInvestCost[1] - menu.turret.turretValues.upgradeOrInvestCost[menu.turret.investmentLevel - 1] || menu.turret.investmentLevel >= 2 ? true : false;
+					}
+					else disabled = ManaSystem.inst.currentMana <= menu.turret.turretValues.upgradeOrInvestCost[1] || menu.turret.investmentLevel >= 2 ? true : false;
+
 				}
 				else if (title == "Investment 3")
 				{
-					disabled = ManaSystem.inst.currentMana <= menu.turret.turretValues.upgradeOrInvestCost[2] || menu.turret.investmentLevel >= 3 ? true : false;
+					if (menu.turret.investmentLevel != 0)
+					{
+						disabled = ManaSystem.inst.currentMana <= menu.turret.turretValues.upgradeOrInvestCost[2] - menu.turret.turretValues.upgradeOrInvestCost[menu.turret.investmentLevel - 1] || menu.turret.investmentLevel >= 3 ? true : false;
+					}
+					else disabled = ManaSystem.inst.currentMana <= menu.turret.turretValues.upgradeOrInvestCost[2] || menu.turret.investmentLevel >= 3 ? true : false;
 				}
 			}
 		}

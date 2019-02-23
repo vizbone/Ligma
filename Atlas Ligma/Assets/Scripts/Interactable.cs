@@ -23,12 +23,13 @@ public class Interactable : MonoBehaviour
 	[SerializeField] LayerMask towerLayer;
 
 	[Header("Menu Instance and Info Instance")]
-	[SerializeField] RadialMenu menuInst;
+	public RadialMenu menuInst;
 
 	[Header("Systems and Managers")]
 	GridSystem gridSys;
 	GUIOverlay gui;
 	GraphicRaycaster worldSpaceRaycaster;
+	GraphicRaycaster tutorialRaycaster;
 
 	[Header("Audio")]
 	AudioSource audioSource;
@@ -46,6 +47,7 @@ public class Interactable : MonoBehaviour
 
 		gui = ManaSystem.inst.gui;
 		worldSpaceRaycaster = ManaSystem.inst.worldSpaceCanvas.GetComponent<GraphicRaycaster>();
+		if (ManaSystem.inst.tutorialCanvasRC != null) tutorialRaycaster = ManaSystem.inst.tutorialCanvasRC;
 	}
 
 	void Update()
@@ -58,6 +60,13 @@ public class Interactable : MonoBehaviour
 				List<RaycastResult> results = new List<RaycastResult>();
 				PointerEventData data = new PointerEventData(null);
 				data.position = Input.mousePosition;
+
+				if (tutorialRaycaster != null)
+				{
+					tutorialRaycaster.Raycast(data, results);
+					if (results.Count > 0) return; //Prevent Interactable from spawning Buttons if they are already hovering over a Button (END)
+				}
+
 				worldSpaceRaycaster.Raycast(data, results);
 
 				if (results.Count > 0) return; //Prevent Interactable from spawning Buttons if they are already hovering over a Button (END)
