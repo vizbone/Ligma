@@ -59,9 +59,7 @@ public class WaveSystem : MonoBehaviour {
 		//To ensure that the press start to play is not activated during Tutorial
 		Scene currentScene = SceneManager.GetActiveScene();
 		string currentSceneName = currentScene.name;
-		if (!(currentSceneName == "Level 1")){
-			ManaSystem.inst.gui.EndWaveAppearance(); //Prep Phase Mode
-		}
+		if (!(currentSceneName == "Level 1" || currentSceneName == "Level 2")) ManaSystem.inst.gui.EndWaveAppearance(); //Prep Phase Mode
 	}
 
 	void Update()
