@@ -63,7 +63,8 @@ public class AISea : AITemplate
 	protected override void Update()
 	{
 		if (unloading && !cLock) StartCoroutine(spawn());
-
+		if (!unloading) agent.enabled = true;
+		else agent.enabled = false;
 		base.Update();
 	}
 
