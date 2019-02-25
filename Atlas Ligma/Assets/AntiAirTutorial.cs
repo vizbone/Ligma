@@ -7,6 +7,8 @@ public class AntiAirTutorial : MonoBehaviour
 	public GameObject pressSpaceToStart;
 	public GameObject prepStartPhase;
 
+	public GameObject nextButton;
+
 	void Start()
     {
 		pressSpaceToStart.SetActive(false);
@@ -17,6 +19,8 @@ public class AntiAirTutorial : MonoBehaviour
 
 	public void PressSpaceToStartIntro()
 	{
+		nextButton.SetActive(false);
+
 		pressSpaceToStart.SetActive(true);
 		prepStartPhase.SetActive(true);
 		ManaSystem.inst.inTutorial = false;

@@ -7751,6 +7751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressSpaceToStart: {fileID: 330847681}
   prepStartPhase: {fileID: 974140943}
+  nextButton: {fileID: 1263556027}
 --- !u!1 &515478763
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,6 +61,7 @@ public class TutorialManager : MonoBehaviour
 				{
 					nextButton.SetActive(true);
 					buttonActive.SetActive(true);
+					arrowButton.gameObject.SetActive(false);
 					clearToProceed = true;
 				}
 			}

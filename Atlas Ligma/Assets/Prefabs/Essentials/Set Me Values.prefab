@@ -293,7 +293,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: 96000000
     attackType: 01000000
-    firingPos: {x: 0, y: -0.65, z: 1.45}
+    firingPos: {x: 0, y: -0.5, z: 1.7}
     lightingPos: {x: 0, y: 0, z: 0.75}
   rocket2:
     dmg: 50
@@ -302,7 +302,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: 96000000
     attackType: 01000000
-    firingPos: {x: 0, y: -0.85, z: 1.75}
+    firingPos: {x: 0, y: -0.65, z: 2.2}
     lightingPos: {x: 0, y: 0, z: 0.65}
   rocket3:
     dmg: 67
@@ -311,7 +311,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: 
     attackType: 01000000
-    firingPos: {x: 0, y: -0.95, z: 2.1}
+    firingPos: {x: 0, y: -0.75, z: 2.65}
     lightingPos: {x: 0, y: 0, z: 0.75}
   blackRocket1:
     dmg: 60
@@ -320,7 +320,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
-    firingPos: {x: 0, y: -0.65, z: 1.45}
+    firingPos: {x: 0, y: -0.5, z: 1.7}
     lightingPos: {x: 0, y: 0, z: 0.75}
   blackRocket2:
     dmg: 70
@@ -329,7 +329,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
-    firingPos: {x: 0, y: -0.85, z: 1.75}
+    firingPos: {x: 0, y: -0.65, z: 2.2}
     lightingPos: {x: 0, y: 0, z: 0.65}
   blackRocket3:
     dmg: 80
@@ -338,7 +338,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
-    firingPos: {x: 0, y: -0.95, z: 2.1}
+    firingPos: {x: 0, y: -0.75, z: 2.65}
     lightingPos: {x: 0, y: 0, z: 0.75}
   whiteRocket1:
     dmg: 30
@@ -347,7 +347,7 @@ MonoBehaviour:
     range: 15
     upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
-    firingPos: {x: 0, y: -0.65, z: 1.45}
+    firingPos: {x: 0, y: -0.5, z: 1.7}
     lightingPos: {x: 0, y: 0, z: 0.75}
   whiteRocket2:
     dmg: 40
@@ -356,7 +356,7 @@ MonoBehaviour:
     range: 20
     upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
-    firingPos: {x: 0, y: -0.85, z: 1.75}
+    firingPos: {x: 0, y: -0.65, z: 2.2}
     lightingPos: {x: 0, y: 0, z: 0.65}
   whiteRocket3:
     dmg: 55
@@ -365,7 +365,7 @@ MonoBehaviour:
     range: 25
     upgradeOrInvestCost: 320000006400000096000000
     attackType: 01000000
-    firingPos: {x: 0, y: -0.95, z: 2.1}
+    firingPos: {x: 0, y: -0.75, z: 2.65}
     lightingPos: {x: 0, y: 0, z: 0.75}
   blackInvestPerc1: 0.25
   blackInvestPerc2: 0.5
