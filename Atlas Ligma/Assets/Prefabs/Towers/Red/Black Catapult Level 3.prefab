@@ -147,5 +147,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300004, guid: 2e963f1cc46e8454d8c7be7dbfde29af, type: 3}
+    - target: {fileID: 8436470016679767401, guid: 7a2374032a4189344aa6d2b429521823,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: fbae4c3f7646ecb47bb5acbfcbbbfe82, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a2374032a4189344aa6d2b429521823, type: 3}

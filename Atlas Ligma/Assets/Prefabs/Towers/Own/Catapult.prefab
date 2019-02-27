@@ -210,8 +210,6 @@ MonoBehaviour:
   - {x: 0, y: -0.2754415, z: 1.916289}
   - {x: 0, y: -0.3287395, z: 2.242947}
   anim: {fileID: 0}
-  animString: 
-  animController: {fileID: 0}
 --- !u!114 &114271016013711258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +260,7 @@ Animator:
   m_GameObject: {fileID: 1396634072807330}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e4144556a51e5d040bd00e86d1f74f87, type: 2}
+  m_Controller: {fileID: 9100000, guid: bfa518724a3b50f42ba21f618ee11c15, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

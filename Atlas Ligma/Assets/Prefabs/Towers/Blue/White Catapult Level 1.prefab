@@ -113,6 +113,11 @@ PrefabInstance:
       propertyPath: currentTower
       value: 
       objectReference: {fileID: 830528917457067042}
+    - target: {fileID: 5781357124781409075, guid: 04952f9e8a4c3d84693a2067dfdecabb,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bfa518724a3b50f42ba21f618ee11c15, type: 2}
     - target: {fileID: 2723366132196677084, guid: 04952f9e8a4c3d84693a2067dfdecabb,
         type: 3}
       propertyPath: m_IsActive

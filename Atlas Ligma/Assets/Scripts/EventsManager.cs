@@ -351,6 +351,11 @@ public class EventsManager : MonoBehaviour
 				foreach (TurretTemplate blackTurrets in eventItems[3].affectedBlackTurrets)
 				{
 					blackTurrets.turretValues.fireRate *= 0.5f;
+					if (blackTurrets.GetType () == typeof (Catapult))
+					{
+						Catapult catapult = (Catapult) blackTurrets;
+						catapult.anim.SetFloat ("SpeedMulti", blackTurrets.turretValues.fireRate);
+					}
 				}
 
 				eventLineUp.Add("Over Investments has caused all the Red Turrets to have a 50% decrease in fire rate");
@@ -385,6 +390,11 @@ public class EventsManager : MonoBehaviour
 			foreach (TurretTemplate blackTurrets in eventItems[3].affectedBlackTurrets)
 			{
 				blackTurrets.turretValues.fireRate /= 0.5f;
+				if (blackTurrets.GetType () == typeof (Catapult))
+				{
+					Catapult catapult = (Catapult) blackTurrets;
+					catapult.anim.SetFloat ("SpeedMulti", blackTurrets.turretValues.fireRate);
+				}
 			}
 
 			Destroy(eventItems[3].chatText);

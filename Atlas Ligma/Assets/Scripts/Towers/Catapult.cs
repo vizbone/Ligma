@@ -16,12 +16,13 @@ public class Catapult : TurretTemplate
 	[SerializeField] Vector3[] handleLocalPos;
 	[SerializeField] Vector3[] bowlLocalPos;
 
-	[SerializeField] Animator anim;
+	public Animator anim;
 
 	protected override void Start()
 	{
 		base.Start();
 		anim = GetComponent<Animator>();
+		anim.SetFloat ("SpeedMulti", turretValues.fireRate);
 	}
 
 	protected override void SetValues()
@@ -118,7 +119,7 @@ public class Catapult : TurretTemplate
 		UpgradeStats();
 
 		ManaSystem.inst.gui.turretInfo.UpdateTurretInfo(this);
-
+		anim.SetFloat ("SpeedMulti", turretValues.fireRate);
 		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
 
 		manaLight.gameObject.transform.localPosition = turretValues.lightingPos;
@@ -180,24 +181,29 @@ public class Catapult : TurretTemplate
 
 	protected override void Shoot(bool arcTravel)
 	{
-		//Remove any "Enemy" from list if the Enemy Reference is not present
-		enemies = enemies.Where(AI => AI != null).ToList();
+		if (enemies.Count > 0) anim.Play ("Catapult Fire");
+	}
 
-		if (closestEnemy == null) closestEnemy = EnemyToLookAt();
+	public void CatapultShoot ()
+	{
+		//Remove any "Enemy" from list if the Enemy Reference is not present
+		enemies = enemies.Where (AI => AI != null).ToList ();
+
+		if (closestEnemy == null) closestEnemy = EnemyToLookAt ();
 
 		if (enemies.Count > 0)
 		{
-			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : new Vector3(transform.position.x - closestEnemy.transform.position.x, 0, transform.position.z - closestEnemy.transform.position.z).normalized * -1;
-			Vector3 direction2D = new Vector3(direction.x, 0, direction.z);
-			Bullet currentBullet = Instantiate(BulletSelect(level), turretGO.transform);
+			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild (0).position).normalized : new Vector3 (transform.position.x - closestEnemy.transform.position.x, 0, transform.position.z - closestEnemy.transform.position.z).normalized * -1;
+			Vector3 direction2D = new Vector3 (direction.x, 0, direction.z);
+			Bullet currentBullet = Instantiate (BulletSelect (level), turretGO.transform);
 			currentBullet.transform.localPosition = turretValues.firingPos;
 			currentBullet.transform.parent = null;
 			//print(currentBullet.name);
 			currentBullet.turret = this;
 
-			ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.catapult, audioSource);
+			ManaSystem.inst.audioLibrary.PlayAudio (ManaSystem.inst.audioLibrary.catapult, audioSource);
 
-			anim.SetTrigger("Fire");
+			anim.SetTrigger ("Fire");
 
 			currentBullet.speed = turretValues.bulletSpeed;
 			currentBullet.amplitude = amplitude;
@@ -210,8 +216,7 @@ public class Catapult : TurretTemplate
 
 			coolDown = 1 / turretValues.fireRate;
 			//print ("Shortest: " + shortestDist);
-		}
-		else return;
+		} else return;
 	}
 
 	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)

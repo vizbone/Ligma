@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship with animation
       objectReference: {fileID: 0}
+    - target: {fileID: 100044, guid: a5292c52e3d77c341a4988a5bac15103, type: 3}
+      propertyPath: m_TagString
+      value: AI
+      objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: a5292c52e3d77c341a4988a5bac15103, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -24,6 +24,8 @@ public class AISea : AITemplate
 	bool cLock;
 	bool firstTime;
 
+	Animator anim;
+
 	public int currentEnemySpawnCount;
 
 	protected override void Start () 
@@ -31,6 +33,7 @@ public class AISea : AITemplate
 		//timer = 0.1f;
 		//worldCanvas = GameObject.Find ("World Space Canvas").transform;
 		WaveSystem.enemyListS.Add(this);
+		anim = GetComponentInChildren<Animator> ();
 
 		//Setting Values
 		if (whichType == SeaEnemy.boat)
@@ -63,8 +66,16 @@ public class AISea : AITemplate
 	protected override void Update()
 	{
 		if (unloading && !cLock) StartCoroutine(spawn());
-		if (!unloading) agent.enabled = true;
-		else agent.enabled = false;
+		if (!unloading)
+		{
+			agent.enabled = true;
+			anim.speed = 0.5f;
+		} 
+		else
+		{
+			agent.enabled = false;
+			anim.speed = 0.1f;
+  		}
 		base.Update();
 	}
 
