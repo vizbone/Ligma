@@ -173,8 +173,8 @@ public class Catapult : TurretTemplate
 				}
 				else turretR.material = turretMaterials[2];
 
-				handleAndBowlR[0].material = turretMaterials[1];
-				handleAndBowlR[1].material = turretMaterials[1];
+				handleAndBowlR[0].material = turretMaterials[2];
+				handleAndBowlR[1].material = turretMaterials[2];
 				break;
 		}
 	}
