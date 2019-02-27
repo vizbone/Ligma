@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Crossbow Level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 9121844689546161963, guid: d122687a65f4f1847ae043e466874ab7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9123494839195950241, guid: d122687a65f4f1847ae043e466874ab7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101,6 +106,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274261650020168789, guid: d122687a65f4f1847ae043e466874ab7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d122687a65f4f1847ae043e466874ab7, type: 3}

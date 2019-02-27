@@ -49,19 +49,19 @@ public abstract class TurretTemplate : MonoBehaviour
 	public System.Type turretType;
 
 	[Header("For Model Change")]
-	[SerializeField] GameObject turretGO; //Stores the Game Object where the Mesh is to be the Main Turret Component
-	[SerializeField] MeshFilter baseModel;
-	[SerializeField] MeshFilter turretModel;
+	[SerializeField] protected GameObject turretGO; //Stores the Game Object where the Mesh is to be the Main Turret Component
+	[SerializeField] protected MeshFilter baseModel;
+	[SerializeField] protected MeshFilter turretModel;
 	//Chose not to put in array since it should be set in the inspector
 	//Three different Meshfilters to completely prevent errors
-	[SerializeField] Mesh[] lvl1Model;
-	[SerializeField] Mesh[] lvl2Model;
-	[SerializeField] Mesh[] lvl3Model;
-	[SerializeField] Renderer baseR;
-	[SerializeField] Renderer turretR;
-	[SerializeField] Material[] turretBaseMaterials;
-	[SerializeField] Material[] turretMaterials;
-	[SerializeField] LightingEffect manaLight;
+	[SerializeField] protected Mesh[] lvl1Model;
+	[SerializeField] protected Mesh[] lvl2Model;
+	[SerializeField] protected Mesh[] lvl3Model;
+	[SerializeField] protected Renderer baseR;
+	[SerializeField] protected Renderer turretR;
+	[SerializeField] protected Material[] turretBaseMaterials;
+	[SerializeField] protected Material[] turretMaterials;
+	[SerializeField] protected LightingEffect manaLight;
 
 	[Header ("Collider and Enemy List")]
 	[SerializeField] protected CapsuleCollider collider; //Stores the collider for enemy detection
@@ -183,7 +183,7 @@ public abstract class TurretTemplate : MonoBehaviour
 	protected abstract void UpgradeStats();
 
 	//Only For Own Turrets
-	public void Upgrade()
+	public virtual void Upgrade()
 	{
 		int cost = turretValues.upgradeOrInvestCost[0];
 
@@ -475,7 +475,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		this.designatedAngle = new Vector3(xRotation, 0, designatedAngle);
 	}
 
-	void ChangeMaterial (int lvlIndex)
+	protected virtual void ChangeMaterial (int lvlIndex)
 	{
 		switch (lvlIndex)
 		{
@@ -529,7 +529,7 @@ public abstract class TurretTemplate : MonoBehaviour
 		}
 	}
 
-	Bullet BulletSelect(int lvl)
+	protected Bullet BulletSelect(int lvl)
 	{
 		Bullet bullet = null;
 

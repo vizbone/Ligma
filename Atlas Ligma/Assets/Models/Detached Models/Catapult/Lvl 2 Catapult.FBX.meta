@@ -6,16 +6,27 @@ ModelImporter:
     100000: Catapult 2 Base
     100002: Catapult 2 Top
     100004: //RootNode
+    100006: Catapult 2 Bowl
+    100008: Catapult 2 Handle
     400000: Catapult 2 Base
     400002: Catapult 2 Top
     400004: //RootNode
+    400006: Catapult 2 Bowl
+    400008: Catapult 2 Handle
     2100000: 02 - Default
+    2100002: 07 - Default
     2300000: Catapult 2 Base
     2300002: Catapult 2 Top
+    2300004: Catapult 2 Bowl
+    2300006: Catapult 2 Handle
     3300000: Catapult 2 Base
     3300002: Catapult 2 Top
+    3300004: Catapult 2 Bowl
+    3300006: Catapult 2 Handle
     4300000: Catapult 2 Base
     4300002: Catapult 2 Top
+    4300004: Catapult 2 Bowl
+    4300006: Catapult 2 Handle
   externalObjects: {}
   materials:
     importMaterials: 1

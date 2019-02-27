@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Catapult : TurretTemplate
 {
@@ -8,9 +9,19 @@ public class Catapult : TurretTemplate
 	[Header ("Catapult Exclusives")]
 	public Explosion explosion;
 
+	[Header("Catapult Mesh Exclusive")]
+	[SerializeField] Renderer[] handleAndBowlR;
+	[SerializeField] MeshFilter[] handleAndBowlMF;
+
+	[SerializeField] Vector3[] handleLocalPos;
+	[SerializeField] Vector3[] bowlLocalPos;
+
+	[SerializeField] Animator anim;
+
 	protected override void Start()
 	{
 		base.Start();
+		anim = GetComponent<Animator>();
 	}
 
 	protected override void SetValues()
@@ -40,41 +51,168 @@ public class Catapult : TurretTemplate
 		}
 	}
 
-	/*protected override void Shoot ()
+	//Only For Own Turrets
+	public override void Upgrade()
+	{
+		int cost = turretValues.upgradeOrInvestCost[0];
+
+		if (manaSys.currentMana > cost) manaSys.ManaMinus(cost, transform.position, 5);
+		else
+		{
+			print("Not Enough Mana");
+			return;
+		}
+
+		level = Mathf.Min(++level, 3);
+
+		//Change Model According to new level
+		switch (level)
+		{
+			case 1:
+				baseModel.mesh = lvl1Model[0];
+				turretModel.mesh = lvl1Model[1];
+				meshCollider.sharedMesh = lvl1Model[2];
+				handleAndBowlMF[0].mesh = lvl1Model[3]; //3 is handle
+				handleAndBowlMF[1].mesh = lvl1Model[4]; //4 is bowl
+
+				handleAndBowlMF[0].gameObject.transform.localPosition = handleLocalPos[0];
+				handleAndBowlMF[1].gameObject.transform.localPosition = bowlLocalPos[0];
+				break;
+			case 2:
+				baseModel.mesh = lvl2Model[0];
+				turretModel.mesh = lvl2Model[1];
+				meshCollider.sharedMesh = lvl2Model[2];
+				handleAndBowlMF[0].mesh = lvl2Model[3]; //3 is handle
+				handleAndBowlMF[1].mesh = lvl2Model[4]; //4 is bowl
+
+				handleAndBowlMF[0].gameObject.transform.localPosition = handleLocalPos[1];
+				handleAndBowlMF[1].gameObject.transform.localPosition = bowlLocalPos[1];
+				break;
+			case 3:
+				baseModel.mesh = lvl3Model[0];
+				turretModel.mesh = lvl3Model[1];
+				meshCollider.sharedMesh = lvl3Model[2];
+				handleAndBowlMF[0].mesh = lvl3Model[3]; //3 is handle
+				handleAndBowlMF[1].mesh = lvl3Model[4]; //4 is bowl
+
+				handleAndBowlMF[0].gameObject.transform.localPosition = handleLocalPos[2];
+				handleAndBowlMF[1].gameObject.transform.localPosition = bowlLocalPos[2];
+
+				investOrUpgradeDisabled = true;
+				break;
+			default:
+				baseModel.mesh = lvl1Model[0];
+				turretModel.mesh = lvl1Model[1];
+				meshCollider.sharedMesh = lvl1Model[2];
+				handleAndBowlMF[0].mesh = lvl1Model[3]; //3 is handle
+				handleAndBowlMF[1].mesh = lvl1Model[4]; //4 is bowl
+
+				handleAndBowlMF[0].gameObject.transform.localPosition = handleLocalPos[0];
+				handleAndBowlMF[1].gameObject.transform.localPosition = bowlLocalPos[0];
+				print("Invalid Level Detected");
+				break;
+		}
+
+		ChangeMaterial(level);
+		//Add Changes to Stats as well
+		UpgradeStats();
+
+		ManaSystem.inst.gui.turretInfo.UpdateTurretInfo(this);
+
+		collider.radius = (turretValues.range / 2) / gameObject.transform.localScale.x;
+
+		manaLight.gameObject.transform.localPosition = turretValues.lightingPos;
+	}
+
+	protected override void ChangeMaterial(int lvlIndex)
+	{
+		switch (lvlIndex)
+		{
+			case 1:
+				baseR.material = turretBaseMaterials[0];
+				if (turretR.materials.Length > 1)
+				{
+					Material[] mat = new Material[2];
+					mat[0] = turretBaseMaterials[0];
+					mat[1] = turretMaterials[0];
+
+					turretR.materials = mat;
+				}
+				else turretR.material = turretMaterials[0];
+
+				handleAndBowlR[0].material = turretMaterials[0];
+				handleAndBowlR[1].material = turretMaterials[0];
+				break;
+
+			case 2:
+				baseR.material = turretBaseMaterials[1];
+				if (turretR.materials.Length > 1)
+				{
+					Material[] mat = new Material[2];
+					mat[0] = turretBaseMaterials[1];
+					mat[1] = turretMaterials[1];
+
+					turretR.materials = mat;
+				}
+				else turretR.material = turretMaterials[1];
+
+				handleAndBowlR[0].material = turretMaterials[1];
+				handleAndBowlR[1].material = turretMaterials[1];
+				break;
+
+			case 3:
+				baseR.material = turretBaseMaterials[2];
+				if (turretR.materials.Length > 1)
+				{
+					Material[] mat = new Material[2];
+					mat[0] = turretBaseMaterials[2];
+					mat[1] = turretMaterials[2];
+
+					turretR.materials = mat;
+				}
+				else turretR.material = turretMaterials[2];
+
+				handleAndBowlR[0].material = turretMaterials[1];
+				handleAndBowlR[1].material = turretMaterials[1];
+				break;
+		}
+	}
+
+	protected override void Shoot(bool arcTravel)
 	{
 		//Remove any "Enemy" from list if the Enemy Reference is not present
-		if (enemies.Contains (null)) enemies.RemoveAll (AI => AI == null);
+		enemies = enemies.Where(AI => AI != null).ToList();
+
+		if (closestEnemy == null) closestEnemy = EnemyToLookAt();
 
 		if (enemies.Count > 0)
 		{
-			float shortestDist = Mathf.Infinity;
-			int index = 0;
-			for (int i = 0; i < enemies.Count; i++)
-			{
-				//For attacking enemies closest to Townhall
-				float enemyDistance = enemies[i].CheckDistance ();
-				if (enemyDistance < shortestDist)
-				{
-					shortestDist = enemyDistance;
-					index = i;
-				}
-			}
-			Bullet currentBullet = Instantiate (bullet, transform.position + new Vector3 (0, 0.5f, 0), Quaternion.identity);
+			Vector3 direction = closestEnemy.enemyType == AttackType.air ? -(transform.position - closestEnemy.transform.GetChild(0).position).normalized : new Vector3(transform.position.x - closestEnemy.transform.position.x, 0, transform.position.z - closestEnemy.transform.position.z).normalized * -1;
+			Vector3 direction2D = new Vector3(direction.x, 0, direction.z);
+			Bullet currentBullet = Instantiate(BulletSelect(level), turretGO.transform);
+			currentBullet.transform.localPosition = turretValues.firingPos;
+			currentBullet.transform.parent = null;
+			//print(currentBullet.name);
 			currentBullet.turret = this;
 
-			currentBullet.speed = speed;
+			ManaSystem.inst.audioLibrary.PlayAudio(ManaSystem.inst.audioLibrary.catapult, audioSource);
+
+			anim.SetTrigger("Fire");
+
+			currentBullet.speed = turretValues.bulletSpeed;
 			currentBullet.amplitude = amplitude;
-			currentBullet.target = enemies[index].transform.position;
+			currentBullet.target = closestEnemy.transform.position;
 			currentBullet.frequency1 = currentBullet.transform.position.x - currentBullet.target.x > 0 ? currentBullet.transform.position.x - currentBullet.target.x : -(currentBullet.transform.position.x - currentBullet.target.x);
 			currentBullet.catapult = true;
+			currentBullet.currentY = turretValues.firingPos.y;
 
 			currentBullet = null;
 
-			coolDown = 1 / totalFireRate;
-			FindObjectOfType<AudioManager>().AudioToPlay("CatapultFire");
-		} else
-			return;
-	}*/
+			coolDown = 1 / turretValues.fireRate;
+			//print ("Shortest: " + shortestDist);
+		}
+		else return;
+	}
 
 	public override void Hit(AITemplate enemy, bool fromPrebuilt, GameObject bullet, int hitCount, bool exploded = false)
 	{
